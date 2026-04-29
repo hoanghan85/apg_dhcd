@@ -51,10 +51,10 @@ namespace pmDHCD
             Label2 = new Label();
             Label1 = new Label();
             Label7 = new Label();
-            StockTextBox1 = new Lapas.Controls.StockTextBox();
-            StockTextBox2 = new Lapas.Controls.StockTextBox();
+            StockTextBox1 = new TextBox();
+            StockTextBox2 = new TextBox();
             Label8 = new Label();
-            identityDate = new DateTimePicker();
+            identityDate = new MaskedTextBox();
             SuspendLayout();
             // 
             // Button3
@@ -86,7 +86,7 @@ namespace pmDHCD
             MaskedTextBox5.Margin = new Padding(4, 4, 4, 4);
             MaskedTextBox5.Name = "MaskedTextBox5";
             MaskedTextBox5.Size = new Size(456, 26);
-            MaskedTextBox5.TabIndex = 3;
+            MaskedTextBox5.TabIndex = 4;
             // 
             // MaskedTextBox4
             // 
@@ -95,7 +95,7 @@ namespace pmDHCD
             MaskedTextBox4.Margin = new Padding(4, 4, 4, 4);
             MaskedTextBox4.Name = "MaskedTextBox4";
             MaskedTextBox4.Size = new Size(456, 26);
-            MaskedTextBox4.TabIndex = 2;
+            MaskedTextBox4.TabIndex = 3;
             // 
             // MaskedTextBox3
             // 
@@ -204,37 +204,31 @@ namespace pmDHCD
             // 
             // StockTextBox1
             // 
-            StockTextBox1.Alarm = false;
-            StockTextBox1.AllowNegativeNumeric = true;
-            StockTextBox1.CustomCulture = false;
-            StockTextBox1.CustomCultureInfo = new System.Globalization.CultureInfo("en-US");
+            // StockTextBox1
+            // 
+            StockTextBox1.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Regular, GraphicsUnit.Point, 0);
             StockTextBox1.Location = new Point(247, 311);
             StockTextBox1.Margin = new Padding(4, 4, 4, 4);
             StockTextBox1.MaxLength = 25;
             StockTextBox1.Name = "StockTextBox1";
-            StockTextBox1.Precision = 0;
             StockTextBox1.Size = new Size(265, 22);
-            StockTextBox1.TabIndex = 4;
-            StockTextBox1.Text = "0";
+            StockTextBox1.TabIndex = 5;
+            StockTextBox1.Text = "";
             StockTextBox1.TextAlign = HorizontalAlignment.Right;
-            StockTextBox1.ValueAlarm = new decimal(new int[] { 1000000000, 0, 0, 0 });
             // 
             // StockTextBox2
             // 
-            StockTextBox2.Alarm = false;
-            StockTextBox2.AllowNegativeNumeric = true;
-            StockTextBox2.CustomCulture = false;
-            StockTextBox2.CustomCultureInfo = new System.Globalization.CultureInfo("en-US");
+            // StockTextBox2
+            // 
+            StockTextBox2.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Regular, GraphicsUnit.Point, 0);
             StockTextBox2.Location = new Point(247, 358);
             StockTextBox2.Margin = new Padding(4, 4, 4, 4);
             StockTextBox2.MaxLength = 25;
             StockTextBox2.Name = "StockTextBox2";
-            StockTextBox2.Precision = 0;
             StockTextBox2.Size = new Size(265, 22);
-            StockTextBox2.TabIndex = 5;
-            StockTextBox2.Text = "0";
+            StockTextBox2.TabIndex = 6;
+            StockTextBox2.Text = "";
             StockTextBox2.TextAlign = HorizontalAlignment.Right;
-            StockTextBox2.ValueAlarm = new decimal(new int[] { 1000000000, 0, 0, 0 });
             // 
             // Label8
             // 
@@ -249,12 +243,15 @@ namespace pmDHCD
             // 
             // identityDate
             // 
-            identityDate.Format = DateTimePickerFormat.Short;
+            identityDate.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Regular, GraphicsUnit.Point, 0);
             identityDate.Location = new Point(248, 162);
-            identityDate.MinDate = new DateTime(1930, 1, 1, 0, 0, 0, 0);
+            identityDate.Margin = new Padding(4, 4, 4, 4);
             identityDate.Name = "identityDate";
-            identityDate.Size = new Size(200, 22);
-            identityDate.TabIndex = 17;
+            identityDate.Size = new Size(265, 26);
+            identityDate.TabIndex = 2;
+            identityDate.Mask = "00/00/0000";
+            identityDate.PromptChar = ' ';
+            identityDate.Text = "  /  /    ";
             // 
             // Holder_ins_update
             // 
@@ -305,9 +302,9 @@ namespace pmDHCD
         internal Label Label2;
         internal Label Label1;
         internal Label Label7;
-        internal Lapas.Controls.StockTextBox StockTextBox1;
-        internal Lapas.Controls.StockTextBox StockTextBox2;
+        internal TextBox StockTextBox1;
+        internal TextBox StockTextBox2;
         internal Label Label8;
-        internal DateTimePicker identityDate;
+        internal MaskedTextBox identityDate;
     }
 }

@@ -35,9 +35,14 @@ namespace pmDHCD
         [DebuggerStepThrough()]
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             StockTextBox2 = new Lapas.Controls.StockTextBox();
             StockTextBox2.KeyDown += new KeyEventHandler(StockTextBox2_KeyDown);
+            StockTextBox2.Leave += new EventHandler(StockTextBox2_Leave);
+            ErrorProvider1 = new ErrorProvider(components);
             Label4 = new Label();
+            Label12 = new Label();
+            StockTextBox3 = new Lapas.Controls.StockTextBox();
             Button1 = new Button();
             Button1.Click += new EventHandler(Button1_Click);
             Button2 = new Button();
@@ -58,6 +63,7 @@ namespace pmDHCD
             MaskedTextBox8 = new MaskedTextBox();
             MaskedTextBox7 = new MaskedTextBox();
             MaskedTextBox7.KeyDown += new KeyEventHandler(MaskedTextBox7_KeyDown);
+            MaskedTextBox7.Leave += new EventHandler(MaskedTextBox7_Leave);
             MaskedTextBox6 = new MaskedTextBox();
             StockTextBox1 = new Lapas.Controls.StockTextBox();
             Label9 = new Label();
@@ -65,6 +71,11 @@ namespace pmDHCD
             MaskedTextBox1 = new MaskedTextBox();
             Label11 = new Label();
             SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)ErrorProvider1).BeginInit();
+            // 
+            // ErrorProvider1
+            // 
+            ErrorProvider1.ContainerControl = this;
             // 
             // StockTextBox2
             // 
@@ -95,10 +106,41 @@ namespace pmDHCD
             Label4.TabIndex = 16;
             Label4.Text = "Số quyền BQ ủy quyền";
             // 
+            // Label12
+            // 
+            Label12.AutoSize = true;
+            Label12.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Label12.Location = new Point(81, 468);
+            Label12.Margin = new Padding(4, 0, 4, 0);
+            Label12.Name = "Label12";
+            Label12.Size = new Size(226, 20);
+            Label12.TabIndex = 21;
+            Label12.Text = "Số quyền BQ còn lại";
+            // 
+            // StockTextBox3
+            // 
+            StockTextBox3.Alarm = false;
+            StockTextBox3.AllowNegativeNumeric = false;
+            StockTextBox3.CustomCulture = false;
+            StockTextBox3.CustomCultureInfo = new System.Globalization.CultureInfo("en-US");
+            StockTextBox3.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Regular, GraphicsUnit.Point, 0);
+            StockTextBox3.Location = new Point(285, 461);
+            StockTextBox3.Margin = new Padding(4, 4, 4, 4);
+            StockTextBox3.MaxLength = 25;
+            StockTextBox3.Name = "StockTextBox3";
+            StockTextBox3.Precision = 0;
+            StockTextBox3.ReadOnly = true;
+            StockTextBox3.Size = new Size(265, 26);
+            StockTextBox3.TabIndex = 22;
+            StockTextBox3.TabStop = false;
+            StockTextBox3.Text = "0";
+            StockTextBox3.TextAlign = HorizontalAlignment.Right;
+            StockTextBox3.ValueAlarm = new decimal(new int[] { 1000000000, 0, 0, 0 });
+            // 
             // Button1
             // 
             Button1.Font = new Font("Microsoft Sans Serif", 11.25f, FontStyle.Bold, GraphicsUnit.Point, 0);
-            Button1.Location = new Point(251, 490);
+            Button1.Location = new Point(251, 500);
             Button1.Margin = new Padding(4, 4, 4, 4);
             Button1.Name = "Button1";
             Button1.Size = new Size(193, 58);
@@ -109,7 +151,7 @@ namespace pmDHCD
             // Button2
             // 
             Button2.Font = new Font("Microsoft Sans Serif", 11.25f, FontStyle.Bold, GraphicsUnit.Point, 0);
-            Button2.Location = new Point(516, 490);
+            Button2.Location = new Point(516, 500);
             Button2.Margin = new Padding(4, 4, 4, 4);
             Button2.Name = "Button2";
             Button2.Size = new Size(193, 58);
@@ -326,7 +368,9 @@ namespace pmDHCD
             // 
             AutoScaleDimensions = new SizeF(8.0f, 16.0f);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(909, 585);
+            ClientSize = new Size(909, 615);
+            Controls.Add(StockTextBox3);
+            Controls.Add(Label12);
             Controls.Add(MaskedTextBox1);
             Controls.Add(Label11);
             Controls.Add(Label10);
@@ -359,6 +403,7 @@ namespace pmDHCD
             KeyUp += new KeyEventHandler(AuthorizationsInsert_KeyUp);
             ResumeLayout(false);
             PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)ErrorProvider1).EndInit();
 
         }
         internal Label Label4;
@@ -383,5 +428,8 @@ namespace pmDHCD
         internal Label Label10;
         internal MaskedTextBox MaskedTextBox1;
         internal Label Label11;
+        internal Label Label12;
+        internal Lapas.Controls.StockTextBox StockTextBox3;
+        internal ErrorProvider ErrorProvider1;
     }
 }

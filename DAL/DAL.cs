@@ -179,7 +179,7 @@ namespace BenlyDAL.BenlyDAL
                 throw ex;
             }
         }
-        public void holder_insert(string meetingcode, string Holdercode, string HolderIdentity, string HolderName, string HolderAddress, decimal Shares, decimal voterights)
+        public void holder_insert(string meetingcode, string Holdercode, string HolderIdentity, string HolderName, string HolderAddress, decimal Shares, decimal voterights, DateTime IdentityDate)
         {
             string strquerry = "Holders_insert";
             var cmd = new SqlCommand(strquerry, conn);
@@ -190,6 +190,7 @@ namespace BenlyDAL.BenlyDAL
             cmd.Parameters.Add("HolderAddress", SqlDbType.NVarChar).Value = HolderAddress;
             cmd.Parameters.Add("Shares", SqlDbType.Int).Value = Shares;
             cmd.Parameters.Add("voterights", SqlDbType.Int).Value = voterights;
+            cmd.Parameters.Add("IdentityDate", SqlDbType.VarChar).Value = IdentityDate.ToString("dd/MM/yyyy");
             cmd.CommandType = CommandType.StoredProcedure;
 
             try
@@ -201,7 +202,7 @@ namespace BenlyDAL.BenlyDAL
                 throw ex;
             }
         }
-        public void holder_update(string meetingcode, string Holdercode, string HolderIdentity, string HolderName, string HolderAddress, decimal Shares, decimal voterights)
+        public void holder_update(string meetingcode, string Holdercode, string HolderIdentity, string HolderName, string HolderAddress, decimal Shares, decimal voterights, DateTime IdentityDate)
         {
             string strquerry = "Holders_update";
             var cmd = new SqlCommand(strquerry, conn);
@@ -212,6 +213,7 @@ namespace BenlyDAL.BenlyDAL
             cmd.Parameters.Add("HolderAddress", SqlDbType.NVarChar).Value = HolderAddress;
             cmd.Parameters.Add("Shares", SqlDbType.Int).Value = Shares;
             cmd.Parameters.Add("voterights", SqlDbType.Int).Value = voterights;
+            cmd.Parameters.Add("IdentityDate", SqlDbType.VarChar).Value = IdentityDate.ToString("dd/MM/yyyy");
             cmd.CommandType = CommandType.StoredProcedure;
 
             try
@@ -349,6 +351,30 @@ namespace BenlyDAL.BenlyDAL
             }
 
             return result;
+        }
+
+        public decimal Holder_GetRemainingVoterights(string meetingcode, string holdercode)
+        {
+            string strquerry = "Holders_GetRemainingVoterights";
+            var cmd = new SqlCommand(strquerry, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@Meetingcode", SqlDbType.VarChar).Value = meetingcode;
+            cmd.Parameters.Add("@HolderCode", SqlDbType.VarChar).Value = holdercode;
+
+            try
+            {
+                object result = cmd.ExecuteScalar();
+                if (result is null || result == DBNull.Value)
+                {
+                    return 0m;
+                }
+
+                return Conversions.ToDecimal(result);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         public void Authorizations_insert(string meetingcode, string Holdercode, decimal delegatecode, decimal delegateright)
         {

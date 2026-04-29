@@ -35,339 +35,369 @@ namespace pmDHCD
         [DebuggerStepThrough()]
         private void InitializeComponent()
         {
-            var DataGridViewCellStyle1 = new DataGridViewCellStyle();
-            var DataGridViewCellStyle2 = new DataGridViewCellStyle();
-            ToolStrip1 = new ToolStrip();
-            ToolStripButton1 = new ToolStripButton();
-            ToolStripButton1.Click += new EventHandler(ToolStripButton1_Click);
-            ToolStripButton2 = new ToolStripButton();
-            ToolStripButton2.Click += new EventHandler(ToolStripButton2_Click);
-            ToolStripButton3 = new ToolStripButton();
-            ToolStripButton3.Click += new EventHandler(ToolStripButton3_Click);
-            ToolStripSeparator1 = new ToolStripSeparator();
-            ToolStripLabel1 = new ToolStripLabel();
-            ToolStripTextBox1 = new ToolStripTextBox();
-            ToolStripTextBox1.KeyUp += new KeyEventHandler(ToolStripTextBox1_KeyUp);
-            ToolStripSeparator2 = new ToolStripSeparator();
-            ToolStripLabel2 = new ToolStripLabel();
-            ToolStripTextBox2 = new ToolStripTextBox();
-            ToolStripTextBox2.KeyUp += new KeyEventHandler(ToolStripTextBox2_KeyUp);
-            ToolStripButton4 = new ToolStripButton();
-            ToolStripButton4.Click += new EventHandler(ToolStripButton4_Click);
-            ToolStripSeparator3 = new ToolStripSeparator();
-            ToolStripButton5 = new ToolStripButton();
-            ToolStripButton5.Click += new EventHandler(ToolStripButton5_Click);
-            ToolStripButton10 = new ToolStripButton();
-            ToolStripButton10.Click += new EventHandler(ToolStripButton10_Click);
-            ToolStripButton7 = new ToolStripButton();
-            ToolStripButton7.Click += new EventHandler(ToolStripButton7_Click_1);
-            InPhieuBauBKS = new ToolStripButton();
-            InPhieuBauBKS.Click += new EventHandler(InPhieuBauBKS_Click);
-            InPhieuBauHDQT = new ToolStripButton();
-            InPhieuBauHDQT.Click += new EventHandler(InPhieuBauHDQT_Click);
-            ToolStripButton8 = new ToolStripButton();
-            ToolStripButton8.Click += new EventHandler(ToolStripButton8_Click);
-            ToolStripButton6 = new ToolStripButton();
-            ToolStripButton9 = new ToolStripButton();
-            ToolStripButton9.Click += new EventHandler(ToolStripButton9_Click);
-            DataGridView1 = new DataGridView();
-            Delegatecode = new DataGridViewTextBoxColumn();
-            Delegatename = new DataGridViewTextBoxColumn();
-            IdentityCard = new DataGridViewTextBoxColumn();
-            DelegateAddress = new DataGridViewTextBoxColumn();
-            Voterights = new DataGridViewTextBoxColumn();
-            StatusStrip1 = new StatusStrip();
-            ToolStripStatusLabel1 = new ToolStripStatusLabel();
-            ToolStripStatusLabel2 = new ToolStripStatusLabel();
-            ToolStripSplitButton1 = new ToolStripSplitButton();
-            ToolStripStatusLabel3 = new ToolStripStatusLabel();
-            ToolStripStatusLabel4 = new ToolStripStatusLabel();
-            ToolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)DataGridView1).BeginInit();
-            StatusStrip1.SuspendLayout();
-            SuspendLayout();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.ToolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.ToolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.ToolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.ToolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.ToolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.ToolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.ToolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.ToolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.ToolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.ToolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
+            this.ToolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.ToolStripButton10 = new System.Windows.Forms.ToolStripButton();
+            this.ToolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.ToolStripButton5 = new System.Windows.Forms.ToolStripButton();
+            this.ToolStripButton7 = new System.Windows.Forms.ToolStripButton();
+            this.InPhieuBauBKS = new System.Windows.Forms.ToolStripButton();
+            this.InPhieuBauHDQT = new System.Windows.Forms.ToolStripButton();
+            this.ToolStripButton8 = new System.Windows.Forms.ToolStripButton();
+            this.ToolStripButton6 = new System.Windows.Forms.ToolStripButton();
+            this.ToolStripButton9 = new System.Windows.Forms.ToolStripButton();
+            this.DataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Delegatecode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Delegatename = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdentityCard = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DelegateAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Voterights = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StatusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.ToolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.ToolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.ToolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
+            this.ToolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.ToolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.ToolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridView1)).BeginInit();
+            this.StatusStrip1.SuspendLayout();
+            this.SuspendLayout();
             // 
             // ToolStrip1
             // 
-            ToolStrip1.ImageScalingSize = new Size(20, 20);
-            ToolStrip1.Items.AddRange(new ToolStripItem[] { ToolStripButton1, ToolStripButton2, ToolStripButton3, ToolStripSeparator1, ToolStripLabel1, ToolStripTextBox1, ToolStripSeparator2, ToolStripLabel2, ToolStripTextBox2, ToolStripButton4, ToolStripButton10, ToolStripSeparator3, ToolStripButton5, ToolStripButton7, InPhieuBauBKS, InPhieuBauHDQT, ToolStripButton8, ToolStripButton6, ToolStripButton9 });
-            ToolStrip1.Location = new Point(0, 0);
-            ToolStrip1.Name = "ToolStrip1";
-            ToolStrip1.Size = new Size(1636, 39);
-            ToolStrip1.TabIndex = 3;
-            ToolStrip1.Text = "ToolStrip1";
+            this.ToolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.ToolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStripButton1,
+            this.ToolStripButton2,
+            this.ToolStripButton3,
+            this.ToolStripSeparator1,
+            this.ToolStripLabel1,
+            this.ToolStripTextBox1,
+            this.ToolStripSeparator2,
+            this.ToolStripLabel2,
+            this.ToolStripTextBox2,
+            this.ToolStripButton4,
+            this.ToolStripButton10,
+            this.ToolStripSeparator3,
+            this.ToolStripButton5,
+            this.ToolStripButton7,
+            this.InPhieuBauBKS,
+            this.InPhieuBauHDQT,
+            this.ToolStripButton8,
+            this.ToolStripButton6,
+            this.ToolStripButton9});
+            this.ToolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.ToolStrip1.Name = "ToolStrip1";
+            this.ToolStrip1.Size = new System.Drawing.Size(1309, 31);
+            this.ToolStrip1.TabIndex = 3;
+            this.ToolStrip1.Text = "ToolStrip1";
             // 
             // ToolStripButton1
             // 
-            ToolStripButton1.Image = My.Resources.Resources.Add;
-            ToolStripButton1.ImageTransparentColor = Color.Magenta;
-            ToolStripButton1.Name = "ToolStripButton1";
-            ToolStripButton1.Size = new Size(90, 36);
-            ToolStripButton1.Text = "Thêm(A)";
+            this.ToolStripButton1.Image = global::pmDHCD.My.Resources.Resources.Add;
+            this.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolStripButton1.Name = "ToolStripButton1";
+            this.ToolStripButton1.Size = new System.Drawing.Size(90, 28);
+            this.ToolStripButton1.Text = "Thêm(A)";
+            this.ToolStripButton1.Click += new System.EventHandler(this.ToolStripButton1_Click);
             // 
             // ToolStripButton2
             // 
-            ToolStripButton2.Image = My.Resources.Resources.Document;
-            ToolStripButton2.ImageTransparentColor = Color.Magenta;
-            ToolStripButton2.Name = "ToolStripButton2";
-            ToolStripButton2.Size = new Size(76, 36);
-            ToolStripButton2.Text = "Sửa(E)";
+            this.ToolStripButton2.Image = global::pmDHCD.My.Resources.Resources.Document;
+            this.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolStripButton2.Name = "ToolStripButton2";
+            this.ToolStripButton2.Size = new System.Drawing.Size(76, 28);
+            this.ToolStripButton2.Text = "Sửa(E)";
+            this.ToolStripButton2.Click += new System.EventHandler(this.ToolStripButton2_Click);
             // 
             // ToolStripButton3
             // 
-            ToolStripButton3.Image = My.Resources.Resources.Delete;
-            ToolStripButton3.ImageTransparentColor = Color.Magenta;
-            ToolStripButton3.Name = "ToolStripButton3";
-            ToolStripButton3.Size = new Size(80, 36);
-            ToolStripButton3.Text = "Xóa(D)";
+            this.ToolStripButton3.Image = global::pmDHCD.My.Resources.Resources.Delete;
+            this.ToolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolStripButton3.Name = "ToolStripButton3";
+            this.ToolStripButton3.Size = new System.Drawing.Size(80, 28);
+            this.ToolStripButton3.Text = "Xóa(D)";
+            this.ToolStripButton3.Click += new System.EventHandler(this.ToolStripButton3_Click);
             // 
             // ToolStripSeparator1
             // 
-            ToolStripSeparator1.Name = "ToolStripSeparator1";
-            ToolStripSeparator1.Size = new Size(6, 39);
+            this.ToolStripSeparator1.Name = "ToolStripSeparator1";
+            this.ToolStripSeparator1.Size = new System.Drawing.Size(6, 31);
             // 
             // ToolStripLabel1
             // 
-            ToolStripLabel1.Name = "ToolStripLabel1";
-            ToolStripLabel1.Size = new Size(88, 36);
-            ToolStripLabel1.Text = "Mã đại biểu";
+            this.ToolStripLabel1.Name = "ToolStripLabel1";
+            this.ToolStripLabel1.Size = new System.Drawing.Size(88, 28);
+            this.ToolStripLabel1.Text = "Mã đại biểu";
             // 
             // ToolStripTextBox1
             // 
-            ToolStripTextBox1.Font = new Font("Segoe UI", 9.0f);
-            ToolStripTextBox1.Name = "ToolStripTextBox1";
-            ToolStripTextBox1.Size = new Size(65, 39);
+            this.ToolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ToolStripTextBox1.Name = "ToolStripTextBox1";
+            this.ToolStripTextBox1.Size = new System.Drawing.Size(65, 31);
+            this.ToolStripTextBox1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ToolStripTextBox1_KeyUp);
             // 
             // ToolStripSeparator2
             // 
-            ToolStripSeparator2.Name = "ToolStripSeparator2";
-            ToolStripSeparator2.Size = new Size(6, 39);
+            this.ToolStripSeparator2.Name = "ToolStripSeparator2";
+            this.ToolStripSeparator2.Size = new System.Drawing.Size(6, 31);
             // 
             // ToolStripLabel2
             // 
-            ToolStripLabel2.Name = "ToolStripLabel2";
-            ToolStripLabel2.Size = new Size(91, 36);
-            ToolStripLabel2.Text = "CCCD/GPKD";
+            this.ToolStripLabel2.Name = "ToolStripLabel2";
+            this.ToolStripLabel2.Size = new System.Drawing.Size(91, 28);
+            this.ToolStripLabel2.Text = "CCCD/GPKD";
             // 
             // ToolStripTextBox2
             // 
-            ToolStripTextBox2.Font = new Font("Segoe UI", 9.0f);
-            ToolStripTextBox2.Name = "ToolStripTextBox2";
-            ToolStripTextBox2.Size = new Size(132, 39);
+            this.ToolStripTextBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ToolStripTextBox2.Name = "ToolStripTextBox2";
+            this.ToolStripTextBox2.Size = new System.Drawing.Size(132, 31);
+            this.ToolStripTextBox2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ToolStripTextBox2_KeyUp);
             // 
             // ToolStripButton4
             // 
-            ToolStripButton4.Image = My.Resources.Resources.Search;
-            ToolStripButton4.ImageTransparentColor = Color.Magenta;
-            ToolStripButton4.Name = "ToolStripButton4";
-            ToolStripButton4.Size = new Size(58, 36);
-            ToolStripButton4.Text = "Tìm";
-            // 
-            // ToolStripSeparator3
-            // 
-            ToolStripSeparator3.Name = "ToolStripSeparator3";
-            ToolStripSeparator3.Size = new Size(6, 39);
-            // 
-            // ToolStripButton5
-            // 
-            ToolStripButton5.Image = My.Resources.Resources.Printer;
-            ToolStripButton5.ImageTransparentColor = Color.Magenta;
-            ToolStripButton5.Name = "ToolStripButton5";
-            ToolStripButton5.Size = new Size(94, 36);
-            ToolStripButton5.Text = "In thẻ BQ";
+            this.ToolStripButton4.Image = global::pmDHCD.My.Resources.Resources.Search;
+            this.ToolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolStripButton4.Name = "ToolStripButton4";
+            this.ToolStripButton4.Size = new System.Drawing.Size(58, 28);
+            this.ToolStripButton4.Text = "Tìm";
+            this.ToolStripButton4.Click += new System.EventHandler(this.ToolStripButton4_Click);
             // 
             // ToolStripButton10
             // 
-            ToolStripButton10.Image = My.Resources.Resources.Printer;
-            ToolStripButton10.ImageTransparentColor = Color.Magenta;
-            ToolStripButton10.Name = "ToolStripButton10";
-            ToolStripButton10.Size = new Size(124, 36);
-            ToolStripButton10.Text = "P.XN tham dự";
+            this.ToolStripButton10.Image = global::pmDHCD.My.Resources.Resources.Printer;
+            this.ToolStripButton10.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolStripButton10.Name = "ToolStripButton10";
+            this.ToolStripButton10.Size = new System.Drawing.Size(124, 28);
+            this.ToolStripButton10.Text = "P.XN tham dự";
+            this.ToolStripButton10.Click += new System.EventHandler(this.ToolStripButton10_Click);
+            // 
+            // ToolStripSeparator3
+            // 
+            this.ToolStripSeparator3.Name = "ToolStripSeparator3";
+            this.ToolStripSeparator3.Size = new System.Drawing.Size(6, 31);
+            // 
+            // ToolStripButton5
+            // 
+            this.ToolStripButton5.Image = global::pmDHCD.My.Resources.Resources.Printer;
+            this.ToolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolStripButton5.Name = "ToolStripButton5";
+            this.ToolStripButton5.Size = new System.Drawing.Size(94, 28);
+            this.ToolStripButton5.Text = "In thẻ BQ";
+            this.ToolStripButton5.Click += new System.EventHandler(this.ToolStripButton5_Click);
             // 
             // ToolStripButton7
             // 
-            ToolStripButton7.Image = My.Resources.Resources.Printer;
-            ToolStripButton7.ImageTransparentColor = Color.Magenta;
-            ToolStripButton7.Name = "ToolStripButton7";
-            ToolStripButton7.Size = new Size(93, 36);
-            ToolStripButton7.Text = "Phiếu BQ";
+            this.ToolStripButton7.Image = global::pmDHCD.My.Resources.Resources.Printer;
+            this.ToolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolStripButton7.Name = "ToolStripButton7";
+            this.ToolStripButton7.Size = new System.Drawing.Size(93, 28);
+            this.ToolStripButton7.Text = "Phiếu BQ";
+            this.ToolStripButton7.Click += new System.EventHandler(this.ToolStripButton7_Click_1);
             // 
             // InPhieuBauBKS
             // 
-            InPhieuBauBKS.Image = My.Resources.Resources.Printer;
-            InPhieuBauBKS.ImageTransparentColor = Color.Magenta;
-            InPhieuBauBKS.Name = "InPhieuBauBKS";
-            InPhieuBauBKS.Size = new Size(103, 36);
-            InPhieuBauBKS.Text = "P. Bầu BSK";
+            this.InPhieuBauBKS.Image = global::pmDHCD.My.Resources.Resources.Printer;
+            this.InPhieuBauBKS.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.InPhieuBauBKS.Name = "InPhieuBauBKS";
+            this.InPhieuBauBKS.Size = new System.Drawing.Size(103, 28);
+            this.InPhieuBauBKS.Text = "P. Bầu BSK";
+            this.InPhieuBauBKS.Click += new System.EventHandler(this.InPhieuBauBKS_Click);
             // 
             // InPhieuBauHDQT
             // 
-            InPhieuBauHDQT.Image = My.Resources.Resources.Printer;
-            InPhieuBauHDQT.ImageTransparentColor = Color.Magenta;
-            InPhieuBauHDQT.Name = "InPhieuBauHDQT";
-            InPhieuBauHDQT.Size = new Size(117, 36);
-            InPhieuBauHDQT.Text = "P. Bầu HDQT";
+            this.InPhieuBauHDQT.Image = global::pmDHCD.My.Resources.Resources.Printer;
+            this.InPhieuBauHDQT.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.InPhieuBauHDQT.Name = "InPhieuBauHDQT";
+            this.InPhieuBauHDQT.Size = new System.Drawing.Size(117, 28);
+            this.InPhieuBauHDQT.Text = "P. Bầu HDQT";
+            this.InPhieuBauHDQT.Click += new System.EventHandler(this.InPhieuBauHDQT_Click);
             // 
             // ToolStripButton8
             // 
-            ToolStripButton8.Image = My.Resources.Resources.Printer;
-            ToolStripButton8.ImageTransparentColor = Color.Magenta;
-            ToolStripButton8.Name = "ToolStripButton8";
-            ToolStripButton8.Size = new Size(105, 36);
-            ToolStripButton8.Text = "Phiếu BQ 2";
-            ToolStripButton8.Visible = false;
+            this.ToolStripButton8.Image = global::pmDHCD.My.Resources.Resources.Printer;
+            this.ToolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolStripButton8.Name = "ToolStripButton8";
+            this.ToolStripButton8.Size = new System.Drawing.Size(105, 36);
+            this.ToolStripButton8.Text = "Phiếu BQ 2";
+            this.ToolStripButton8.Visible = false;
+            this.ToolStripButton8.Click += new System.EventHandler(this.ToolStripButton8_Click);
             // 
             // ToolStripButton6
             // 
-            ToolStripButton6.Image = My.Resources.Resources.Printer;
-            ToolStripButton6.ImageTransparentColor = Color.Magenta;
-            ToolStripButton6.Name = "ToolStripButton6";
-            ToolStripButton6.Size = new Size(110, 36);
-            ToolStripButton6.Text = "Phiếu bầu 1";
-            ToolStripButton6.Visible = false;
+            this.ToolStripButton6.Image = global::pmDHCD.My.Resources.Resources.Printer;
+            this.ToolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolStripButton6.Name = "ToolStripButton6";
+            this.ToolStripButton6.Size = new System.Drawing.Size(110, 36);
+            this.ToolStripButton6.Text = "Phiếu bầu 1";
+            this.ToolStripButton6.Visible = false;
             // 
             // ToolStripButton9
             // 
-            ToolStripButton9.Image = My.Resources.Resources.Printer;
-            ToolStripButton9.ImageTransparentColor = Color.Magenta;
-            ToolStripButton9.Name = "ToolStripButton9";
-            ToolStripButton9.Size = new Size(110, 36);
-            ToolStripButton9.Text = "Phiếu bầu 2";
-            ToolStripButton9.Visible = false;
+            this.ToolStripButton9.Image = global::pmDHCD.My.Resources.Resources.Printer;
+            this.ToolStripButton9.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolStripButton9.Name = "ToolStripButton9";
+            this.ToolStripButton9.Size = new System.Drawing.Size(110, 36);
+            this.ToolStripButton9.Text = "Phiếu bầu 2";
+            this.ToolStripButton9.Visible = false;
+            this.ToolStripButton9.Click += new System.EventHandler(this.ToolStripButton9_Click);
             // 
             // DataGridView1
             // 
-            DataGridView1.AllowUserToAddRows = false;
-            DataGridViewCellStyle1.BackColor = Color.FromArgb(192, 255, 192);
-            DataGridView1.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1;
-            DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DataGridView1.Columns.AddRange(new DataGridViewColumn[] { Delegatecode, Delegatename, IdentityCard, DelegateAddress, Voterights });
-            DataGridView1.Dock = DockStyle.Fill;
-            DataGridView1.Location = new Point(0, 49);
-            DataGridView1.Margin = new Padding(4);
-            DataGridView1.Name = "DataGridView1";
-            DataGridView1.ReadOnly = true;
-            DataGridView1.RowHeadersWidth = 51;
-            DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            DataGridView1.Size = new Size(1636, 793);
-            DataGridView1.TabIndex = 6;
+            this.DataGridView1.AllowUserToAddRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Delegatecode,
+            this.Delegatename,
+            this.IdentityCard,
+            this.DelegateAddress,
+            this.Voterights});
+            this.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DataGridView1.Location = new System.Drawing.Point(0, 31);
+            this.DataGridView1.Margin = new System.Windows.Forms.Padding(4);
+            this.DataGridView1.Name = "DataGridView1";
+            this.DataGridView1.ReadOnly = true;
+            this.DataGridView1.RowHeadersWidth = 51;
+            this.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DataGridView1.Size = new System.Drawing.Size(1309, 642);
+            this.DataGridView1.TabIndex = 6;
+            this.DataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellContentClick);
             // 
             // Delegatecode
             // 
-            Delegatecode.DataPropertyName = "Delegatecode";
-            Delegatecode.FillWeight = 59.08628f;
-            Delegatecode.HeaderText = "Mã đại biểu";
-            Delegatecode.MinimumWidth = 6;
-            Delegatecode.Name = "Delegatecode";
-            Delegatecode.ReadOnly = true;
+            this.Delegatecode.DataPropertyName = "Delegatecode";
+            this.Delegatecode.FillWeight = 59.08628F;
+            this.Delegatecode.HeaderText = "Mã đại biểu";
+            this.Delegatecode.MinimumWidth = 6;
+            this.Delegatecode.Name = "Delegatecode";
+            this.Delegatecode.ReadOnly = true;
             // 
             // Delegatename
             // 
-            Delegatename.DataPropertyName = "Delegatename";
-            Delegatename.FillWeight = 59.08628f;
-            Delegatename.HeaderText = "Tên đại biểu";
-            Delegatename.MinimumWidth = 6;
-            Delegatename.Name = "Delegatename";
-            Delegatename.ReadOnly = true;
+            this.Delegatename.DataPropertyName = "Delegatename";
+            this.Delegatename.FillWeight = 59.08628F;
+            this.Delegatename.HeaderText = "Tên đại biểu";
+            this.Delegatename.MinimumWidth = 6;
+            this.Delegatename.Name = "Delegatename";
+            this.Delegatename.ReadOnly = true;
             // 
             // IdentityCard
             // 
-            IdentityCard.DataPropertyName = "IdentityCard";
-            IdentityCard.FillWeight = 59.08628f;
-            IdentityCard.HeaderText = "CMT/GPKD";
-            IdentityCard.MinimumWidth = 6;
-            IdentityCard.Name = "IdentityCard";
-            IdentityCard.ReadOnly = true;
+            this.IdentityCard.DataPropertyName = "IdentityCard";
+            this.IdentityCard.FillWeight = 59.08628F;
+            this.IdentityCard.HeaderText = "CMT/GPKD";
+            this.IdentityCard.MinimumWidth = 6;
+            this.IdentityCard.Name = "IdentityCard";
+            this.IdentityCard.ReadOnly = true;
             // 
             // DelegateAddress
             // 
-            DelegateAddress.DataPropertyName = "DelegateAddress";
-            DelegateAddress.FillWeight = 200.0f;
-            DelegateAddress.HeaderText = "Địa chỉ";
-            DelegateAddress.MinimumWidth = 6;
-            DelegateAddress.Name = "DelegateAddress";
-            DelegateAddress.ReadOnly = true;
+            this.DelegateAddress.DataPropertyName = "DelegateAddress";
+            this.DelegateAddress.FillWeight = 200F;
+            this.DelegateAddress.HeaderText = "Địa chỉ";
+            this.DelegateAddress.MinimumWidth = 6;
+            this.DelegateAddress.Name = "DelegateAddress";
+            this.DelegateAddress.ReadOnly = true;
             // 
             // Voterights
             // 
-            Voterights.DataPropertyName = "Voterights";
-            DataGridViewCellStyle2.Format = "N0";
-            DataGridViewCellStyle2.NullValue = null;
-            Voterights.DefaultCellStyle = DataGridViewCellStyle2;
-            Voterights.FillWeight = 59.08628f;
-            Voterights.HeaderText = "Tổng  quyền b.quyết";
-            Voterights.MinimumWidth = 6;
-            Voterights.Name = "Voterights";
-            Voterights.ReadOnly = true;
+            this.Voterights.DataPropertyName = "Voterights";
+            dataGridViewCellStyle2.Format = "N0";
+            dataGridViewCellStyle2.NullValue = null;
+            this.Voterights.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Voterights.FillWeight = 59.08628F;
+            this.Voterights.HeaderText = "Tổng  quyền b.quyết";
+            this.Voterights.MinimumWidth = 6;
+            this.Voterights.Name = "Voterights";
+            this.Voterights.ReadOnly = true;
             // 
             // StatusStrip1
             // 
-            StatusStrip1.ImageScalingSize = new Size(20, 20);
-            StatusStrip1.Items.AddRange(new ToolStripItem[] { ToolStripStatusLabel1, ToolStripStatusLabel2, ToolStripSplitButton1, ToolStripStatusLabel3, ToolStripStatusLabel4 });
-            StatusStrip1.Location = new Point(0, 649);
-            StatusStrip1.Name = "StatusStrip1";
-            StatusStrip1.Padding = new Padding(1, 0, 19, 0);
-            StatusStrip1.Size = new Size(1309, 24);
-            StatusStrip1.TabIndex = 7;
-            StatusStrip1.Text = "StatusStrip1";
+            this.StatusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.StatusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStripStatusLabel1,
+            this.ToolStripStatusLabel2,
+            this.ToolStripSplitButton1,
+            this.ToolStripStatusLabel3,
+            this.ToolStripStatusLabel4});
+            this.StatusStrip1.Location = new System.Drawing.Point(0, 649);
+            this.StatusStrip1.Name = "StatusStrip1";
+            this.StatusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
+            this.StatusStrip1.Size = new System.Drawing.Size(1309, 24);
+            this.StatusStrip1.TabIndex = 7;
+            this.StatusStrip1.Text = "StatusStrip1";
             // 
             // ToolStripStatusLabel1
             // 
-            ToolStripStatusLabel1.Font = new Font("Tahoma", 9.0f, FontStyle.Regular, GraphicsUnit.Point, 0);
-            ToolStripStatusLabel1.Name = "ToolStripStatusLabel1";
-            ToolStripStatusLabel1.Size = new Size(131, 18);
-            ToolStripStatusLabel1.Text = "Số lượng bản ghi : ";
+            this.ToolStripStatusLabel1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1";
+            this.ToolStripStatusLabel1.Size = new System.Drawing.Size(131, 18);
+            this.ToolStripStatusLabel1.Text = "Số lượng bản ghi : ";
             // 
             // ToolStripStatusLabel2
             // 
-            ToolStripStatusLabel2.Font = new Font("Tahoma", 9.0f, FontStyle.Regular, GraphicsUnit.Point, 0);
-            ToolStripStatusLabel2.Name = "ToolStripStatusLabel2";
-            ToolStripStatusLabel2.Size = new Size(0, 18);
+            this.ToolStripStatusLabel2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ToolStripStatusLabel2.Name = "ToolStripStatusLabel2";
+            this.ToolStripStatusLabel2.Size = new System.Drawing.Size(0, 18);
             // 
             // ToolStripSplitButton1
             // 
-            ToolStripSplitButton1.DisplayStyle = ToolStripItemDisplayStyle.None;
-            ToolStripSplitButton1.Name = "ToolStripSplitButton1";
-            ToolStripSplitButton1.Size = new Size(19, 22);
-            ToolStripSplitButton1.Text = "ToolStripSplitButton1";
+            this.ToolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.None;
+            this.ToolStripSplitButton1.Name = "ToolStripSplitButton1";
+            this.ToolStripSplitButton1.Size = new System.Drawing.Size(19, 22);
+            this.ToolStripSplitButton1.Text = "ToolStripSplitButton1";
             // 
             // ToolStripStatusLabel3
             // 
-            ToolStripStatusLabel3.Font = new Font("Tahoma", 9.0f, FontStyle.Regular, GraphicsUnit.Point, 0);
-            ToolStripStatusLabel3.Name = "ToolStripStatusLabel3";
-            ToolStripStatusLabel3.Size = new Size(180, 18);
-            ToolStripStatusLabel3.Text = "Tổng số quyền biểu quyết";
+            this.ToolStripStatusLabel3.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ToolStripStatusLabel3.Name = "ToolStripStatusLabel3";
+            this.ToolStripStatusLabel3.Size = new System.Drawing.Size(180, 18);
+            this.ToolStripStatusLabel3.Text = "Tổng số quyền biểu quyết";
             // 
             // ToolStripStatusLabel4
             // 
-            ToolStripStatusLabel4.Font = new Font("Tahoma", 9.0f, FontStyle.Regular, GraphicsUnit.Point, 0);
-            ToolStripStatusLabel4.Name = "ToolStripStatusLabel4";
-            ToolStripStatusLabel4.Size = new Size(146, 18);
-            ToolStripStatusLabel4.Text = "ToolStripStatusLabel4";
+            this.ToolStripStatusLabel4.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ToolStripStatusLabel4.Name = "ToolStripStatusLabel4";
+            this.ToolStripStatusLabel4.Size = new System.Drawing.Size(146, 18);
+            this.ToolStripStatusLabel4.Text = "ToolStripStatusLabel4";
             // 
             // DelegateList
             // 
-            AutoScaleDimensions = new SizeF(8.0f, 16.0f);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1309, 673);
-            Controls.Add(StatusStrip1);
-            Controls.Add(DataGridView1);
-            Controls.Add(ToolStrip1);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
-            KeyPreview = true;
-            Margin = new Padding(4);
-            Name = "DelegateList";
-            Text = "Danh sách đại biểu";
-            ToolStrip1.ResumeLayout(false);
-            ToolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)DataGridView1).EndInit();
-            StatusStrip1.ResumeLayout(false);
-            StatusStrip1.PerformLayout();
-            Load += new EventHandler(DelegateList_Load);
-            KeyUp += new KeyEventHandler(DelegateList_KeyUp);
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1309, 673);
+            this.Controls.Add(this.StatusStrip1);
+            this.Controls.Add(this.DataGridView1);
+            this.Controls.Add(this.ToolStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.KeyPreview = true;
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "DelegateList";
+            this.Text = "Danh sách đại biểu";
+            this.Load += new System.EventHandler(this.DelegateList_Load);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.DelegateList_KeyUp);
+            this.ToolStrip1.ResumeLayout(false);
+            this.ToolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridView1)).EndInit();
+            this.StatusStrip1.ResumeLayout(false);
+            this.StatusStrip1.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
         internal ToolStrip ToolStrip1;

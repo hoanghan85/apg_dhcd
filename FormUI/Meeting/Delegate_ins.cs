@@ -153,7 +153,13 @@ namespace pmDHCD
         {
             // Dim cr_thebieuquyet As New thebieuquyet_2
             var cr_thebieuquyet = new ReportDocument();
-            cr_thebieuquyet.Load("~/Report/thebieuquyet_2.rpt");
+            string reportPath = System.IO.Path.Combine(Application.StartupPath, @"Report\thebieuquyet_2.rpt");
+            if (!System.IO.File.Exists(reportPath))
+            {
+                MessageBox.Show("Không tìm thấy file báo cáo: " + reportPath);
+                return;
+            }
+            cr_thebieuquyet.Load(reportPath);
             var objCommon = new clsCommon();
             string logoPath = System.IO.Path.Combine(Application.StartupPath, @"Resources\Logo.jpg");
             cr_thebieuquyet.SetParameterValue("LogoPath", logoPath);
@@ -189,10 +195,23 @@ namespace pmDHCD
             cr_thebieuquyet.SetParameterValue("Delegatecode", strDelegateCode);
             cr_thebieuquyet.SetParameterValue("Delegatename", strDelegateName);
             cr_thebieuquyet.SetParameterValue("IdentityCard", strIdentityCard);
-            cr_thebieuquyet.SetParameterValue("DelegateAddress", DelegateAddress);
+            cr_thebieuquyet.SetParameterValue("Address", DelegateAddress); 
             cr_thebieuquyet.SetParameterValue("Holdercode", strHoldercode);
             cr_thebieuquyet.SetParameterValue("voterights", StockTextBox2.Text);
-            cr_thebieuquyet.PrintToPrinter(1, true, 1, 1);
+            cr_thebieuquyet.SetParameterValue("HolderName", "");
+            cr_thebieuquyet.SetParameterValue("DateMeeting", My.MyProject.Forms.Mainform.dateMeeting);
+            cr_thebieuquyet.SetParameterValue("Period", My.MyProject.Forms.Mainform.period);
+            cr_thebieuquyet.SetParameterValue("MettingType", My.MyProject.Forms.Mainform.mettingType);
+            cr_thebieuquyet.SetParameterValue("qrcodepath", "");
+
+            try
+            {
+                ReportViewer.LoadReport(cr_thebieuquyet, this);
+            }
+            catch (Exception ex)
+            {
+                Interaction.MsgBox("Error loading report: " + ex.Message);
+            }
 
         }
 
@@ -206,7 +225,8 @@ namespace pmDHCD
 
             // Dim cr As New PhieuXacNhan
             var cr = new ReportDocument();
-            cr.Load("~/Report/PhieuXacNhan.rpt");
+            string reportPath = System.IO.Path.Combine(Application.StartupPath, @"Report\PhieuXacNhan.rpt");
+            cr.Load(reportPath);
             try
             {
                 string logoPath = System.IO.Path.Combine(Application.StartupPath, @"Resources\Logo.jpg");

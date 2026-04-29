@@ -29,7 +29,7 @@ namespace pmDHCD
 
             catch (Exception ex)
             {
-                Interaction.MsgBox("Lỗi :" + ex.Message);
+                Interaction.MsgBox("Lỗi:" + ex.Message);
             }
             DataGridView1.DataSource = dt;
             ToolStripStatusLabel2.Text = DataGridView1.RowCount.ToString();
@@ -47,24 +47,56 @@ namespace pmDHCD
 
         private void ToolStripButton3_Click(object sender, EventArgs e)
         {
+            // Không có dòng được chọn → thoát luôn
             if (DataGridView1.SelectedRows.Count == 0)
             {
-                Interaction.MsgBox("Bạn phải chọn ít nhất một bản ghi");
+                MessageBox.Show("Vui lòng chọn một dòng để xóa",
+                                "Thông báo",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
                 return;
             }
-            if (Interaction.MsgBox(Operators.AddObject(Operators.AddObject(Operators.AddObject("Bạn có chắc chắn XÓA cổ đông :", DataGridView1.CurrentRow.Cells["Holdercode"].Value), " ---- "), DataGridView1.CurrentRow.Cells["Holdername"].Value), (MsgBoxStyle)((int)MsgBoxStyle.OkCancel + (int)MsgBoxStyle.Critical + (int)MsgBoxStyle.ApplicationModal + (int)MsgBoxStyle.DefaultButton2), "XÓA CỔ ĐÔNG") == MsgBoxResult.Ok)
+
+            var row = DataGridView1.CurrentRow;
+
+            // Check thêm để tránh null ngầm
+            if (row == null ||
+                row.Cells["Holdercode"].Value == null ||
+                row.Cells["Holdername"].Value == null)
             {
-                try
-                {
-                    My.MyProject.Forms.Mainform.BenlyDal.Holder_delete(My.MyProject.Forms.Mainform.workingmeeting, Conversions.ToString(DataGridView1.CurrentRow.Cells["Holdercode"].Value));
-                    filldgv();
-                }
-                catch (Exception ex)
-                {
-                    Interaction.MsgBox("Lỗi :" + ex.Message);
-                }
+                MessageBox.Show("Dữ liệu không hợp lệ.",
+                                "Thông báo",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return;
             }
 
+            string holderCode = row.Cells["Holdercode"].Value.ToString();
+            string holderName = row.Cells["Holdername"].Value.ToString();
+
+            var result = MessageBox.Show(
+                $"Bạn có chắc chắn XÓA cổ đông: {holderCode} ---- {holderName}?",
+                "XÓA CỔ ĐÔNG",
+                MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Warning,
+                MessageBoxDefaultButton.Button2
+            );
+
+            if (result != DialogResult.OK) return;
+
+            try
+            {
+                My.MyProject.Forms.Mainform.BenlyDal.Holder_delete(
+                    My.MyProject.Forms.Mainform.workingmeeting,
+                    holderCode
+                );
+
+                filldgv();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
         }
 
         private void ToolStripButton1_Click(object sender, EventArgs e)
@@ -76,7 +108,18 @@ namespace pmDHCD
 
         private void ToolStripButton2_Click(object sender, EventArgs e)
         {
-            var f = new Holder_ins_update("Update", Conversions.ToString(DataGridView1.CurrentRow.Cells["Holdercode"].Value));
+            if (DataGridView1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn một dòng để cập nhật",
+                                "Thông báo",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return;
+            }
+
+            var holderCode = DataGridView1.CurrentRow.Cells["Holdercode"].Value.ToString();
+
+            var f = new Holder_ins_update("Update", holderCode);
             f.ShowDialog();
             filldgv();
         }
@@ -166,7 +209,7 @@ namespace pmDHCD
             var dt = new DataTable();
             try
             {
-                dt = My.MyProject.Forms.Mainform.BenlyDal.Authorizations_getlist(My.MyProject.Forms.Mainform.workingmeeting, Conversions.ToDecimal(DataGridView1.CurrentRow.Cells["holdercode"].Value), "", "", "");
+                dt = My.MyProject.Forms.Mainform.BenlyDal.Authorizations_getlist(My.MyProject.Forms.Mainform.workingmeeting, 0, strDelegateCode, "", "");
             }
             catch (Exception ex)
             {
@@ -195,6 +238,7 @@ namespace pmDHCD
             cr_thebieuquyet.SetParameterValue("voterights", strVoterights);
             cr_thebieuquyet.SetParameterValue("DateMeeting", My.MyProject.Forms.Mainform.dateMeeting);
             cr_thebieuquyet.SetParameterValue("MettingType", My.MyProject.Forms.Mainform.mettingType);
+            cr_thebieuquyet.SetParameterValue("qrcodepath", "");
 
             ReportViewer.LoadReport(cr_thebieuquyet, this);
         }

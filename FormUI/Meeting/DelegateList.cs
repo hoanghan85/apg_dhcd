@@ -96,6 +96,14 @@ namespace pmDHCD
 
         private void ToolStripButton5_Click(object sender, EventArgs e)
         {
+            if (DataGridView1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn một dòng để in thẻ biểu quyết",
+                                "Thông báo",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return;
+            }
             // Dim cr As New thebieuquyet_2
             var cr = new ReportDocument();
             string reportPath = System.IO.Path.Combine(Application.StartupPath, @"Report\thebieuquyet_2.rpt");
@@ -348,6 +356,14 @@ namespace pmDHCD
 
         private void ToolStripButton10_Click(object sender, EventArgs e)
         {
+            if (DataGridView1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn một dòng để in phiếu XN tham dự",
+                                "Thông báo",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return;
+            }
 
             string strHolders = My.MyProject.Forms.Mainform.BenlyDal.getAuthorizationByDelegateCode(My.MyProject.Forms.Mainform.workingmeeting, DataGridView1.CurrentRow.Cells["DelegateCode"].Value.ToString());
             try
@@ -410,6 +426,14 @@ namespace pmDHCD
 
         private void InPhieuBauBKS_Click(object sender, EventArgs e)
         {
+            if (DataGridView1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn một dòng để in phiếu bầu BKS",
+                                "Thông báo",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return;
+            }
             // Dim cr As New phieubauBKS
             var cr = new ReportDocument();
             string reportPath = System.IO.Path.Combine(Application.StartupPath, @"Report\phieubauBKS.rpt");
@@ -447,6 +471,14 @@ namespace pmDHCD
 
         private void InPhieuBauHDQT_Click(object sender, EventArgs e)
         {
+            if (DataGridView1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn một dòng để in phiếu bầu HĐQT",
+                                "Thông báo",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return;
+            }
             // Dim cr As New phieubauHDQT
             // Dim cr As New ReportDocument()
             // cr.Load("~/Report/phieubauHDQT.rpt")
@@ -487,6 +519,14 @@ namespace pmDHCD
 
         private void ToolStripButton7_Click_1(object sender, EventArgs e)
         {
+            if (DataGridView1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn một dòng để in phiếu biểu quyết",
+                                "Thông báo",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return;
+            }
             // Dim cr As New phieubieuquyet1
             var cr = new ReportDocument();
             string reportPath = System.IO.Path.Combine(Application.StartupPath, @"Report\phieubieuquyet1.rpt");
@@ -539,6 +579,11 @@ namespace pmDHCD
                 Interaction.MsgBox("Lỗi :" + ex.Message);
             }
 
+
+        }
+
+        private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }

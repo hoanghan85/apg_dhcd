@@ -35,273 +35,315 @@ namespace pmDHCD
         [DebuggerStepThrough()]
         private void InitializeComponent()
         {
-            var resources = new System.ComponentModel.ComponentResourceManager(typeof(ElectionVoteList));
-            var DataGridViewCellStyle1 = new DataGridViewCellStyle();
-            var DataGridViewCellStyle2 = new DataGridViewCellStyle();
-            var DataGridViewCellStyle3 = new DataGridViewCellStyle();
-            ToolStrip1 = new ToolStrip();
-            ToolStripButton1 = new ToolStripButton();
-            ToolStripButton1.Click += new EventHandler(ToolStripButton1_Click);
-            ToolStripButton2 = new ToolStripButton();
-            ToolStripButton2.Click += new EventHandler(ToolStripButton2_Click);
-            ToolStripButton3 = new ToolStripButton();
-            ToolStripButton3.Click += new EventHandler(ToolStripButton3_Click);
-            ToolStripSeparator2 = new ToolStripSeparator();
-            ToolStripLabel1 = new ToolStripLabel();
-            ToolStripTextBox1 = new ToolStripTextBox();
-            ToolStripSeparator1 = new ToolStripSeparator();
-            ToolStripLabel2 = new ToolStripLabel();
-            ToolStripTextBox2 = new ToolStripTextBox();
-            ToolStripSeparator3 = new ToolStripSeparator();
-            ToolStripLabel3 = new ToolStripLabel();
-            ToolStripTextBox3 = new ToolStripTextBox();
-            ToolStripSeparator4 = new ToolStripSeparator();
-            ToolStripButton4 = new ToolStripButton();
-            ToolStripButton4.Click += new EventHandler(ToolStripButton4_Click);
-            StatusStrip1 = new StatusStrip();
-            ToolStripStatusLabel1 = new ToolStripStatusLabel();
-            ToolStripStatusLabel2 = new ToolStripStatusLabel();
-            ToolStripSplitButton3 = new ToolStripSplitButton();
-            ToolStripStatusLabel15 = new ToolStripStatusLabel();
-            ToolStripStatusLabel16 = new ToolStripStatusLabel();
-            DataGridView1 = new DataGridView();
-            Electioncode = new DataGridViewTextBoxColumn();
-            electionname = new DataGridViewTextBoxColumn();
-            delegatecode = new DataGridViewTextBoxColumn();
-            Delegatename = new DataGridViewTextBoxColumn();
-            candidatecode = new DataGridViewTextBoxColumn();
-            candidatename = new DataGridViewTextBoxColumn();
-            Votes = new DataGridViewTextBoxColumn();
-            ToolStrip1.SuspendLayout();
-            StatusStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)DataGridView1).BeginInit();
-            SuspendLayout();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ElectionVoteList));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.ToolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.ToolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.ToolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.ToolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.ToolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.ToolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.ToolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.ToolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.ToolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.ToolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
+            this.ToolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.ToolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
+            this.ToolStripTextBox3 = new System.Windows.Forms.ToolStripTextBox();
+            this.ToolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.ToolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.StatusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.ToolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.ToolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.ToolStripSplitButton3 = new System.Windows.Forms.ToolStripSplitButton();
+            this.ToolStripStatusLabel15 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.ToolStripStatusLabel16 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.DataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Electioncode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.electionname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.delegatecode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Delegatename = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.candidatecode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.candidatename = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Votes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ToolStrip1.SuspendLayout();
+            this.StatusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridView1)).BeginInit();
+            this.SuspendLayout();
             // 
             // ToolStrip1
             // 
-            ToolStrip1.Items.AddRange(new ToolStripItem[] { ToolStripButton1, ToolStripButton2, ToolStripButton3, ToolStripSeparator2, ToolStripLabel1, ToolStripTextBox1, ToolStripSeparator1, ToolStripLabel2, ToolStripTextBox2, ToolStripSeparator3, ToolStripLabel3, ToolStripTextBox3, ToolStripSeparator4, ToolStripButton4 });
-            ToolStrip1.Location = new Point(0, 0);
-            ToolStrip1.Name = "ToolStrip1";
-            ToolStrip1.Size = new Size(833, 25);
-            ToolStrip1.TabIndex = 12;
-            ToolStrip1.Text = "ToolStrip1";
+            this.ToolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.ToolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStripButton1,
+            this.ToolStripButton2,
+            this.ToolStripButton3,
+            this.ToolStripSeparator2,
+            this.ToolStripLabel1,
+            this.ToolStripTextBox1,
+            this.ToolStripSeparator1,
+            this.ToolStripLabel2,
+            this.ToolStripTextBox2,
+            this.ToolStripSeparator3,
+            this.ToolStripLabel3,
+            this.ToolStripTextBox3,
+            this.ToolStripSeparator4,
+            this.ToolStripButton4});
+            this.ToolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.ToolStrip1.Name = "ToolStrip1";
+            this.ToolStrip1.Size = new System.Drawing.Size(1111, 31);
+            this.ToolStrip1.TabIndex = 12;
+            this.ToolStrip1.Text = "ToolStrip1";
             // 
             // ToolStripButton1
             // 
-            ToolStripButton1.Image = My.Resources.Resources.Add;
-            ToolStripButton1.ImageTransparentColor = Color.Magenta;
-            ToolStripButton1.Name = "ToolStripButton1";
-            ToolStripButton1.Size = new Size(53, 22);
-            ToolStripButton1.Text = "Thêm";
+            this.ToolStripButton1.Image = global::pmDHCD.My.Resources.Resources.Add;
+            this.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolStripButton1.Name = "ToolStripButton1";
+            this.ToolStripButton1.Size = new System.Drawing.Size(70, 28);
+            this.ToolStripButton1.Text = "Thêm";
+            this.ToolStripButton1.Click += new System.EventHandler(this.ToolStripButton1_Click);
             // 
             // ToolStripButton2
             // 
-            ToolStripButton2.Enabled = false;
-            ToolStripButton2.Image = My.Resources.Resources.Document;
-            ToolStripButton2.ImageTransparentColor = Color.Magenta;
-            ToolStripButton2.Name = "ToolStripButton2";
-            ToolStripButton2.Size = new Size(46, 22);
-            ToolStripButton2.Text = "Sửa";
+            this.ToolStripButton2.Enabled = false;
+            this.ToolStripButton2.Image = global::pmDHCD.My.Resources.Resources.Document;
+            this.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolStripButton2.Name = "ToolStripButton2";
+            this.ToolStripButton2.Size = new System.Drawing.Size(58, 28);
+            this.ToolStripButton2.Text = "Sửa";
+            this.ToolStripButton2.Click += new System.EventHandler(this.ToolStripButton2_Click);
             // 
             // ToolStripButton3
             // 
-            ToolStripButton3.Image = My.Resources.Resources.Delete;
-            ToolStripButton3.ImageTransparentColor = Color.Magenta;
-            ToolStripButton3.Name = "ToolStripButton3";
-            ToolStripButton3.Size = new Size(45, 22);
-            ToolStripButton3.Text = "Xóa";
+            this.ToolStripButton3.Image = global::pmDHCD.My.Resources.Resources.Delete;
+            this.ToolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolStripButton3.Name = "ToolStripButton3";
+            this.ToolStripButton3.Size = new System.Drawing.Size(59, 28);
+            this.ToolStripButton3.Text = "Xóa";
+            this.ToolStripButton3.Click += new System.EventHandler(this.ToolStripButton3_Click);
             // 
             // ToolStripSeparator2
             // 
-            ToolStripSeparator2.Name = "ToolStripSeparator2";
-            ToolStripSeparator2.Size = new Size(6, 25);
+            this.ToolStripSeparator2.Name = "ToolStripSeparator2";
+            this.ToolStripSeparator2.Size = new System.Drawing.Size(6, 31);
             // 
             // ToolStripLabel1
             // 
-            ToolStripLabel1.Name = "ToolStripLabel1";
-            ToolStripLabel1.Size = new Size(57, 22);
-            ToolStripLabel1.Text = "Mã bầu cử";
+            this.ToolStripLabel1.Name = "ToolStripLabel1";
+            this.ToolStripLabel1.Size = new System.Drawing.Size(79, 28);
+            this.ToolStripLabel1.Text = "Mã bầu cử";
             // 
             // ToolStripTextBox1
             // 
-            ToolStripTextBox1.Name = "ToolStripTextBox1";
-            ToolStripTextBox1.Size = new Size(100, 25);
+            this.ToolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ToolStripTextBox1.Name = "ToolStripTextBox1";
+            this.ToolStripTextBox1.Size = new System.Drawing.Size(132, 31);
             // 
             // ToolStripSeparator1
             // 
-            ToolStripSeparator1.Name = "ToolStripSeparator1";
-            ToolStripSeparator1.Size = new Size(6, 25);
+            this.ToolStripSeparator1.Name = "ToolStripSeparator1";
+            this.ToolStripSeparator1.Size = new System.Drawing.Size(6, 31);
             // 
             // ToolStripLabel2
             // 
-            ToolStripLabel2.Name = "ToolStripLabel2";
-            ToolStripLabel2.Size = new Size(61, 22);
-            ToolStripLabel2.Text = "Mã đại biểu";
+            this.ToolStripLabel2.Name = "ToolStripLabel2";
+            this.ToolStripLabel2.Size = new System.Drawing.Size(88, 28);
+            this.ToolStripLabel2.Text = "Mã đại biểu";
             // 
             // ToolStripTextBox2
             // 
-            ToolStripTextBox2.Name = "ToolStripTextBox2";
-            ToolStripTextBox2.Size = new Size(100, 25);
+            this.ToolStripTextBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ToolStripTextBox2.Name = "ToolStripTextBox2";
+            this.ToolStripTextBox2.Size = new System.Drawing.Size(132, 31);
             // 
             // ToolStripSeparator3
             // 
-            ToolStripSeparator3.Name = "ToolStripSeparator3";
-            ToolStripSeparator3.Size = new Size(6, 25);
+            this.ToolStripSeparator3.Name = "ToolStripSeparator3";
+            this.ToolStripSeparator3.Size = new System.Drawing.Size(6, 31);
             // 
             // ToolStripLabel3
             // 
-            ToolStripLabel3.Name = "ToolStripLabel3";
-            ToolStripLabel3.Size = new Size(76, 22);
-            ToolStripLabel3.Text = "Mã ứng viên : ";
+            this.ToolStripLabel3.Name = "ToolStripLabel3";
+            this.ToolStripLabel3.Size = new System.Drawing.Size(102, 28);
+            this.ToolStripLabel3.Text = "Mã ứng viên : ";
             // 
             // ToolStripTextBox3
             // 
-            ToolStripTextBox3.Name = "ToolStripTextBox3";
-            ToolStripTextBox3.Size = new Size(100, 25);
+            this.ToolStripTextBox3.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ToolStripTextBox3.Name = "ToolStripTextBox3";
+            this.ToolStripTextBox3.Size = new System.Drawing.Size(132, 31);
             // 
             // ToolStripSeparator4
             // 
-            ToolStripSeparator4.Name = "ToolStripSeparator4";
-            ToolStripSeparator4.Size = new Size(6, 25);
+            this.ToolStripSeparator4.Name = "ToolStripSeparator4";
+            this.ToolStripSeparator4.Size = new System.Drawing.Size(6, 31);
             // 
             // ToolStripButton4
             // 
-            ToolStripButton4.Image = My.Resources.Resources.Search;
-            ToolStripButton4.ImageTransparentColor = Color.Magenta;
-            ToolStripButton4.Name = "ToolStripButton4";
-            ToolStripButton4.Size = new Size(43, 22);
-            ToolStripButton4.Text = "Tìm";
+            this.ToolStripButton4.Image = global::pmDHCD.My.Resources.Resources.Search;
+            this.ToolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolStripButton4.Name = "ToolStripButton4";
+            this.ToolStripButton4.Size = new System.Drawing.Size(58, 28);
+            this.ToolStripButton4.Text = "Tìm";
+            this.ToolStripButton4.Click += new System.EventHandler(this.ToolStripButton4_Click);
             // 
             // StatusStrip1
             // 
-            StatusStrip1.Items.AddRange(new ToolStripItem[] { ToolStripStatusLabel1, ToolStripStatusLabel2, ToolStripSplitButton3, ToolStripStatusLabel15, ToolStripStatusLabel16 });
-            StatusStrip1.Location = new Point(0, 497);
-            StatusStrip1.Name = "StatusStrip1";
-            StatusStrip1.Size = new Size(833, 22);
-            StatusStrip1.TabIndex = 14;
-            StatusStrip1.Text = "StatusStrip1";
+            this.StatusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.StatusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStripStatusLabel1,
+            this.ToolStripStatusLabel2,
+            this.ToolStripSplitButton3,
+            this.ToolStripStatusLabel15,
+            this.ToolStripStatusLabel16});
+            this.StatusStrip1.Location = new System.Drawing.Point(0, 613);
+            this.StatusStrip1.Name = "StatusStrip1";
+            this.StatusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
+            this.StatusStrip1.Size = new System.Drawing.Size(1111, 26);
+            this.StatusStrip1.TabIndex = 14;
+            this.StatusStrip1.Text = "StatusStrip1";
             // 
             // ToolStripStatusLabel1
             // 
-            ToolStripStatusLabel1.Name = "ToolStripStatusLabel1";
-            ToolStripStatusLabel1.Size = new Size(97, 17);
-            ToolStripStatusLabel1.Text = "Số lượng bản ghi : ";
+            this.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1";
+            this.ToolStripStatusLabel1.Size = new System.Drawing.Size(134, 20);
+            this.ToolStripStatusLabel1.Text = "Số lượng bản ghi : ";
             // 
             // ToolStripStatusLabel2
             // 
-            ToolStripStatusLabel2.Name = "ToolStripStatusLabel2";
-            ToolStripStatusLabel2.Size = new Size(0, 17);
+            this.ToolStripStatusLabel2.Name = "ToolStripStatusLabel2";
+            this.ToolStripStatusLabel2.Size = new System.Drawing.Size(0, 20);
             // 
             // ToolStripSplitButton3
             // 
-            ToolStripSplitButton3.DisplayStyle = ToolStripItemDisplayStyle.None;
-            ToolStripSplitButton3.Image = (Image)resources.GetObject("ToolStripSplitButton3.Image");
-            ToolStripSplitButton3.ImageTransparentColor = Color.Magenta;
-            ToolStripSplitButton3.Name = "ToolStripSplitButton3";
-            ToolStripSplitButton3.Size = new Size(16, 20);
-            ToolStripSplitButton3.Text = "ToolStripSplitButton3";
+            this.ToolStripSplitButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.None;
+            this.ToolStripSplitButton3.Image = ((System.Drawing.Image)(resources.GetObject("ToolStripSplitButton3.Image")));
+            this.ToolStripSplitButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolStripSplitButton3.Name = "ToolStripSplitButton3";
+            this.ToolStripSplitButton3.Size = new System.Drawing.Size(19, 24);
+            this.ToolStripSplitButton3.Text = "ToolStripSplitButton3";
             // 
             // ToolStripStatusLabel15
             // 
-            ToolStripStatusLabel15.Name = "ToolStripStatusLabel15";
-            ToolStripStatusLabel15.Size = new Size(105, 17);
-            ToolStripStatusLabel15.Text = "Tổng số phiếu bầu : ";
+            this.ToolStripStatusLabel15.Name = "ToolStripStatusLabel15";
+            this.ToolStripStatusLabel15.Size = new System.Drawing.Size(143, 20);
+            this.ToolStripStatusLabel15.Text = "Tổng số phiếu bầu : ";
             // 
             // ToolStripStatusLabel16
             // 
-            ToolStripStatusLabel16.Name = "ToolStripStatusLabel16";
-            ToolStripStatusLabel16.Size = new Size(117, 17);
-            ToolStripStatusLabel16.Text = "ToolStripStatusLabel16";
+            this.ToolStripStatusLabel16.Name = "ToolStripStatusLabel16";
+            this.ToolStripStatusLabel16.Size = new System.Drawing.Size(161, 20);
+            this.ToolStripStatusLabel16.Text = "ToolStripStatusLabel16";
             // 
             // DataGridView1
             // 
-            DataGridView1.AllowUserToAddRows = false;
-            DataGridViewCellStyle1.BackColor = Color.FromArgb(192, 255, 192);
-            DataGridView1.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1;
-            DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DataGridView1.Columns.AddRange(new DataGridViewColumn[] { Electioncode, electionname, delegatecode, Delegatename, candidatecode, candidatename, Votes });
-            DataGridView1.Dock = DockStyle.Fill;
-            DataGridView1.Location = new Point(0, 25);
-            DataGridView1.Name = "DataGridView1";
-            DataGridView1.ReadOnly = true;
-            DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            DataGridView1.Size = new Size(833, 472);
-            DataGridView1.TabIndex = 15;
+            this.DataGridView1.AllowUserToAddRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Electioncode,
+            this.electionname,
+            this.delegatecode,
+            this.Delegatename,
+            this.candidatecode,
+            this.candidatename,
+            this.Votes});
+            this.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DataGridView1.Location = new System.Drawing.Point(0, 31);
+            this.DataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DataGridView1.Name = "DataGridView1";
+            this.DataGridView1.ReadOnly = true;
+            this.DataGridView1.RowHeadersWidth = 51;
+            this.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DataGridView1.Size = new System.Drawing.Size(1111, 582);
+            this.DataGridView1.TabIndex = 15;
             // 
             // Electioncode
             // 
-            Electioncode.DataPropertyName = "Electioncode";
-            Electioncode.FillWeight = 59.08628f;
-            Electioncode.HeaderText = "Mã bầu cử";
-            Electioncode.Name = "Electioncode";
-            Electioncode.ReadOnly = true;
+            this.Electioncode.DataPropertyName = "Electioncode";
+            this.Electioncode.FillWeight = 59.08628F;
+            this.Electioncode.HeaderText = "Mã bầu cử";
+            this.Electioncode.MinimumWidth = 6;
+            this.Electioncode.Name = "Electioncode";
+            this.Electioncode.ReadOnly = true;
             // 
             // electionname
             // 
-            electionname.DataPropertyName = "electionname";
-            electionname.FillWeight = 59.08628f;
-            electionname.HeaderText = "Tên bầu cử";
-            electionname.Name = "electionname";
-            electionname.ReadOnly = true;
+            this.electionname.DataPropertyName = "electionname";
+            this.electionname.FillWeight = 59.08628F;
+            this.electionname.HeaderText = "Tên bầu cử";
+            this.electionname.MinimumWidth = 6;
+            this.electionname.Name = "electionname";
+            this.electionname.ReadOnly = true;
             // 
             // delegatecode
             // 
-            delegatecode.DataPropertyName = "delegatecode";
-            delegatecode.HeaderText = "Mã đại biểu";
-            delegatecode.Name = "delegatecode";
-            delegatecode.ReadOnly = true;
+            this.delegatecode.DataPropertyName = "delegatecode";
+            this.delegatecode.HeaderText = "Mã đại biểu";
+            this.delegatecode.MinimumWidth = 6;
+            this.delegatecode.Name = "delegatecode";
+            this.delegatecode.ReadOnly = true;
             // 
             // Delegatename
             // 
-            Delegatename.DataPropertyName = "Delegatename";
-            Delegatename.HeaderText = "Tên đại biểu";
-            Delegatename.Name = "Delegatename";
-            Delegatename.ReadOnly = true;
+            this.Delegatename.DataPropertyName = "Delegatename";
+            this.Delegatename.HeaderText = "Tên đại biểu";
+            this.Delegatename.MinimumWidth = 6;
+            this.Delegatename.Name = "Delegatename";
+            this.Delegatename.ReadOnly = true;
             // 
             // candidatecode
             // 
-            candidatecode.DataPropertyName = "candidatecode";
-            DataGridViewCellStyle2.Format = "N0";
-            candidatecode.DefaultCellStyle = DataGridViewCellStyle2;
-            candidatecode.HeaderText = "Mã ứng viên";
-            candidatecode.Name = "candidatecode";
-            candidatecode.ReadOnly = true;
+            this.candidatecode.DataPropertyName = "candidatecode";
+            dataGridViewCellStyle2.Format = "N0";
+            this.candidatecode.DefaultCellStyle = dataGridViewCellStyle2;
+            this.candidatecode.HeaderText = "Mã ứng viên";
+            this.candidatecode.MinimumWidth = 6;
+            this.candidatecode.Name = "candidatecode";
+            this.candidatecode.ReadOnly = true;
             // 
             // candidatename
             // 
-            candidatename.DataPropertyName = "candidatename";
-            candidatename.HeaderText = "Tên ứng viên";
-            candidatename.Name = "candidatename";
-            candidatename.ReadOnly = true;
+            this.candidatename.DataPropertyName = "candidatename";
+            this.candidatename.HeaderText = "Tên ứng viên";
+            this.candidatename.MinimumWidth = 6;
+            this.candidatename.Name = "candidatename";
+            this.candidatename.ReadOnly = true;
             // 
             // Votes
             // 
-            Votes.DataPropertyName = "Votes";
-            DataGridViewCellStyle3.Format = "N0";
-            Votes.DefaultCellStyle = DataGridViewCellStyle3;
-            Votes.HeaderText = "Số phiếu bầu";
-            Votes.Name = "Votes";
-            Votes.ReadOnly = true;
+            this.Votes.DataPropertyName = "Votes";
+            dataGridViewCellStyle3.Format = "N0";
+            this.Votes.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Votes.HeaderText = "Số phiếu bầu";
+            this.Votes.MinimumWidth = 6;
+            this.Votes.Name = "Votes";
+            this.Votes.ReadOnly = true;
             // 
             // ElectionVoteList
             // 
-            AutoScaleDimensions = new SizeF(6.0f, 13.0f);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(833, 519);
-            Controls.Add(DataGridView1);
-            Controls.Add(StatusStrip1);
-            Controls.Add(ToolStrip1);
-            Name = "ElectionVoteList";
-            Text = "Danh sách phiếu bầu cử";
-            ToolStrip1.ResumeLayout(false);
-            ToolStrip1.PerformLayout();
-            StatusStrip1.ResumeLayout(false);
-            StatusStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)DataGridView1).EndInit();
-            Load += new EventHandler(ElectionVoteList_Load);
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1111, 639);
+            this.Controls.Add(this.DataGridView1);
+            this.Controls.Add(this.StatusStrip1);
+            this.Controls.Add(this.ToolStrip1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Name = "ElectionVoteList";
+            this.Text = "Danh sách phiếu bầu cử";
+            this.Load += new System.EventHandler(this.ElectionVoteList_Load);
+            this.ToolStrip1.ResumeLayout(false);
+            this.ToolStrip1.PerformLayout();
+            this.StatusStrip1.ResumeLayout(false);
+            this.StatusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridView1)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
         internal ToolStrip ToolStrip1;

@@ -35,267 +35,288 @@ namespace pmDHCD
         [DebuggerStepThrough()]
         private void InitializeComponent()
         {
-            var DataGridViewCellStyle1 = new DataGridViewCellStyle();
-            var DataGridViewCellStyle2 = new DataGridViewCellStyle();
-            ToolStrip1 = new ToolStrip();
-            ToolStripButton1 = new ToolStripButton();
-            ToolStripButton1.Click += new EventHandler(ToolStripButton1_Click);
-            ToolStripButton2 = new ToolStripButton();
-            ToolStripButton2.Click += new EventHandler(ToolStripButton2_Click);
-            ToolStripButton3 = new ToolStripButton();
-            ToolStripButton3.Click += new EventHandler(ToolStripButton3_Click);
-            ToolStripSeparator1 = new ToolStripSeparator();
-            ToolStripLabel1 = new ToolStripLabel();
-            ToolStripTextBox1 = new ToolStripTextBox();
-            ToolStripButton4 = new ToolStripButton();
-            ToolStripButton4.Click += new EventHandler(ToolStripButton4_Click);
-            ToolStripSeparator2 = new ToolStripSeparator();
-            ToolStripButton5 = new ToolStripButton();
-            ToolStripButton5.Click += new EventHandler(ToolStripButton5_Click);
-            StatusStrip1 = new StatusStrip();
-            ToolStripStatusLabel1 = new ToolStripStatusLabel();
-            ToolStripStatusLabel2 = new ToolStripStatusLabel();
-            DataGridView1 = new DataGridView();
-            DataGridView1.KeyDown += new KeyEventHandler(DataGridView1_KeyDown);
-            Meetingcode = new DataGridViewTextBoxColumn();
-            Meetingname = new DataGridViewTextBoxColumn();
-            CompanyName = new DataGridViewTextBoxColumn();
-            CompanyAddress = new DataGridViewTextBoxColumn();
-            Meetingaddress = new DataGridViewTextBoxColumn();
-            StockCode = new DataGridViewTextBoxColumn();
-            meetingtime = new DataGridViewTextBoxColumn();
-            Period = new DataGridViewTextBoxColumn();
-            MettingType = new DataGridViewTextBoxColumn();
-            YearMeeting = new DataGridViewTextBoxColumn();
-            ToolStrip1.SuspendLayout();
-            StatusStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)DataGridView1).BeginInit();
-            SuspendLayout();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.ToolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.ToolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.ToolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.ToolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.ToolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.ToolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.ToolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.ToolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.ToolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.ToolStripButton5 = new System.Windows.Forms.ToolStripButton();
+            this.StatusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.ToolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.ToolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.DataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Meetingcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Meetingname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CompanyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CompanyAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Meetingaddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StockCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.meetingtime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Period = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MettingType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.YearMeeting = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ToolStrip1.SuspendLayout();
+            this.StatusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridView1)).BeginInit();
+            this.SuspendLayout();
             // 
             // ToolStrip1
             // 
-            ToolStrip1.ImageScalingSize = new Size(20, 20);
-            ToolStrip1.Items.AddRange(new ToolStripItem[] { ToolStripButton1, ToolStripButton2, ToolStripButton3, ToolStripSeparator1, ToolStripLabel1, ToolStripTextBox1, ToolStripButton4, ToolStripSeparator2, ToolStripButton5 });
-            ToolStrip1.Location = new Point(0, 0);
-            ToolStrip1.Name = "ToolStrip1";
-            ToolStrip1.Size = new Size(1197, 27);
-            ToolStrip1.TabIndex = 1;
-            ToolStrip1.Text = "ToolStrip1";
+            this.ToolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.ToolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStripButton1,
+            this.ToolStripButton2,
+            this.ToolStripButton3,
+            this.ToolStripSeparator1,
+            this.ToolStripLabel1,
+            this.ToolStripTextBox1,
+            this.ToolStripButton4,
+            this.ToolStripSeparator2,
+            this.ToolStripButton5});
+            this.ToolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.ToolStrip1.Name = "ToolStrip1";
+            this.ToolStrip1.Size = new System.Drawing.Size(1197, 31);
+            this.ToolStrip1.TabIndex = 1;
+            this.ToolStrip1.Text = "ToolStrip1";
             // 
             // ToolStripButton1
             // 
-            ToolStripButton1.Image = My.Resources.Resources.Add;
-            ToolStripButton1.ImageTransparentColor = Color.Magenta;
-            ToolStripButton1.Name = "ToolStripButton1";
-            ToolStripButton1.Size = new Size(90, 24);
-            ToolStripButton1.Text = "Thêm(A)";
+            this.ToolStripButton1.Image = global::pmDHCD.My.Resources.Resources.Add;
+            this.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolStripButton1.Name = "ToolStripButton1";
+            this.ToolStripButton1.Size = new System.Drawing.Size(90, 28);
+            this.ToolStripButton1.Text = "Thêm(A)";
+            this.ToolStripButton1.Click += new System.EventHandler(this.ToolStripButton1_Click);
             // 
             // ToolStripButton2
             // 
-            ToolStripButton2.Image = My.Resources.Resources.Document;
-            ToolStripButton2.ImageTransparentColor = Color.Magenta;
-            ToolStripButton2.Name = "ToolStripButton2";
-            ToolStripButton2.Size = new Size(76, 24);
-            ToolStripButton2.Text = "Sửa(E)";
+            this.ToolStripButton2.Image = global::pmDHCD.My.Resources.Resources.Document;
+            this.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolStripButton2.Name = "ToolStripButton2";
+            this.ToolStripButton2.Size = new System.Drawing.Size(76, 28);
+            this.ToolStripButton2.Text = "Sửa(E)";
+            this.ToolStripButton2.Click += new System.EventHandler(this.ToolStripButton2_Click);
             // 
             // ToolStripButton3
             // 
-            ToolStripButton3.Image = My.Resources.Resources.Delete;
-            ToolStripButton3.ImageTransparentColor = Color.Magenta;
-            ToolStripButton3.Name = "ToolStripButton3";
-            ToolStripButton3.Size = new Size(80, 24);
-            ToolStripButton3.Text = "Xóa(D)";
+            this.ToolStripButton3.Image = global::pmDHCD.My.Resources.Resources.Delete;
+            this.ToolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolStripButton3.Name = "ToolStripButton3";
+            this.ToolStripButton3.Size = new System.Drawing.Size(80, 28);
+            this.ToolStripButton3.Text = "Xóa(D)";
+            this.ToolStripButton3.Click += new System.EventHandler(this.ToolStripButton3_Click);
             // 
             // ToolStripSeparator1
             // 
-            ToolStripSeparator1.Name = "ToolStripSeparator1";
-            ToolStripSeparator1.Size = new Size(6, 27);
+            this.ToolStripSeparator1.Name = "ToolStripSeparator1";
+            this.ToolStripSeparator1.Size = new System.Drawing.Size(6, 31);
             // 
             // ToolStripLabel1
             // 
-            ToolStripLabel1.Name = "ToolStripLabel1";
-            ToolStripLabel1.Size = new Size(95, 24);
-            ToolStripLabel1.Text = "Mã cuộc họp";
+            this.ToolStripLabel1.Name = "ToolStripLabel1";
+            this.ToolStripLabel1.Size = new System.Drawing.Size(95, 28);
+            this.ToolStripLabel1.Text = "Mã cuộc họp";
             // 
             // ToolStripTextBox1
             // 
-            ToolStripTextBox1.Font = new Font("Segoe UI", 9.0f);
-            ToolStripTextBox1.Name = "ToolStripTextBox1";
-            ToolStripTextBox1.Size = new Size(132, 27);
+            this.ToolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ToolStripTextBox1.Name = "ToolStripTextBox1";
+            this.ToolStripTextBox1.Size = new System.Drawing.Size(132, 31);
             // 
             // ToolStripButton4
             // 
-            ToolStripButton4.Image = My.Resources.Resources.Search;
-            ToolStripButton4.ImageTransparentColor = Color.Magenta;
-            ToolStripButton4.Name = "ToolStripButton4";
-            ToolStripButton4.Size = new Size(58, 24);
-            ToolStripButton4.Text = "Tìm";
+            this.ToolStripButton4.Image = global::pmDHCD.My.Resources.Resources.Search;
+            this.ToolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolStripButton4.Name = "ToolStripButton4";
+            this.ToolStripButton4.Size = new System.Drawing.Size(58, 28);
+            this.ToolStripButton4.Text = "Tìm";
+            this.ToolStripButton4.Click += new System.EventHandler(this.ToolStripButton4_Click);
             // 
             // ToolStripSeparator2
             // 
-            ToolStripSeparator2.Name = "ToolStripSeparator2";
-            ToolStripSeparator2.Size = new Size(6, 27);
+            this.ToolStripSeparator2.Name = "ToolStripSeparator2";
+            this.ToolStripSeparator2.Size = new System.Drawing.Size(6, 31);
             // 
             // ToolStripButton5
             // 
-            ToolStripButton5.Image = My.Resources.Resources.officemac01;
-            ToolStripButton5.ImageTransparentColor = Color.Magenta;
-            ToolStripButton5.Name = "ToolStripButton5";
-            ToolStripButton5.Size = new Size(206, 24);
-            ToolStripButton5.Text = "Chọn cuộc họp(S or Enter)";
+            this.ToolStripButton5.Image = global::pmDHCD.My.Resources.Resources.officemac01;
+            this.ToolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolStripButton5.Name = "ToolStripButton5";
+            this.ToolStripButton5.Size = new System.Drawing.Size(206, 28);
+            this.ToolStripButton5.Text = "Chọn cuộc họp(S or Enter)";
+            this.ToolStripButton5.Click += new System.EventHandler(this.ToolStripButton5_Click);
             // 
             // StatusStrip1
             // 
-            StatusStrip1.ImageScalingSize = new Size(20, 20);
-            StatusStrip1.Items.AddRange(new ToolStripItem[] { ToolStripStatusLabel1, ToolStripStatusLabel2 });
-            StatusStrip1.Location = new Point(0, 512);
-            StatusStrip1.Name = "StatusStrip1";
-            StatusStrip1.Padding = new Padding(1, 0, 19, 0);
-            StatusStrip1.Size = new Size(1197, 26);
-            StatusStrip1.TabIndex = 3;
-            StatusStrip1.Text = "StatusStrip1";
+            this.StatusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.StatusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStripStatusLabel1,
+            this.ToolStripStatusLabel2});
+            this.StatusStrip1.Location = new System.Drawing.Point(0, 512);
+            this.StatusStrip1.Name = "StatusStrip1";
+            this.StatusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
+            this.StatusStrip1.Size = new System.Drawing.Size(1197, 26);
+            this.StatusStrip1.TabIndex = 3;
+            this.StatusStrip1.Text = "StatusStrip1";
             // 
             // ToolStripStatusLabel1
             // 
-            ToolStripStatusLabel1.Name = "ToolStripStatusLabel1";
-            ToolStripStatusLabel1.Size = new Size(134, 20);
-            ToolStripStatusLabel1.Text = "Số lượng bản ghi : ";
+            this.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1";
+            this.ToolStripStatusLabel1.Size = new System.Drawing.Size(134, 20);
+            this.ToolStripStatusLabel1.Text = "Số lượng bản ghi : ";
             // 
             // ToolStripStatusLabel2
             // 
-            ToolStripStatusLabel2.Name = "ToolStripStatusLabel2";
-            ToolStripStatusLabel2.Size = new Size(0, 20);
+            this.ToolStripStatusLabel2.Name = "ToolStripStatusLabel2";
+            this.ToolStripStatusLabel2.Size = new System.Drawing.Size(0, 20);
             // 
             // DataGridView1
             // 
-            DataGridView1.AllowUserToAddRows = false;
-            DataGridViewCellStyle1.BackColor = Color.FromArgb(192, 255, 192);
-            DataGridView1.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1;
-            DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DataGridView1.Columns.AddRange(new DataGridViewColumn[] { Meetingcode, Meetingname, CompanyName, CompanyAddress, Meetingaddress, StockCode, meetingtime, Period, MettingType, YearMeeting });
-            DataGridView1.Dock = DockStyle.Fill;
-            DataGridView1.Location = new Point(0, 27);
-            DataGridView1.Margin = new Padding(4);
-            DataGridView1.Name = "DataGridView1";
-            DataGridView1.ReadOnly = true;
-            DataGridView1.RowHeadersWidth = 51;
-            DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            DataGridView1.Size = new Size(1197, 485);
-            DataGridView1.TabIndex = 4;
+            this.DataGridView1.AllowUserToAddRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Meetingcode,
+            this.Meetingname,
+            this.CompanyName,
+            this.CompanyAddress,
+            this.Meetingaddress,
+            this.StockCode,
+            this.meetingtime,
+            this.Period,
+            this.MettingType,
+            this.YearMeeting});
+            this.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DataGridView1.Location = new System.Drawing.Point(0, 31);
+            this.DataGridView1.Margin = new System.Windows.Forms.Padding(4);
+            this.DataGridView1.Name = "DataGridView1";
+            this.DataGridView1.ReadOnly = true;
+            this.DataGridView1.RowHeadersWidth = 51;
+            this.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DataGridView1.Size = new System.Drawing.Size(1197, 481);
+            this.DataGridView1.TabIndex = 4;
+            this.DataGridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DataGridView1_KeyDown);
             // 
             // Meetingcode
             // 
-            Meetingcode.DataPropertyName = "Meetingcode";
-            Meetingcode.FillWeight = 59.37841f;
-            Meetingcode.HeaderText = "Mã cuộc họp";
-            Meetingcode.MinimumWidth = 6;
-            Meetingcode.Name = "Meetingcode";
-            Meetingcode.ReadOnly = true;
+            this.Meetingcode.DataPropertyName = "Meetingcode";
+            this.Meetingcode.FillWeight = 59.37841F;
+            this.Meetingcode.HeaderText = "Mã cuộc họp";
+            this.Meetingcode.MinimumWidth = 6;
+            this.Meetingcode.Name = "Meetingcode";
+            this.Meetingcode.ReadOnly = true;
             // 
             // Meetingname
             // 
-            Meetingname.DataPropertyName = "Meetingname";
-            Meetingname.FillWeight = 65.68176f;
-            Meetingname.HeaderText = "Tên cuộc họp";
-            Meetingname.MinimumWidth = 100;
-            Meetingname.Name = "Meetingname";
-            Meetingname.ReadOnly = true;
+            this.Meetingname.DataPropertyName = "Meetingname";
+            this.Meetingname.FillWeight = 65.68176F;
+            this.Meetingname.HeaderText = "Tên cuộc họp";
+            this.Meetingname.MinimumWidth = 100;
+            this.Meetingname.Name = "Meetingname";
+            this.Meetingname.ReadOnly = true;
             // 
             // CompanyName
             // 
-            CompanyName.DataPropertyName = "CompanyName";
-            CompanyName.FillWeight = 138.3765f;
-            CompanyName.HeaderText = "Tên công ty";
-            CompanyName.MinimumWidth = 8;
-            CompanyName.Name = "CompanyName";
-            CompanyName.ReadOnly = true;
+            this.CompanyName.DataPropertyName = "CompanyName";
+            this.CompanyName.FillWeight = 138.3765F;
+            this.CompanyName.HeaderText = "Tên công ty";
+            this.CompanyName.MinimumWidth = 8;
+            this.CompanyName.Name = "CompanyName";
+            this.CompanyName.ReadOnly = true;
             // 
             // CompanyAddress
             // 
-            CompanyAddress.DataPropertyName = "CompanyAddress";
-            CompanyAddress.FillWeight = 79.50503f;
-            CompanyAddress.HeaderText = "Đ/C công ty";
-            CompanyAddress.MinimumWidth = 6;
-            CompanyAddress.Name = "CompanyAddress";
-            CompanyAddress.ReadOnly = true;
+            this.CompanyAddress.DataPropertyName = "CompanyAddress";
+            this.CompanyAddress.FillWeight = 79.50503F;
+            this.CompanyAddress.HeaderText = "Đ/C công ty";
+            this.CompanyAddress.MinimumWidth = 6;
+            this.CompanyAddress.Name = "CompanyAddress";
+            this.CompanyAddress.ReadOnly = true;
             // 
             // Meetingaddress
             // 
-            Meetingaddress.DataPropertyName = "Meetingaddress";
-            Meetingaddress.FillWeight = 24.77251f;
-            Meetingaddress.HeaderText = "Địa điểm tổ chức";
-            Meetingaddress.MinimumWidth = 6;
-            Meetingaddress.Name = "Meetingaddress";
-            Meetingaddress.ReadOnly = true;
-            Meetingaddress.Visible = false;
+            this.Meetingaddress.DataPropertyName = "Meetingaddress";
+            this.Meetingaddress.FillWeight = 24.77251F;
+            this.Meetingaddress.HeaderText = "Địa điểm tổ chức";
+            this.Meetingaddress.MinimumWidth = 6;
+            this.Meetingaddress.Name = "Meetingaddress";
+            this.Meetingaddress.ReadOnly = true;
+            this.Meetingaddress.Visible = false;
             // 
             // StockCode
             // 
-            StockCode.DataPropertyName = "StockCode";
-            StockCode.HeaderText = "Mã CK";
-            StockCode.MinimumWidth = 6;
-            StockCode.Name = "StockCode";
-            StockCode.ReadOnly = true;
+            this.StockCode.DataPropertyName = "StockCode";
+            this.StockCode.HeaderText = "Mã CK";
+            this.StockCode.MinimumWidth = 6;
+            this.StockCode.Name = "StockCode";
+            this.StockCode.ReadOnly = true;
             // 
             // meetingtime
             // 
-            meetingtime.DataPropertyName = "meetingtime";
-            DataGridViewCellStyle2.NullValue = null;
-            meetingtime.DefaultCellStyle = DataGridViewCellStyle2;
-            meetingtime.FillWeight = 38.75047f;
-            meetingtime.HeaderText = "Thời gian tổ chức";
-            meetingtime.MinimumWidth = 6;
-            meetingtime.Name = "meetingtime";
-            meetingtime.ReadOnly = true;
+            this.meetingtime.DataPropertyName = "meetingtime";
+            dataGridViewCellStyle2.NullValue = null;
+            this.meetingtime.DefaultCellStyle = dataGridViewCellStyle2;
+            this.meetingtime.FillWeight = 38.75047F;
+            this.meetingtime.HeaderText = "Thời gian tổ chức";
+            this.meetingtime.MinimumWidth = 6;
+            this.meetingtime.Name = "meetingtime";
+            this.meetingtime.ReadOnly = true;
             // 
             // Period
             // 
-            Period.DataPropertyName = "Period";
-            Period.HeaderText = "Nhiệm kỳ";
-            Period.MinimumWidth = 6;
-            Period.Name = "Period";
-            Period.ReadOnly = true;
+            this.Period.DataPropertyName = "Period";
+            this.Period.HeaderText = "Nhiệm kỳ";
+            this.Period.MinimumWidth = 6;
+            this.Period.Name = "Period";
+            this.Period.ReadOnly = true;
             // 
             // MettingType
             // 
-            MettingType.DataPropertyName = "MettingType";
-            MettingType.HeaderText = "Loại hình";
-            MettingType.MinimumWidth = 6;
-            MettingType.Name = "MettingType";
-            MettingType.ReadOnly = true;
+            this.MettingType.DataPropertyName = "MettingType";
+            this.MettingType.HeaderText = "Loại hình";
+            this.MettingType.MinimumWidth = 6;
+            this.MettingType.Name = "MettingType";
+            this.MettingType.ReadOnly = true;
             // 
             // YearMeeting
             // 
-            YearMeeting.DataPropertyName = "YearMeeting";
-            YearMeeting.HeaderText = "Năm";
-            YearMeeting.MinimumWidth = 6;
-            YearMeeting.Name = "YearMeeting";
-            YearMeeting.ReadOnly = true;
-            YearMeeting.Visible = false;
+            this.YearMeeting.DataPropertyName = "YearMeeting";
+            this.YearMeeting.HeaderText = "Năm";
+            this.YearMeeting.MinimumWidth = 6;
+            this.YearMeeting.Name = "YearMeeting";
+            this.YearMeeting.ReadOnly = true;
+            this.YearMeeting.Visible = false;
             // 
             // MeetingList
             // 
-            AutoScaleDimensions = new SizeF(8.0f, 16.0f);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1197, 538);
-            Controls.Add(DataGridView1);
-            Controls.Add(StatusStrip1);
-            Controls.Add(ToolStrip1);
-            KeyPreview = true;
-            Margin = new Padding(4);
-            Name = "MeetingList";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Danh sách cuộc họp";
-            ToolStrip1.ResumeLayout(false);
-            ToolStrip1.PerformLayout();
-            StatusStrip1.ResumeLayout(false);
-            StatusStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)DataGridView1).EndInit();
-            Load += new EventHandler(MeetingList_Load);
-            KeyUp += new KeyEventHandler(MeetingList_KeyUp);
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1197, 538);
+            this.Controls.Add(this.DataGridView1);
+            this.Controls.Add(this.StatusStrip1);
+            this.Controls.Add(this.ToolStrip1);
+            this.KeyPreview = true;
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "MeetingList";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Danh sách cuộc họp";
+            this.Load += new System.EventHandler(this.MeetingList_Load);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.MeetingList_KeyUp);
+            this.ToolStrip1.ResumeLayout(false);
+            this.ToolStrip1.PerformLayout();
+            this.StatusStrip1.ResumeLayout(false);
+            this.StatusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridView1)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
         internal ToolStrip ToolStrip1;
