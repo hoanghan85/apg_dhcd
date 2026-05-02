@@ -48,6 +48,7 @@ namespace pmDHCD
             MaskedTextBox4 = new MaskedTextBox();
             HolderIdentifyMaskedTextBox2 = new MaskedTextBox();
             HolderIdentifyMaskedTextBox2.KeyDown += new KeyEventHandler(MaskedTextBox2_KeyDown);
+            HolderIdentifyMaskedTextBox2.PreviewKeyDown += new PreviewKeyDownEventHandler(HolderIdentifyMaskedTextBox2_PreviewKeyDown);
             HolderCodeMaskedTextBox = new MaskedTextBox();
             HolderCodeMaskedTextBox.KeyDown += new KeyEventHandler(MaskedTextBox5_KeyDown);
             HolderCodeMaskedTextBox.Leave += new EventHandler(MaskedTextBox5_Leave);

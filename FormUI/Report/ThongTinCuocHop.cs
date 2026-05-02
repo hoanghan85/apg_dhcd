@@ -30,7 +30,7 @@ namespace pmDHCD
         {
             get
             {
-                return "ThongTinCuocHop.rpt";
+                return "Report.ThongTinCuocHop.rpt";
             }
             set
             {
@@ -54,7 +54,7 @@ namespace pmDHCD
         {
             get
             {
-                return "pmDHCD.ThongTinCuocHop.rpt";
+                return "pmDHCD.Report.ThongTinCuocHop.rpt";
             }
             set
             {

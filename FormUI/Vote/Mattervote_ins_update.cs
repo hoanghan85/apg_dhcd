@@ -198,8 +198,10 @@ namespace pmDHCD
         private void MaskedTextBox2_KeyDown(object sender, KeyEventArgs e)
         {
 
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
             {
+                e.Handled = true;
+                e.SuppressKeyPress = true;
 
                 if (HolderIdentifyMaskedTextBox2.Text is not null && !string.IsNullOrEmpty(HolderIdentifyMaskedTextBox2.Text))
                 {
@@ -234,6 +236,14 @@ namespace pmDHCD
                 {
                     Button1.Focus();
                 }
+            }
+        }
+
+        private void HolderIdentifyMaskedTextBox2_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyCode == Keys.Tab)
+            {
+                e.IsInputKey = true;
             }
         }
 
