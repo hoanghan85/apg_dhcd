@@ -155,6 +155,12 @@ namespace pmDHCD
             My.MyProject.Forms.IllegalElectionList.Show();
         }
 
+        private void BáoCáoToolStripMenuItem_1_Click(object sender, EventArgs e)
+        {
+            var frm = new ReportForm();
+            frm.Show();
+        }
+
         private void AbcToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("abc");

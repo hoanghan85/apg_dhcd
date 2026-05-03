@@ -33,13 +33,14 @@ namespace BenlyDAL.BenlyDAL
             return result;
         }
 
-        public DataTable GetVoteSenate(string senateName)
+        public DataTable GetVoteSenate(string senateName, string workingmeeting)
         {
             var result = new DataTable();
             string query;
-            query = "select distinct c.CandidateCode as Code,c.CandidateName as Name from Candidates c join Elections e on c.Electioncode= e.Electioncode and e.ElectionName like N'%" + senateName + "%'";
+            query = "select distinct c.CandidateCode as Code,c.CandidateName as Name from Candidates c join Elections e on c.Electioncode = e.Electioncode and e.Meetingcode = c.Meetingcode  and (e.ElectionName like N'%HĐQT%' or e.ElectionName like N'%" + senateName + "%')" + "and e.Meetingcode = N'" + workingmeeting + "'";
             var cmd = new SqlCommand(query, conn);
             cmd.CommandType = CommandType.Text;
+            cmd.Parameters.Add("@Meetingcode", SqlDbType.VarChar).Value = workingmeeting;
             var da = new SqlDataAdapter(cmd);
             try
             {
@@ -689,7 +690,8 @@ namespace BenlyDAL.BenlyDAL
             }
         }
 
-        public void MatterVotes_insert(string meetingcode, decimal mattercode, decimal HolderCode, decimal DelegateCode, bool Agree, bool disAgree, bool noidea)
+        public void MatterVotes_insert(string meetingcode, decimal mattercode, //decimal HolderCode, 
+            decimal DelegateCode, bool Agree, bool disAgree, bool noidea)
         {
             string strquerry = "Mattervotes_insert";
             var cmd = new SqlCommand(strquerry, conn);
@@ -780,7 +782,7 @@ namespace BenlyDAL.BenlyDAL
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@Meetingcode", SqlDbType.VarChar).Value = meetingcode;
             cmd.Parameters.Add("@mattercode", SqlDbType.VarChar).Value = mattercode;
-            cmd.Parameters.Add("@DelegateCode", SqlDbType.VarChar).Value = 0;
+            //cmd.Parameters.Add("@DelegateCode", SqlDbType.VarChar).Value = 0;
             cmd.Parameters.Add("@holderIdentify", SqlDbType.VarChar).Value = holderIdentify;
             var da = new SqlDataAdapter(cmd);
             try
@@ -1093,6 +1095,47 @@ namespace BenlyDAL.BenlyDAL
                 result.sumofparticipedVoterights = Conversions.ToDecimal(reader3["sumofparticipedVoterights"]);
             }
             reader3.Close();
+            return result;
+        }
+
+        public DataTable RP_Authorizations_List(string workingmeeting, string stockCode)
+        {
+            var result = new DataTable();
+            string strquerry = "RP_Authorizations_List";
+            var cmd = new SqlCommand(strquerry, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@Meetingcode", SqlDbType.VarChar).Value = workingmeeting;
+            cmd.Parameters.Add("@Stockcode", SqlDbType.VarChar).Value = stockCode;
+            var da = new SqlDataAdapter(cmd);
+            try
+            {
+                da.Fill(result);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return result;
+        }
+
+        public DataTable RP_Participation_Summary(string workingmeeting)
+        {
+            var result = new DataTable();
+            string strquerry = "RP_Participation_Summary";
+            var cmd = new SqlCommand(strquerry, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@Meetingcode", SqlDbType.VarChar).Value = workingmeeting;
+            var da = new SqlDataAdapter(cmd);
+            try
+            {
+                da.Fill(result);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
             return result;
         }
 

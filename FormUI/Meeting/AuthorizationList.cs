@@ -4,6 +4,9 @@ using System.Windows.Forms;
 using CrystalDecisions.CrystalReports.Engine;
 using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
+using NPOI.XSSF.UserModel;
+using NPOI.SS.UserModel;
+using System.IO;
 
 namespace pmDHCD
 {
@@ -110,6 +113,16 @@ namespace pmDHCD
                             ToolStripButton3_Click(sender, e);
                             break;
                         }
+                    case Keys.X:
+                        {
+                            ToolStripButton7_Click(sender, e);
+                            break;
+                        }
+                    case Keys.B:
+                        {
+                            ToolStripButton8_Click(sender, e);
+                            break;
+                        }
                     case Keys.Escape:
                         {
                             Close();
@@ -186,6 +199,177 @@ namespace pmDHCD
                 Interaction.MsgBox("Lỗi :" + ex.Message);
             }
 
+        }
+
+        private void ExportToExcel()
+        {
+            try
+            {
+                if (DataGridView1.Rows.Count == 0)
+                {
+                    MessageBox.Show("Không có dữ liệu để xuất", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                SaveFileDialog saveDialog = new SaveFileDialog();
+                saveDialog.Filter = "Excel files (*.xlsx)|*.xlsx";
+                saveDialog.DefaultExt = "xlsx";
+                saveDialog.FileName = "DanhSachUyQuyen_" + DateTime.Now.ToString("yyyyMMdd_HHmmss");
+
+                if (saveDialog.ShowDialog() == DialogResult.OK)
+                {
+                    IWorkbook workbook = new XSSFWorkbook();
+                    ISheet sheet = workbook.CreateSheet("Danh sách ủy quyền");
+
+                    // Tạo header
+                    IRow headerRow = sheet.CreateRow(0);
+                    for (int i = 0; i < DataGridView1.Columns.Count; i++)
+                    {
+                        ICell cell = headerRow.CreateCell(i);
+                        cell.SetCellValue(DataGridView1.Columns[i].HeaderText);
+
+                        // Format header - bold
+                        ICellStyle headerStyle = workbook.CreateCellStyle();
+                        IFont headerFont = workbook.CreateFont();
+                        headerFont.IsBold = true;
+                        headerStyle.SetFont(headerFont);
+                        cell.CellStyle = headerStyle;
+                    }
+
+                    // Thêm dữ liệu
+                    for (int rowIndex = 0; rowIndex < DataGridView1.Rows.Count; rowIndex++)
+                    {
+                        IRow row = sheet.CreateRow(rowIndex + 1);
+                        for (int colIndex = 0; colIndex < DataGridView1.Columns.Count; colIndex++)
+                        {
+                            ICell cell = row.CreateCell(colIndex);
+                            var cellValue = DataGridView1.Rows[rowIndex].Cells[colIndex].Value;
+                            if (cellValue != null)
+                            {
+                                cell.SetCellValue(cellValue.ToString());
+                            }
+                        }
+                    }
+
+                    // Auto fit columns
+                    for (int i = 0; i < DataGridView1.Columns.Count; i++)
+                    {
+                        sheet.AutoSizeColumn(i);
+                    }
+
+                    // Lưu file
+                    using (FileStream fileStream = new FileStream(saveDialog.FileName, FileMode.Create, FileAccess.Write))
+                    {
+                        workbook.Write(fileStream);
+                    }
+
+                    MessageBox.Show("Xuất Excel thành công!\nĐường dẫn: " + saveDialog.FileName, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi xuất Excel: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ToolStripButton7_Click(object sender, EventArgs e)
+        {
+            ExportToExcel();
+        }
+
+        private void ToolStripButton8_Click(object sender, EventArgs e)
+        {
+            ExportToExcelFromDB();
+        }
+
+        private void ExportToExcelFromDB()
+        {
+            try
+            {
+                SaveFileDialog saveDialog = new SaveFileDialog();
+                saveDialog.Filter = "Excel files (*.xlsx)|*.xlsx";
+                saveDialog.DefaultExt = "xlsx";
+                saveDialog.FileName = "DanhSachUyQuyen_DB_" + DateTime.Now.ToString("yyyyMMdd_HHmmss");
+
+                if (saveDialog.ShowDialog() == DialogResult.OK)
+                {
+                    // Lấy dữ liệu trực tiếp từ DB
+                    int delegatecode = 0;
+                    var dt = new DataTable();
+                    try
+                    {
+                        dt = My.MyProject.Forms.Mainform.BenlyDal.Authorizations_getlist(
+                            My.MyProject.Forms.Mainform.workingmeeting, 
+                            delegatecode, 
+                            "", 
+                            ToolStripTextBox2.Text, 
+                            ToolStripTextBox4.Text);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi khi lấy dữ liệu từ DB: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    if (dt.Rows.Count == 0)
+                    {
+                        MessageBox.Show("Không có dữ liệu để xuất", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    // Tạo Excel từ DataTable
+                    IWorkbook workbook = new XSSFWorkbook();
+                    ISheet sheet = workbook.CreateSheet("Danh sách ủy quyền");
+
+                    // Tạo header từ DataTable columns
+                    IRow headerRow = sheet.CreateRow(0);
+                    for (int i = 0; i < dt.Columns.Count; i++)
+                    {
+                        ICell cell = headerRow.CreateCell(i);
+                        cell.SetCellValue(dt.Columns[i].ColumnName);
+
+                        // Format header - bold
+                        ICellStyle headerStyle = workbook.CreateCellStyle();
+                        IFont headerFont = workbook.CreateFont();
+                        headerFont.IsBold = true;
+                        headerStyle.SetFont(headerFont);
+                        cell.CellStyle = headerStyle;
+                    }
+
+                    // Thêm dữ liệu từ DataTable
+                    for (int rowIndex = 0; rowIndex < dt.Rows.Count; rowIndex++)
+                    {
+                        IRow row = sheet.CreateRow(rowIndex + 1);
+                        for (int colIndex = 0; colIndex < dt.Columns.Count; colIndex++)
+                        {
+                            ICell cell = row.CreateCell(colIndex);
+                            var cellValue = dt.Rows[rowIndex][colIndex];
+                            if (cellValue != null && cellValue != DBNull.Value)
+                            {
+                                cell.SetCellValue(cellValue.ToString());
+                            }
+                        }
+                    }
+
+                    // Auto fit columns
+                    for (int i = 0; i < dt.Columns.Count; i++)
+                    {
+                        sheet.AutoSizeColumn(i);
+                    }
+
+                    // Lưu file
+                    using (FileStream fileStream = new FileStream(saveDialog.FileName, FileMode.Create, FileAccess.Write))
+                    {
+                        workbook.Write(fileStream);
+                    }
+
+                    MessageBox.Show("Xuất Excel từ DB thành công!\nĐường dẫn: " + saveDialog.FileName, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi xuất Excel: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

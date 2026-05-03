@@ -230,7 +230,7 @@ namespace pmDHCD
             this.ToolStripButton8.Image = global::pmDHCD.My.Resources.Resources.Printer;
             this.ToolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ToolStripButton8.Name = "ToolStripButton8";
-            this.ToolStripButton8.Size = new System.Drawing.Size(105, 36);
+            this.ToolStripButton8.Size = new System.Drawing.Size(105, 24);
             this.ToolStripButton8.Text = "Phiếu BQ 2";
             this.ToolStripButton8.Visible = false;
             this.ToolStripButton8.Click += new System.EventHandler(this.ToolStripButton8_Click);
@@ -240,7 +240,7 @@ namespace pmDHCD
             this.ToolStripButton6.Image = global::pmDHCD.My.Resources.Resources.Printer;
             this.ToolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ToolStripButton6.Name = "ToolStripButton6";
-            this.ToolStripButton6.Size = new System.Drawing.Size(110, 36);
+            this.ToolStripButton6.Size = new System.Drawing.Size(110, 24);
             this.ToolStripButton6.Text = "Phiếu bầu 1";
             this.ToolStripButton6.Visible = false;
             // 
@@ -249,7 +249,7 @@ namespace pmDHCD
             this.ToolStripButton9.Image = global::pmDHCD.My.Resources.Resources.Printer;
             this.ToolStripButton9.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ToolStripButton9.Name = "ToolStripButton9";
-            this.ToolStripButton9.Size = new System.Drawing.Size(110, 36);
+            this.ToolStripButton9.Size = new System.Drawing.Size(110, 24);
             this.ToolStripButton9.Text = "Phiếu bầu 2";
             this.ToolStripButton9.Visible = false;
             this.ToolStripButton9.Click += new System.EventHandler(this.ToolStripButton9_Click);

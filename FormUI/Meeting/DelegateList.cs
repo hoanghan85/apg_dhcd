@@ -447,7 +447,7 @@ namespace pmDHCD
             {
                 cr.Load(reportPath);
                 const string pram = "ban kiểm soát";
-                var dt = My.MyProject.Forms.Mainform.BenlyDal.GetVoteSenate(pram);
+                var dt = My.MyProject.Forms.Mainform.BenlyDal.GetVoteSenate(pram, My.MyProject.Forms.Mainform.workingmeeting);
                 cr.SetDataSource(dt);
                 string logoPath = System.IO.Path.Combine(Application.StartupPath, @"Resources\Logo.jpg");
                 cr.SetParameterValue("LogoPath", logoPath);
@@ -494,7 +494,7 @@ namespace pmDHCD
             {
                 cr.Load(reportPath);
                 const string pram = "Hội Đồng Quản trị";
-                var dt = My.MyProject.Forms.Mainform.BenlyDal.GetVoteSenate(pram);
+                var dt = My.MyProject.Forms.Mainform.BenlyDal.GetVoteSenate(pram, My.MyProject.Forms.Mainform.workingmeeting);
                 cr.SetDataSource(dt);
                 string logoPath = System.IO.Path.Combine(Application.StartupPath, @"Resources\Logo.jpg");
                 cr.SetParameterValue("LogoPath", logoPath);
@@ -512,7 +512,7 @@ namespace pmDHCD
             }
             catch (Exception ex)
             {
-                Interaction.MsgBox("Lỗi :" + ex.Message);
+                Interaction.MsgBox("Lỗi zz:" + ex.Message);
             }
 
         }

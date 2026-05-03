@@ -177,11 +177,12 @@ namespace pmDHCD
         {
             try
             {
-                My.MyProject.Forms.Mainform.BenlyDal.MatterVotes_insert(My.MyProject.Forms.Mainform.workingmeeting, NumericUpDown1.Value, Conversions.ToDecimal(HolderCodeMaskedTextBox.Text), Conversions.ToDecimal(delegateCodeMaskedTextBox.Text), RadioButton1.Checked, RadioButton2.Checked, RadioButton3.Checked);
+                My.MyProject.Forms.Mainform.BenlyDal.MatterVotes_insert(My.MyProject.Forms.Mainform.workingmeeting, NumericUpDown1.Value, //Conversions.ToDecimal(HolderCodeMaskedTextBox.Text), 
+                    Conversions.ToDecimal(delegateCodeMaskedTextBox.Text), RadioButton1.Checked, RadioButton2.Checked, RadioButton3.Checked);
             }
             catch (Exception ex)
             {
-                Interaction.MsgBox("Lỗi :" + ex.Message);
+                Interaction.MsgBox("Lỗi z:" + ex.Message);
             }
         }
         private void Updatemattervote()
@@ -267,7 +268,7 @@ namespace pmDHCD
                 delegateCodeMaskedTextBox.Text = Conversions.ToString(daibieu.Rows[0]["DelegateCode"]);
                 HolderIdentifyMaskedTextBox2.Text = Conversions.ToString(daibieu.Rows[0]["HolderIdentity"]);
                 MaskedTextBox4.Text = Conversions.ToString(daibieu.Rows[0]["HolderName"]);
-                StockTextBox1.Text = Conversions.ToString(daibieu.Rows[0]["Delegateright"]);
+                StockTextBox1.Text = Conversions.ToString(daibieu.Rows[0]["Mattervoterights"]);
                 delegateIdentityTextBox.Text = ""; // daibieu.Rows(0).Item("IdentityCard")
                 delegateNameTextbox.Text = Conversions.ToString(daibieu.Rows[0]["DelegateName"]);
             }

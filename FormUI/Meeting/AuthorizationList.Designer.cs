@@ -54,6 +54,8 @@ namespace pmDHCD
             this.ToolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.ToolStripButton6 = new System.Windows.Forms.ToolStripButton();
             this.ToolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.ToolStripButton7 = new System.Windows.Forms.ToolStripButton();
+            this.ToolStripButton8 = new System.Windows.Forms.ToolStripButton();
             this.StatusStrip1 = new System.Windows.Forms.StatusStrip();
             this.ToolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.ToolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -65,6 +67,7 @@ namespace pmDHCD
             this.ToolStripStatusLabel6 = new System.Windows.Forms.ToolStripStatusLabel();
             this.DataGridView1 = new System.Windows.Forms.DataGridView();
             this.Holdercode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Mattervoterights = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.holdername = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HolderIdentity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HolderAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -95,10 +98,12 @@ namespace pmDHCD
             this.ToolStripSeparator3,
             this.ToolStripButton5,
             this.ToolStripButton6,
-            this.ToolStripButton4});
+            this.ToolStripButton4,
+            this.ToolStripButton7,
+            this.ToolStripButton8});
             this.ToolStrip1.Location = new System.Drawing.Point(0, 0);
             this.ToolStrip1.Name = "ToolStrip1";
-            this.ToolStrip1.Size = new System.Drawing.Size(1253, 31);
+            this.ToolStrip1.Size = new System.Drawing.Size(1253, 27);
             this.ToolStrip1.TabIndex = 4;
             this.ToolStrip1.Text = "ToolStrip1";
             // 
@@ -107,7 +112,7 @@ namespace pmDHCD
             this.ToolStripButton1.Image = global::pmDHCD.My.Resources.Resources.Add;
             this.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ToolStripButton1.Name = "ToolStripButton1";
-            this.ToolStripButton1.Size = new System.Drawing.Size(90, 28);
+            this.ToolStripButton1.Size = new System.Drawing.Size(90, 24);
             this.ToolStripButton1.Text = "Thêm(A)";
             this.ToolStripButton1.Click += new System.EventHandler(this.ToolStripButton1_Click);
             // 
@@ -116,7 +121,7 @@ namespace pmDHCD
             this.ToolStripButton2.Image = global::pmDHCD.My.Resources.Resources.Document;
             this.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ToolStripButton2.Name = "ToolStripButton2";
-            this.ToolStripButton2.Size = new System.Drawing.Size(76, 28);
+            this.ToolStripButton2.Size = new System.Drawing.Size(76, 24);
             this.ToolStripButton2.Text = "Sửa(E)";
             this.ToolStripButton2.Click += new System.EventHandler(this.ToolStripButton2_Click);
             // 
@@ -125,57 +130,57 @@ namespace pmDHCD
             this.ToolStripButton3.Image = global::pmDHCD.My.Resources.Resources.Delete;
             this.ToolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ToolStripButton3.Name = "ToolStripButton3";
-            this.ToolStripButton3.Size = new System.Drawing.Size(80, 28);
+            this.ToolStripButton3.Size = new System.Drawing.Size(80, 24);
             this.ToolStripButton3.Text = "Xóa(D)";
             this.ToolStripButton3.Click += new System.EventHandler(this.ToolStripButton3_Click);
             // 
             // ToolStripSeparator1
             // 
             this.ToolStripSeparator1.Name = "ToolStripSeparator1";
-            this.ToolStripSeparator1.Size = new System.Drawing.Size(6, 31);
+            this.ToolStripSeparator1.Size = new System.Drawing.Size(6, 27);
             // 
             // ToolStripLabel2
             // 
             this.ToolStripLabel2.Name = "ToolStripLabel2";
-            this.ToolStripLabel2.Size = new System.Drawing.Size(131, 28);
+            this.ToolStripLabel2.Size = new System.Drawing.Size(131, 24);
             this.ToolStripLabel2.Text = "CCCD/HC đại biểu";
             // 
             // ToolStripTextBox2
             // 
             this.ToolStripTextBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.ToolStripTextBox2.Name = "ToolStripTextBox2";
-            this.ToolStripTextBox2.Size = new System.Drawing.Size(132, 31);
+            this.ToolStripTextBox2.Size = new System.Drawing.Size(132, 27);
             this.ToolStripTextBox2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ToolStripTextBox2_KeyUp);
             // 
             // ToolStripSeparator2
             // 
             this.ToolStripSeparator2.Name = "ToolStripSeparator2";
-            this.ToolStripSeparator2.Size = new System.Drawing.Size(6, 31);
+            this.ToolStripSeparator2.Size = new System.Drawing.Size(6, 27);
             // 
             // ToolStripLabel4
             // 
             this.ToolStripLabel4.Name = "ToolStripLabel4";
-            this.ToolStripLabel4.Size = new System.Drawing.Size(176, 28);
+            this.ToolStripLabel4.Size = new System.Drawing.Size(176, 24);
             this.ToolStripLabel4.Text = "CCCD/HC/GPKD cổ đông";
             // 
             // ToolStripTextBox4
             // 
             this.ToolStripTextBox4.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.ToolStripTextBox4.Name = "ToolStripTextBox4";
-            this.ToolStripTextBox4.Size = new System.Drawing.Size(132, 31);
+            this.ToolStripTextBox4.Size = new System.Drawing.Size(132, 27);
             this.ToolStripTextBox4.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ToolStripTextBox4_KeyUp);
             // 
             // ToolStripSeparator3
             // 
             this.ToolStripSeparator3.Name = "ToolStripSeparator3";
-            this.ToolStripSeparator3.Size = new System.Drawing.Size(6, 31);
+            this.ToolStripSeparator3.Size = new System.Drawing.Size(6, 27);
             // 
             // ToolStripButton5
             // 
             this.ToolStripButton5.Image = global::pmDHCD.My.Resources.Resources.Search;
             this.ToolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ToolStripButton5.Name = "ToolStripButton5";
-            this.ToolStripButton5.Size = new System.Drawing.Size(58, 28);
+            this.ToolStripButton5.Size = new System.Drawing.Size(58, 24);
             this.ToolStripButton5.Text = "Tìm";
             this.ToolStripButton5.Click += new System.EventHandler(this.ToolStripButton5_Click);
             // 
@@ -198,6 +203,26 @@ namespace pmDHCD
             this.ToolStripButton4.Text = "In giấy x.nhận t.dự";
             this.ToolStripButton4.Visible = false;
             this.ToolStripButton4.Click += new System.EventHandler(this.ToolStripButton4_Click);
+            // 
+            // ToolStripButton7
+            // 
+            this.ToolStripButton7.Image = global::pmDHCD.My.Resources.Resources.Document;
+            this.ToolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolStripButton7.Name = "ToolStripButton7";
+            this.ToolStripButton7.Size = new System.Drawing.Size(119, 24);
+            this.ToolStripButton7.Text = "Xuất Excel(E)";
+            this.ToolStripButton7.Visible = false;
+            this.ToolStripButton7.Click += new System.EventHandler(this.ToolStripButton7_Click);
+            // 
+            // ToolStripButton8
+            // 
+            this.ToolStripButton8.Image = global::pmDHCD.My.Resources.Resources.Document;
+            this.ToolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolStripButton8.Name = "ToolStripButton8";
+            this.ToolStripButton8.Size = new System.Drawing.Size(106, 24);
+            this.ToolStripButton8.Text = "Xuất DB(B)";
+            this.ToolStripButton8.Visible = false;
+            this.ToolStripButton8.Click += new System.EventHandler(this.ToolStripButton8_Click);
             // 
             // StatusStrip1
             // 
@@ -280,6 +305,7 @@ namespace pmDHCD
             this.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Holdercode,
+            this.Mattervoterights,
             this.holdername,
             this.HolderIdentity,
             this.HolderAddress,
@@ -290,14 +316,14 @@ namespace pmDHCD
             this.voterights,
             this.DelegateRight});
             this.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DataGridView1.Location = new System.Drawing.Point(0, 31);
+            this.DataGridView1.Location = new System.Drawing.Point(0, 27);
             this.DataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.DataGridView1.Name = "DataGridView1";
             this.DataGridView1.ReadOnly = true;
             this.DataGridView1.RowHeadersVisible = false;
             this.DataGridView1.RowHeadersWidth = 51;
             this.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DataGridView1.Size = new System.Drawing.Size(1253, 513);
+            this.DataGridView1.Size = new System.Drawing.Size(1253, 517);
             this.DataGridView1.TabIndex = 9;
             // 
             // Holdercode
@@ -308,6 +334,15 @@ namespace pmDHCD
             this.Holdercode.MinimumWidth = 80;
             this.Holdercode.Name = "Holdercode";
             this.Holdercode.ReadOnly = true;
+            // 
+            // Mattervoterights
+            // 
+            this.Mattervoterights.DataPropertyName = "Mattervoterights";
+            this.Mattervoterights.HeaderText = "Mattervoterights";
+            this.Mattervoterights.MinimumWidth = 6;
+            this.Mattervoterights.Name = "Mattervoterights";
+            this.Mattervoterights.ReadOnly = true;
+            this.Mattervoterights.Visible = false;
             // 
             // holdername
             // 
@@ -445,15 +480,18 @@ namespace pmDHCD
         internal ToolStripStatusLabel ToolStripStatusLabel6;
         internal ToolStripButton ToolStripButton5;
         internal ToolStripButton ToolStripButton6;
-        internal DataGridViewTextBoxColumn Holdercode;
-        internal DataGridViewTextBoxColumn holdername;
-        internal DataGridViewTextBoxColumn HolderIdentity;
-        internal DataGridViewTextBoxColumn HolderAddress;
-        internal DataGridViewTextBoxColumn Delegatecode;
-        internal DataGridViewTextBoxColumn Delegatename;
-        internal DataGridViewTextBoxColumn IdentityCard;
-        internal DataGridViewTextBoxColumn DelegateAddress;
-        internal DataGridViewTextBoxColumn voterights;
-        internal DataGridViewTextBoxColumn DelegateRight;
+        internal ToolStripButton ToolStripButton7;
+        internal ToolStripButton ToolStripButton8;
+        private DataGridViewTextBoxColumn Holdercode;
+        private DataGridViewTextBoxColumn Mattervoterights;
+        private DataGridViewTextBoxColumn holdername;
+        private DataGridViewTextBoxColumn HolderIdentity;
+        private DataGridViewTextBoxColumn HolderAddress;
+        private DataGridViewTextBoxColumn Delegatecode;
+        private DataGridViewTextBoxColumn Delegatename;
+        private DataGridViewTextBoxColumn IdentityCard;
+        private DataGridViewTextBoxColumn DelegateAddress;
+        private DataGridViewTextBoxColumn voterights;
+        private DataGridViewTextBoxColumn DelegateRight;
     }
 }

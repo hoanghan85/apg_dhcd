@@ -181,6 +181,7 @@ namespace pmDHCD
             this.ToolStripButton6.Name = "ToolStripButton6";
             this.ToolStripButton6.Size = new System.Drawing.Size(118, 28);
             this.ToolStripButton6.Text = "In tài liệu..(P)";
+            this.ToolStripButton6.Visible = false;
             this.ToolStripButton6.Click += new System.EventHandler(this.ToolStripButton6_Click);
             // 
             // ToolStripButton5
@@ -190,6 +191,7 @@ namespace pmDHCD
             this.ToolStripButton5.Name = "ToolStripButton5";
             this.ToolStripButton5.Size = new System.Drawing.Size(109, 28);
             this.ToolStripButton5.Text = "In nhiều CĐ";
+            this.ToolStripButton5.Visible = false;
             this.ToolStripButton5.Click += new System.EventHandler(this.ToolStripButton5_Click);
             // 
             // DataGridView1

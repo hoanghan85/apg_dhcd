@@ -68,6 +68,9 @@ namespace pmDHCD
             KếtQuảBầuCửToolStripMenuItem.Click += new EventHandler(KếtQuảBầuCửToolStripMenuItem_Click);
             DanhSáchPhiếuBầuKhôngHợpLệToolStripMenuItem = new ToolStripMenuItem();
             DanhSáchPhiếuBầuKhôngHợpLệToolStripMenuItem.Click += new EventHandler(DanhSáchPhiếuBầuKhôngHợpLệToolStripMenuItem_Click);
+            BáoCáoToolStripMenuItem = new ToolStripMenuItem();
+            BáoCáoToolStripMenuItem_1 = new ToolStripMenuItem();
+            BáoCáoToolStripMenuItem_1.Click += new EventHandler(BáoCáoToolStripMenuItem_1_Click);
             HiểnThịToolStripMenuItem = new ToolStripMenuItem();
             MainStatusStrip = new StatusStrip();
             ToolStripStatusLabel1 = new ToolStripStatusLabel();
@@ -81,7 +84,7 @@ namespace pmDHCD
             // MenuStrip1
             // 
             MenuStrip1.ImageScalingSize = new Size(20, 20);
-            MenuStrip1.Items.AddRange(new ToolStripItem[] { HệThốngToolStripMenuItem, CuộcHọpToolStripMenuItem, BiểuQuyếtToolStripMenuItem, BầuCửToolStripMenuItem, HiểnThịToolStripMenuItem });
+            MenuStrip1.Items.AddRange(new ToolStripItem[] { HệThốngToolStripMenuItem, CuộcHọpToolStripMenuItem, BiểuQuyếtToolStripMenuItem, BầuCửToolStripMenuItem, BáoCáoToolStripMenuItem, HiểnThịToolStripMenuItem });
             MenuStrip1.Location = new Point(0, 0);
             MenuStrip1.Name = "MenuStrip1";
             MenuStrip1.Size = new Size(1456, 28);
@@ -193,6 +196,19 @@ namespace pmDHCD
             DanhSáchPhiếuBầuKhôngHợpLệToolStripMenuItem.Size = new Size(347, 26);
             DanhSáchPhiếuBầuKhôngHợpLệToolStripMenuItem.Text = "5. Danh sách phiếu bầu KHÔNG hợp lệ";
             // 
+            // BáoCáoToolStripMenuItem
+            // 
+            BáoCáoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { BáoCáoToolStripMenuItem_1 });
+            BáoCáoToolStripMenuItem.Name = "BáoCáoToolStripMenuItem";
+            BáoCáoToolStripMenuItem.Size = new Size(79, 24);
+            BáoCáoToolStripMenuItem.Text = "&5.Báo cáo";
+            // 
+            // BáoCáoToolStripMenuItem_1
+            // 
+            BáoCáoToolStripMenuItem_1.Name = "BáoCáoToolStripMenuItem_1";
+            BáoCáoToolStripMenuItem_1.Size = new Size(233, 26);
+            BáoCáoToolStripMenuItem_1.Text = "1. Báo cáo";
+            // 
             // HiểnThịToolStripMenuItem
             // 
             HiểnThịToolStripMenuItem.Name = "HiểnThịToolStripMenuItem";
@@ -271,6 +287,8 @@ namespace pmDHCD
         internal ToolStripMenuItem DanhSáchCuộcHọpToolStripMenuItem;
         internal ToolStripMenuItem BiểuQuyếtToolStripMenuItem;
         internal ToolStripMenuItem BầuCửToolStripMenuItem;
+        internal ToolStripMenuItem BáoCáoToolStripMenuItem;
+        internal ToolStripMenuItem BáoCáoToolStripMenuItem_1;
         internal ToolStripMenuItem DanhSáchCổĐôngToolStripMenuItem;
         internal ToolStripMenuItem DanhSáchĐạiBiểuToolStripMenuItem;
         internal ToolStripMenuItem DanhSáchỦyQuyềnToolStripMenuItem;
