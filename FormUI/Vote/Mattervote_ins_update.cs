@@ -61,16 +61,29 @@ namespace pmDHCD
                 var dt3 = new DataTable();
                 try
                 {
-                    dt3 = My.MyProject.Forms.Mainform.BenlyDal.MatterVotes_getlist(My.MyProject.Forms.Mainform.workingmeeting, updatemattercode, updatedelegatecode.ToString());
+                    // Lấy HolderIdentify (CMND) từ delegate để tìm phiếu biểu quyết
+                    string holderIdentify = Conversions.ToString(dt2.Rows[0]["IdentityCard"]);
+
+                    dt3 = My.MyProject.Forms.Mainform.BenlyDal.MatterVotes_getlist(My.MyProject.Forms.Mainform.workingmeeting, updatemattercode, holderIdentify);
                 }
                 catch (Exception ex)
                 {
                     Interaction.MsgBox("Lỗi :" + ex.Message);
                     return;
                 }
-                RadioButton1.Checked = Conversions.ToBoolean(dt3.Rows[0]["Agree"]);
-                RadioButton2.Checked = Conversions.ToBoolean(dt3.Rows[0]["DisAgree"]);
-                RadioButton3.Checked = Conversions.ToBoolean(dt3.Rows[0]["Noidea"]);
+
+                if (dt3.Rows.Count > 0)
+                {
+                    RadioButton1.Checked = Conversions.ToBoolean(dt3.Rows[0]["Agree"]);
+                    RadioButton2.Checked = Conversions.ToBoolean(dt3.Rows[0]["DisAgree"]);
+                    RadioButton3.Checked = Conversions.ToBoolean(dt3.Rows[0]["Noidea"]);
+                }
+                else
+                {
+                    Interaction.MsgBox("Không tìm thấy phiếu biểu quyết cho vấn đề này!");
+                    Close();
+                    return;
+                }
 
                 Button2.Visible = false;
                 CheckBox1.Visible = false;

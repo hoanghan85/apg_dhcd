@@ -48,7 +48,7 @@ namespace pmDHCD
         private void Button5_Click(object sender, EventArgs e)
         {
             // Xuất thống kê biểu quyết (Excel)
-            MessageBox.Show("Chức năng sẽ được thêm - Xuất thống kê biểu quyết");
+            ExportVoteReport();
         }
 
         private void Button6_Click(object sender, EventArgs e)
@@ -61,7 +61,7 @@ namespace pmDHCD
         private void Button7_Click(object sender, EventArgs e)
         {
             // Xuất thống kê bầu cử (Excel)
-            MessageBox.Show("Chức năng sẽ được thêm - Xuất thống kê bầu cử");
+            ExportELectionReport();
         }
 
         private void Button8_Click(object sender, EventArgs e)
@@ -320,6 +320,176 @@ namespace pmDHCD
                     }
 
                     MessageBox.Show("Xuất báo cáo kiểm tra tư cách thành công!\nĐường dẫn: " + saveDialog.FileName, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi xuất Excel: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ExportVoteReport()
+        {
+            try
+            {
+                SaveFileDialog saveDialog = new SaveFileDialog();
+                saveDialog.Filter = "Excel files (*.xlsx)|*.xlsx";
+                saveDialog.DefaultExt = "xlsx";
+                saveDialog.FileName = "ThongKeBieuQuyet_" + DateTime.Now.ToString("yyyyMMdd_HHmmss");
+
+                if (saveDialog.ShowDialog() == DialogResult.OK)
+                {
+                    // Lấy dữ liệu từ SP RP_Participation_Summary
+                    var dt = new DataTable();
+                    try
+                    {
+                        dt = My.MyProject.Forms.Mainform.BenlyDal.RP_Vote_Report(
+                            My.MyProject.Forms.Mainform.workingmeeting);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi khi lấy dữ liệu từ DB: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    if (dt.Rows.Count == 0)
+                    {
+                        MessageBox.Show("Không có dữ liệu để xuất", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    // Tạo Excel từ DataTable
+                    IWorkbook workbook = new XSSFWorkbook();
+                    ISheet sheet = workbook.CreateSheet("vote_summary");
+
+                    // Tạo header từ DataTable columns
+                    IRow headerRow = sheet.CreateRow(0);
+                    for (int i = 0; i < dt.Columns.Count; i++)
+                    {
+                        ICell cell = headerRow.CreateCell(i);
+                        cell.SetCellValue(dt.Columns[i].ColumnName);
+
+                        // Format header - bold
+                        ICellStyle headerStyle = workbook.CreateCellStyle();
+                        IFont headerFont = workbook.CreateFont();
+                        headerFont.IsBold = true;
+                        headerStyle.SetFont(headerFont);
+                        cell.CellStyle = headerStyle;
+                    }
+
+                    // Thêm dữ liệu từ DataTable
+                    for (int rowIndex = 0; rowIndex < dt.Rows.Count; rowIndex++)
+                    {
+                        IRow row = sheet.CreateRow(rowIndex + 1);
+                        for (int colIndex = 0; colIndex < dt.Columns.Count; colIndex++)
+                        {
+                            ICell cell = row.CreateCell(colIndex);
+                            var cellValue = dt.Rows[rowIndex][colIndex];
+                            if (cellValue != null && cellValue != DBNull.Value)
+                            {
+                                cell.SetCellValue(cellValue.ToString());
+                            }
+                        }
+                    }
+
+                    // Auto fit columns
+                    for (int i = 0; i < dt.Columns.Count; i++)
+                    {
+                        sheet.AutoSizeColumn(i);
+                    }
+
+                    // Lưu file
+                    using (FileStream fileStream = new FileStream(saveDialog.FileName, FileMode.Create, FileAccess.Write))
+                    {
+                        workbook.Write(fileStream);
+                    }
+
+                    MessageBox.Show("Xuất báo cáo thống kê biểu quyết thành công!\nĐường dẫn: " + saveDialog.FileName, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi xuất Excel: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ExportELectionReport()
+        {
+            try
+            {
+                SaveFileDialog saveDialog = new SaveFileDialog();
+                saveDialog.Filter = "Excel files (*.xlsx)|*.xlsx";
+                saveDialog.DefaultExt = "xlsx";
+                saveDialog.FileName = "ThongKeBauCu_" + DateTime.Now.ToString("yyyyMMdd_HHmmss");
+
+                if (saveDialog.ShowDialog() == DialogResult.OK)
+                {
+                    // Lấy dữ liệu từ SP RP_Participation_Summary
+                    var dt = new DataTable();
+                    try
+                    {
+                        dt = My.MyProject.Forms.Mainform.BenlyDal.RP_Election_Report(
+                            My.MyProject.Forms.Mainform.workingmeeting);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi khi lấy dữ liệu từ DB: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    if (dt.Rows.Count == 0)
+                    {
+                        MessageBox.Show("Không có dữ liệu để xuất", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    // Tạo Excel từ DataTable
+                    IWorkbook workbook = new XSSFWorkbook();
+                    ISheet sheet = workbook.CreateSheet("election_summary");
+
+                    // Tạo header từ DataTable columns
+                    IRow headerRow = sheet.CreateRow(0);
+                    for (int i = 0; i < dt.Columns.Count; i++)
+                    {
+                        ICell cell = headerRow.CreateCell(i);
+                        cell.SetCellValue(dt.Columns[i].ColumnName);
+
+                        // Format header - bold
+                        ICellStyle headerStyle = workbook.CreateCellStyle();
+                        IFont headerFont = workbook.CreateFont();
+                        headerFont.IsBold = true;
+                        headerStyle.SetFont(headerFont);
+                        cell.CellStyle = headerStyle;
+                    }
+
+                    // Thêm dữ liệu từ DataTable
+                    for (int rowIndex = 0; rowIndex < dt.Rows.Count; rowIndex++)
+                    {
+                        IRow row = sheet.CreateRow(rowIndex + 1);
+                        for (int colIndex = 0; colIndex < dt.Columns.Count; colIndex++)
+                        {
+                            ICell cell = row.CreateCell(colIndex);
+                            var cellValue = dt.Rows[rowIndex][colIndex];
+                            if (cellValue != null && cellValue != DBNull.Value)
+                            {
+                                cell.SetCellValue(cellValue.ToString());
+                            }
+                        }
+                    }
+
+                    // Auto fit columns
+                    for (int i = 0; i < dt.Columns.Count; i++)
+                    {
+                        sheet.AutoSizeColumn(i);
+                    }
+
+                    // Lưu file
+                    using (FileStream fileStream = new FileStream(saveDialog.FileName, FileMode.Create, FileAccess.Write))
+                    {
+                        workbook.Write(fileStream);
+                    }
+
+                    MessageBox.Show("Xuất báo cáo thống kê bầu cử thành công!\nĐường dẫn: " + saveDialog.FileName, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Drawing;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
@@ -237,29 +238,47 @@ namespace pmDHCD
 
         private void Button4_Click(object sender, EventArgs e)
         {
+            try
+            {
+                // Đếm số ứng viên được chọn TRƯỚC khi xóa Votes
+                int candidatechoosen = 0;
+                foreach (DataGridViewRow gr in DataGridView1.Rows)
+                {
+                    if (Convert.ToBoolean(gr.Cells["Choosen"].Value) == true)
+                    {
+                        candidatechoosen = candidatechoosen + 1;
+                    }
+                }
 
-            // If MaskedTextBox3.Text <> "" And MaskedTextBox6.Text = "" Then
-            int candidatechoosen = 0;
-            foreach (DataGridViewRow gr in DataGridView1.Rows)
-            {
-                gr.Cells["Votes"].Value = "";
-                if (Convert.ToBoolean(gr.Cells["Choosen"].Value) == true)
+                // Nếu không có ứng viên nào được chọn, thoát
+                if (candidatechoosen == 0)
                 {
-                    candidatechoosen = candidatechoosen + 1;
+                    Interaction.MsgBox("Vui lòng chọn ít nhất một ứng viên");
+                    return;
                 }
+
+                // Lúc này mới chia đều phiếu
+                int totalVotes = Conversions.ToInteger(StockTextBox2.Text);
+                int votesPerCandidate = Convert.ToInt32(totalVotes / (double)candidatechoosen);
+
+                foreach (DataGridViewRow gr in DataGridView1.Rows)
+                {
+                    if (Conversions.ToBoolean(Operators.ConditionalCompareObjectEqual(gr.Cells["Choosen"].Value, true, false)))
+                    {
+                        gr.Cells["Votes"].Value = votesPerCandidate.ToString();
+                    }
+                    else
+                    {
+                        gr.Cells["Votes"].Value = "";
+                    }
+                }
+
+                // Cập nhật cảnh báo sau khi chia đều
+                CheckVoteWarning();
             }
-            foreach (DataGridViewRow gr in DataGridView1.Rows)
+            catch (Exception ex)
             {
-                if (Conversions.ToBoolean(Operators.ConditionalCompareObjectEqual(gr.Cells["Choosen"].Value, true, false)))
-                {
-                    int s = 0;
-                    s = Conversions.ToInteger(StockTextBox2.Text);
-                    gr.Cells["Votes"].Value = Convert.ToInt32(s / (double)candidatechoosen).ToString();
-                }
-                else
-                {
-                    gr.Cells["Votes"].Value = "";
-                }
+                Interaction.MsgBox("Lỗi: " + ex.Message);
             }
 
             // End If
@@ -438,6 +457,88 @@ namespace pmDHCD
                 DataGridView1.ReadOnly = false;
                 Button4.Enabled = true;
                 Button5.Enabled = true;
+            }
+        }
+
+        // Kiểm tra và cập nhật warning khi nhập phiếu bầu
+        private void DataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            // Chỉ kiểm tra khi chỉnh sửa cột "Votes"
+            if (e.ColumnIndex >= 0 && DataGridView1.Columns[e.ColumnIndex].Name == "Votes")
+            {
+                try
+                {
+                    // Lấy giá trị phiếu bầu được nhập
+                    var votesValue = DataGridView1.Rows[e.RowIndex].Cells["Votes"].Value;
+                    string votesStr = votesValue != null ? votesValue.ToString().Trim() : "";
+
+                    // Tự động tick "Chọn" nếu nhập giá trị (bao gồm cả 0)
+                    // Bỏ tick chỉ khi ô trống (rỗng)
+                    if (!string.IsNullOrEmpty(votesStr))
+                    {
+                        DataGridView1.Rows[e.RowIndex].Cells["Choosen"].Value = true;
+                    }
+                    else
+                    {
+                        DataGridView1.Rows[e.RowIndex].Cells["Choosen"].Value = false;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Bỏ qua lỗi nếu không convert được
+                }
+
+                // Cập nhật cảnh báo
+                CheckVoteWarning();
+            }
+        }
+
+        private void CheckVoteWarning()
+        {
+            try
+            {
+                int totalvoteingrid = 0;
+                int maxvotes = Conversions.ToInteger(StockTextBox2.Text);
+
+                foreach (DataGridViewRow dgvr in DataGridView1.Rows)
+                {
+                    if (Convert.ToBoolean(dgvr.Cells["choosen"].Value) == true)
+                    {
+                        try
+                        {
+                            int votes = Conversions.ToInteger(dgvr.Cells["Votes"].Value ?? 0);
+                            totalvoteingrid += votes;
+                        }
+                        catch
+                        {
+                            // Bỏ qua nếu không convert được
+                        }
+                    }
+                }
+
+                // Hiển thị cảnh báo nếu vượt quá
+                if (totalvoteingrid > maxvotes)
+                {
+                    LabelWarning.Text = "⚠️ Cảnh báo: Tổng phiếu bầu (" + totalvoteingrid + ") vượt quá (" + maxvotes + ")";
+                    LabelWarning.ForeColor = Color.Red;
+                    LabelWarning.Visible = true;
+                }
+                else if (totalvoteingrid > 0)
+                {
+                    LabelWarning.Text = "✓ Phiếu hợp lệ";
+                    LabelWarning.ForeColor = Color.Green;
+                    LabelWarning.Visible = true;
+                }
+                else
+                {
+                    LabelWarning.Text = "";
+                    LabelWarning.Visible = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                LabelWarning.Text = "";
+                LabelWarning.Visible = false;
             }
         }
     }

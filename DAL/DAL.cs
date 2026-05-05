@@ -1139,5 +1139,44 @@ namespace BenlyDAL.BenlyDAL
             return result;
         }
 
+        public DataTable RP_Vote_Report(string workingmeeting)
+        {
+            var result = new DataTable();
+            string strquerry = "RP_Vote_Report";
+            var cmd = new SqlCommand(strquerry, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@Meetingcode", SqlDbType.VarChar).Value = workingmeeting;
+            var da = new SqlDataAdapter(cmd);
+            try
+            {
+                da.Fill(result);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return result;
+        }
+        public DataTable RP_Election_Report(string workingmeeting)
+        {
+            var result = new DataTable();
+            string strquerry = "RP_Election_Report";
+            var cmd = new SqlCommand(strquerry, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@Meetingcode", SqlDbType.VarChar).Value = workingmeeting;
+            var da = new SqlDataAdapter(cmd);
+            try
+            {
+                da.Fill(result);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return result;
+        }
+
     }
 }

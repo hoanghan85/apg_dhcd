@@ -35,156 +35,165 @@ namespace pmDHCD
         [DebuggerStepThrough()]
         private void InitializeComponent()
         {
-            var DataGridViewCellStyle1 = new DataGridViewCellStyle();
-            ToolStrip1 = new ToolStrip();
-            ToolStripButton1 = new ToolStripButton();
-            ToolStripButton1.Click += new EventHandler(ToolStripButton1_Click);
-            ToolStripButton2 = new ToolStripButton();
-            ToolStripButton2.Click += new EventHandler(ToolStripButton2_Click);
-            ToolStripButton3 = new ToolStripButton();
-            ToolStripButton3.Click += new EventHandler(ToolStripButton3_Click);
-            ToolStripSeparator2 = new ToolStripSeparator();
-            DataGridView1 = new DataGridView();
-            StatusStrip1 = new StatusStrip();
-            ToolStripStatusLabel1 = new ToolStripStatusLabel();
-            ToolStripStatusLabel2 = new ToolStripStatusLabel();
-            Mattercode = new DataGridViewTextBoxColumn();
-            MatterName = new DataGridViewTextBoxColumn();
-            MatterDescription = new DataGridViewTextBoxColumn();
-            ToolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)DataGridView1).BeginInit();
-            StatusStrip1.SuspendLayout();
-            SuspendLayout();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.ToolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.ToolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.ToolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.ToolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.ToolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.DataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Mattercode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MatterName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MatterDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StatusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.ToolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.ToolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.ToolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridView1)).BeginInit();
+            this.StatusStrip1.SuspendLayout();
+            this.SuspendLayout();
             // 
             // ToolStrip1
             // 
-            ToolStrip1.ImageScalingSize = new Size(20, 20);
-            ToolStrip1.Items.AddRange(new ToolStripItem[] { ToolStripButton1, ToolStripButton2, ToolStripButton3, ToolStripSeparator2 });
-            ToolStrip1.Location = new Point(0, 0);
-            ToolStrip1.Name = "ToolStrip1";
-            ToolStrip1.Size = new Size(975, 27);
-            ToolStrip1.TabIndex = 3;
-            ToolStrip1.Text = "ToolStrip1";
+            this.ToolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.ToolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStripButton1,
+            this.ToolStripButton2,
+            this.ToolStripButton3,
+            this.ToolStripSeparator2});
+            this.ToolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.ToolStrip1.Name = "ToolStrip1";
+            this.ToolStrip1.Size = new System.Drawing.Size(975, 31);
+            this.ToolStrip1.TabIndex = 3;
+            this.ToolStrip1.Text = "ToolStrip1";
             // 
             // ToolStripButton1
             // 
-            ToolStripButton1.Image = My.Resources.Resources.Add;
-            ToolStripButton1.ImageTransparentColor = Color.Magenta;
-            ToolStripButton1.Name = "ToolStripButton1";
-            ToolStripButton1.Size = new Size(70, 24);
-            ToolStripButton1.Text = "Thêm";
+            this.ToolStripButton1.Image = global::pmDHCD.My.Resources.Resources.Add;
+            this.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolStripButton1.Name = "ToolStripButton1";
+            this.ToolStripButton1.Size = new System.Drawing.Size(70, 28);
+            this.ToolStripButton1.Text = "Thêm";
+            this.ToolStripButton1.Click += new System.EventHandler(this.ToolStripButton1_Click);
             // 
             // ToolStripButton2
             // 
-            ToolStripButton2.Image = My.Resources.Resources.Document;
-            ToolStripButton2.ImageTransparentColor = Color.Magenta;
-            ToolStripButton2.Name = "ToolStripButton2";
-            ToolStripButton2.Size = new Size(58, 24);
-            ToolStripButton2.Text = "Sửa";
+            this.ToolStripButton2.Image = global::pmDHCD.My.Resources.Resources.Document;
+            this.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolStripButton2.Name = "ToolStripButton2";
+            this.ToolStripButton2.Size = new System.Drawing.Size(58, 28);
+            this.ToolStripButton2.Text = "Sửa";
+            this.ToolStripButton2.Click += new System.EventHandler(this.ToolStripButton2_Click);
             // 
             // ToolStripButton3
             // 
-            ToolStripButton3.Image = My.Resources.Resources.Delete;
-            ToolStripButton3.ImageTransparentColor = Color.Magenta;
-            ToolStripButton3.Name = "ToolStripButton3";
-            ToolStripButton3.Size = new Size(59, 24);
-            ToolStripButton3.Text = "Xóa";
+            this.ToolStripButton3.Image = global::pmDHCD.My.Resources.Resources.Delete;
+            this.ToolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolStripButton3.Name = "ToolStripButton3";
+            this.ToolStripButton3.Size = new System.Drawing.Size(59, 28);
+            this.ToolStripButton3.Text = "Xóa";
+            this.ToolStripButton3.Click += new System.EventHandler(this.ToolStripButton3_Click);
             // 
             // ToolStripSeparator2
             // 
-            ToolStripSeparator2.Name = "ToolStripSeparator2";
-            ToolStripSeparator2.Size = new Size(6, 27);
+            this.ToolStripSeparator2.Name = "ToolStripSeparator2";
+            this.ToolStripSeparator2.Size = new System.Drawing.Size(6, 31);
             // 
             // DataGridView1
             // 
-            DataGridView1.AllowUserToAddRows = false;
-            DataGridViewCellStyle1.BackColor = Color.FromArgb(192, 255, 192);
-            DataGridView1.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1;
-            DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DataGridView1.Columns.AddRange(new DataGridViewColumn[] { Mattercode, MatterName, MatterDescription });
-            DataGridView1.Dock = DockStyle.Fill;
-            DataGridView1.Location = new Point(0, 27);
-            DataGridView1.Margin = new Padding(4, 4, 4, 4);
-            DataGridView1.Name = "DataGridView1";
-            DataGridView1.ReadOnly = true;
-            DataGridView1.RowHeadersWidth = 51;
-            DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            DataGridView1.Size = new Size(975, 485);
-            DataGridView1.TabIndex = 6;
-            // 
-            // StatusStrip1
-            // 
-            StatusStrip1.ImageScalingSize = new Size(20, 20);
-            StatusStrip1.Items.AddRange(new ToolStripItem[] { ToolStripStatusLabel1, ToolStripStatusLabel2 });
-            StatusStrip1.Location = new Point(0, 486);
-            StatusStrip1.Name = "StatusStrip1";
-            StatusStrip1.Padding = new Padding(1, 0, 19, 0);
-            StatusStrip1.Size = new Size(975, 26);
-            StatusStrip1.TabIndex = 7;
-            StatusStrip1.Text = "StatusStrip1";
-            // 
-            // ToolStripStatusLabel1
-            // 
-            ToolStripStatusLabel1.Name = "ToolStripStatusLabel1";
-            ToolStripStatusLabel1.Size = new Size(134, 20);
-            ToolStripStatusLabel1.Text = "Số lượng bản ghi : ";
-            // 
-            // ToolStripStatusLabel2
-            // 
-            ToolStripStatusLabel2.Name = "ToolStripStatusLabel2";
-            ToolStripStatusLabel2.Size = new Size(0, 20);
+            this.DataGridView1.AllowUserToAddRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Mattercode,
+            this.MatterName,
+            this.MatterDescription});
+            this.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DataGridView1.Location = new System.Drawing.Point(0, 31);
+            this.DataGridView1.Margin = new System.Windows.Forms.Padding(4);
+            this.DataGridView1.Name = "DataGridView1";
+            this.DataGridView1.ReadOnly = true;
+            this.DataGridView1.RowHeadersWidth = 51;
+            this.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DataGridView1.Size = new System.Drawing.Size(975, 481);
+            this.DataGridView1.TabIndex = 6;
             // 
             // Mattercode
             // 
-            Mattercode.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            Mattercode.DataPropertyName = "Mattercode";
-            Mattercode.FillWeight = 59.08628f;
-            Mattercode.HeaderText = "Mã vấn đề";
-            Mattercode.MinimumWidth = 6;
-            Mattercode.Name = "Mattercode";
-            Mattercode.ReadOnly = true;
-            Mattercode.Width = 103;
+            this.Mattercode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Mattercode.DataPropertyName = "Mattercode";
+            this.Mattercode.FillWeight = 59.08628F;
+            this.Mattercode.HeaderText = "Mã vấn đề";
+            this.Mattercode.MinimumWidth = 6;
+            this.Mattercode.Name = "Mattercode";
+            this.Mattercode.ReadOnly = true;
+            this.Mattercode.Width = 99;
             // 
             // MatterName
             // 
-            MatterName.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            MatterName.DataPropertyName = "MatterName";
-            MatterName.FillWeight = 59.08628f;
-            MatterName.HeaderText = "Tên vấn đề";
-            MatterName.MinimumWidth = 6;
-            MatterName.Name = "MatterName";
-            MatterName.ReadOnly = true;
-            MatterName.Width = 109;
+            this.MatterName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.MatterName.DataPropertyName = "MatterName";
+            this.MatterName.FillWeight = 59.08628F;
+            this.MatterName.HeaderText = "Tên vấn đề";
+            this.MatterName.MinimumWidth = 6;
+            this.MatterName.Name = "MatterName";
+            this.MatterName.ReadOnly = true;
+            this.MatterName.Width = 104;
             // 
             // MatterDescription
             // 
-            MatterDescription.DataPropertyName = "MatterDescription";
-            MatterDescription.FillWeight = 59.08628f;
-            MatterDescription.HeaderText = "Diễn giải";
-            MatterDescription.MinimumWidth = 6;
-            MatterDescription.Name = "MatterDescription";
-            MatterDescription.ReadOnly = true;
+            this.MatterDescription.DataPropertyName = "MatterDescription";
+            this.MatterDescription.FillWeight = 59.08628F;
+            this.MatterDescription.HeaderText = "Diễn giải";
+            this.MatterDescription.MinimumWidth = 6;
+            this.MatterDescription.Name = "MatterDescription";
+            this.MatterDescription.ReadOnly = true;
+            // 
+            // StatusStrip1
+            // 
+            this.StatusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.StatusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStripStatusLabel1,
+            this.ToolStripStatusLabel2});
+            this.StatusStrip1.Location = new System.Drawing.Point(0, 486);
+            this.StatusStrip1.Name = "StatusStrip1";
+            this.StatusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
+            this.StatusStrip1.Size = new System.Drawing.Size(975, 26);
+            this.StatusStrip1.TabIndex = 7;
+            this.StatusStrip1.Text = "StatusStrip1";
+            // 
+            // ToolStripStatusLabel1
+            // 
+            this.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1";
+            this.ToolStripStatusLabel1.Size = new System.Drawing.Size(134, 20);
+            this.ToolStripStatusLabel1.Text = "Số lượng bản ghi : ";
+            // 
+            // ToolStripStatusLabel2
+            // 
+            this.ToolStripStatusLabel2.Name = "ToolStripStatusLabel2";
+            this.ToolStripStatusLabel2.Size = new System.Drawing.Size(0, 20);
             // 
             // MatterList
             // 
-            AutoScaleDimensions = new SizeF(8.0f, 16.0f);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(975, 512);
-            Controls.Add(StatusStrip1);
-            Controls.Add(DataGridView1);
-            Controls.Add(ToolStrip1);
-            Margin = new Padding(4, 4, 4, 4);
-            Name = "MatterList";
-            Text = "Danh sách vấn đề biểu quyết";
-            ToolStrip1.ResumeLayout(false);
-            ToolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)DataGridView1).EndInit();
-            StatusStrip1.ResumeLayout(false);
-            StatusStrip1.PerformLayout();
-            Load += new EventHandler(MatterList_Load);
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(975, 512);
+            this.Controls.Add(this.StatusStrip1);
+            this.Controls.Add(this.DataGridView1);
+            this.Controls.Add(this.ToolStrip1);
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "MatterList";
+            this.Text = "Danh sách vấn đề biểu quyết";
+            this.Load += new System.EventHandler(this.MatterList_Load);
+            this.ToolStrip1.ResumeLayout(false);
+            this.ToolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridView1)).EndInit();
+            this.StatusStrip1.ResumeLayout(false);
+            this.StatusStrip1.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
         internal ToolStrip ToolStrip1;

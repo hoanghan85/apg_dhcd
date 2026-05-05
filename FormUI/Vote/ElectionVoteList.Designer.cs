@@ -255,7 +255,7 @@ namespace pmDHCD
             this.Votes});
             this.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DataGridView1.Location = new System.Drawing.Point(0, 31);
-            this.DataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.DataGridView1.Name = "DataGridView1";
             this.DataGridView1.ReadOnly = true;
             this.DataGridView1.RowHeadersWidth = 51;
@@ -333,7 +333,7 @@ namespace pmDHCD
             this.Controls.Add(this.DataGridView1);
             this.Controls.Add(this.StatusStrip1);
             this.Controls.Add(this.ToolStrip1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ElectionVoteList";
             this.Text = "Danh sách phiếu bầu cử";
             this.Load += new System.EventHandler(this.ElectionVoteList_Load);

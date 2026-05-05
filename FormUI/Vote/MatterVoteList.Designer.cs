@@ -52,6 +52,7 @@ namespace pmDHCD
             this.ToolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.ToolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
             this.ToolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.ToolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.DataGridView1 = new System.Windows.Forms.DataGridView();
             this.StatusStrip1 = new System.Windows.Forms.StatusStrip();
             this.ToolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -78,12 +79,14 @@ namespace pmDHCD
             this.MatterName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DelegateCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Delegatename = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdentityCard = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Voterights = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.agree = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Disagree = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Noidea = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.DelegateCode1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HolderCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Illegal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ToolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView1)).BeginInit();
             this.StatusStrip1.SuspendLayout();
@@ -103,10 +106,11 @@ namespace pmDHCD
             this.ToolStripSeparator1,
             this.ToolStripLabel2,
             this.ToolStripTextBox2,
-            this.ToolStripButton4});
+            this.ToolStripButton4,
+            this.ToolStripButton5});
             this.ToolStrip1.Location = new System.Drawing.Point(0, 0);
             this.ToolStrip1.Name = "ToolStrip1";
-            this.ToolStrip1.Size = new System.Drawing.Size(1136, 27);
+            this.ToolStrip1.Size = new System.Drawing.Size(1350, 27);
             this.ToolStrip1.TabIndex = 11;
             this.ToolStrip1.Text = "ToolStrip1";
             // 
@@ -180,13 +184,21 @@ namespace pmDHCD
             this.ToolStripButton4.Text = "Tìm";
             this.ToolStripButton4.Click += new System.EventHandler(this.ToolStripButton4_Click);
             // 
+            // ToolStripButton5
+            // 
+            this.ToolStripButton5.Image = global::pmDHCD.My.Resources.Resources.Add;
+            this.ToolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolStripButton5.Name = "ToolStripButton5";
+            this.ToolStripButton5.Size = new System.Drawing.Size(216, 24);
+            this.ToolStripButton5.Text = "Nhập tất cả";
+            this.ToolStripButton5.Click += new System.EventHandler(this.ToolStripButton5_Click);
+            // 
             // DataGridView1
             // 
             this.DataGridView1.AllowUserToAddRows = false;
             this.DataGridView1.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -201,12 +213,14 @@ namespace pmDHCD
             this.MatterName,
             this.DelegateCode,
             this.Delegatename,
+            this.IdentityCard,
             this.Voterights,
             this.agree,
             this.Disagree,
             this.Noidea,
             this.DelegateCode1,
-            this.HolderCode});
+            this.HolderCode,
+            this.Illegal});
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -230,7 +244,7 @@ namespace pmDHCD
             this.DataGridView1.RowHeadersVisible = false;
             this.DataGridView1.RowHeadersWidth = 51;
             this.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DataGridView1.Size = new System.Drawing.Size(1136, 583);
+            this.DataGridView1.Size = new System.Drawing.Size(1350, 583);
             this.DataGridView1.TabIndex = 12;
             this.DataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellValueChanged);
             // 
@@ -246,7 +260,7 @@ namespace pmDHCD
             this.StatusStrip1.Location = new System.Drawing.Point(0, 584);
             this.StatusStrip1.Name = "StatusStrip1";
             this.StatusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.StatusStrip1.Size = new System.Drawing.Size(1136, 26);
+            this.StatusStrip1.Size = new System.Drawing.Size(1350, 26);
             this.StatusStrip1.TabIndex = 13;
             this.StatusStrip1.Text = "StatusStrip1";
             // 
@@ -304,7 +318,7 @@ namespace pmDHCD
             this.StatusStrip2.Location = new System.Drawing.Point(0, 560);
             this.StatusStrip2.Name = "StatusStrip2";
             this.StatusStrip2.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.StatusStrip2.Size = new System.Drawing.Size(1136, 24);
+            this.StatusStrip2.Size = new System.Drawing.Size(1350, 24);
             this.StatusStrip2.TabIndex = 14;
             this.StatusStrip2.Text = "StatusStrip2";
             // 
@@ -437,7 +451,7 @@ namespace pmDHCD
             this.DelegateCode.HeaderText = "Mã đại biểu";
             this.DelegateCode.MinimumWidth = 6;
             this.DelegateCode.Name = "DelegateCode";
-            this.DelegateCode.Width = 180;
+            this.DelegateCode.Width = 70;
             // 
             // Delegatename
             // 
@@ -447,6 +461,15 @@ namespace pmDHCD
             this.Delegatename.MinimumWidth = 6;
             this.Delegatename.Name = "Delegatename";
             this.Delegatename.Width = 150;
+            // 
+            // IdentityCard
+            // 
+            this.IdentityCard.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.IdentityCard.DataPropertyName = "IdentityCard";
+            this.IdentityCard.HeaderText = "CMT/HC đại biểu";
+            this.IdentityCard.MinimumWidth = 6;
+            this.IdentityCard.Name = "IdentityCard";
+            this.IdentityCard.Width = 120;
             // 
             // Voterights
             // 
@@ -500,6 +523,7 @@ namespace pmDHCD
             this.DelegateCode1.MinimumWidth = 6;
             this.DelegateCode1.Name = "DelegateCode1";
             this.DelegateCode1.Visible = false;
+            this.DelegateCode1.Width = 125;
             // 
             // HolderCode
             // 
@@ -508,12 +532,22 @@ namespace pmDHCD
             this.HolderCode.MinimumWidth = 6;
             this.HolderCode.Name = "HolderCode";
             this.HolderCode.Visible = false;
+            this.HolderCode.Width = 125;
+            // 
+            // Illegal
+            // 
+            this.Illegal.DataPropertyName = "Illegal";
+            this.Illegal.HeaderText = "Illegal";
+            this.Illegal.MinimumWidth = 6;
+            this.Illegal.Name = "Illegal";
+            this.Illegal.Visible = false;
+            this.Illegal.Width = 125;
             // 
             // MatterVoteList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1136, 610);
+            this.ClientSize = new System.Drawing.Size(1220, 610);
             this.Controls.Add(this.StatusStrip2);
             this.Controls.Add(this.StatusStrip1);
             this.Controls.Add(this.DataGridView1);
@@ -544,6 +578,7 @@ namespace pmDHCD
         internal ToolStripLabel ToolStripLabel1;
         internal ToolStripTextBox ToolStripTextBox1;
         internal ToolStripButton ToolStripButton4;
+        internal ToolStripButton ToolStripButton5;
         internal DataGridView DataGridView1;
         internal StatusStrip StatusStrip1;
         internal ToolStripStatusLabel ToolStripStatusLabel1;
@@ -573,11 +608,13 @@ namespace pmDHCD
         private DataGridViewTextBoxColumn MatterName;
         private DataGridViewTextBoxColumn DelegateCode;
         private DataGridViewTextBoxColumn Delegatename;
+        private DataGridViewTextBoxColumn IdentityCard;
         private DataGridViewTextBoxColumn Voterights;
         private DataGridViewCheckBoxColumn agree;
         private DataGridViewCheckBoxColumn Disagree;
         private DataGridViewCheckBoxColumn Noidea;
         private DataGridViewTextBoxColumn DelegateCode1;
         private DataGridViewTextBoxColumn HolderCode;
+        private DataGridViewTextBoxColumn Illegal;
     }
 }

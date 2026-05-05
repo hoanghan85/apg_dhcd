@@ -61,8 +61,10 @@ namespace pmDHCD
             Label3 = new Label();
             Label4 = new Label();
             Label5 = new Label();
+            LabelWarning = new Label();
             GroupBox3 = new GroupBox();
             DataGridView1 = new DataGridView();
+            DataGridView1.CellValueChanged += new DataGridViewCellEventHandler(DataGridView1_CellValueChanged);
             Candidatecode = new DataGridViewTextBoxColumn();
             CandidateName = new DataGridViewTextBoxColumn();
             Choosen = new DataGridViewCheckBoxColumn();
@@ -206,11 +208,12 @@ namespace pmDHCD
             GroupBox2.Controls.Add(Label3);
             GroupBox2.Controls.Add(Label4);
             GroupBox2.Controls.Add(Label5);
+            GroupBox2.Controls.Add(LabelWarning);
             GroupBox2.Location = new Point(1, 202);
             GroupBox2.Margin = new Padding(4);
             GroupBox2.Name = "GroupBox2";
             GroupBox2.Padding = new Padding(4);
-            GroupBox2.Size = new Size(687, 238);
+            GroupBox2.Size = new Size(687, 280);
             GroupBox2.TabIndex = 57;
             GroupBox2.TabStop = false;
             GroupBox2.Text = "Đại biểu";
@@ -280,6 +283,18 @@ namespace pmDHCD
             MaskedTextBox5.TabIndex = 1;
             MaskedTextBox5.TabStop = false;
             // 
+            // LabelWarning
+            // 
+            LabelWarning.AutoSize = true;
+            LabelWarning.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Regular, GraphicsUnit.Point, 0);
+            LabelWarning.ForeColor = Color.Red;
+            LabelWarning.Location = new Point(217, 230);
+            LabelWarning.Margin = new Padding(4, 0, 4, 0);
+            LabelWarning.Name = "LabelWarning";
+            LabelWarning.Size = new Size(0, 20);
+            LabelWarning.TabIndex = 40;
+            LabelWarning.Text = "";
+            // 
             // Label9
             // 
             Label9.AutoSize = true;
@@ -338,7 +353,7 @@ namespace pmDHCD
             // GroupBox3
             // 
             GroupBox3.Controls.Add(DataGridView1);
-            GroupBox3.Location = new Point(1, 447);
+            GroupBox3.Location = new Point(1, 486);
             GroupBox3.Margin = new Padding(4);
             GroupBox3.Name = "GroupBox3";
             GroupBox3.Padding = new Padding(4);
@@ -404,7 +419,7 @@ namespace pmDHCD
             // Button2
             // 
             Button2.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Button2.Location = new Point(571, 738);
+            Button2.Location = new Point(571, 775);
             Button2.Margin = new Padding(4);
             Button2.Name = "Button2";
             Button2.Size = new Size(168, 43);
@@ -415,7 +430,7 @@ namespace pmDHCD
             // Button3
             // 
             Button3.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Button3.Location = new Point(776, 738);
+            Button3.Location = new Point(776, 775);
             Button3.Margin = new Padding(4);
             Button3.Name = "Button3";
             Button3.Size = new Size(153, 43);
@@ -426,7 +441,7 @@ namespace pmDHCD
             // Button1
             // 
             Button1.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Button1.Location = new Point(5, 738);
+            Button1.Location = new Point(5, 775);
             Button1.Margin = new Padding(4);
             Button1.Name = "Button1";
             Button1.Size = new Size(152, 43);
@@ -437,7 +452,7 @@ namespace pmDHCD
             // Button4
             // 
             Button4.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Button4.Location = new Point(179, 738);
+            Button4.Location = new Point(179, 775);
             Button4.Margin = new Padding(4);
             Button4.Name = "Button4";
             Button4.Size = new Size(160, 43);
@@ -448,7 +463,7 @@ namespace pmDHCD
             // Button5
             // 
             Button5.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Button5.Location = new Point(363, 738);
+            Button5.Location = new Point(363, 775);
             Button5.Margin = new Padding(4);
             Button5.Name = "Button5";
             Button5.Size = new Size(168, 43);
@@ -497,7 +512,8 @@ namespace pmDHCD
             // 
             AutoScaleDimensions = new SizeF(8.0f, 16.0f);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(948, 796);
+            ClientSize = new Size(948, 830);
+            StartPosition = FormStartPosition.CenterScreen;
             Controls.Add(GroupBox4);
             Controls.Add(Button4);
             Controls.Add(Button5);
@@ -539,6 +555,7 @@ namespace pmDHCD
         internal Label Label3;
         internal Label Label4;
         internal Label Label5;
+        internal Label LabelWarning;
         internal GroupBox GroupBox3;
         internal DataGridView DataGridView1;
         internal Button Button2;

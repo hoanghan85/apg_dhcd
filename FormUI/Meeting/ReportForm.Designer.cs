@@ -245,7 +245,7 @@ namespace pmDHCD
             this.Button8.Text = "Export";
             this.Button8.UseVisualStyleBackColor = true;
             this.Button8.Click += new System.EventHandler(this.Button8_Click);
-            this.Label8.Visible = false;
+            this.Button8.Visible = false;
 
             // ReportForm
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);

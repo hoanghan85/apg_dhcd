@@ -246,5 +246,54 @@ namespace pmDHCD
                 }
             }
         }
+
+        private void ToolStripButton5_Click(object sender, EventArgs e)
+        {
+            var f = new MatterVotes_ins_remain_batch();
+            f.ShowDialog();
+
+            if (f.IsConfirmed)
+            {
+                string actionMessage = "";
+                if (f.SelectedMatterCode == 0)
+                {
+                    actionMessage = "Thao tác này sẽ nhập TẤT CẢ phiếu biểu quyết còn lại cho TẤT CẢ vấn đề hiện tại, Bạn đã kiểm tra CHẮC CHẮN???";
+                }
+                else
+                {
+                    actionMessage = "Thao tác này sẽ nhập TẤT CẢ phiếu biểu quyết còn lại cho vấn đề \"" + f.SelectedMatterCode + "\", Bạn đã kiểm tra CHẮC CHẮN???";
+                }
+
+                if (Interaction.MsgBox(actionMessage, (MsgBoxStyle)((int)MsgBoxStyle.OkCancel + (int)MsgBoxStyle.Critical + (int)MsgBoxStyle.ApplicationModal + (int)MsgBoxStyle.DefaultButton2), "NHẬP HÀNG LOẠT PHIẾU BIỂU QUYẾT") == MsgBoxResult.Ok)
+                {
+                    try
+                    {
+                        if (f.SelectedMatterCode == 0)
+                        {
+                            // Lấy tất cả vấn đề hiện tại
+                            var allMatters = My.MyProject.Forms.Mainform.BenlyDal.Matter_getlist(My.MyProject.Forms.Mainform.workingmeeting, 0m);
+                            foreach (DataRow dr in allMatters.Rows)
+                            {
+                                int currentMatterCode = Conversions.ToInteger(dr["Mattercode"]);
+                                My.MyProject.Forms.Mainform.BenlyDal.MatterVotes_insert_remain(My.MyProject.Forms.Mainform.workingmeeting, currentMatterCode, 0m, f.AgreeValue, f.DisagreeValue, f.NoideaValue);
+                            }
+                        }
+                        else
+                        {
+                            // Nhập cho vấn đề cụ thể
+                            My.MyProject.Forms.Mainform.BenlyDal.MatterVotes_insert_remain(My.MyProject.Forms.Mainform.workingmeeting, f.SelectedMatterCode, 0m, f.AgreeValue, f.DisagreeValue, f.NoideaValue);
+                        }
+
+                        Interaction.MsgBox("Đã nhập xong");
+                    }
+                    catch (Exception ex)
+                    {
+                        Interaction.MsgBox("Lỗi : " + ex.Message);
+                        return;
+                    }
+                }
+            }
+            filldgv();
+        }
     }
 }
