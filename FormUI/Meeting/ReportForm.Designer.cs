@@ -131,9 +131,9 @@ namespace pmDHCD
             this.Label4.Name = "Label4";
             this.Label4.Size = new System.Drawing.Size(300, 18);
             this.Label4.TabIndex = 6;
-            this.Label4.Text = "Xuất biên bản kiểm tra tư cách (Word)";
+            this.Label4.Text = "In biên bản kiểm tra tư cách";
             this.Label4.Font = new System.Drawing.Font("Arial", 9);
-            this.Label4.Visible = false;
+            this.Label4.Visible = true;
 
             // Button4 - Export biên bản kiểm tra
             this.Button4.Location = new System.Drawing.Point(580, 145);
@@ -143,7 +143,7 @@ namespace pmDHCD
             this.Button4.Text = "Export";
             this.Button4.UseVisualStyleBackColor = true;
             this.Button4.Click += new System.EventHandler(this.Button4_Click);
-            this.Button4.Visible = false;
+            this.Button4.Visible = true;
 
             // GroupBox2 - Thông tin biểu quyết
             this.GroupBox2.Controls.Add(this.Button5);
@@ -182,9 +182,9 @@ namespace pmDHCD
             this.Label6.Name = "Label6";
             this.Label6.Size = new System.Drawing.Size(300, 18);
             this.Label6.TabIndex = 2;
-            this.Label6.Text = "Xuất biên bản biểu quyết (Word)";
+            this.Label6.Text = "In biên bản biểu quyết";
             this.Label6.Font = new System.Drawing.Font("Arial", 9);
-            this.Label6.Visible = false;
+            this.Label6.Visible = true;
 
             // Button6 - Export biên bản biểu quyết
             this.Button6.Location = new System.Drawing.Point(580, 65);
@@ -194,7 +194,7 @@ namespace pmDHCD
             this.Button6.Text = "Export";
             this.Button6.UseVisualStyleBackColor = true;
             this.Button6.Click += new System.EventHandler(this.Button6_Click);
-            this.Button6.Visible = false;
+            this.Button6.Visible = true;
 
             // GroupBox3 - Thông tin bầu cử
             this.GroupBox3.Controls.Add(this.Button7);
@@ -235,7 +235,7 @@ namespace pmDHCD
             this.Label8.TabIndex = 2;
             this.Label8.Text = "Xuất biên bản bầu cử (Word)";
             this.Label8.Font = new System.Drawing.Font("Arial", 9);
-            this.Label8.Visible = false;
+            this.Label8.Visible = true;
 
             // Button8 - Export biên bản bầu cử
             this.Button8.Location = new System.Drawing.Point(580, 65);
@@ -245,7 +245,7 @@ namespace pmDHCD
             this.Button8.Text = "Export";
             this.Button8.UseVisualStyleBackColor = true;
             this.Button8.Click += new System.EventHandler(this.Button8_Click);
-            this.Button8.Visible = false;
+            this.Button8.Visible = true;
 
             // ReportForm
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);

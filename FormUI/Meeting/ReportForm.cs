@@ -40,8 +40,8 @@ namespace pmDHCD
 
         private void Button4_Click(object sender, EventArgs e)
         {
-            // Xuất biên bản kiểm tra tư cách (Word)
-            MessageBox.Show("Chức năng sẽ được thêm - Xuất biên bản kiểm tra tư cách");
+            // In biên bản kiểm tra tư cách (Crystal Report)
+            PrintDelegateConfirmationMinute();
         }
 
         // Thông tin biểu quyết
@@ -54,7 +54,7 @@ namespace pmDHCD
         private void Button6_Click(object sender, EventArgs e)
         {
             // Xuất biên bản biểu quyết (Word)
-            MessageBox.Show("Chức năng sẽ được thêm - Xuất biên bản biểu quyết");
+            PrintVoteCountingMinute();
         }
 
         // Thông tin bầu cử
@@ -495,6 +495,101 @@ namespace pmDHCD
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi khi xuất Excel: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void PrintDelegateConfirmationMinute()
+        {
+            try
+            {
+                // Lấy dữ liệu báo cáo từ DB
+                var dt = new DataTable();
+                try
+                {
+                    dt = My.MyProject.Forms.Mainform.BenlyDal.GetMeetingSummary(
+                        My.MyProject.Forms.Mainform.workingmeeting);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi lấy dữ liệu từ DB: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (dt.Rows.Count == 0)
+                {
+                    MessageBox.Show("Không có dữ liệu để hiển thị báo cáo", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Load báo cáo từ file path
+                string reportPath = System.IO.Path.Combine(Application.StartupPath, @"Report\DelegateConfirmationMinute.rpt");
+                if (!System.IO.File.Exists(reportPath))
+                {
+                    MessageBox.Show("Không tìm thấy file báo cáo: " + reportPath, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Tạo DataSet và fill dữ liệu
+                var dsReport = new DSReportSouce();
+
+                // Copy dữ liệu từ DataTable sang DataSet table
+                foreach (DataRow sourceRow in dt.Rows)
+                {
+                    dsReport.MeetingSummary.Rows.Add(
+                        sourceRow["MeetingCode"] ?? DBNull.Value,
+                        sourceRow["MeetingName"] ?? DBNull.Value,
+                        sourceRow["CompanyName"] ?? DBNull.Value,
+                        sourceRow["YearMeeting"] ?? DBNull.Value,
+                        sourceRow["HolderNumber"] ?? DBNull.Value,
+                        sourceRow["ShareNumber"] ?? DBNull.Value,
+                        sourceRow["DelegateNumber"] ?? DBNull.Value,
+                        sourceRow["DelegateShare"] ?? DBNull.Value,
+                        sourceRow["HolderSharePercent"] ?? DBNull.Value,
+                        sourceRow["DelegateSharePercent"] ?? DBNull.Value
+                    );
+                }
+
+                // Load báo cáo từ file
+                var report = new CrystalDecisions.CrystalReports.Engine.ReportDocument();
+                report.Load(reportPath);
+                report.SetDataSource(dsReport);
+                ReportViewer.LoadReport(report, this);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi in báo cáo: " + ex.Message + "\n\n" + ex.StackTrace, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void PrintVoteCountingMinute()
+        {
+            try
+            {
+                // Lấy dữ liệu báo cáo từ DB
+                string meetingcode = My.MyProject.Forms.Mainform.workingmeeting;
+                var dsReport = My.MyProject.Forms.Mainform.BenlyDal.GetVoteCountingMinuteData(meetingcode);
+
+                if (dsReport.Tables.Count == 0 || dsReport.Tables[0].Rows.Count == 0)
+                {
+                    MessageBox.Show("Không có dữ liệu để hiển thị báo cáo", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Tạo báo cáo từ auto-generated class
+                var report = new VoteCountingMinute();
+
+                // Set parameters if needed
+                report.SetParameterValue("MeetingCode", meetingcode);
+
+                // ✅ Set data source từ DataSet (không connect DB từ .rpt)
+                report.SetDataSource(dsReport);
+
+                // Hiển thị báo cáo
+                ReportViewer.LoadReport(report, this);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi in báo cáo biểu quyết: " + ex.Message + "\n\n" + ex.StackTrace, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

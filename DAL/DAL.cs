@@ -1178,5 +1178,76 @@ namespace BenlyDAL.BenlyDAL
             return result;
         }
 
+        public DataTable GetMeetingSummary(string meetingcode)
+        {
+            var result = new DataTable();
+            string strquerry = "PRP_Meeting_Summary";
+            var cmd = new SqlCommand(strquerry, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@Meetingcode", SqlDbType.VarChar).Value = meetingcode;
+            var da = new SqlDataAdapter(cmd);
+            try
+            {
+                da.Fill(result);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+
+        // Lấy dữ liệu cho VoteCountingMinute Report
+        public DataSet GetVoteCountingMinuteData(string meetingcode)
+        {
+            var dsReport = new DataSet();
+
+            try
+            {
+                // 1. Lấy Meeting Summary
+                string qryMeeting = "PRP_Meeting_Summary";
+                var cmdMeeting = new SqlCommand(qryMeeting, conn);
+                cmdMeeting.CommandType = CommandType.StoredProcedure;
+                cmdMeeting.Parameters.Add("@Meetingcode", SqlDbType.VarChar).Value = meetingcode;
+                var daMeeting = new SqlDataAdapter(cmdMeeting);
+                daMeeting.Fill(dsReport, "MeetingSummary");
+
+                // 2. Lấy Vote Matter Summary (Matters + Votes Join)
+                string qryVoteMatter = @"
+                    SELECT m.MatterCode, m.MatterName, m.MatterDescription,
+                           v.VoteType, v.VoteLabel, v.VoteShares, v.VotePercent
+                    FROM PRP_Matters m
+                    LEFT JOIN PRP_Matter_Vote_Summary v ON m.MatterCode = v.MatterCode
+                    WHERE m.MeetingCode = @Meetingcode
+                    ORDER BY m.MatterCode, v.VoteType
+                ";
+                var cmdVoteMatter = new SqlCommand(qryVoteMatter, conn);
+                cmdVoteMatter.CommandType = CommandType.Text;
+                cmdVoteMatter.Parameters.Add("@Meetingcode", SqlDbType.VarChar).Value = meetingcode;
+                var daVoteMatter = new SqlDataAdapter(cmdVoteMatter);
+                daVoteMatter.Fill(dsReport, "VoteMatterSummary");
+
+                // 3. Lấy Election Candidate Summary
+                string qryCandidate = "PRP_Election_Candidate_Summary";
+                var cmdCandidate = new SqlCommand(qryCandidate, conn);
+                cmdCandidate.CommandType = CommandType.StoredProcedure;
+                var daCandidate = new SqlDataAdapter(cmdCandidate);
+                daCandidate.Fill(dsReport, "ElectionCandidateSummary");
+
+                // 4. Lấy Election Ballot Summary
+                string qryBallot = "PRP_Election_Ballot_Summary";
+                var cmdBallot = new SqlCommand(qryBallot, conn);
+                cmdBallot.CommandType = CommandType.StoredProcedure;
+                var daBallot = new SqlDataAdapter(cmdBallot);
+                daBallot.Fill(dsReport, "ElectionBallotSummary");
+
+                return dsReport;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Lỗi lấy dữ liệu VoteCountingMinute: " + ex.Message, ex);
+            }
+        }
+
     }
 }

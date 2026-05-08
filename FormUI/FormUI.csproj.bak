@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\Microsoft.SourceLink.GitHub.8.0.0\build\Microsoft.SourceLink.GitHub.props" Condition="Exists('..\packages\Microsoft.SourceLink.GitHub.8.0.0\build\Microsoft.SourceLink.GitHub.props')" />
   <Import Project="..\packages\Microsoft.SourceLink.Common.8.0.0\build\Microsoft.SourceLink.Common.props" Condition="Exists('..\packages\Microsoft.SourceLink.Common.8.0.0\build\Microsoft.SourceLink.Common.props')" />
@@ -276,13 +276,6 @@
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="Report\VoteCountingMinute.cs">
-      <DependentUpon>VoteCountingMinute.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <SubType>Component</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
     <Compile Include="Report\phieubauHDQT.cs">
       <DependentUpon>phieubauHDQT.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -336,9 +329,6 @@
     </Compile>
     <Compile Include="Report\frmReport.cs">
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Report\VoteCountingMinute.cs">
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Sentate.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -706,11 +696,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <None Include="Report\HoldersList.rdlc" />
-    <EmbeddedResource Include="Report\VoteCountingMinute.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>VoteCountingMinute.cs</LastGenOutput>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
+    <None Include="Report\VoteCountingMinute.rpt" />
     <None Include="Sentate.xsc">
       <DependentUpon>Sentate.xsd</DependentUpon>
     </None>

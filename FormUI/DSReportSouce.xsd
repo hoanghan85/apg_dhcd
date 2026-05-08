@@ -23,6 +23,22 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="MeetingSummary" msprop:Generator_UserTableName="MeetingSummary" msprop:Generator_RowDeletedName="MeetingSummaryRowDeleted" msprop:Generator_RowChangedName="MeetingSummaryRowChanged" msprop:Generator_RowClassName="MeetingSummaryRow" msprop:Generator_RowChangingName="MeetingSummaryRowChanging" msprop:Generator_RowEvArgName="MeetingSummaryRowChangeEvent" msprop:Generator_RowEvHandlerName="MeetingSummaryRowChangeEventHandler" msprop:Generator_TableClassName="MeetingSummaryDataTable" msprop:Generator_TableVarName="tableMeetingSummary" msprop:Generator_RowDeletingName="MeetingSummaryRowDeleting" msprop:Generator_TablePropName="MeetingSummary">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MeetingCode" msprop:Generator_UserColumnName="MeetingCode" msprop:Generator_ColumnVarNameInTable="columnMeetingCode" msprop:Generator_ColumnPropNameInRow="MeetingCode" msprop:Generator_ColumnPropNameInTable="MeetingCodeColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="MeetingName" msprop:Generator_UserColumnName="MeetingName" msprop:Generator_ColumnVarNameInTable="columnMeetingName" msprop:Generator_ColumnPropNameInRow="MeetingName" msprop:Generator_ColumnPropNameInTable="MeetingNameColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="CompanyName" msprop:Generator_UserColumnName="CompanyName" msprop:Generator_ColumnVarNameInTable="columnCompanyName" msprop:Generator_ColumnPropNameInRow="CompanyName" msprop:Generator_ColumnPropNameInTable="CompanyNameColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="YearMeeting" msprop:Generator_UserColumnName="YearMeeting" msprop:Generator_ColumnVarNameInTable="columnYearMeeting" msprop:Generator_ColumnPropNameInRow="YearMeeting" msprop:Generator_ColumnPropNameInTable="YearMeetingColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="HolderNumber" msprop:Generator_UserColumnName="HolderNumber" msprop:Generator_ColumnVarNameInTable="columnHolderNumber" msprop:Generator_ColumnPropNameInRow="HolderNumber" msprop:Generator_ColumnPropNameInTable="HolderNumberColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="ShareNumber" msprop:Generator_UserColumnName="ShareNumber" msprop:Generator_ColumnVarNameInTable="columnShareNumber" msprop:Generator_ColumnPropNameInRow="ShareNumber" msprop:Generator_ColumnPropNameInTable="ShareNumberColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="DelegateNumber" msprop:Generator_UserColumnName="DelegateNumber" msprop:Generator_ColumnVarNameInTable="columnDelegateNumber" msprop:Generator_ColumnPropNameInRow="DelegateNumber" msprop:Generator_ColumnPropNameInTable="DelegateNumberColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="DelegateShare" msprop:Generator_UserColumnName="DelegateShare" msprop:Generator_ColumnVarNameInTable="columnDelegateShare" msprop:Generator_ColumnPropNameInRow="DelegateShare" msprop:Generator_ColumnPropNameInTable="DelegateShareColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="HolderSharePercent" msprop:Generator_UserColumnName="HolderSharePercent" msprop:Generator_ColumnVarNameInTable="columnHolderSharePercent" msprop:Generator_ColumnPropNameInRow="HolderSharePercent" msprop:Generator_ColumnPropNameInTable="HolderSharePercentColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="DelegateSharePercent" msprop:Generator_UserColumnName="DelegateSharePercent" msprop:Generator_ColumnVarNameInTable="columnDelegateSharePercent" msprop:Generator_ColumnPropNameInRow="DelegateSharePercent" msprop:Generator_ColumnPropNameInTable="DelegateSharePercentColumn" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
   </xs:element>

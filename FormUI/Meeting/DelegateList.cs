@@ -405,7 +405,7 @@ namespace pmDHCD
                 }
 
                 cr.SetParameterValue("HolderName", string.Join(Environment.NewLine, holderName).ToUpper());
-                cr.SetParameterValue("Delegatecode", My.MyProject.Forms.Mainform.stockCode + DataGridView1.CurrentRow.Cells["Delegatecode"].Value.ToString().PadLeft(4, '0'));
+                cr.SetParameterValue("Delegatecode", "DB" + My.MyProject.Forms.Mainform.stockCode + DataGridView1.CurrentRow.Cells["Delegatecode"].Value.ToString().PadLeft(4, '0'));
                 cr.SetParameterValue("Delegatename", strDelegateName.ToUpper());
                 cr.SetParameterValue("IdentityCard", strIndentityCard);
                 cr.SetParameterValue("Address", strAddress);
