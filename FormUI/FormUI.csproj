@@ -199,6 +199,15 @@
     </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="Xceed.Document.NET, Version=5.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocX.5.0.0\lib\net40\Xceed.Document.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Drawing.NET, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocX.5.0.0\lib\net40\Xceed.Drawing.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Words.NET, Version=5.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocX.5.0.0\lib\net40\Xceed.Words.NET.dll</HintPath>
+    </Reference>
     <Reference Include="ZString, Version=2.6.0.0, Culture=neutral, PublicKeyToken=df4c250b14d82627, processorArchitecture=MSIL">
       <HintPath>..\packages\ZString.2.6.0\lib\netstandard2.0\ZString.dll</HintPath>
     </Reference>
@@ -214,12 +223,20 @@
     <Import Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DSMinute.cs">
+      <DependentUpon>DSMinute.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DSMinute.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSMinute.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Meeting\ReportForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Meeting\ReportForm.Designer.cs">
-	  <DependentUpon>ReportForm.cs</DependentUpon>
-	</Compile>
+      <DependentUpon>ReportForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="My Project\MyNamespace.Dynamic.Designer.cs" />
     <Compile Include="My Project\MyNamespace.Static.1.Designer.cs" />
     <Compile Include="Meeting\AuthorizationList.Designer.cs">
@@ -270,20 +287,6 @@
     </Compile>
     <Compile Include="Meeting\PrintHolders.cs">
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Report\DelegateConfirmationMinute.cs">
-      <DependentUpon>DelegateConfirmationMinute.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <SubType>Component</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
-    <Compile Include="Report\VoteCountingMinute.cs">
-      <DependentUpon>VoteCountingMinute.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <SubType>Component</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Report\phieubauHDQT.cs">
       <DependentUpon>phieubauHDQT.rpt</DependentUpon>
@@ -548,6 +551,9 @@
       <DependentUpon>PrintHolders.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Meeting\ReportForm.resx">
+      <DependentUpon>ReportForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Report\phieubauHDQT.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>phieubauHDQT.cs</LastGenOutput>
@@ -689,6 +695,17 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="DSMinute.xsc">
+      <DependentUpon>DSMinute.xsd</DependentUpon>
+    </None>
+    <None Include="DSMinute.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSMinute.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DSMinute.xss">
+      <DependentUpon>DSMinute.xsd</DependentUpon>
+    </None>
     <None Include="My Project\app.manifest" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
@@ -699,16 +716,18 @@
       <CustomToolNamespace>pmDHCD.My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <EmbeddedResource Include="Report\DelegateConfirmationMinute.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>DelegateConfirmationMinute.cs</LastGenOutput>
+    <Content Include="Report\VoteCountingMinute.rpt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Report\VoteCountingMinute.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>VoteCountingMinute.cs</LastGenOutput>
+    </Content>
+    <Content Include="Report\MeetingMinute.rpt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
+    </Content>
+    <Content Include="Report\DelegateConfirmationMinute.rpt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report\Minute\MeetingMinuteTemplate.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Sentate.xsc">
       <DependentUpon>Sentate.xsd</DependentUpon>
     </None>
@@ -1082,6 +1101,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\qrcode.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\qrcode.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\stockIcon.ico">

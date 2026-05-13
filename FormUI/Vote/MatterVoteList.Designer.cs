@@ -257,7 +257,8 @@ namespace pmDHCD
             this.ToolStripSplitButton3,
             this.ToolStripStatusLabel15,
             this.ToolStripStatusLabel16});
-            this.StatusStrip1.Location = new System.Drawing.Point(0, 584);
+            this.StatusStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.StatusStrip1.Location = new System.Drawing.Point(0, 706);
             this.StatusStrip1.Name = "StatusStrip1";
             this.StatusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
             this.StatusStrip1.Size = new System.Drawing.Size(1350, 26);
@@ -315,7 +316,8 @@ namespace pmDHCD
             this.ToolStripStatusLabel12,
             this.ToolStripStatusLabel13,
             this.ToolStripStatusLabel14});
-            this.StatusStrip2.Location = new System.Drawing.Point(0, 560);
+            this.StatusStrip2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.StatusStrip2.Location = new System.Drawing.Point(0, 682);
             this.StatusStrip2.Name = "StatusStrip2";
             this.StatusStrip2.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
             this.StatusStrip2.Size = new System.Drawing.Size(1350, 24);
@@ -547,10 +549,10 @@ namespace pmDHCD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1220, 610);
+            this.ClientSize = new System.Drawing.Size(1220, 750);
+            this.Controls.Add(this.DataGridView1);
             this.Controls.Add(this.StatusStrip2);
             this.Controls.Add(this.StatusStrip1);
-            this.Controls.Add(this.DataGridView1);
             this.Controls.Add(this.ToolStrip1);
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4);

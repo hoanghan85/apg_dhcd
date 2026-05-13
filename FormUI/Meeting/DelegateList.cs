@@ -64,6 +64,8 @@ namespace pmDHCD
             foreach (DataRow dr in dt.Rows)
                 totalright = Conversions.ToInteger(Operators.AddObject(totalright, dr["Voterights"]));
             ToolStripStatusLabel4.Text = My.MyProject.Forms.Mainform.addthousandseperator(totalright.ToString());
+
+            My.MyProject.Forms.Mainform.UpdateAttendanceRate();
         }
 
         private void ToolStripButton3_Click(object sender, EventArgs e)
@@ -129,7 +131,7 @@ namespace pmDHCD
             {
                 string logoPath = System.IO.Path.Combine(Application.StartupPath, @"Resources\Logo.jpg");
                 cr.SetParameterValue("LogoPath", logoPath);
-                string qrcodepath = System.IO.Path.Combine(Application.StartupPath, @"Resources\qrcode.jpeg");
+                string qrcodepath = System.IO.Path.Combine(Application.StartupPath, @"Resources\qrcode.jpg");
                 cr.SetParameterValue("qrcodepath", qrcodepath);
                 cr.SetParameterValue("HolderName", DataGridView1.CurrentRow.Cells["Delegatename"].Value);
                 cr.SetParameterValue("Delegatecode", My.MyProject.Forms.Mainform.stockCode + DataGridView1.CurrentRow.Cells["Delegatecode"].Value.ToString().PadLeft(4, '0'));
@@ -155,6 +157,8 @@ namespace pmDHCD
                 cr.SetParameterValue("Holdercode", str);
                 cr.SetParameterValue("voterights", My.MyProject.Forms.Mainform.addthousandseperator(Conversions.ToString(DataGridView1.CurrentRow.Cells["voterights"].Value)));
                 // cr.PrintToPrinter(1, True, 1, 1)
+
+                MessageBox.Show(qrcodepath);
 
                 ReportViewer.LoadReport(cr, this);
             }
@@ -366,10 +370,28 @@ namespace pmDHCD
             }
 
             string strHolders = My.MyProject.Forms.Mainform.BenlyDal.getAuthorizationByDelegateCode(My.MyProject.Forms.Mainform.workingmeeting, DataGridView1.CurrentRow.Cells["DelegateCode"].Value.ToString());
+            DataTable strCheck = My.MyProject.Forms.Mainform.BenlyDal.SP_Delegates_CheckAttendanceType(My.MyProject.Forms.Mainform.workingmeeting, DataGridView1.CurrentRow.Cells["DelegateCode"].Value.ToString());
+
+            int isDirectCheck = 0;
+            int isAuthorizedCheck = 0;
+
+            if (strCheck != null && strCheck.Rows.Count > 0)
+            {
+                isDirectCheck = Conversions.ToInteger(strCheck.Rows[0]["isDirectCheck"] ?? 0);
+                isAuthorizedCheck = Conversions.ToInteger(strCheck.Rows[0]["isAuthorizedCheck"] ?? 0);
+            }
+
             try
             {
                 // Me.InPhieuXacNhan(DataGridView1.CurrentRow.Cells("Delegatename").Value.ToString.ToUpper(), DataGridView1.CurrentRow.Cells("Delegatename").Value.ToString.ToUpper(), DataGridView1.CurrentRow.Cells("IdentityCard").Value, DataGridView1.CurrentRow.Cells("DelegateAddress").Value, Mainform.addthousandseperator(DataGridView1.CurrentRow.Cells("voterights").Value))
-                InPhieuXacNhan(strHolders.ToUpper(), Conversions.ToString(DataGridView1.CurrentRow.Cells["Delegatecode"].Value), DataGridView1.CurrentRow.Cells["Delegatename"].Value.ToString().ToUpper(), Conversions.ToString(DataGridView1.CurrentRow.Cells["IdentityCard"].Value), Conversions.ToString(DataGridView1.CurrentRow.Cells["DelegateAddress"].Value), My.MyProject.Forms.Mainform.addthousandseperator(Conversions.ToString(DataGridView1.CurrentRow.Cells["voterights"].Value)));
+                InPhieuXacNhan(strHolders.ToUpper(), 
+                    Conversions.ToString(DataGridView1.CurrentRow.Cells["Delegatecode"].Value), 
+                    DataGridView1.CurrentRow.Cells["Delegatename"].Value.ToString().ToUpper(), 
+                    Conversions.ToString(DataGridView1.CurrentRow.Cells["IdentityCard"].Value), 
+                    Conversions.ToString(DataGridView1.CurrentRow.Cells["DelegateAddress"].Value), 
+                    My.MyProject.Forms.Mainform.addthousandseperator(Conversions.ToString(DataGridView1.CurrentRow.Cells["voterights"].Value)),
+                    isDirectCheck,
+                    isAuthorizedCheck);
             }
             catch (Exception ex)
             {
@@ -379,7 +401,7 @@ namespace pmDHCD
 
         }
 
-        private void InPhieuXacNhan(string strHolderName, string strDelegateCode, string strDelegateName, string strIndentityCard, string strAddress, string strVoteRight)
+        private void InPhieuXacNhan(string strHolderName, string strDelegateCode, string strDelegateName, string strIndentityCard, string strAddress, string strVoteRight, int isDirectCheck, int isAuthorizedCheck)
         {
 
             // Dim cr As New PhieuXacNhan
@@ -414,7 +436,9 @@ namespace pmDHCD
                 cr.SetParameterValue("Period", My.MyProject.Forms.Mainform.period);
                 cr.SetParameterValue("MettingType", My.MyProject.Forms.Mainform.mettingType);
                 cr.SetParameterValue("CompanyName", My.MyProject.Forms.Mainform.companyName);
-                // cr.PrintToPrinter(1, True, 1, 10)
+                cr.SetParameterValue("isDirectCheck", isDirectCheck == 1 ? "X" : "");
+                cr.SetParameterValue("isAuthorizedCheck", isAuthorizedCheck == 1 ? "X" : "");
+                //cr.PrintToPrinter(1, True, 1, 10);
                 ReportViewer.LoadReport(cr, this);
             }
             catch (Exception ex)

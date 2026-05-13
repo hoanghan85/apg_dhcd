@@ -220,7 +220,7 @@ namespace pmDHCD
 
         }
 
-        private void InPhieuXacNhan(string strHolderName, string strDelegateCode, string strDelegateName, string strIndentityCard, string strAddress, string strVoteRight)
+        private void InPhieuXacNhan(string strHolderName, string strDelegateCode, string strDelegateName, string strIndentityCard, string strAddress, string strVoteRight, int isDirectCheck = 0, int isAuthorizedCheck = 0)
         {
 
             // Dim cr As New PhieuXacNhan
@@ -237,6 +237,8 @@ namespace pmDHCD
                 cr.SetParameterValue("IdentityCard", strIndentityCard);
                 cr.SetParameterValue("Address", strAddress);
                 cr.SetParameterValue("voterights", strVoteRight);
+                cr.SetParameterValue("isDirectCheck", isDirectCheck == 1 ? "X" : "");
+                cr.SetParameterValue("isAuthorizedCheck", isAuthorizedCheck == 1 ? "X" : "");
                 cr.PrintToPrinter(1, true, 1, 10);
             }
             catch (Exception ex)

@@ -215,6 +215,7 @@ namespace pmDHCD
             this.InPhieuBauBKS.Size = new System.Drawing.Size(103, 28);
             this.InPhieuBauBKS.Text = "P. Bầu BSK";
             this.InPhieuBauBKS.Click += new System.EventHandler(this.InPhieuBauBKS_Click);
+            this.InPhieuBauBKS.Visible = false;
             // 
             // InPhieuBauHDQT
             // 

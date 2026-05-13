@@ -57,7 +57,7 @@ namespace pmDHCD
             ToolStripStatusLabel4.Text = My.MyProject.Forms.Mainform.addthousandseperator(sumholdervoteright.ToString());
             ToolStripStatusLabel6.Text = My.MyProject.Forms.Mainform.addthousandseperator(sumdelegatevoteright.ToString());
 
-
+            My.MyProject.Forms.Mainform.UpdateAttendanceRate();
         }
 
         private void ToolStripButton1_Click(object sender, EventArgs e)

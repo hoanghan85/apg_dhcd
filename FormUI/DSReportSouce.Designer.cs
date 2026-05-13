@@ -641,6 +641,18 @@ namespace pmDHCD {
             
             private global::System.Data.DataColumn columnDelegateSharePercent;
             
+            private global::System.Data.DataColumn columnStockCode;
+            
+            private global::System.Data.DataColumn columnPeriod;
+            
+            private global::System.Data.DataColumn columnMeetingtime;
+            
+            private global::System.Data.DataColumn columnMettingType;
+            
+            private global::System.Data.DataColumn columnCompanyAddress;
+            
+            private global::System.Data.DataColumn columnMeetingAddress;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
             public MeetingSummaryDataTable() {
@@ -756,6 +768,54 @@ namespace pmDHCD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public global::System.Data.DataColumn StockCodeColumn {
+                get {
+                    return this.columnStockCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public global::System.Data.DataColumn PeriodColumn {
+                get {
+                    return this.columnPeriod;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public global::System.Data.DataColumn MeetingtimeColumn {
+                get {
+                    return this.columnMeetingtime;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public global::System.Data.DataColumn MettingTypeColumn {
+                get {
+                    return this.columnMettingType;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public global::System.Data.DataColumn CompanyAddressColumn {
+                get {
+                    return this.columnCompanyAddress;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public global::System.Data.DataColumn MeetingAddressColumn {
+                get {
+                    return this.columnMeetingAddress;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -791,7 +851,23 @@ namespace pmDHCD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public MeetingSummaryRow AddMeetingSummaryRow(string MeetingCode, string MeetingName, string CompanyName, int YearMeeting, int HolderNumber, int ShareNumber, int DelegateNumber, int DelegateShare, decimal HolderSharePercent, decimal DelegateSharePercent) {
+            public MeetingSummaryRow AddMeetingSummaryRow(
+                        string MeetingCode, 
+                        string MeetingName, 
+                        string CompanyName, 
+                        int YearMeeting, 
+                        int HolderNumber, 
+                        int ShareNumber, 
+                        int DelegateNumber, 
+                        int DelegateShare, 
+                        decimal HolderSharePercent, 
+                        decimal DelegateSharePercent, 
+                        string StockCode, 
+                        string Period, 
+                        System.DateTime Meetingtime, 
+                        string MettingType, 
+                        string CompanyAddress, 
+                        string MeetingAddress) {
                 MeetingSummaryRow rowMeetingSummaryRow = ((MeetingSummaryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         MeetingCode,
@@ -803,7 +879,13 @@ namespace pmDHCD {
                         DelegateNumber,
                         DelegateShare,
                         HolderSharePercent,
-                        DelegateSharePercent};
+                        DelegateSharePercent,
+                        StockCode,
+                        Period,
+                        Meetingtime,
+                        MettingType,
+                        CompanyAddress,
+                        MeetingAddress};
                 rowMeetingSummaryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowMeetingSummaryRow);
                 return rowMeetingSummaryRow;
@@ -836,6 +918,12 @@ namespace pmDHCD {
                 this.columnDelegateShare = base.Columns["DelegateShare"];
                 this.columnHolderSharePercent = base.Columns["HolderSharePercent"];
                 this.columnDelegateSharePercent = base.Columns["DelegateSharePercent"];
+                this.columnStockCode = base.Columns["StockCode"];
+                this.columnPeriod = base.Columns["Period"];
+                this.columnMeetingtime = base.Columns["Meetingtime"];
+                this.columnMettingType = base.Columns["MettingType"];
+                this.columnCompanyAddress = base.Columns["CompanyAddress"];
+                this.columnMeetingAddress = base.Columns["MeetingAddress"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -861,6 +949,18 @@ namespace pmDHCD {
                 base.Columns.Add(this.columnHolderSharePercent);
                 this.columnDelegateSharePercent = new global::System.Data.DataColumn("DelegateSharePercent", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDelegateSharePercent);
+                this.columnStockCode = new global::System.Data.DataColumn("StockCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnStockCode);
+                this.columnPeriod = new global::System.Data.DataColumn("Period", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPeriod);
+                this.columnMeetingtime = new global::System.Data.DataColumn("Meetingtime", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMeetingtime);
+                this.columnMettingType = new global::System.Data.DataColumn("MettingType", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMettingType);
+                this.columnCompanyAddress = new global::System.Data.DataColumn("CompanyAddress", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCompanyAddress);
+                this.columnMeetingAddress = new global::System.Data.DataColumn("MeetingAddress", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMeetingAddress);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1318,6 +1418,102 @@ namespace pmDHCD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public string StockCode {
+                get {
+                    try {
+                        return ((string)(this[this.tableMeetingSummary.StockCodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'StockCode\' in table \'MeetingSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableMeetingSummary.StockCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public string Period {
+                get {
+                    try {
+                        return ((string)(this[this.tableMeetingSummary.PeriodColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Period\' in table \'MeetingSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableMeetingSummary.PeriodColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public System.DateTime Meetingtime {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableMeetingSummary.MeetingtimeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Meetingtime\' in table \'MeetingSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableMeetingSummary.MeetingtimeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public string MettingType {
+                get {
+                    try {
+                        return ((string)(this[this.tableMeetingSummary.MettingTypeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'MettingType\' in table \'MeetingSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableMeetingSummary.MettingTypeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public string CompanyAddress {
+                get {
+                    try {
+                        return ((string)(this[this.tableMeetingSummary.CompanyAddressColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CompanyAddress\' in table \'MeetingSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableMeetingSummary.CompanyAddressColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public string MeetingAddress {
+                get {
+                    try {
+                        return ((string)(this[this.tableMeetingSummary.MeetingAddressColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'MeetingAddress\' in table \'MeetingSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableMeetingSummary.MeetingAddressColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
             public bool IsMeetingCodeNull() {
                 return this.IsNull(this.tableMeetingSummary.MeetingCodeColumn);
             }
@@ -1434,6 +1630,78 @@ namespace pmDHCD {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
             public void SetDelegateSharePercentNull() {
                 this[this.tableMeetingSummary.DelegateSharePercentColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public bool IsStockCodeNull() {
+                return this.IsNull(this.tableMeetingSummary.StockCodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public void SetStockCodeNull() {
+                this[this.tableMeetingSummary.StockCodeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public bool IsPeriodNull() {
+                return this.IsNull(this.tableMeetingSummary.PeriodColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public void SetPeriodNull() {
+                this[this.tableMeetingSummary.PeriodColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public bool IsMeetingtimeNull() {
+                return this.IsNull(this.tableMeetingSummary.MeetingtimeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public void SetMeetingtimeNull() {
+                this[this.tableMeetingSummary.MeetingtimeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public bool IsMettingTypeNull() {
+                return this.IsNull(this.tableMeetingSummary.MettingTypeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public void SetMettingTypeNull() {
+                this[this.tableMeetingSummary.MettingTypeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public bool IsCompanyAddressNull() {
+                return this.IsNull(this.tableMeetingSummary.CompanyAddressColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public void SetCompanyAddressNull() {
+                this[this.tableMeetingSummary.CompanyAddressColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public bool IsMeetingAddressNull() {
+                return this.IsNull(this.tableMeetingSummary.MeetingAddressColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public void SetMeetingAddressNull() {
+                this[this.tableMeetingSummary.MeetingAddressColumn] = global::System.Convert.DBNull;
             }
         }
         

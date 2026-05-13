@@ -42,8 +42,8 @@ namespace pmDHCD
             MaskedTextBox9.Text = My.MyProject.Forms.Mainform.addthousandseperator(info.sumofholderAndAuthorizatedUser.ToString());
             MaskedTextBox10.Text = My.MyProject.Forms.Mainform.addthousandseperator(info.sumofparticipedVoterights.ToString());
 
-            MaskedTextBox11.Text = Math.Round(info.sumofparticipedVoterights / info.sumofvoterights * 100m, 2).ToString() + " %";
-
+            string attendanceRate = Math.Round(info.sumofparticipedVoterights / info.sumofvoterights * 100m, 2).ToString() + " %";
+            MaskedTextBox11.Text = attendanceRate;
         }
 
         private void MeetingInfoshow_KeyUp(object sender, KeyEventArgs e)

@@ -149,7 +149,7 @@ namespace pmDHCD
             this.ToolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ToolStripButton5.Name = "ToolStripButton5";
             this.ToolStripButton5.Size = new System.Drawing.Size(206, 28);
-            this.ToolStripButton5.Text = "Chọn cuộc họp(S or Enter)";
+            this.ToolStripButton5.Text = "Chọn cuộc họp (S or Enter)";
             this.ToolStripButton5.Click += new System.EventHandler(this.ToolStripButton5_Click);
             // 
             // StatusStrip1

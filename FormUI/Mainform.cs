@@ -85,6 +85,23 @@ namespace pmDHCD
             }
             return result;
         }
+
+        public void UpdateAttendanceRate()
+        {
+            try
+            {
+                var info = BenlyDal.Meeting_Infor_get(workingmeeting);
+                if (info.sumofvoterights > 0)
+                {
+                    string attendanceRate = Math.Round(info.sumofparticipedVoterights / info.sumofvoterights * 100m, 2).ToString() + " %";
+                    ToolStripStatusLabel3.Text = "Tỷ lệ tham dự: " + attendanceRate;
+                }
+            }
+            catch (Exception ex)
+            {
+                Interaction.MsgBox("Lỗi cập nhật tỷ lệ tham dự: " + ex.Message);
+            }
+        }
         private void DanhSáchCuộcHọpToolStripMenuItem_Click(object sender, EventArgs e)
         {
             My.MyProject.Forms.MeetingList.Show();
