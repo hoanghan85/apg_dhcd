@@ -13,6 +13,9 @@ namespace pmDHCD
 
     public partial class AuthorizationList
     {
+        /// <summary>
+        /// Initialization of the AuthorizationList form, set the MdiParent to Mainform and fill the DataGridView with the list of authorizations for the current meeting.
+        /// </summary>
         public AuthorizationList()
         {
             InitializeComponent();

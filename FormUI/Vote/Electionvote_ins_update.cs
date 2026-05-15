@@ -258,12 +258,14 @@ namespace pmDHCD
                 }
 
                 // Lúc này mới chia đều phiếu
-                int totalVotes = Conversions.ToInteger(StockTextBox2.Text);
-                int votesPerCandidate = Convert.ToInt32(totalVotes / (double)candidatechoosen);
+                int totalVotes = Convert.ToInt32(
+                    StockTextBox2.Text.Replace(".", "")
+                );
+                int votesPerCandidate = totalVotes / candidatechoosen;
 
                 foreach (DataGridViewRow gr in DataGridView1.Rows)
                 {
-                    if (Conversions.ToBoolean(Operators.ConditionalCompareObjectEqual(gr.Cells["Choosen"].Value, true, false)))
+                    if (Convert.ToBoolean(gr.Cells["Choosen"].Value) == true)
                     {
                         gr.Cells["Votes"].Value = votesPerCandidate.ToString();
                     }

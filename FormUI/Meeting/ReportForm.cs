@@ -614,7 +614,7 @@ namespace pmDHCD
                 }
 
                 rpt.Load(rptPath);
-                rpt.Refresh();
+                //rpt.Refresh();
 
                 // ✅ Set data source từ DataSet (không connect DB từ .rpt)
                 rpt.SetDataSource(dsReport);
@@ -656,8 +656,7 @@ namespace pmDHCD
                 );
 
                 rpt.Load(rptPath);
-                rpt.Refresh();
-
+                //rpt.Refresh();
 
                 // ✅ Set data source từ DataSet (không connect DB từ .rpt)
                 rpt.SetDataSource(dsReport);
@@ -700,18 +699,6 @@ namespace pmDHCD
 
                 rpt.Load(rptPath);
                 //rpt.Refresh();
-                // DEBUG: xem DataSet có gì
-                foreach (DataTable t in dsReport.Tables)
-                {
-                    System.Diagnostics.Debug.WriteLine("==========");
-                    System.Diagnostics.Debug.WriteLine("TABLE: " + t.TableName);
-
-                    foreach (DataColumn c in t.Columns)
-                    {
-                        System.Diagnostics.Debug.WriteLine("   " + c.ColumnName);
-                    }
-                }
-
 
                 // ✅ Set data source từ DataSet (không connect DB từ .rpt)
                 rpt.SetDataSource(dsReport);

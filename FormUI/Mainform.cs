@@ -10,6 +10,10 @@ using Microsoft.VisualBasic;
 
 namespace pmDHCD
 {
+
+    /// <summary>
+    /// Mainform init of the application, connect to database and show the main menu for user to choose which form to work with.
+    /// </summary>
     public partial class Mainform
     {
         public SqlConnection conn = new SqlConnection();
@@ -21,18 +25,26 @@ namespace pmDHCD
         public string companyName = "Công ty Cổ phần Chứng khoán APG";
         public DateTime dateMeeting = DateTime.Now;
 
+        /// <summary>
+        /// Mainform constructor, initialize the DAL and connect to database when the form is shown.
+        /// </summary>
         public Mainform()
         {
             BenlyDal = new DAL(conn);
             InitializeComponent();
         }
 
-
+        /// <summary>
+        /// Load event of the Mainform, set the culture to Vietnamese for better display of date and number format.
+        /// </summary>
         private void Mainform_Load(object sender, EventArgs e)
         {
             Thread.CurrentThread.CurrentCulture = new CultureInfo("vi-VN");
         }
 
+        /// <summary>
+        /// Initialization of the Mainform, connect to database and show the MeetingList form for user to choose which meeting to work with.
+        /// </summary>
         private void Mainform_Shown(object sender, EventArgs e)
         {
             connect2db();
@@ -50,10 +62,14 @@ namespace pmDHCD
                 catch (Exception ex)
                 {
                     throw ex;
-                    return;
                 }
+                    return;
             }
         }
+
+        /// <summary>
+        /// Get connection information.
+        /// </summary>
         public string GetConnectionString(string key)
         {
             string strApp = "";
@@ -67,6 +83,10 @@ namespace pmDHCD
             }
             return strApp;
         }
+
+        /// <summary>
+        /// Formart number with thousand separator for better readability.
+        /// </summary>
         public string addthousandseperator(string str)
         {
             string result = str;
@@ -86,6 +106,9 @@ namespace pmDHCD
             return result;
         }
 
+        /// <summary>
+        /// Update the Attendace rate when some Form triggered
+        /// </summary>
         public void UpdateAttendanceRate()
         {
             try

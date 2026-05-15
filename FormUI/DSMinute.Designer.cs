@@ -1790,6 +1790,10 @@ namespace pmDHCD {
             
             private global::System.Data.DataColumn columnSortOrder;
             
+            private global::System.Data.DataColumn columnMatterApprovedPercent;
+            
+            private global::System.Data.DataColumn columnMatterResult;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
             public Vote_SummaryDataTable() {
@@ -1889,6 +1893,22 @@ namespace pmDHCD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public global::System.Data.DataColumn MatterApprovedPercentColumn {
+                get {
+                    return this.columnMatterApprovedPercent;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public global::System.Data.DataColumn MatterResultColumn {
+                get {
+                    return this.columnMatterResult;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1924,7 +1944,7 @@ namespace pmDHCD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public Vote_SummaryRow AddVote_SummaryRow(int MatterCode, string MatterName, string MatterDescription, string VoteType, string VoteLabel, int VoteShares, decimal VotePercent, int SortOrder) {
+            public Vote_SummaryRow AddVote_SummaryRow(int MatterCode, string MatterName, string MatterDescription, string VoteType, string VoteLabel, int VoteShares, decimal VotePercent, int SortOrder, int MatterApprovedPercent, string MatterResult) {
                 Vote_SummaryRow rowVote_SummaryRow = ((Vote_SummaryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         MatterCode,
@@ -1934,7 +1954,9 @@ namespace pmDHCD {
                         VoteLabel,
                         VoteShares,
                         VotePercent,
-                        SortOrder};
+                        SortOrder,
+                        MatterApprovedPercent,
+                        MatterResult};
                 rowVote_SummaryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowVote_SummaryRow);
                 return rowVote_SummaryRow;
@@ -1965,6 +1987,8 @@ namespace pmDHCD {
                 this.columnVoteShares = base.Columns["VoteShares"];
                 this.columnVotePercent = base.Columns["VotePercent"];
                 this.columnSortOrder = base.Columns["SortOrder"];
+                this.columnMatterApprovedPercent = base.Columns["MatterApprovedPercent"];
+                this.columnMatterResult = base.Columns["MatterResult"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1986,6 +2010,10 @@ namespace pmDHCD {
                 base.Columns.Add(this.columnVotePercent);
                 this.columnSortOrder = new global::System.Data.DataColumn("SortOrder", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSortOrder);
+                this.columnMatterApprovedPercent = new global::System.Data.DataColumn("MatterApprovedPercent", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMatterApprovedPercent);
+                this.columnMatterResult = new global::System.Data.DataColumn("MatterResult", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMatterResult);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4052,6 +4080,38 @@ namespace pmDHCD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public int MatterApprovedPercent {
+                get {
+                    try {
+                        return ((int)(this[this.tableVote_Summary.MatterApprovedPercentColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'MatterApprovedPercent\' in table \'Vote_Summary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableVote_Summary.MatterApprovedPercentColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public string MatterResult {
+                get {
+                    try {
+                        return ((string)(this[this.tableVote_Summary.MatterResultColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'MatterResult\' in table \'Vote_Summary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableVote_Summary.MatterResultColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
             public bool IsMatterCodeNull() {
                 return this.IsNull(this.tableVote_Summary.MatterCodeColumn);
             }
@@ -4144,6 +4204,30 @@ namespace pmDHCD {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
             public void SetSortOrderNull() {
                 this[this.tableVote_Summary.SortOrderColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public bool IsMatterApprovedPercentNull() {
+                return this.IsNull(this.tableVote_Summary.MatterApprovedPercentColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public void SetMatterApprovedPercentNull() {
+                this[this.tableVote_Summary.MatterApprovedPercentColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public bool IsMatterResultNull() {
+                return this.IsNull(this.tableVote_Summary.MatterResultColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public void SetMatterResultNull() {
+                this[this.tableVote_Summary.MatterResultColumn] = global::System.Convert.DBNull;
             }
         }
         

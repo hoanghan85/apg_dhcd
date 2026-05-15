@@ -66,6 +66,8 @@ namespace pmDHCD
             Button6.Click += new EventHandler(Button6_Click);
             Button7 = new Button();
             Button7.Click += new EventHandler(Button7_Click);
+            Button8 = new Button();
+            Button8.Click += new EventHandler(Button8_Click);
             SuspendLayout();
             // 
             // StockTextBox2
@@ -275,6 +277,16 @@ namespace pmDHCD
             Button4.Text = "Tìm trong DS cổ đông";
             Button4.UseVisualStyleBackColor = true;
             // 
+            // Button8
+            // 
+            Button8.Location = new Point(748, 117);
+            Button8.Margin = new Padding(4, 4, 4, 4);
+            Button8.Name = "Button8";
+            Button8.Size = new Size(106, 30);
+            Button8.TabIndex = 32;
+            Button8.Text = "Tìm mã CĐ";
+            Button8.UseVisualStyleBackColor = true;
+            // 
             // Label8
             // 
             Label8.AutoSize = true;
@@ -335,7 +347,8 @@ namespace pmDHCD
             // 
             AutoScaleDimensions = new SizeF(8.0f, 16.0f);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(840, 590);
+            ClientSize = new Size(880, 590);
+            Controls.Add(Button8);
             Controls.Add(Button4);
             Controls.Add(StockTextBox2);
             Controls.Add(StockTextBox1);
@@ -389,6 +402,7 @@ namespace pmDHCD
         internal Label Label1;
         internal Button Button2;
         internal Button Button4;
+        internal Button Button8;
         internal Label Label8;
         internal MaskedTextBox MaskedTextBox6;
         internal Button Button5;

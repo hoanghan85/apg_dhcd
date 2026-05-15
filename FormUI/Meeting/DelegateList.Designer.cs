@@ -37,6 +37,8 @@ namespace pmDHCD
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ToolStrip1 = new System.Windows.Forms.ToolStrip();
             this.ToolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.ToolStripButton2 = new System.Windows.Forms.ToolStripButton();
@@ -212,10 +214,10 @@ namespace pmDHCD
             this.InPhieuBauBKS.Image = global::pmDHCD.My.Resources.Resources.Printer;
             this.InPhieuBauBKS.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.InPhieuBauBKS.Name = "InPhieuBauBKS";
-            this.InPhieuBauBKS.Size = new System.Drawing.Size(103, 28);
+            this.InPhieuBauBKS.Size = new System.Drawing.Size(103, 24);
             this.InPhieuBauBKS.Text = "P. Bầu BSK";
-            this.InPhieuBauBKS.Click += new System.EventHandler(this.InPhieuBauBKS_Click);
             this.InPhieuBauBKS.Visible = false;
+            this.InPhieuBauBKS.Click += new System.EventHandler(this.InPhieuBauBKS_Click);
             // 
             // InPhieuBauHDQT
             // 
@@ -261,6 +263,14 @@ namespace pmDHCD
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Delegatecode,
@@ -268,6 +278,14 @@ namespace pmDHCD
             this.IdentityCard,
             this.DelegateAddress,
             this.Voterights});
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
             this.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DataGridView1.Location = new System.Drawing.Point(0, 31);
             this.DataGridView1.Margin = new System.Windows.Forms.Padding(4);
@@ -318,9 +336,9 @@ namespace pmDHCD
             // Voterights
             // 
             this.Voterights.DataPropertyName = "Voterights";
-            dataGridViewCellStyle2.Format = "N0";
-            dataGridViewCellStyle2.NullValue = null;
-            this.Voterights.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Format = "N0";
+            dataGridViewCellStyle3.NullValue = null;
+            this.Voterights.DefaultCellStyle = dataGridViewCellStyle3;
             this.Voterights.FillWeight = 59.08628F;
             this.Voterights.HeaderText = "Tổng  quyền b.quyết";
             this.Voterights.MinimumWidth = 6;

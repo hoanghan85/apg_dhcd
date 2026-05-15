@@ -134,31 +134,50 @@ namespace pmDHCD
                 string qrcodepath = System.IO.Path.Combine(Application.StartupPath, @"Resources\qrcode.jpg");
                 cr.SetParameterValue("qrcodepath", qrcodepath);
                 cr.SetParameterValue("HolderName", DataGridView1.CurrentRow.Cells["Delegatename"].Value);
-                cr.SetParameterValue("Delegatecode", My.MyProject.Forms.Mainform.stockCode + DataGridView1.CurrentRow.Cells["Delegatecode"].Value.ToString().PadLeft(4, '0'));
+                cr.SetParameterValue("Delegatecode", "DB" + My.MyProject.Forms.Mainform.stockCode + DataGridView1.CurrentRow.Cells["Delegatecode"].Value.ToString().PadLeft(4, '0'));
                 cr.SetParameterValue("Delegatename", DataGridView1.CurrentRow.Cells["Delegatename"].Value.ToString().ToUpper());
                 cr.SetParameterValue("IdentityCard", DataGridView1.CurrentRow.Cells["IdentityCard"].Value);
                 cr.SetParameterValue("Address", DataGridView1.CurrentRow.Cells["DelegateAddress"].Value);
                 cr.SetParameterValue("DateMeeting", dateMeeting);
                 cr.SetParameterValue("Period", My.MyProject.Forms.Mainform.period);
-                cr.SetParameterValue("MettingType", My.MyProject.Forms.Mainform.mettingType);
+                cr.SetParameterValue("MeetingType", My.MyProject.Forms.Mainform.mettingType);
+                cr.SetParameterValue("Voterights", My.MyProject.Forms.Mainform.addthousandseperator(Conversions.ToString(DataGridView1.CurrentRow.Cells["Voterights"].Value)));
+
                 var dt = new DataTable();
-                dt = My.MyProject.Forms.Mainform.BenlyDal.Authorizations_getlist(My.MyProject.Forms.Mainform.workingmeeting, Conversions.ToDecimal(DataGridView1.CurrentRow.Cells["Delegatecode"].Value), "", "", "");
-                string str = "";
-                if (dt.Rows.Count == 1)
+
+                dt = My.MyProject.Forms.Mainform.BenlyDal.GetMeetingSummary(My.MyProject.Forms.Mainform.workingmeeting);
+                string MeetingName = "";
+                string CompanyName = "";
+                if (dt != null && dt.Rows.Count > 0)
                 {
-                    str = Conversions.ToString(dt.Rows[0]["Holdercode"]);
+                    MeetingName = Convert.ToString(dt.Rows[0]["MeetingName"]);
+                    CompanyName = Convert.ToString(dt.Rows[0]["CompanyName"]);
                 }
                 else
                 {
-                    foreach (DataRow dr in dt.Rows)
-                        str = str + dr["Holdercode"].ToString() + " (" + My.MyProject.Forms.Mainform.addthousandseperator(dr["DelegateRight"].ToString()) + " CP); ";
+                    MessageBox.Show("Không tìm thấy thông tin cuộc họp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
                 }
 
-                cr.SetParameterValue("Holdercode", str);
-                cr.SetParameterValue("voterights", My.MyProject.Forms.Mainform.addthousandseperator(Conversions.ToString(DataGridView1.CurrentRow.Cells["voterights"].Value)));
-                // cr.PrintToPrinter(1, True, 1, 1)
+                cr.SetParameterValue("MeetingName", MeetingName);
+                cr.SetParameterValue("CompanyName", CompanyName);
 
-                MessageBox.Show(qrcodepath);
+                //Nếu cần lấy list chi tiết cổ phần của những cổ đông ủy quyền -> Uncomment đoạn dưới và thêm Parameter Field Holdercode
+                //dt = My.MyProject.Forms.Mainform.BenlyDal.Authorizations_getlist(My.MyProject.Forms.Mainform.workingmeeting, Conversions.ToDecimal(DataGridView1.CurrentRow.Cells["Delegatecode"].Value), "", "", "");
+                //string str = "";
+                //if (dt.Rows.Count == 1)
+                //{
+                //    str = Conversions.ToString(dt.Rows[0]["Holdercode"]);
+                //}
+                //else
+                //{
+                //    foreach (DataRow dr in dt.Rows)
+                //        str = str + dr["Holdercode"].ToString() + " (" + My.MyProject.Forms.Mainform.addthousandseperator(dr["DelegateRight"].ToString()) + " CP); ";
+                //}
+
+                //cr.SetParameterValue("Holdercode", str);
+
+                //cr.PrintToPrinter(1, True, 1, 1)
 
                 ReportViewer.LoadReport(cr, this);
             }
@@ -482,7 +501,7 @@ namespace pmDHCD
                 cr.SetParameterValue("DateMeeting", dateMeeting);
                 cr.SetParameterValue("CountCandidate", dt.Rows.Count.ToString());
                 cr.SetParameterValue("Voterights", My.MyProject.Forms.Mainform.addthousandseperator(Conversions.ToString(DataGridView1.CurrentRow.Cells["Voterights"].Value)));
-                cr.SetParameterValue("sumvoterights", My.MyProject.Forms.Mainform.addthousandseperator(Conversions.ToString(Operators.MultiplyObject(DataGridView1.CurrentRow.Cells["voterights"].Value, dt.Rows.Count))));
+                cr.SetParameterValue("sumvoterights", My.MyProject.Forms.Mainform.addthousandseperator(Conversions.ToString(Operators.MultiplyObject(DataGridView1.CurrentRow.Cells["Voterights"].Value, dt.Rows.Count))));
                 cr.SetParameterValue("Period", My.MyProject.Forms.Mainform.period);
                 cr.SetParameterValue("MettingType", My.MyProject.Forms.Mainform.mettingType);
                 ReportViewer.LoadReport(cr, this);
@@ -522,7 +541,7 @@ namespace pmDHCD
                 cr.SetDataSource(dt);
                 string logoPath = System.IO.Path.Combine(Application.StartupPath, @"Resources\Logo.jpg");
                 cr.SetParameterValue("LogoPath", logoPath);
-                cr.SetParameterValue("Delegatecode", My.MyProject.Forms.Mainform.stockCode + DataGridView1.CurrentRow.Cells["Delegatecode"].Value.ToString().PadLeft(4, '0'));
+                cr.SetParameterValue("Delegatecode", "DB" + My.MyProject.Forms.Mainform.stockCode + DataGridView1.CurrentRow.Cells["Delegatecode"].Value.ToString().PadLeft(4, '0'));
                 cr.SetParameterValue("Delegatename", DataGridView1.CurrentRow.Cells["Delegatename"].Value);
                 cr.SetParameterValue("IdentityCard", DataGridView1.CurrentRow.Cells["IdentityCard"].Value);
                 cr.SetParameterValue("CountCandidate", dt.Rows.Count.ToString());
@@ -565,7 +584,7 @@ namespace pmDHCD
                 string logoPath = System.IO.Path.Combine(Application.StartupPath, @"Resources\Logo.jpg");
 
                 cr.SetDataSource(My.MyProject.Forms.Mainform.BenlyDal.Matter_getlist(My.MyProject.Forms.Mainform.workingmeeting, 0m));
-                cr.SetParameterValue("Delegatecode", My.MyProject.Forms.Mainform.stockCode + DataGridView1.CurrentRow.Cells["Delegatecode"].Value.ToString().PadLeft(4, '0'));
+                cr.SetParameterValue("Delegatecode", "DB" + My.MyProject.Forms.Mainform.stockCode + DataGridView1.CurrentRow.Cells["Delegatecode"].Value.ToString().PadLeft(4, '0'));
                 cr.SetParameterValue("Delegatename", DataGridView1.CurrentRow.Cells["Delegatename"].Value.ToString().ToUpper());
                 cr.SetParameterValue("IdentityCard", DataGridView1.CurrentRow.Cells["IdentityCard"].Value);
                 cr.SetParameterValue("DelegateAddress", DataGridView1.CurrentRow.Cells["DelegateAddress"].Value);
@@ -595,7 +614,7 @@ namespace pmDHCD
                 }
 
                 cr.SetParameterValue("Holdercode", str);
-                cr.SetParameterValue("voterights", My.MyProject.Forms.Mainform.addthousandseperator(Conversions.ToString(DataGridView1.CurrentRow.Cells["voterights"].Value)));
+                cr.SetParameterValue("voterights", My.MyProject.Forms.Mainform.addthousandseperator(Conversions.ToString(DataGridView1.CurrentRow.Cells["Voterights"].Value)));
                 ReportViewer.LoadReport(cr, this);
             }
             catch (Exception ex)

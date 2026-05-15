@@ -41,6 +41,8 @@ namespace pmDHCD
             Label7 = new Label();
             Label2 = new Label();
             Label1 = new Label();
+            Label4 = new Label();
+            MaskedTextBox2 = new MaskedTextBox();
             NumericUpDown1 = new NumericUpDown();
             TextBox1 = new TextBox();
             Button3 = new Button();
@@ -102,6 +104,17 @@ namespace pmDHCD
             Label2.TabIndex = 20;
             Label2.Text = "Mã vấn đề";
             // 
+            // Label4
+            // 
+            Label4.AutoSize = true;
+            Label4.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Label4.Location = new Point(540, 73);
+            Label4.Margin = new Padding(4, 0, 4, 0);
+            Label4.Name = "Label4";
+            Label4.Size = new Size(49, 20);
+            Label4.TabIndex = 23;
+            Label4.Text = "Tỷ lệ";
+            // 
             // Label1
             // 
             Label1.AutoSize = true;
@@ -124,6 +137,18 @@ namespace pmDHCD
             NumericUpDown1.Size = new Size(81, 29);
             NumericUpDown1.TabIndex = 0;
             NumericUpDown1.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            // 
+            // MaskedTextBox2
+            // 
+            MaskedTextBox2.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Regular, GraphicsUnit.Point, 0);
+            MaskedTextBox2.Location = new Point(640, 63);
+            MaskedTextBox2.Margin = new Padding(4, 4, 4, 4);
+            MaskedTextBox2.Mask = "000";
+            MaskedTextBox2.Name = "MaskedTextBox2";
+            MaskedTextBox2.Size = new Size(61, 26);
+            MaskedTextBox2.TabIndex = 1;
+            MaskedTextBox2.Text = "65";
+            MaskedTextBox2.TextAlign = HorizontalAlignment.Right;
             // 
             // TextBox1
             // 
@@ -164,6 +189,8 @@ namespace pmDHCD
             Controls.Add(Button3);
             Controls.Add(Button1);
             Controls.Add(TextBox1);
+            Controls.Add(MaskedTextBox2);
+            Controls.Add(Label4);
             Controls.Add(NumericUpDown1);
             Controls.Add(MaskedTextBox3);
             Controls.Add(MaskedTextBox1);
@@ -182,9 +209,11 @@ namespace pmDHCD
         }
         internal MaskedTextBox MaskedTextBox3;
         internal MaskedTextBox MaskedTextBox1;
+        internal MaskedTextBox MaskedTextBox2;
         internal Label Label3;
         internal Label Label7;
         internal Label Label2;
+        internal Label Label4;
         internal Label Label1;
         internal NumericUpDown NumericUpDown1;
         internal TextBox TextBox1;

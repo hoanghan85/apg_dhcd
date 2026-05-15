@@ -72,13 +72,16 @@ namespace pmDHCD
             if (!string.IsNullOrEmpty(MaskedTextBox6.Text))
             {
                 int outdele;
+                decimal remainvotes;
                 try
                 {
                     outdele = (int)Math.Round(My.MyProject.Forms.Mainform.BenlyDal.Delegate_insert(My.MyProject.Forms.Mainform.workingmeeting, MaskedTextBox4.Text, MaskedTextBox3.Text, MaskedTextBox5.Text));
                     MaskedTextBox2.Text = outdele.ToString();
                     Button1.Enabled = false;
                     Button2.Enabled = false;
-                    My.MyProject.Forms.Mainform.BenlyDal.Authorizations_insert(My.MyProject.Forms.Mainform.workingmeeting, MaskedTextBox6.Text, outdele, Conversions.ToDecimal(StockTextBox2.Text));
+                    remainvotes = My.MyProject.Forms.Mainform.BenlyDal.Holder_GetRemainingVoterights(My.MyProject.Forms.Mainform.workingmeeting, MaskedTextBox6.Text);
+                    My.MyProject.Forms.Mainform.BenlyDal.Authorizations_insert(My.MyProject.Forms.Mainform.workingmeeting, MaskedTextBox6.Text, outdele, Conversions.ToDecimal(remainvotes));
+                    //My.MyProject.Forms.Mainform.BenlyDal.Authorizations_insert(My.MyProject.Forms.Mainform.workingmeeting, MaskedTextBox6.Text, outdele, Conversions.ToDecimal(StockTextBox2.Text));
                     Button3.Focus();
                 }
                 // In phieu xac nhan tham du
@@ -92,6 +95,10 @@ namespace pmDHCD
                     MaskedTextBox3.SelectAll();
                 }
 
+            }
+            else if (string.IsNullOrEmpty(MaskedTextBox6.Text))
+            {
+                MessageBox.Show("Vui lòng tìm trong DS cổ đông trước khi thực hiện thao tác");
             }
         }
 
@@ -137,7 +144,10 @@ namespace pmDHCD
                 {
                     Interaction.MsgBox("Lỗi: " + ex.Message);
                 }
-
+            }
+            if (!string.IsNullOrEmpty(MaskedTextBox6.Text))
+            {
+                MessageBox.Show("Đại biểu là cổ đông, vui lòng chọn Thêm đại biểu và tự ủy quyền");
             }
         }
 
@@ -246,6 +256,59 @@ namespace pmDHCD
                 Interaction.MsgBox("Lỗi :" + ex.Message);
             }
 
+        }
+
+        // Event handler cho nút "Tìm mã CĐ"
+        private void Button8_Click(object sender, EventArgs e)
+        {
+            var holders = new DataTable();
+            try
+            {
+                // Tìm theo HolderCode từ MaskedTextBox3
+                holders = My.MyProject.Forms.Mainform.BenlyDal.Holder_getlist(
+                    My.MyProject.Forms.Mainform.workingmeeting, 
+                    MaskedTextBox3.Text,  // HolderCode
+                    "");                  // IdentityCard trống
+            }
+            catch (Exception ex)
+            {
+                Interaction.MsgBox("Lỗi tìm cổ đông: " + ex.Message);
+            }
+
+            if (holders.Rows.Count == 1)
+            {
+                // Nếu chỉ 1 kết quả, tự động điền
+                MaskedTextBox3.Text = Conversions.ToString(holders.Rows[0]["HolderIdentity"]);
+                MaskedTextBox4.Text = Conversions.ToString(holders.Rows[0]["HolderName"]);
+                MaskedTextBox5.Text = Conversions.ToString(holders.Rows[0]["HolderAddress"]);
+                MaskedTextBox6.Text = Conversions.ToString(holders.Rows[0]["HolderCode"]);
+                StockTextBox1.Text = Conversions.ToString(holders.Rows[0]["Shares"]);
+                StockTextBox2.Text = Conversions.ToString(holders.Rows[0]["Voterights"]);
+                Button1.Focus();
+            }
+            else if (holders.Rows.Count > 1)
+            {
+                // Nếu nhiều kết quả, hiển thị dialog để người dùng chọn
+                var objHolderListForSelectByCode = new HolderListForSelectByCode();
+                objHolderListForSelectByCode.HolderCode = MaskedTextBox3.Text;  // Truyền HolderCode
+                objHolderListForSelectByCode.ShowDialog();
+
+                if (objHolderListForSelectByCode.DataGridView1.CurrentRow != null)
+                {
+                    MaskedTextBox3.Text = objHolderListForSelectByCode.DataGridView1.CurrentRow.Cells["HolderIdentity"].Value.ToString();
+                    MaskedTextBox4.Text = objHolderListForSelectByCode.DataGridView1.CurrentRow.Cells["HolderName"].Value.ToString();
+                    MaskedTextBox5.Text = objHolderListForSelectByCode.DataGridView1.CurrentRow.Cells["HolderAddress"].Value.ToString();
+                    MaskedTextBox6.Text = objHolderListForSelectByCode.DataGridView1.CurrentRow.Cells["HolderCode"].Value.ToString();
+                    StockTextBox1.Text = objHolderListForSelectByCode.DataGridView1.CurrentRow.Cells["Shares"].Value.ToString();
+                    StockTextBox2.Text = objHolderListForSelectByCode.DataGridView1.CurrentRow.Cells["Voterights"].Value.ToString();
+                }
+            }
+            else if (holders.Rows.Count == 0)
+            {
+                MessageBox.Show("Không tìm thấy cổ đông !");
+                MaskedTextBox3.Focus();
+                MaskedTextBox3.SelectAll();
+            }
         }
     }
 }

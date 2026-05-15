@@ -16,18 +16,18 @@ namespace BenlyDAL.BenlyDAL
         public DataTable Meeting_getlist(string meetingcode)
         {
             var result = new DataTable();
-            string strquerry = "Meetings_getlist";
-            var cmd = new SqlCommand(strquerry, conn);
+            string strQuery = "Meetings_getlist";
+            using var cmd = new SqlCommand(strQuery, conn);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@Meetingcode", SqlDbType.VarChar).Value = meetingcode;
-            var da = new SqlDataAdapter(cmd);
+            using var da = new SqlDataAdapter(cmd);
             try
             {
                 da.Fill(result);
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
 
             return result;
@@ -38,25 +38,25 @@ namespace BenlyDAL.BenlyDAL
             var result = new DataTable();
             string query;
             query = "select distinct c.CandidateCode as Code,c.CandidateName as Name from Candidates c join Elections e on c.Electioncode = e.Electioncode and e.Meetingcode = c.Meetingcode  and (e.ElectionName like N'%HĐQT%' or e.ElectionName like N'%" + senateName + "%')" + "and e.Meetingcode = N'" + workingmeeting + "'";
-            var cmd = new SqlCommand(query, conn);
+            using var cmd = new SqlCommand(query, conn);
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.Add("@Meetingcode", SqlDbType.VarChar).Value = workingmeeting;
-            var da = new SqlDataAdapter(cmd);
+            using var da = new SqlDataAdapter(cmd);
             try
             {
                 da.Fill(result);
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
             return result;
         }
 
         public void meeting_insert(string meetingcode, string MeetingName, string CompanyName, string companyAddress, string MeetingAddress, DateTime Meetingtime, string period, string mettingType, string stockCode)
         {
-            string strquerry = "Meetings_insert";
-            var cmd = new SqlCommand(strquerry, conn);
+            string strQuery = "Meetings_insert";
+            using var cmd = new SqlCommand(strQuery, conn);
             cmd.Parameters.Add("meetingcode", SqlDbType.VarChar).Value = meetingcode;
             cmd.Parameters.Add("MeetingName", SqlDbType.NVarChar).Value = MeetingName;
             cmd.Parameters.Add("CompanyName", SqlDbType.NVarChar).Value = CompanyName;
@@ -73,15 +73,15 @@ namespace BenlyDAL.BenlyDAL
             {
                 cmd.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
         }
         public void meeting_update(string meetingcode, string MeetingName, string CompanyName, string companyAddress, string MeetingAddress, DateTime Meetingtime, string period, string mettingType, string stockCode)
         {
-            string strquerry = "Meetings_update";
-            var cmd = new SqlCommand(strquerry, conn);
+            string strQuery = "Meetings_update";
+            using var cmd = new SqlCommand(strQuery     , conn);
             cmd.Parameters.Add("meetingcode", SqlDbType.VarChar).Value = meetingcode;
             cmd.Parameters.Add("MeetingName", SqlDbType.NVarChar).Value = MeetingName;
             cmd.Parameters.Add("CompanyName", SqlDbType.NVarChar).Value = CompanyName;
@@ -98,15 +98,15 @@ namespace BenlyDAL.BenlyDAL
             {
                 cmd.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
         }
         public void meeting_delete(string meetingcode)
         {
-            string strquerry = "Meetings_delete";
-            var cmd = new SqlCommand(strquerry, conn);
+            string strQuery = "Meetings_delete";
+            using var cmd = new SqlCommand(strQuery, conn);
             cmd.Parameters.Add("meetingcode", SqlDbType.VarChar).Value = meetingcode;
             cmd.CommandType = CommandType.StoredProcedure;
 
@@ -114,28 +114,28 @@ namespace BenlyDAL.BenlyDAL
             {
                 cmd.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
         }
         public DataTable Holder_getlist(string meetingcode, string holdercode, string HolderIdentity)
         {
             var result = new DataTable();
-            string strquerry = "Holders_getlist";
-            var cmd = new SqlCommand(strquerry, conn);
+            string strQuery = "Holders_getlist";
+            using var cmd = new SqlCommand(strQuery, conn);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@Meetingcode", SqlDbType.VarChar).Value = meetingcode;
             cmd.Parameters.Add("@holdercode", SqlDbType.VarChar).Value = holdercode;
             cmd.Parameters.Add("@HolderIdentity", SqlDbType.VarChar).Value = HolderIdentity;
-            var da = new SqlDataAdapter(cmd);
+            using var da = new SqlDataAdapter(cmd);
             try
             {
                 da.Fill(result);
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
 
             return result;
@@ -144,20 +144,20 @@ namespace BenlyDAL.BenlyDAL
         public DataTable Holder_getListLimited(string meetingcode, decimal intFrom, decimal intTo)
         {
             var result = new DataTable();
-            string strquerry = "Holders_getListLimited";
-            var cmd = new SqlCommand(strquerry, conn);
+            string strQuery = "Holders_getListLimited";
+            using var cmd = new SqlCommand(strQuery, conn);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@Meetingcode", SqlDbType.VarChar).Value = meetingcode;
             cmd.Parameters.Add("@intFrom", SqlDbType.VarChar).Value = intFrom;
             cmd.Parameters.Add("@intTo", SqlDbType.VarChar).Value = intTo;
-            var da = new SqlDataAdapter(cmd);
+            using var da = new SqlDataAdapter(cmd);
             try
             {
                 da.Fill(result);
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
 
             return result;
@@ -166,8 +166,8 @@ namespace BenlyDAL.BenlyDAL
 
         public void Holder_delete(string meetingcode, string Holdercode)
         {
-            string strquerry = "Holders_delete";
-            var cmd = new SqlCommand(strquerry, conn);
+            string strQuery = "Holders_delete";
+            using var cmd = new SqlCommand(strQuery, conn);
             cmd.Parameters.Add("meetingcode", SqlDbType.VarChar).Value = meetingcode;
             cmd.Parameters.Add("Holdercode", SqlDbType.VarChar).Value = Holdercode;
             cmd.CommandType = CommandType.StoredProcedure;
@@ -175,15 +175,15 @@ namespace BenlyDAL.BenlyDAL
             {
                 cmd.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
         }
         public void holder_insert(string meetingcode, string Holdercode, string HolderIdentity, string HolderName, string HolderAddress, decimal Shares, decimal voterights, DateTime IdentityDate)
         {
-            string strquerry = "Holders_insert";
-            var cmd = new SqlCommand(strquerry, conn);
+            string strQuery = "Holders_insert";
+            using var cmd = new SqlCommand(strQuery, conn);
             cmd.Parameters.Add("meetingcode", SqlDbType.VarChar).Value = meetingcode;
             cmd.Parameters.Add("Holdercode", SqlDbType.NVarChar).Value = Holdercode;
             cmd.Parameters.Add("HolderIdentity", SqlDbType.NVarChar).Value = HolderIdentity;
@@ -198,15 +198,15 @@ namespace BenlyDAL.BenlyDAL
             {
                 cmd.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
         }
         public void holder_update(string meetingcode, string Holdercode, string HolderIdentity, string HolderName, string HolderAddress, decimal Shares, decimal voterights, DateTime IdentityDate)
         {
-            string strquerry = "Holders_update";
-            var cmd = new SqlCommand(strquerry, conn);
+            string strQuery = "Holders_update";
+            using var cmd = new SqlCommand(strQuery, conn);
             cmd.Parameters.Add("meetingcode", SqlDbType.VarChar).Value = meetingcode;
             cmd.Parameters.Add("Holdercode", SqlDbType.NVarChar).Value = Holdercode;
             cmd.Parameters.Add("HolderIdentity", SqlDbType.NVarChar).Value = HolderIdentity;
@@ -221,29 +221,29 @@ namespace BenlyDAL.BenlyDAL
             {
                 cmd.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
         }
         public DataTable Delegate_getlist(string meetingcode, decimal Delegatecode, string IdentityCard)
         {
             var result = new DataTable();
-            string strquerry = "Delegates_getlist";
-            var cmd = new SqlCommand(strquerry, conn);
+            string strQuery = "Delegates_getlist";
+            using var cmd = new SqlCommand(strQuery, conn);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@Meetingcode", SqlDbType.VarChar).Value = meetingcode;
             cmd.Parameters.Add("@Delegatecode", SqlDbType.VarChar).Value = Delegatecode;
             cmd.Parameters.Add("@IdentityCard", SqlDbType.VarChar).Value = IdentityCard;
             cmd.Parameters.Add("@Delegatename", SqlDbType.VarChar).Value = "";
-            var da = new SqlDataAdapter(cmd);
+            using var da = new SqlDataAdapter(cmd);
             try
             {
                 da.Fill(result);
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
 
             return result;
@@ -251,8 +251,8 @@ namespace BenlyDAL.BenlyDAL
 
         public void Delegate_delete(string meetingcode, string Delegatecode)
         {
-            string strquerry = "Delegates_delete";
-            var cmd = new SqlCommand(strquerry, conn);
+            string strQuery = "Delegates_delete";
+            using var cmd = new SqlCommand(strQuery, conn);
             cmd.Parameters.Add("meetingcode", SqlDbType.VarChar).Value = meetingcode;
             cmd.Parameters.Add("Delegatecode", SqlDbType.VarChar).Value = Delegatecode;
             cmd.CommandType = CommandType.StoredProcedure;
@@ -260,15 +260,15 @@ namespace BenlyDAL.BenlyDAL
             {
                 cmd.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
         }
         public decimal Delegate_insert(string meetingcode, string Delegatename, string IdentityCard, string DelegateAddress)
         {
-            string strquerry = "Delegates_insert";
-            var cmd = new SqlCommand(strquerry, conn);
+            string strQuery = "Delegates_insert";
+            using var cmd = new SqlCommand(strQuery, conn);
             cmd.Parameters.Add("meetingcode", SqlDbType.VarChar).Value = meetingcode;
             cmd.Parameters.Add("DelegateName", SqlDbType.NVarChar).Value = Delegatename;
             cmd.Parameters.Add("IdentityCard", SqlDbType.NVarChar).Value = IdentityCard;
@@ -283,16 +283,16 @@ namespace BenlyDAL.BenlyDAL
             {
                 cmd.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
             return Conversions.ToDecimal(delegatecode.Value);
         }
         public void Delegate_update(string meetingcode, decimal delegatecode, string Delegatename, string IdentityCard, string DelegateAddress)
         {
-            string strquerry = "Delegates_update";
-            var cmd = new SqlCommand(strquerry, conn);
+            string strQuery = "Delegates_update";
+            using var cmd = new SqlCommand(strQuery, conn);
             cmd.Parameters.Add("meetingcode", SqlDbType.VarChar).Value = meetingcode;
             cmd.Parameters.Add("delegatecode", SqlDbType.Int).Value = delegatecode;
             cmd.Parameters.Add("DelegateName", SqlDbType.NVarChar).Value = Delegatename;
@@ -304,9 +304,9 @@ namespace BenlyDAL.BenlyDAL
             {
                 cmd.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -342,22 +342,22 @@ namespace BenlyDAL.BenlyDAL
         public DataTable Authorizations_getlist(string meetingcode, decimal Delegatecode, string holdercode, string IdentityCard, string holderIdentity)
         {
             var result = new DataTable();
-            string strquerry = "Authorizations_getlist";
-            var cmd = new SqlCommand(strquerry, conn);
+            string strQuery = "Authorizations_getlist";
+            using var cmd = new SqlCommand(strQuery, conn);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@Meetingcode", SqlDbType.VarChar).Value = meetingcode;
             cmd.Parameters.Add("@Delegatecode", SqlDbType.Int).Value = Delegatecode;
             cmd.Parameters.Add("@IdentityCard", SqlDbType.VarChar).Value = IdentityCard;
             cmd.Parameters.Add("@holdercode", SqlDbType.VarChar).Value = holdercode;
             cmd.Parameters.Add("@holderIdentity", SqlDbType.VarChar).Value = holderIdentity;
-            var da = new SqlDataAdapter(cmd);
+            using var da = new SqlDataAdapter(cmd);
             try
             {
                 da.Fill(result);
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
 
             return result;
@@ -365,8 +365,8 @@ namespace BenlyDAL.BenlyDAL
 
         public decimal Holder_GetRemainingVoterights(string meetingcode, string holdercode)
         {
-            string strquerry = "Holders_GetRemainingVoterights";
-            var cmd = new SqlCommand(strquerry, conn);
+            string strQuery = "Holders_GetRemainingVoterights";
+            using var cmd = new SqlCommand(strQuery, conn);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@Meetingcode", SqlDbType.VarChar).Value = meetingcode;
             cmd.Parameters.Add("@HolderCode", SqlDbType.VarChar).Value = holdercode;
@@ -381,15 +381,15 @@ namespace BenlyDAL.BenlyDAL
 
                 return Conversions.ToDecimal(result);
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
         }
         public void Authorizations_insert(string meetingcode, string Holdercode, decimal delegatecode, decimal delegateright)
         {
-            string strquerry = "Authorizations_insert";
-            var cmd = new SqlCommand(strquerry, conn);
+            string strQuery = "Authorizations_insert";
+            using var cmd = new SqlCommand(strQuery, conn);
             cmd.Parameters.Add("meetingcode", SqlDbType.VarChar).Value = meetingcode;
             cmd.Parameters.Add("Holdercode", SqlDbType.VarChar).Value = Holdercode;
             cmd.Parameters.Add("delegatecode", SqlDbType.Int).Value = delegatecode;
@@ -400,15 +400,15 @@ namespace BenlyDAL.BenlyDAL
             {
                 cmd.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
         }
         public void Authorizations_delete(string meetingcode, decimal Delegatecode, string holdercode)
         {
-            string strquerry = "Authorizations_delete";
-            var cmd = new SqlCommand(strquerry, conn);
+            string strQuery = "Authorizations_delete";
+            using var cmd = new SqlCommand(strQuery, conn);
             cmd.Parameters.Add("meetingcode", SqlDbType.VarChar).Value = meetingcode;
             cmd.Parameters.Add("Delegatecode", SqlDbType.Int).Value = Delegatecode;
             cmd.Parameters.Add("holdercode", SqlDbType.VarChar).Value = holdercode;
@@ -418,15 +418,15 @@ namespace BenlyDAL.BenlyDAL
             {
                 cmd.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
         }
         public void Authorizations_update(string meetingcode, string Holdercode, decimal delegatecode, decimal delegateright)
         {
-            string strquerry = "Authorizations_update";
-            var cmd = new SqlCommand(strquerry, conn);
+            string strQuery = "Authorizations_update";
+            using var cmd = new SqlCommand(strQuery, conn);
             cmd.Parameters.Add("meetingcode", SqlDbType.VarChar).Value = meetingcode;
             cmd.Parameters.Add("Holdercode", SqlDbType.VarChar).Value = Holdercode;
             cmd.Parameters.Add("delegatecode", SqlDbType.Int).Value = delegatecode;
@@ -437,73 +437,75 @@ namespace BenlyDAL.BenlyDAL
             {
                 cmd.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
         }
         public DataTable Matter_getlist(string meetingcode, decimal mattercode)
         {
             var result = new DataTable();
-            string strquerry = "Matters_getlist";
-            var cmd = new SqlCommand(strquerry, conn);
+            string strQuery = "Matters_getlist";
+            using var cmd = new SqlCommand(strQuery, conn);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@Meetingcode", SqlDbType.VarChar).Value = meetingcode;
             cmd.Parameters.Add("@mattercode", SqlDbType.VarChar).Value = mattercode;
-            var da = new SqlDataAdapter(cmd);
+            using var da = new SqlDataAdapter(cmd);
             try
             {
                 da.Fill(result);
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
 
             return result;
         }
-        public void Matter_insert(string meetingcode, string Mattercode, string Mattername, string MatterDescription)
+        public void Matter_insert(string meetingcode, string Mattercode, string Mattername, string MatterDescription, int MatterApprovedPercent)
         {
-            string strquerry = "Matters_insert";
-            var cmd = new SqlCommand(strquerry, conn);
+            string strQuery = "Matters_insert";
+            using var cmd = new SqlCommand(strQuery, conn);
             cmd.Parameters.Add("meetingcode", SqlDbType.VarChar).Value = meetingcode;
             cmd.Parameters.Add("mattercode", SqlDbType.Int).Value = Mattercode;
             cmd.Parameters.Add("Mattername", SqlDbType.NVarChar).Value = Mattername;
             cmd.Parameters.Add("MatterDescription", SqlDbType.NVarChar).Value = MatterDescription;
+            cmd.Parameters.Add("MatterApprovedPercent", SqlDbType.Int).Value = MatterApprovedPercent;
             cmd.CommandType = CommandType.StoredProcedure;
 
             try
             {
                 cmd.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
         }
-        public void Matter_update(string meetingcode, string Mattercode, string Mattername, string MatterDescription)
+        public void Matter_update(string meetingcode, string Mattercode, string Mattername, string MatterDescription, int MatterApprovedPercent)
         {
-            string strquerry = "Matters_update";
-            var cmd = new SqlCommand(strquerry, conn);
+            string strQuery = "Matters_update";
+            using var cmd = new SqlCommand(strQuery, conn);
             cmd.Parameters.Add("meetingcode", SqlDbType.VarChar).Value = meetingcode;
             cmd.Parameters.Add("mattercode", SqlDbType.Int).Value = Mattercode;
             cmd.Parameters.Add("Mattername", SqlDbType.NVarChar).Value = Mattername;
             cmd.Parameters.Add("MatterDescription", SqlDbType.NVarChar).Value = MatterDescription;
+            cmd.Parameters.Add("MatterApprovedPercent", SqlDbType.Int).Value = MatterApprovedPercent;
             cmd.CommandType = CommandType.StoredProcedure;
 
             try
             {
                 cmd.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
         }
         public void Matter_delete(string meetingcode, string Mattercode)
         {
-            string strquerry = "Matters_delete";
-            var cmd = new SqlCommand(strquerry, conn);
+            string strQuery = "Matters_delete";
+            using var cmd = new SqlCommand(strQuery, conn);
             cmd.Parameters.Add("meetingcode", SqlDbType.VarChar).Value = meetingcode;
             cmd.Parameters.Add("mattercode", SqlDbType.Int).Value = Mattercode;
             cmd.CommandType = CommandType.StoredProcedure;
@@ -512,28 +514,28 @@ namespace BenlyDAL.BenlyDAL
             {
                 cmd.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
         }
 
         public DataTable Election_getlist(string meetingcode, decimal electioncode)
         {
             var result = new DataTable();
-            string strquerry = "Elections_getlist";
-            var cmd = new SqlCommand(strquerry, conn);
+            string strQuery = "Elections_getlist";
+            using var cmd = new SqlCommand(strQuery, conn);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@Meetingcode", SqlDbType.VarChar).Value = meetingcode;
             cmd.Parameters.Add("@electioncode", SqlDbType.VarChar).Value = electioncode;
-            var da = new SqlDataAdapter(cmd);
+            using var da = new SqlDataAdapter(cmd);
             try
             {
                 da.Fill(result);
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
 
             return result;
@@ -541,8 +543,8 @@ namespace BenlyDAL.BenlyDAL
 
         public void Election_insert(string meetingcode, decimal electioncode, string electionname, string electionDescription, decimal numofcandidates)
         {
-            string strquerry = "elections_insert";
-            var cmd = new SqlCommand(strquerry, conn);
+            string strQuery = "elections_insert";
+            using var cmd = new SqlCommand(strQuery, conn);
             cmd.Parameters.Add("meetingcode", SqlDbType.VarChar).Value = meetingcode;
             cmd.Parameters.Add("electioncode", SqlDbType.Int).Value = electioncode;
             cmd.Parameters.Add("electionname", SqlDbType.NVarChar).Value = electionname;
@@ -554,16 +556,16 @@ namespace BenlyDAL.BenlyDAL
             {
                 cmd.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
         }
 
         public void Election_update(string meetingcode, decimal electioncode, string electionname, string electionDescription, decimal numofcandidates)
         {
-            string strquerry = "elections_update";
-            var cmd = new SqlCommand(strquerry, conn);
+            string strQuery = "elections_update";
+            using var cmd = new SqlCommand(strQuery, conn);
             cmd.Parameters.Add("meetingcode", SqlDbType.VarChar).Value = meetingcode;
             cmd.Parameters.Add("electioncode", SqlDbType.Int).Value = electioncode;
             cmd.Parameters.Add("electionname", SqlDbType.NVarChar).Value = electionname;
@@ -575,15 +577,15 @@ namespace BenlyDAL.BenlyDAL
             {
                 cmd.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
         }
         public void Election_delete(string meetingcode, decimal electioncode)
         {
-            string strquerry = "elections_delete";
-            var cmd = new SqlCommand(strquerry, conn);
+            string strQuery = "elections_delete";
+            using var cmd = new SqlCommand(strQuery, conn);
             cmd.Parameters.Add("meetingcode", SqlDbType.VarChar).Value = meetingcode;
             cmd.Parameters.Add("electioncode", SqlDbType.Int).Value = electioncode;
             cmd.CommandType = CommandType.StoredProcedure;
@@ -592,29 +594,29 @@ namespace BenlyDAL.BenlyDAL
             {
                 cmd.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
         }
 
         public DataTable Candidates_getlist(string meetingcode, decimal electioncode, decimal candidatecode)
         {
             var result = new DataTable();
-            string strquerry = "Candidates_getlist";
-            var cmd = new SqlCommand(strquerry, conn);
+            string strQuery = "Candidates_getlist";
+            using var cmd = new SqlCommand(strQuery, conn);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@Meetingcode", SqlDbType.VarChar).Value = meetingcode;
             cmd.Parameters.Add("@electioncode", SqlDbType.VarChar).Value = electioncode;
             cmd.Parameters.Add("@candidatecode", SqlDbType.VarChar).Value = candidatecode;
-            var da = new SqlDataAdapter(cmd);
+            using var da = new SqlDataAdapter(cmd);
             try
             {
                 da.Fill(result);
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
 
             return result;
@@ -622,29 +624,29 @@ namespace BenlyDAL.BenlyDAL
         public DataTable Candidates_getlist_4voteupdate(string meetingcode, decimal electioncode, decimal candidatecode, decimal delegatecode)
         {
             var result = new DataTable();
-            string strquerry = "Candidates_getlist_4voteupdate";
-            var cmd = new SqlCommand(strquerry, conn);
+            string strQuery = "Candidates_getlist_4voteupdate";
+            using var cmd = new SqlCommand(strQuery, conn);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@Meetingcode", SqlDbType.VarChar).Value = meetingcode;
             cmd.Parameters.Add("@electioncode", SqlDbType.VarChar).Value = electioncode;
             cmd.Parameters.Add("@candidatecode", SqlDbType.VarChar).Value = candidatecode;
             cmd.Parameters.Add("@delegatecode", SqlDbType.VarChar).Value = delegatecode;
-            var da = new SqlDataAdapter(cmd);
+            using var da = new SqlDataAdapter(cmd);
             try
             {
                 da.Fill(result);
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
 
             return result;
         }
         public void Candidate_insert(string meetingcode, decimal electioncode, decimal candidatecode, string candidatename, string candidateaddress)
         {
-            string strquerry = "candidates_insert";
-            var cmd = new SqlCommand(strquerry, conn);
+            string strQuery = "candidates_insert";
+            using var cmd = new SqlCommand(strQuery, conn);
             cmd.Parameters.Add("meetingcode", SqlDbType.VarChar).Value = meetingcode;
             cmd.Parameters.Add("electioncode", SqlDbType.Int).Value = electioncode;
             cmd.Parameters.Add("candidatecode", SqlDbType.Int).Value = candidatecode;
@@ -656,16 +658,16 @@ namespace BenlyDAL.BenlyDAL
             {
                 cmd.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
         }
 
         public void Candidate_update(string meetingcode, decimal electioncode, decimal candidatecode, string candidatename, string candidateaddress)
         {
-            string strquerry = "candidates_update";
-            var cmd = new SqlCommand(strquerry, conn);
+            string strQuery = "candidates_update";
+            using var cmd = new SqlCommand(strQuery, conn);
             cmd.Parameters.Add("meetingcode", SqlDbType.VarChar).Value = meetingcode;
             cmd.Parameters.Add("electioncode", SqlDbType.Int).Value = electioncode;
             cmd.Parameters.Add("candidatecode", SqlDbType.Int).Value = candidatecode;
@@ -676,15 +678,15 @@ namespace BenlyDAL.BenlyDAL
             {
                 cmd.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
         }
         public void Candidate_delete(string meetingcode, decimal electioncode, decimal candidatecode)
         {
-            string strquerry = "candidates_delete";
-            var cmd = new SqlCommand(strquerry, conn);
+            string strQuery = "candidates_delete";
+            using var cmd = new SqlCommand(strQuery, conn);
             cmd.Parameters.Add("meetingcode", SqlDbType.VarChar).Value = meetingcode;
             cmd.Parameters.Add("electioncode", SqlDbType.Int).Value = electioncode;
             cmd.Parameters.Add("candidatecode", SqlDbType.Int).Value = candidatecode;
@@ -693,17 +695,17 @@ namespace BenlyDAL.BenlyDAL
             {
                 cmd.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
         }
 
         public void MatterVotes_insert(string meetingcode, decimal mattercode, //decimal HolderCode, 
             decimal DelegateCode, bool Agree, bool disAgree, bool noidea)
         {
-            string strquerry = "Mattervotes_insert";
-            var cmd = new SqlCommand(strquerry, conn);
+            string strQuery = "Mattervotes_insert";
+            using var cmd = new SqlCommand(strQuery, conn);
             cmd.Parameters.Add("@meetingcode", SqlDbType.VarChar).Value = meetingcode;
             cmd.Parameters.Add("@Mattercode", SqlDbType.Int).Value = mattercode;
             cmd.Parameters.Add("@DelegateCode", SqlDbType.Int).Value = DelegateCode;
@@ -717,15 +719,15 @@ namespace BenlyDAL.BenlyDAL
             {
                 cmd.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
         }
         public void MatterVotes_insert_remain(string meetingcode, decimal mattercode, decimal DelegateCode, bool Agree, bool disAgree, bool noidea)
         {
-            string strquerry = "Mattervotes_insert_remain";
-            var cmd = new SqlCommand(strquerry, conn);
+            string strQuery = "Mattervotes_insert_remain";
+            using var cmd = new SqlCommand(strQuery, conn);
             cmd.Parameters.Add("@meetingcode", SqlDbType.VarChar).Value = meetingcode;
             cmd.Parameters.Add("@Mattercode", SqlDbType.Int).Value = mattercode;
             cmd.Parameters.Add("@Agree", SqlDbType.Bit).Value = Agree;
@@ -737,15 +739,15 @@ namespace BenlyDAL.BenlyDAL
             {
                 cmd.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
         }
         public void MatterVotes_update(string meetingcode, decimal mattercode, decimal delegatecode, bool Agree, bool disAgree, bool noidea)
         {
-            string strquerry = "Mattervotes_update";
-            var cmd = new SqlCommand(strquerry, conn);
+            string strQuery = "Mattervotes_update";
+            using var cmd = new SqlCommand(strQuery, conn);
             cmd.Parameters.Add("@meetingcode", SqlDbType.VarChar).Value = meetingcode;
             cmd.Parameters.Add("@Mattercode", SqlDbType.Int).Value = mattercode;
             cmd.Parameters.Add("@delegatecode", SqlDbType.Int).Value = delegatecode;
@@ -758,15 +760,15 @@ namespace BenlyDAL.BenlyDAL
             {
                 cmd.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
         }
         public void MatterVotes_delete(string meetingcode, decimal mattercode, decimal delegatecode, decimal HolderCode)
         {
-            string strquerry = "Mattervotes_delete";
-            var cmd = new SqlCommand(strquerry, conn);
+            string strQuery = "Mattervotes_delete";
+            using var cmd = new SqlCommand(strQuery, conn);
             cmd.Parameters.Add("@meetingcode", SqlDbType.VarChar).Value = meetingcode;
             cmd.Parameters.Add("@Mattercode", SqlDbType.Int).Value = mattercode;
             cmd.Parameters.Add("@delegatecode", SqlDbType.Int).Value = delegatecode;
@@ -777,39 +779,51 @@ namespace BenlyDAL.BenlyDAL
             {
                 cmd.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
         }
 
         public DataTable MatterVotes_getlist(string meetingcode, decimal mattercode, string holderIdentify)
         {
             var result = new DataTable();
-            string strquerry = "Mattervotes_getlist";
-            var cmd = new SqlCommand(strquerry, conn);
+            string strQuery = "Mattervotes_getlist";
+            using var cmd = new SqlCommand(strQuery, conn);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@Meetingcode", SqlDbType.VarChar).Value = meetingcode;
             cmd.Parameters.Add("@mattercode", SqlDbType.VarChar).Value = mattercode;
             //cmd.Parameters.Add("@DelegateCode", SqlDbType.VarChar).Value = 0;
             cmd.Parameters.Add("@holderIdentify", SqlDbType.VarChar).Value = holderIdentify;
-            var da = new SqlDataAdapter(cmd);
+            using var da = new SqlDataAdapter(cmd);
             try
             {
                 da.Fill(result);
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
 
             return result;
         }
+
+        ///summary
+        /// <summary>
+        /// Retrieves voting information for a specific matter within a meeting.
+        /// </summary>
+        /// <remarks>This method executes a stored procedure to obtain voting statistics for a matter.
+        /// Ensure that the database connection is open before calling this method.</remarks>
+        /// <param name="meetingcode">The unique code identifying the meeting for which to retrieve matter voting information. Cannot be null or
+        /// empty.</param>
+        /// <param name="mattercode">The unique code identifying the matter within the specified meeting.</param>
+        /// <returns>A <see cref="MatterVoteInfo"/> object containing voting details for the specified matter. The object will
+        /// have default values if no data is found. We should use SqlDataReader to return single fields, map to object.</returns>
         public MatterVoteInfo MatterVotes_Infor_get(string meetingcode, decimal mattercode)
         {
             var result = new MatterVoteInfo();
-            string strquerry = "matters_VoteInfor_get";
-            var cmd = new SqlCommand(strquerry, conn);
+            string strQuery = "matters_VoteInfor_get";
+            using var cmd = new SqlCommand(strQuery, conn);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@Meetingcode", SqlDbType.VarChar).Value = meetingcode;
             cmd.Parameters.Add("@mattercode", SqlDbType.VarChar).Value = mattercode;
@@ -819,9 +833,9 @@ namespace BenlyDAL.BenlyDAL
             {
                 reader3 = cmd.ExecuteReader();
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
             while (reader3.Read())
             {
@@ -836,32 +850,42 @@ namespace BenlyDAL.BenlyDAL
             reader3.Close();
             return result;
         }
+
+        /// <summary>
+        /// Retrieves a list of election votes for a specified meeting, election, delegate, and candidate.
+        /// </summary>
+        /// <param name="meetingcode">The unique code identifying the meeting for which to retrieve election votes. Cannot be null or empty.</param>
+        /// <param name="electioncode">The code of the election to filter the votes by. Must be a valid election identifier.</param>
+        /// <param name="DelegateCode">The code of the delegate whose votes are to be retrieved. Must be a valid delegate identifier.</param>
+        /// <param name="candidatecode">The code of the candidate to filter the votes by. Must be a valid candidate identifier.</param>
+        /// <returns>A DataTable containing the election votes that match the specified criteria. The table will be empty if no
+        /// votes are found. We should use this SqlDataAdapter to returns a set of data using for Gridview.</returns>
         public DataTable ElectionVotes_getlist(string meetingcode, decimal electioncode, decimal DelegateCode, decimal candidatecode)
         {
             var result = new DataTable();
-            string strquerry = "Electionvotes_getlist";
-            var cmd = new SqlCommand(strquerry, conn);
+            string strQuery = "Electionvotes_getlist";
+            using var cmd = new SqlCommand(strQuery, conn);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@Meetingcode", SqlDbType.VarChar).Value = meetingcode;
             cmd.Parameters.Add("@electioncode", SqlDbType.Int).Value = electioncode;
             cmd.Parameters.Add("@DelegateCode", SqlDbType.Int).Value = DelegateCode;
             cmd.Parameters.Add("@candidateCode", SqlDbType.Int).Value = candidatecode;
-            var da = new SqlDataAdapter(cmd);
+            using var da = new SqlDataAdapter(cmd);
             try
             {
                 da.Fill(result);
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
 
             return result;
         }
         public void ElectionVotes_insert(string meetingcode, decimal electioncode, decimal DelegateCode, decimal CandidateCode, decimal Votes)
         {
-            string strquerry = "Electionvotes_insert";
-            var cmd = new SqlCommand(strquerry, conn);
+            string strQuery = "Electionvotes_insert";
+            using var cmd = new SqlCommand(strQuery, conn);
             cmd.Parameters.Add("meetingcode", SqlDbType.VarChar).Value = meetingcode;
             cmd.Parameters.Add("electioncode", SqlDbType.Int).Value = electioncode;
             cmd.Parameters.Add("@DelegateCode", SqlDbType.Int).Value = DelegateCode;
@@ -873,15 +897,15 @@ namespace BenlyDAL.BenlyDAL
             {
                 cmd.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
         }
         public void ElectionVotes_update(string meetingcode, decimal electioncode, decimal DelegateCode, decimal CandidateCode, decimal Votes)
         {
-            string strquerry = "Electionvotes_update";
-            var cmd = new SqlCommand(strquerry, conn);
+            string strQuery = "Electionvotes_update";
+            using var cmd = new SqlCommand(strQuery, conn);
             cmd.Parameters.Add("meetingcode", SqlDbType.VarChar).Value = meetingcode;
             cmd.Parameters.Add("electioncode", SqlDbType.Int).Value = electioncode;
             cmd.Parameters.Add("@DelegateCode", SqlDbType.Int).Value = DelegateCode;
@@ -893,15 +917,15 @@ namespace BenlyDAL.BenlyDAL
             {
                 cmd.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
         }
         public void ElectionVotes_delete(string meetingcode, decimal electioncode, decimal DelegateCode, decimal CandidateCode)
         {
-            string strquerry = "Electionvotes_delete";
-            var cmd = new SqlCommand(strquerry, conn);
+            string strQuery = "Electionvotes_delete";
+            using var cmd = new SqlCommand(strQuery, conn);
             cmd.Parameters.Add("meetingcode", SqlDbType.VarChar).Value = meetingcode;
             cmd.Parameters.Add("electioncode", SqlDbType.Int).Value = electioncode;
             cmd.Parameters.Add("@DelegateCode", SqlDbType.Int).Value = DelegateCode;
@@ -912,15 +936,15 @@ namespace BenlyDAL.BenlyDAL
             {
                 cmd.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
         }
         public void ElectionVotes_delete_all(string meetingcode, decimal electioncode, decimal DelegateCode, decimal CandidateCode)
         {
-            string strquerry = "Electionvotes_delete_all";
-            var cmd = new SqlCommand(strquerry, conn);
+            string strQuery = "Electionvotes_delete_all";
+            using var cmd = new SqlCommand(strQuery, conn);
             cmd.Parameters.Add("meetingcode", SqlDbType.VarChar).Value = meetingcode;
             cmd.Parameters.Add("electioncode", SqlDbType.Int).Value = electioncode;
             cmd.Parameters.Add("@DelegateCode", SqlDbType.Int).Value = DelegateCode;
@@ -931,15 +955,15 @@ namespace BenlyDAL.BenlyDAL
             {
                 cmd.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
         }
         public void IllegalElectionVotes_insert(string meetingcode, decimal electioncode, decimal DelegateCode)
         {
-            string strquerry = "IllegalElectionvotes_insert";
-            var cmd = new SqlCommand(strquerry, conn);
+            string strQuery = "IllegalElectionvotes_insert";
+            using var cmd = new SqlCommand(strQuery, conn);
             cmd.Parameters.Add("meetingcode", SqlDbType.VarChar).Value = meetingcode;
             cmd.Parameters.Add("electioncode", SqlDbType.Int).Value = electioncode;
             cmd.Parameters.Add("@DelegateCode", SqlDbType.Int).Value = DelegateCode;
@@ -949,15 +973,15 @@ namespace BenlyDAL.BenlyDAL
             {
                 cmd.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
         }
         public void IllegalElectionVotes_delete(string meetingcode, decimal electioncode, decimal DelegateCode)
         {
-            string strquerry = "IllegalElectionvotes_delete";
-            var cmd = new SqlCommand(strquerry, conn);
+            string strQuery = "IllegalElectionvotes_delete";
+            using var cmd = new SqlCommand(strQuery, conn);
             cmd.Parameters.Add("meetingcode", SqlDbType.VarChar).Value = meetingcode;
             cmd.Parameters.Add("electioncode", SqlDbType.Int).Value = electioncode;
             cmd.Parameters.Add("@DelegateCode", SqlDbType.Int).Value = DelegateCode;
@@ -967,28 +991,28 @@ namespace BenlyDAL.BenlyDAL
             {
                 cmd.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
         }
         public DataTable IllegalElectionVotes_getlist(string meetingcode, decimal electioncode, decimal DelegateCode)
         {
             var result = new DataTable();
-            string strquerry = "IllegalElectionvotes_getlist";
-            var cmd = new SqlCommand(strquerry, conn);
+            string strQuery = "IllegalElectionvotes_getlist";
+            using var cmd = new SqlCommand(strQuery, conn);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@Meetingcode", SqlDbType.VarChar).Value = meetingcode;
             cmd.Parameters.Add("@electioncode", SqlDbType.Int).Value = electioncode;
             cmd.Parameters.Add("@DelegateCode", SqlDbType.Int).Value = DelegateCode;
-            var da = new SqlDataAdapter(cmd);
+            using var da = new SqlDataAdapter(cmd);
             try
             {
                 da.Fill(result);
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
 
             return result;
@@ -1014,8 +1038,8 @@ namespace BenlyDAL.BenlyDAL
         public ElectionVoteInfo ElectionVotes_Infor_get(string meetingcode, decimal electioncode)
         {
             var result = new ElectionVoteInfo();
-            string strquerry = "Elections_VoteInfor_get";
-            var cmd = new SqlCommand(strquerry, conn);
+            string strQuery = "Elections_VoteInfor_get";
+            using var cmd = new SqlCommand(strQuery, conn);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@Meetingcode", SqlDbType.VarChar).Value = meetingcode;
             cmd.Parameters.Add("@electioncode", SqlDbType.VarChar).Value = electioncode;
@@ -1025,9 +1049,9 @@ namespace BenlyDAL.BenlyDAL
             {
                 reader3 = cmd.ExecuteReader();
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
             while (reader3.Read())
             {
@@ -1043,19 +1067,19 @@ namespace BenlyDAL.BenlyDAL
         public DataTable ElectionVotes_getresult(string meetingcode, decimal electioncode)
         {
             var result = new DataTable();
-            string strquerry = "Electionvotes_Getresult";
-            var cmd = new SqlCommand(strquerry, conn);
+            string strQuery = "Electionvotes_Getresult";
+            using var cmd = new SqlCommand(strQuery, conn);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@Meetingcode", SqlDbType.VarChar).Value = meetingcode;
             cmd.Parameters.Add("@electioncode", SqlDbType.Int).Value = electioncode;
-            var da = new SqlDataAdapter(cmd);
+            using var da = new SqlDataAdapter(cmd);
             try
             {
                 da.Fill(result);
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
             return result;
         }
@@ -1076,8 +1100,8 @@ namespace BenlyDAL.BenlyDAL
         public MeetingInfo Meeting_Infor_get(string meetingcode)
         {
             var result = new MeetingInfo();
-            string strquerry = "Meetings_VoteInfor_get";
-            var cmd = new SqlCommand(strquerry, conn);
+            string strQuery = "Meetings_VoteInfor_get";
+            using var cmd = new SqlCommand(strQuery, conn);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@Meetingcode", SqlDbType.VarChar).Value = meetingcode;
 
@@ -1086,9 +1110,9 @@ namespace BenlyDAL.BenlyDAL
             {
                 reader3 = cmd.ExecuteReader();
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
             while (reader3.Read())
             {
@@ -1110,19 +1134,19 @@ namespace BenlyDAL.BenlyDAL
         public DataTable RP_Authorizations_List(string workingmeeting, string stockCode)
         {
             var result = new DataTable();
-            string strquerry = "RP_Authorizations_List";
-            var cmd = new SqlCommand(strquerry, conn);
+            string strQuery = "RP_Authorizations_List";
+            using var cmd = new SqlCommand(strQuery, conn);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@Meetingcode", SqlDbType.VarChar).Value = workingmeeting;
             cmd.Parameters.Add("@Stockcode", SqlDbType.VarChar).Value = stockCode;
-            var da = new SqlDataAdapter(cmd);
+            using var da = new SqlDataAdapter(cmd);
             try
             {
                 da.Fill(result);
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
 
             return result;
@@ -1131,18 +1155,18 @@ namespace BenlyDAL.BenlyDAL
         public DataTable RP_Participation_Summary(string workingmeeting)
         {
             var result = new DataTable();
-            string strquerry = "RP_Participation_Summary";
-            var cmd = new SqlCommand(strquerry, conn);
+            string strQuery = "RP_Participation_Summary";
+            using var cmd = new SqlCommand(strQuery, conn);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@Meetingcode", SqlDbType.VarChar).Value = workingmeeting;
-            var da = new SqlDataAdapter(cmd);
+            using var da = new SqlDataAdapter(cmd);
             try
             {
                 da.Fill(result);
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
 
             return result;
@@ -1151,18 +1175,18 @@ namespace BenlyDAL.BenlyDAL
         public DataTable RP_Vote_Report(string workingmeeting)
         {
             var result = new DataTable();
-            string strquerry = "RP_Vote_Report";
-            var cmd = new SqlCommand(strquerry, conn);
+            string strQuery = "RP_Vote_Report";
+            using var cmd = new SqlCommand(strQuery, conn);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@Meetingcode", SqlDbType.VarChar).Value = workingmeeting;
-            var da = new SqlDataAdapter(cmd);
+            using var da = new SqlDataAdapter(cmd);
             try
             {
                 da.Fill(result);
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
 
             return result;
@@ -1170,18 +1194,18 @@ namespace BenlyDAL.BenlyDAL
         public DataTable RP_Election_Report(string workingmeeting)
         {
             var result = new DataTable();
-            string strquerry = "RP_Election_Report";
-            var cmd = new SqlCommand(strquerry, conn);
+            string strQuery = "RP_Election_Report";
+            using var cmd = new SqlCommand(strQuery, conn);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@Meetingcode", SqlDbType.VarChar).Value = workingmeeting;
-            var da = new SqlDataAdapter(cmd);
+            using var da = new SqlDataAdapter(cmd);
             try
             {
                 da.Fill(result);
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
 
             return result;
@@ -1190,18 +1214,18 @@ namespace BenlyDAL.BenlyDAL
         public DataTable GetMeetingSummary(string workingmeeting)
         {
             var result = new DataTable();
-            string strquerry = "PRP_Meeting_Summary";
-            var cmd = new SqlCommand(strquerry, conn);
+            string strQuery = "PRP_Meeting_Summary";
+            using var cmd = new SqlCommand(strQuery, conn);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@Meetingcode", SqlDbType.VarChar).Value = workingmeeting;
-            var da = new SqlDataAdapter(cmd);
+            using var da = new SqlDataAdapter(cmd);
             try
             {
                 da.Fill(result);
             }
             catch (Exception ex)
             {
-                throw ex;
+                throw new Exception("Lỗi lấy dữ liệu GetMeetingSummary: " + ex.Message, ex); ;
             }
             return result;
         }
@@ -1209,19 +1233,19 @@ namespace BenlyDAL.BenlyDAL
         public DataTable SP_Delegates_CheckAttendanceType(string workingmeeting, string DelegateCode)
         {
             var result = new DataTable();
-            string strquerry = "SP_Delegates_CheckAttendanceType";
-            var cmd = new SqlCommand(strquerry, conn);
+            string strQuery = "SP_Delegates_CheckAttendanceType";
+            using var cmd = new SqlCommand(strQuery, conn);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@MeetingCode", SqlDbType.VarChar).Value = workingmeeting;
             cmd.Parameters.Add("@DelegateCode", SqlDbType.VarChar).Value = DelegateCode;
-            var da = new SqlDataAdapter(cmd);
+            using var da = new SqlDataAdapter(cmd);
             try
             {
                 da.Fill(result);
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
             return result;
         }
@@ -1235,52 +1259,52 @@ namespace BenlyDAL.BenlyDAL
             {
                 // 1. Lấy Meeting Summary
                 string qryMeeting = "PRP_Meeting_Summary";
-                var cmdMeeting = new SqlCommand(qryMeeting, conn);
+                using var cmdMeeting = new SqlCommand(qryMeeting, conn);
                 cmdMeeting.CommandType = CommandType.StoredProcedure;
                 cmdMeeting.Parameters.Add("@Meetingcode", SqlDbType.VarChar).Value = workingmeeting;
-                var daMeeting = new SqlDataAdapter(cmdMeeting);
+                using var daMeeting = new SqlDataAdapter(cmdMeeting);
                 daMeeting.Fill(dsReport, "Meeting_Summary");
 
                 // 2. Lấy Vote Matter Summary (Matters + Votes Join)
                 string qryVoteSummary = "PRP_Vote_Summary";
-                var cmdVoteMatter = new SqlCommand(qryVoteSummary, conn);
+                using var cmdVoteMatter = new SqlCommand(qryVoteSummary, conn);
                 cmdVoteMatter.CommandType = CommandType.StoredProcedure;
                 cmdVoteMatter.Parameters.Add("@Meetingcode", SqlDbType.VarChar).Value = workingmeeting;
-                var daVoteMatter = new SqlDataAdapter(cmdVoteMatter);
+                using var daVoteMatter = new SqlDataAdapter(cmdVoteMatter);
                 daVoteMatter.Fill(dsReport, "Vote_Summary");
 
                 // 3. Lấy Election Candidate Summary
                 string qryCandidate = "PRP_Election_Candidate_Summary";
-                var cmdCandidate = new SqlCommand(qryCandidate, conn);
+                using var cmdCandidate = new SqlCommand(qryCandidate, conn);
                 cmdCandidate.CommandType = CommandType.StoredProcedure;
                 cmdCandidate.Parameters.Add("@MeetingCode", SqlDbType.VarChar).Value = workingmeeting;
                 cmdCandidate.Parameters.Add("@ElectionCode", SqlDbType.Int).Value = 1; // Đang mặc định lấy Bầu cử 1 - năm 2026 là HĐQT
-                var daCandidate = new SqlDataAdapter(cmdCandidate);
+                using var daCandidate = new SqlDataAdapter(cmdCandidate);
                 daCandidate.Fill(dsReport, "Election_Candidate_Summary");
 
                 // 4. Lấy Election Ballot Summary
                 string qryBallot = "PRP_Election_Ballot_Summary";
-                var cmdBallot = new SqlCommand(qryBallot, conn);
+                using var cmdBallot = new SqlCommand(qryBallot, conn);
                 cmdBallot.CommandType = CommandType.StoredProcedure;
                 cmdBallot.Parameters.Add("@MeetingCode", SqlDbType.VarChar).Value = workingmeeting;
                 cmdBallot.Parameters.Add("@ElectionCode", SqlDbType.Int).Value = 1; // Đang mặc định lấy Bầu cử 1 - năm 2026 là HĐQT
-                var daBallot = new SqlDataAdapter(cmdBallot);
+                using var daBallot = new SqlDataAdapter(cmdBallot);
                 daBallot.Fill(dsReport, "Election_Ballot_Summary");
 
                 // 5. Lấy Matter Result Summary
                 string qryAggredMatter = "PRP_Matter_Result_Summary";
-                var cmdAggredMatter = new SqlCommand(qryAggredMatter, conn);
+                using var cmdAggredMatter = new SqlCommand(qryAggredMatter, conn);
                 cmdAggredMatter.CommandType = CommandType.StoredProcedure;
                 cmdAggredMatter.Parameters.Add("@MeetingCode", SqlDbType.VarChar).Value = workingmeeting;
-                var daAggredMatter = new SqlDataAdapter(cmdAggredMatter);
+                using var daAggredMatter = new SqlDataAdapter(cmdAggredMatter);
                 daAggredMatter.Fill(dsReport, "Matter_Result_Summary");
 
                // 6. Lấy Matters List
                 string qryMatters = "PRP_Matters_List";
-                var cmdMatters = new SqlCommand(qryMatters, conn);
+                using var cmdMatters = new SqlCommand(qryMatters, conn);
                 cmdMatters.CommandType = CommandType.StoredProcedure;
                 cmdMatters.Parameters.Add("@MeetingCode", SqlDbType.VarChar).Value = workingmeeting;
-                var daMatters = new SqlDataAdapter(cmdMatters);
+                using var daMatters = new SqlDataAdapter(cmdMatters);
                 daMatters.Fill(dsReport, "Matters_List");
 
                 return dsReport;

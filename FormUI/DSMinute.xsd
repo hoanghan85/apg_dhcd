@@ -83,6 +83,8 @@
               <xs:element name="VoteShares" msprop:Generator_ColumnPropNameInTable="VoteSharesColumn" msprop:Generator_ColumnPropNameInRow="VoteShares" msprop:Generator_UserColumnName="VoteShares" msprop:Generator_ColumnVarNameInTable="columnVoteShares" type="xs:int" minOccurs="0" />
               <xs:element name="VotePercent" msprop:Generator_ColumnPropNameInTable="VotePercentColumn" msprop:Generator_ColumnPropNameInRow="VotePercent" msprop:Generator_UserColumnName="VotePercent" msprop:Generator_ColumnVarNameInTable="columnVotePercent" type="xs:decimal" minOccurs="0" />
               <xs:element name="SortOrder" msprop:Generator_ColumnPropNameInTable="SortOrderColumn" msprop:Generator_ColumnPropNameInRow="SortOrder" msprop:Generator_UserColumnName="SortOrder" msprop:Generator_ColumnVarNameInTable="columnSortOrder" type="xs:int" minOccurs="0" />
+              <xs:element name="MatterApprovedPercent" msprop:Generator_ColumnPropNameInRow="MatterApprovedPercent" msprop:Generator_ColumnPropNameInTable="MatterApprovedPercentColumn" msprop:Generator_ColumnVarNameInTable="columnMatterApprovedPercent" msprop:Generator_UserColumnName="MatterApprovedPercent" type="xs:int" minOccurs="0" />
+              <xs:element name="MatterResult" msprop:Generator_ColumnPropNameInRow="MatterResult" msprop:Generator_ColumnPropNameInTable="MatterResultColumn" msprop:Generator_ColumnVarNameInTable="columnMatterResult" msprop:Generator_UserColumnName="MatterResult" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -95,12 +97,12 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Matters_List" msprop:Generator_RowClassName="Matters_ListRow" msprop:Generator_RowEvHandlerName="Matters_ListRowChangeEventHandler" msprop:Generator_RowDeletedName="Matters_ListRowDeleted" msprop:Generator_RowDeletingName="Matters_ListRowDeleting" msprop:Generator_RowEvArgName="Matters_ListRowChangeEvent" msprop:Generator_TablePropName="Matters_List" msprop:Generator_RowChangedName="Matters_ListRowChanged" msprop:Generator_UserTableName="Matters_List" msprop:Generator_RowChangingName="Matters_ListRowChanging" msprop:Generator_TableClassName="Matters_ListDataTable" msprop:Generator_TableVarName="tableMatters_List">
+        <xs:element name="Matters_List" msprop:Generator_RowEvHandlerName="Matters_ListRowChangeEventHandler" msprop:Generator_RowDeletedName="Matters_ListRowDeleted" msprop:Generator_RowDeletingName="Matters_ListRowDeleting" msprop:Generator_RowEvArgName="Matters_ListRowChangeEvent" msprop:Generator_TablePropName="Matters_List" msprop:Generator_RowChangedName="Matters_ListRowChanged" msprop:Generator_UserTableName="Matters_List" msprop:Generator_RowChangingName="Matters_ListRowChanging" msprop:Generator_RowClassName="Matters_ListRow" msprop:Generator_TableClassName="Matters_ListDataTable" msprop:Generator_TableVarName="tableMatters_List">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="MatterCode" msprop:Generator_UserColumnName="MatterCode" msprop:Generator_ColumnPropNameInTable="MatterCodeColumn" msprop:Generator_ColumnPropNameInRow="MatterCode" msprop:Generator_ColumnVarNameInTable="columnMatterCode" type="xs:string" minOccurs="0" />
-              <xs:element name="MatterName" msprop:Generator_UserColumnName="MatterName" msprop:Generator_ColumnPropNameInTable="MatterNameColumn" msprop:Generator_ColumnPropNameInRow="MatterName" msprop:Generator_ColumnVarNameInTable="columnMatterName" type="xs:string" minOccurs="0" />
-              <xs:element name="MatterDescription" msprop:Generator_UserColumnName="MatterDescription" msprop:Generator_ColumnPropNameInTable="MatterDescriptionColumn" msprop:Generator_ColumnPropNameInRow="MatterDescription" msprop:Generator_ColumnVarNameInTable="columnMatterDescription" type="xs:string" minOccurs="0" />
+              <xs:element name="MatterCode" msprop:Generator_ColumnPropNameInTable="MatterCodeColumn" msprop:Generator_ColumnPropNameInRow="MatterCode" msprop:Generator_UserColumnName="MatterCode" msprop:Generator_ColumnVarNameInTable="columnMatterCode" type="xs:string" minOccurs="0" />
+              <xs:element name="MatterName" msprop:Generator_ColumnPropNameInTable="MatterNameColumn" msprop:Generator_ColumnPropNameInRow="MatterName" msprop:Generator_UserColumnName="MatterName" msprop:Generator_ColumnVarNameInTable="columnMatterName" type="xs:string" minOccurs="0" />
+              <xs:element name="MatterDescription" msprop:Generator_ColumnPropNameInTable="MatterDescriptionColumn" msprop:Generator_ColumnPropNameInRow="MatterDescription" msprop:Generator_UserColumnName="MatterDescription" msprop:Generator_ColumnVarNameInTable="columnMatterDescription" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
