@@ -51,7 +51,13 @@ namespace pmDHCD
             }
             else if (holders.Rows.Count == 0)
             {
-                MessageBox.Show("Không tìm thấy cổ đông !");
+                MessageBox.Show("Không tìm thấy cổ đông theo CC!");
+                //MaskedTextBox3.Text = "";
+                MaskedTextBox4.Text = "";
+                MaskedTextBox5.Text = "";
+                MaskedTextBox6.Text = "";
+                StockTextBox1.Text = "";
+                StockTextBox2.Text = "";
                 MaskedTextBox3.Focus();
                 MaskedTextBox3.SelectAll();
             }
@@ -66,6 +72,11 @@ namespace pmDHCD
             }
         }
 
+        //private void MaskedTextBox3_Leave(object sender, EventArgs e)
+        //{
+        //    Button4_Click(sender, e);
+        //}
+
 
         private void Button1_Click(object sender, EventArgs e)
         {
@@ -75,14 +86,21 @@ namespace pmDHCD
                 decimal remainvotes;
                 try
                 {
+                    remainvotes = My.MyProject.Forms.Mainform.BenlyDal.Holder_GetRemainingVoterights(My.MyProject.Forms.Mainform.workingmeeting, MaskedTextBox6.Text);
+                    if (remainvotes == 0)
+                    {
+                        MessageBox.Show("Đại biểu này đã ủy quyền hết số quyền, vui lòng kiểm tra lại");
+                    }
+                    else
+                    {
                     outdele = (int)Math.Round(My.MyProject.Forms.Mainform.BenlyDal.Delegate_insert(My.MyProject.Forms.Mainform.workingmeeting, MaskedTextBox4.Text, MaskedTextBox3.Text, MaskedTextBox5.Text));
                     MaskedTextBox2.Text = outdele.ToString();
                     Button1.Enabled = false;
                     Button2.Enabled = false;
-                    remainvotes = My.MyProject.Forms.Mainform.BenlyDal.Holder_GetRemainingVoterights(My.MyProject.Forms.Mainform.workingmeeting, MaskedTextBox6.Text);
-                    My.MyProject.Forms.Mainform.BenlyDal.Authorizations_insert(My.MyProject.Forms.Mainform.workingmeeting, MaskedTextBox6.Text, outdele, Conversions.ToDecimal(remainvotes));
-                    //My.MyProject.Forms.Mainform.BenlyDal.Authorizations_insert(My.MyProject.Forms.Mainform.workingmeeting, MaskedTextBox6.Text, outdele, Conversions.ToDecimal(StockTextBox2.Text));
-                    Button3.Focus();
+                        My.MyProject.Forms.Mainform.BenlyDal.Authorizations_insert(My.MyProject.Forms.Mainform.workingmeeting, MaskedTextBox6.Text, outdele, Conversions.ToDecimal(remainvotes));
+                        //My.MyProject.Forms.Mainform.BenlyDal.Authorizations_insert(My.MyProject.Forms.Mainform.workingmeeting, MaskedTextBox6.Text, outdele, Conversions.ToDecimal(StockTextBox2.Text));
+                        Button3.Focus();
+                    }
                 }
                 // In phieu xac nhan tham du
                 // If (MessageBox.Show("Bạn có muốn in phiếu xác nhận tham dự không?", "In phiếu xác nhận tham dự", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1) = Windows.Forms.DialogResult.Yes) Then
@@ -148,6 +166,14 @@ namespace pmDHCD
             if (!string.IsNullOrEmpty(MaskedTextBox6.Text))
             {
                 MessageBox.Show("Đại biểu là cổ đông, vui lòng chọn Thêm đại biểu và tự ủy quyền");
+                MaskedTextBox3.Text = "";
+                MaskedTextBox4.Text = "";
+                MaskedTextBox5.Text = "";
+                MaskedTextBox6.Text = "";
+                StockTextBox1.Text = "";
+                StockTextBox2.Text = "";
+                MaskedTextBox3.Focus();
+                MaskedTextBox3.SelectAll();
             }
         }
 
@@ -305,7 +331,13 @@ namespace pmDHCD
             }
             else if (holders.Rows.Count == 0)
             {
-                MessageBox.Show("Không tìm thấy cổ đông !");
+                MessageBox.Show("Không tìm thấy cổ đông theo mã CĐ!");
+                //MaskedTextBox3.Text = "";
+                MaskedTextBox4.Text = "";
+                MaskedTextBox5.Text = "";
+                MaskedTextBox6.Text = "";
+                StockTextBox1.Text = "";
+                StockTextBox2.Text = "";
                 MaskedTextBox3.Focus();
                 MaskedTextBox3.SelectAll();
             }

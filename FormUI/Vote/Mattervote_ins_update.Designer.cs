@@ -222,8 +222,9 @@ namespace pmDHCD
             this.HolderIdentifyMaskedTextBox2.Name = "HolderIdentifyMaskedTextBox2";
             this.HolderIdentifyMaskedTextBox2.Size = new System.Drawing.Size(265, 26);
             this.HolderIdentifyMaskedTextBox2.TabIndex = 1;
-            this.HolderIdentifyMaskedTextBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MaskedTextBox2_KeyDown);
-            this.HolderIdentifyMaskedTextBox2.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.HolderIdentifyMaskedTextBox2_PreviewKeyDown);
+            //this.HolderIdentifyMaskedTextBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MaskedTextBox2_KeyDown);
+            //this.HolderIdentifyMaskedTextBox2.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.HolderIdentifyMaskedTextBox2_PreviewKeyDown);
+            this.HolderIdentifyMaskedTextBox2.Leave += new System.EventHandler(this.HolderIdentifyMaskedTextBox2_Leave);
             // 
             // HolderCodeMaskedTextBox
             // 
@@ -239,6 +240,7 @@ namespace pmDHCD
             this.HolderCodeMaskedTextBox.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.MaskedTextBox5_MaskInputRejected);
             this.HolderCodeMaskedTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MaskedTextBox5_KeyDown);
             this.HolderCodeMaskedTextBox.Leave += new System.EventHandler(this.MaskedTextBox5_Leave);
+            this.HolderCodeMaskedTextBox.Visible = false;
             // 
             // Label6
             // 
@@ -276,6 +278,7 @@ namespace pmDHCD
             // Label5
             // 
             this.Label5.AutoSize = true;
+            this.Label5.Enabled = true;
             this.Label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label5.Location = new System.Drawing.Point(35, 228);
             this.Label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -283,6 +286,7 @@ namespace pmDHCD
             this.Label5.Size = new System.Drawing.Size(96, 20);
             this.Label5.TabIndex = 34;
             this.Label5.Text = "Mã cổ đông";
+            this.Label5.Visible = false;
             // 
             // GroupBox3
             // 
@@ -422,8 +426,7 @@ namespace pmDHCD
             // 
             // delegateCodeMaskedTextBox
             // 
-            this.delegateCodeMaskedTextBox.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.delegateCodeMaskedTextBox.Enabled = false;
+            this.delegateCodeMaskedTextBox.BackColor = System.Drawing.SystemColors.Window;
             this.delegateCodeMaskedTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.delegateCodeMaskedTextBox.Location = new System.Drawing.Point(237, 262);
             this.delegateCodeMaskedTextBox.Margin = new System.Windows.Forms.Padding(4);
@@ -431,6 +434,7 @@ namespace pmDHCD
             this.delegateCodeMaskedTextBox.Size = new System.Drawing.Size(265, 26);
             this.delegateCodeMaskedTextBox.TabIndex = 61;
             this.delegateCodeMaskedTextBox.TabStop = false;
+            this.delegateCodeMaskedTextBox.Leave += new System.EventHandler(this.delegateCodeMaskedTextBox_Leave);
             // 
             // label9
             // 
@@ -468,6 +472,7 @@ namespace pmDHCD
             this.Controls.Add(this.Label4);
             this.Controls.Add(this.GroupBox1);
             this.Controls.Add(this.Label5);
+            this.Enabled = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4);

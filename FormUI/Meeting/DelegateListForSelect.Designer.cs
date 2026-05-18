@@ -132,10 +132,10 @@ namespace pmDHCD
             // 
             AutoScaleDimensions = new SizeF(8.0f, 16.0f);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(833, 357);
+            ClientSize = new Size(1050, 357);
             Controls.Add(StatusStrip1);
             Controls.Add(DataGridView1);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            FormBorderStyle = FormBorderStyle.Sizable;
             KeyPreview = true;
             Margin = new Padding(4, 4, 4, 4);
             Name = "DelegateListForSelect";

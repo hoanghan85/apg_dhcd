@@ -209,55 +209,63 @@ namespace pmDHCD
                 Interaction.MsgBox("Lỗi :" + ex.Message);
             }
         }
-        private void MaskedTextBox2_KeyDown(object sender, KeyEventArgs e)
+        //private void MaskedTextBox2_KeyDown(object sender, KeyEventArgs e)
+        //{
+
+        //    if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
+        //    {
+        //        e.Handled = true;
+        //        e.SuppressKeyPress = true;
+
+        //        if (HolderIdentifyMaskedTextBox2.Text is not null && !string.IsNullOrEmpty(HolderIdentifyMaskedTextBox2.Text))
+        //        {
+        //            TimDaiBieu();
+        //        }
+
+        //        // Dim dt As New DataTable
+        //        // Try
+        //        // dt = Mainform.BenlyDal.Delegate_getlist(Mainform.workingmeeting, 0, MaskedTextBox2.Text)
+        //        // Catch ex As Exception
+        //        // MsgBox("Lỗi :" + ex.Message)
+        //        // Exit Sub
+        //        // End Try
+        //        // If dt.Rows.Count = 1 Then
+        //        // MaskedTextBox5.Text = dt.Rows(0).Item("Delegatecode")
+        //        // MaskedTextBox2.Text = dt.Rows(0).Item("IdentityCard")
+        //        // MaskedTextBox4.Text = dt.Rows(0).Item("Delegatename")
+        //        // StockTextBox1.Text = dt.Rows(0).Item("voterights")
+        //        // Else
+        //        // MaskedTextBox5.Text = ""
+        //        // MaskedTextBox2.Text = ""
+        //        // MaskedTextBox4.Text = ""
+        //        // StockTextBox1.Text = ""
+        //        // End If
+
+        //        if (CheckBox1.Checked == true)
+        //        {
+        //            insert();
+        //            HolderCodeMaskedTextBox.Focus();
+        //        }
+        //        else
+        //        {
+        //            Button1.Focus();
+        //        }
+        //    }
+        //}
+
+        //private void HolderIdentifyMaskedTextBox2_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        //{
+        //    if (e.KeyCode == Keys.Tab)
+        //    {
+        //        e.IsInputKey = true;
+        //    }
+        //}
+
+        private void HolderIdentifyMaskedTextBox2_Leave(object sender, EventArgs e)
         {
-
-            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
+            if (!string.IsNullOrEmpty(HolderIdentifyMaskedTextBox2.Text) && !string.IsNullOrWhiteSpace(HolderIdentifyMaskedTextBox2.Text))
             {
-                e.Handled = true;
-                e.SuppressKeyPress = true;
-
-                if (HolderIdentifyMaskedTextBox2.Text is not null && !string.IsNullOrEmpty(HolderIdentifyMaskedTextBox2.Text))
-                {
-                    TimDaiBieu();
-                }
-
-                // Dim dt As New DataTable
-                // Try
-                // dt = Mainform.BenlyDal.Delegate_getlist(Mainform.workingmeeting, 0, MaskedTextBox2.Text)
-                // Catch ex As Exception
-                // MsgBox("Lỗi :" + ex.Message)
-                // Exit Sub
-                // End Try
-                // If dt.Rows.Count = 1 Then
-                // MaskedTextBox5.Text = dt.Rows(0).Item("Delegatecode")
-                // MaskedTextBox2.Text = dt.Rows(0).Item("IdentityCard")
-                // MaskedTextBox4.Text = dt.Rows(0).Item("Delegatename")
-                // StockTextBox1.Text = dt.Rows(0).Item("voterights")
-                // Else
-                // MaskedTextBox5.Text = ""
-                // MaskedTextBox2.Text = ""
-                // MaskedTextBox4.Text = ""
-                // StockTextBox1.Text = ""
-                // End If
-
-                if (CheckBox1.Checked == true)
-                {
-                    insert();
-                    HolderCodeMaskedTextBox.Focus();
-                }
-                else
-                {
-                    Button1.Focus();
-                }
-            }
-        }
-
-        private void HolderIdentifyMaskedTextBox2_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
-        {
-            if (e.KeyCode == Keys.Tab)
-            {
-                e.IsInputKey = true;
+                TimDaiBieu();
             }
         }
 
@@ -268,7 +276,7 @@ namespace pmDHCD
             {
                 // daibieu = Mainform.BenlyDal.Delegate_getlist(Mainform.workingmeeting, 0, MaskedTextBox3.Text)
                 // daibieu = Mainform.BenlyDal.Delegate_getlist(Mainform.workingmeeting, 0, MaskedTextBox2.Text)
-                daibieu = My.MyProject.Forms.Mainform.BenlyDal.Authorizations_getlist(My.MyProject.Forms.Mainform.workingmeeting, 0m, "", delegateIdentityTextBox.Text, HolderIdentifyMaskedTextBox2.Text);
+                daibieu = My.MyProject.Forms.Mainform.BenlyDal.Delegate_getlist(My.MyProject.Forms.Mainform.workingmeeting, 0m, HolderIdentifyMaskedTextBox2.Text);
             }
             catch (Exception ex)
             {
@@ -277,34 +285,109 @@ namespace pmDHCD
             }
             if (daibieu.Rows.Count == 1)
             {
-                HolderCodeMaskedTextBox.Text = Conversions.ToString(daibieu.Rows[0]["HolderCode"]);
+                //HolderCodeMaskedTextBox.Text = Conversions.ToString(daibieu.Rows[0]["HolderCode"]);
                 delegateCodeMaskedTextBox.Text = Conversions.ToString(daibieu.Rows[0]["DelegateCode"]);
-                HolderIdentifyMaskedTextBox2.Text = Conversions.ToString(daibieu.Rows[0]["HolderIdentity"]);
-                MaskedTextBox4.Text = Conversions.ToString(daibieu.Rows[0]["HolderName"]);
-                StockTextBox1.Text = Conversions.ToString(daibieu.Rows[0]["Mattervoterights"]);
-                delegateIdentityTextBox.Text = ""; // daibieu.Rows(0).Item("IdentityCard")
+                HolderIdentifyMaskedTextBox2.Text = Conversions.ToString(daibieu.Rows[0]["IdentityCard"]);
+                MaskedTextBox4.Text = Conversions.ToString(daibieu.Rows[0]["DelegateName"]);
+                StockTextBox1.Text = Conversions.ToString(daibieu.Rows[0]["voterights"]);
+                //delegateIdentityTextBox.Text = ""; // daibieu.Rows(0).Item("IdentityCard")
                 delegateNameTextbox.Text = Conversions.ToString(daibieu.Rows[0]["DelegateName"]);
+                Button1.Focus();
             }
 
             else if (daibieu.Rows.Count > 1)
             {
-                var objListForSelect = new AuthorizationListForSelect();
-                objListForSelect.HolderIdentifyCard = HolderIdentifyMaskedTextBox2.Text;
-                objListForSelect.DelegateIdentifyCard = delegateIdentityTextBox.Text;
+                var objListForSelect = new DelegateListForSelect();
+                objListForSelect.IdentifyCard = HolderIdentifyMaskedTextBox2.Text;
                 objListForSelect.ShowDialog();
-                HolderIdentifyMaskedTextBox2.Text = objListForSelect.DataGridView1.CurrentRow.Cells["HolderIdentity"].Value.ToString();
-                delegateIdentityTextBox.Text = objListForSelect.DataGridView1.CurrentRow.Cells["IdentityCard"].Value.ToString();
-                TimDaiBieu();
+                if (objListForSelect.DataGridView1.CurrentRow != null)
+                {
+                    delegateCodeMaskedTextBox.Text = objListForSelect.DataGridView1.CurrentRow.Cells["DelegateCode"].Value.ToString();
+                    HolderIdentifyMaskedTextBox2.Text = objListForSelect.DataGridView1.CurrentRow.Cells["IdentityCard"].Value.ToString();
+                    MaskedTextBox4.Text = objListForSelect.DataGridView1.CurrentRow.Cells["DelegateName"].Value.ToString();
+                    StockTextBox1.Text = objListForSelect.DataGridView1.CurrentRow.Cells["voterights"].Value.ToString();
+                    //delegateIdentityTextBox.Text = ""; // daibieu.Rows(0).Item("IdentityCard")
+                    delegateNameTextbox.Text = objListForSelect.DataGridView1.CurrentRow.Cells["DelegateName"].Value.ToString();
+                    Button1.Focus();
+                }
+            }
+            else if (daibieu.Rows.Count == 0)
+            {
+                MessageBox.Show("Không tìm thấy đại biểu!");
+                //HolderCodeMaskedTextBox.Text = "";
+                //HolderIdentifyMaskedTextBox2.Text = "";
+                delegateCodeMaskedTextBox.Text = "";
+                MaskedTextBox4.Text = "";
+                StockTextBox1.Text = "";
+                HolderIdentifyMaskedTextBox2.Focus();
+                HolderIdentifyMaskedTextBox2.SelectAll();
+            }
+        }
+
+        private void delegateCodeMaskedTextBox_Leave(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(delegateCodeMaskedTextBox.Text) && !string.IsNullOrWhiteSpace(delegateCodeMaskedTextBox.Text))
+            {
+                TimDaiBieuByCode();
+            }
+        }
+
+        private void TimDaiBieuByCode()
+        {
+            var daibieu = new DataTable();
+            try
+            {
+                // daibieu = Mainform.BenlyDal.Delegate_getlist(Mainform.workingmeeting, 0, MaskedTextBox3.Text)
+                // daibieu = Mainform.BenlyDal.Delegate_getlist(Mainform.workingmeeting, 0, MaskedTextBox2.Text)
+                daibieu = My.MyProject.Forms.Mainform.BenlyDal.Delegate_getlist(My.MyProject.Forms.Mainform.workingmeeting, Convert.ToDecimal(delegateCodeMaskedTextBox.Text), "");
+            }
+            catch (Exception ex)
+            {
+                Interaction.MsgBox("Lỗi" + ex.Message);
+                return;
+            }
+            if (daibieu.Rows.Count == 1)
+            {
+                //HolderCodeMaskedTextBox.Text = Conversions.ToString(daibieu.Rows[0]["HolderCode"]);
+                delegateCodeMaskedTextBox.Text = Conversions.ToString(daibieu.Rows[0]["DelegateCode"]);
+                HolderIdentifyMaskedTextBox2.Text = Conversions.ToString(daibieu.Rows[0]["IdentityCard"]);
+                MaskedTextBox4.Text = Conversions.ToString(daibieu.Rows[0]["DelegateName"]);
+                StockTextBox1.Text = Conversions.ToString(daibieu.Rows[0]["voterights"]);
+                //delegateIdentityTextBox.Text = ""; // daibieu.Rows(0).Item("IdentityCard")
+                delegateNameTextbox.Text = Conversions.ToString(daibieu.Rows[0]["DelegateName"]);
+                Button1.Focus();
+            }
+
+            else if (daibieu.Rows.Count > 1)
+            {
+                //Tìm đại biểu là exact match nên không có case này, nhưng vẫn giữ lại để sau này nếu cần tìm theo code mà trả về nhiều kết quả thì sẽ xử lý được
+                MessageBox.Show("Có nhiều hơn 1 mã đại biểu. Vui lòng tìm kiếm lại");
+                HolderCodeMaskedTextBox.Text = "";
+                HolderIdentifyMaskedTextBox2.Text = "";
+                //delegateCodeMaskedTextBox.Text = "";
+                MaskedTextBox4.Text = "";
+                StockTextBox1.Text = "";
+                delegateCodeMaskedTextBox.Focus();
+                delegateCodeMaskedTextBox.SelectAll();
+                //var objDelegateListForSelectByCode = new DelegateListForSelectByCode();
+                //objDelegateListForSelectByCode.DelegateCode = delecode;
+                //objDelegateListForSelectByCode.ShowDialog();
+                //if (objDelegateListForSelectByCode.DataGridView1.CurrentRow != null)
+                //{
+                //    MaskedTextBox3.Text = objDelegateListForSelectByCode.DataGridView1.CurrentRow.Cells["DelegateCode"].Value.ToString();
+                //    TimDaiBieuByCode();
+                //}
             }
             else if (daibieu.Rows.Count == 0)
             {
                 MessageBox.Show("Không tìm thấy đại biểu !");
                 HolderCodeMaskedTextBox.Text = "";
                 HolderIdentifyMaskedTextBox2.Text = "";
+                //delegateCodeMaskedTextBox.Text = "";
                 MaskedTextBox4.Text = "";
                 StockTextBox1.Text = "";
-                HolderCodeMaskedTextBox.Focus();
-                HolderCodeMaskedTextBox.SelectAll();
+                delegateCodeMaskedTextBox.Focus();
+                delegateCodeMaskedTextBox.SelectAll();
             }
         }
 

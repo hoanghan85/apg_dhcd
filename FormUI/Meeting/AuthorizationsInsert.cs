@@ -1,9 +1,10 @@
-﻿using System;
-using System.Data;
-using System.Windows.Forms;
-using CrystalDecisions.CrystalReports.Engine;
+﻿using CrystalDecisions.CrystalReports.Engine;
 using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
+using NPOI.SS.Formula.Functions;
+using System;
+using System.Data;
+using System.Windows.Forms;
 
 namespace pmDHCD
 {
@@ -36,6 +37,69 @@ namespace pmDHCD
             {
                 // daibieu = Mainform.BenlyDal.Delegate_getlist(Mainform.workingmeeting, 0, MaskedTextBox3.Text)
                 daibieu = My.MyProject.Forms.Mainform.BenlyDal.Delegate_getlist(My.MyProject.Forms.Mainform.workingmeeting, 0m, identityCard);
+                //}
+                //catch (Exception ex)
+                //{
+                //    //Interaction.MsgBox("Lỗi" + ex.Message);
+                //    return;
+                //}
+                if (daibieu.Rows.Count == 1)
+                {
+                    MaskedTextBox2.Text = Conversions.ToString(daibieu.Rows[0]["DelegateCode"]);
+                    MaskedTextBox3.Text = Conversions.ToString(daibieu.Rows[0]["IdentityCard"]);
+                    MaskedTextBox4.Text = Conversions.ToString(daibieu.Rows[0]["DelegateName"]);
+                    MaskedTextBox7.Focus();
+                }
+                else if (daibieu.Rows.Count > 1)
+                {
+                    var objDelegateListForSelect = new DelegateListForSelect();
+                    objDelegateListForSelect.IdentifyCard = identityCard;
+                    objDelegateListForSelect.ShowDialog();
+                    if (objDelegateListForSelect.DataGridView1.CurrentRow != null)
+                    {
+                        MaskedTextBox2.Text = objDelegateListForSelect.DataGridView1.CurrentRow.Cells["DelegateCode"].Value.ToString();
+                        MaskedTextBox3.Text = objDelegateListForSelect.DataGridView1.CurrentRow.Cells["IdentityCard"].Value.ToString();
+                        MaskedTextBox4.Text = objDelegateListForSelect.DataGridView1.CurrentRow.Cells["DelegateName"].Value.ToString();
+                    }
+                }
+                else if (daibieu.Rows.Count == 0)
+                {
+                    MessageBox.Show("Không tìm thấy đại biểu với CCCD/HC: " + identityCard + "!");
+                    MaskedTextBox2.Text = "";
+                    //MaskedTextBox3.Text = "";
+                    MaskedTextBox4.Text = "";
+                    MaskedTextBox3.Focus();
+                    MaskedTextBox3.SelectAll();
+                }
+            }
+            catch (Exception ex)
+            {
+                Interaction.MsgBox("Lỗi" + ex.Message);
+                return;
+            }
+        }
+
+        private void MaskedTextBox2_Leave(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(MaskedTextBox2.Text) && !string.IsNullOrWhiteSpace(MaskedTextBox2.Text))
+            {
+                TimDaiBieuByCode();
+            }
+        }
+
+        private void TimDaiBieuByCode()
+        {
+            var daibieu = new DataTable();
+            int delecode = 0;
+            if (!int.TryParse(MaskedTextBox2.Text, out delecode))
+            {
+                delecode = 0;
+            }
+
+            try
+            {
+                // daibieu = Mainform.BenlyDal.Delegate_getlist(Mainform.workingmeeting, 0, MaskedTextBox3.Text)
+                daibieu = My.MyProject.Forms.Mainform.BenlyDal.Delegate_getlist(My.MyProject.Forms.Mainform.workingmeeting, delecode, "");
             }
             catch (Exception ex)
             {
@@ -48,23 +112,33 @@ namespace pmDHCD
                 MaskedTextBox3.Text = Conversions.ToString(daibieu.Rows[0]["IdentityCard"]);
                 MaskedTextBox4.Text = Conversions.ToString(daibieu.Rows[0]["DelegateName"]);
                 MaskedTextBox7.Focus();
+
             }
             else if (daibieu.Rows.Count > 1)
             {
-                var objDelegateListForSelect = new DelegateListForSelect();
-                objDelegateListForSelect.IdentifyCard = identityCard;
-                objDelegateListForSelect.ShowDialog();
-                if (objDelegateListForSelect.DataGridView1.CurrentRow != null)
-                {
-                    MaskedTextBox3.Text = objDelegateListForSelect.DataGridView1.CurrentRow.Cells["IdentityCard"].Value.ToString();
-                    TimDaiBieu();
-                }
+                //Tìm đại biểu là exact match nên không có case này, nhưng vẫn giữ lại để sau này nếu cần tìm theo code mà trả về nhiều kết quả thì sẽ xử lý được
+                MessageBox.Show("Có nhiều hơn 1 mã đại biểu. Vui lòng tìm kiếm lại");
+                MaskedTextBox3.Text = "";
+                MaskedTextBox4.Text = "";
+                MaskedTextBox2.Focus();
+                MaskedTextBox2.SelectAll();
+                //var objDelegateListForSelectByCode = new DelegateListForSelectByCode();
+                //objDelegateListForSelectByCode.DelegateCode = delecode;
+                //objDelegateListForSelectByCode.ShowDialog();
+                //if (objDelegateListForSelectByCode.DataGridView1.CurrentRow != null)
+                //{
+                //    MaskedTextBox3.Text = objDelegateListForSelectByCode.DataGridView1.CurrentRow.Cells["DelegateCode"].Value.ToString();
+                //    TimDaiBieuByCode();
+                //}
             }
             else if (daibieu.Rows.Count == 0)
             {
-                MessageBox.Show("Không tìm thấy đại biểu với CCCD/HC: " + identityCard + "!");
-                MaskedTextBox3.Focus();
-                MaskedTextBox3.SelectAll();
+                MessageBox.Show("Không tìm thấy đại biểu với mã đại biểu: " + delecode + "!");
+                //MaskedTextBox2.Text = "";
+                MaskedTextBox3.Text = "";
+                MaskedTextBox4.Text = "";
+                MaskedTextBox2.Focus();
+                MaskedTextBox2.SelectAll();
             }
         }
 
@@ -133,13 +207,21 @@ namespace pmDHCD
             }
         }
 
-        private void MaskedTextBox3_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                MaskedTextBox7.Focus();
-            }
-        }
+        //private void MaskedTextBox3_KeyUp(object sender, KeyEventArgs e)
+        //{
+        //    if (e.KeyCode == Keys.Enter)
+        //    {
+        //        MaskedTextBox7.Focus();
+        //    }
+        //}
+
+        //private void MaskedTextBox2_KeyUp(object sender, KeyEventArgs e)
+        //{
+        //    if (e.KeyCode == Keys.Enter)
+        //    {
+        //        MaskedTextBox7.Focus();
+        //    }
+        //}
 
         private void MaskedTextBox7_KeyDown(object sender, KeyEventArgs e)
         {
@@ -147,7 +229,14 @@ namespace pmDHCD
             {
                 ThucHienUyQuyen();
             }
+        }
 
+        private void MaskedTextBox8_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                ThucHienUyQuyenByCode();
+            }
         }
 
         private void ThucHienUyQuyen()
@@ -182,15 +271,88 @@ namespace pmDHCD
                 objHolderListForSelect.ShowDialog();
                 if (objHolderListForSelect.DataGridView1.CurrentRow != null)
                 {
+                    MaskedTextBox8.Text = objHolderListForSelect.DataGridView1.CurrentRow.Cells["Holdercode"].Value.ToString();
                     MaskedTextBox7.Text = objHolderListForSelect.DataGridView1.CurrentRow.Cells["HolderIdentity"].Value.ToString();
-                    ThucHienUyQuyen();
+                    MaskedTextBox6.Text = objHolderListForSelect.DataGridView1.CurrentRow.Cells["Holdername"].Value.ToString();
+                    MaskedTextBox1.Text = objHolderListForSelect.DataGridView1.CurrentRow.Cells["HolderAddress"].Value.ToString();
+                    StockTextBox1.Text = objHolderListForSelect.DataGridView1.CurrentRow.Cells["Shares"].Value.ToString();
+                    StockTextBox2.Text = objHolderListForSelect.DataGridView1.CurrentRow.Cells["Voterights"].Value.ToString();
+                    TinhSoQuyenConLai();
                 }
             }
             else if (codong.Rows.Count == 0)
             {
                 MessageBox.Show("Không tìm thấy cổ đông với số đăng ký sở hữu: " + holderIdentity + "!");
+                MaskedTextBox1.Text = "";
+                MaskedTextBox6.Text = "";
+                //MaskedTextBox7.Text = "";
+                MaskedTextBox8.Text = "";
+                StockTextBox1.Text = "";
+                StockTextBox2.Text = "";
+                StockTextBox3.Text = "";
+                ErrorProvider1.SetError(StockTextBox2, "");
+                StockTextBox2.BackColor = System.Drawing.SystemColors.Window;
                 MaskedTextBox7.Focus();
                 MaskedTextBox7.SelectAll();
+            }
+
+        }
+
+        private void ThucHienUyQuyenByCode()
+        {
+            var codong = new DataTable();
+            string holderCode = MaskedTextBox8.Text.Trim(); // Loại bỏ khoảng trắng
+
+            try
+            {
+                codong = My.MyProject.Forms.Mainform.BenlyDal.Holder_getlist(My.MyProject.Forms.Mainform.workingmeeting, holderCode, "");
+            }
+            catch (Exception ex)
+            {
+                Interaction.MsgBox("Lỗi: " + ex.Message);
+                return;
+            }
+            if (codong.Rows.Count == 1)
+            {
+                MaskedTextBox8.Text = Conversions.ToString(codong.Rows[0]["Holdercode"]);
+                MaskedTextBox7.Text = Conversions.ToString(codong.Rows[0]["HolderIdentity"]);
+                MaskedTextBox6.Text = Conversions.ToString(codong.Rows[0]["Holdername"]);
+                MaskedTextBox1.Text = Conversions.ToString(codong.Rows[0]["HolderAddress"]);
+                StockTextBox1.Text = Conversions.ToString(codong.Rows[0]["Shares"]);
+                StockTextBox2.Text = Conversions.ToString(codong.Rows[0]["Voterights"]);
+                TinhSoQuyenConLai();
+                StockTextBox2.Focus();
+            }
+            else if (codong.Rows.Count > 1)
+            {
+                var objHolderListForSelectByCode= new HolderListForSelectByCode();
+                objHolderListForSelectByCode.HolderCode = holderCode;
+                objHolderListForSelectByCode.ShowDialog();
+                if (objHolderListForSelectByCode.DataGridView1.CurrentRow != null)
+                {
+                    MaskedTextBox8.Text = objHolderListForSelectByCode.DataGridView1.CurrentRow.Cells["Holdercode"].Value.ToString();
+                    MaskedTextBox7.Text = objHolderListForSelectByCode.DataGridView1.CurrentRow.Cells["HolderIdentity"].Value.ToString();
+                    MaskedTextBox6.Text = objHolderListForSelectByCode.DataGridView1.CurrentRow.Cells["Holdername"].Value.ToString();
+                    MaskedTextBox1.Text = objHolderListForSelectByCode.DataGridView1.CurrentRow.Cells["HolderAddress"].Value.ToString();
+                    StockTextBox1.Text = objHolderListForSelectByCode.DataGridView1.CurrentRow.Cells["Shares"].Value.ToString();
+                    StockTextBox2.Text = objHolderListForSelectByCode.DataGridView1.CurrentRow.Cells["Voterights"].Value.ToString();
+                    TinhSoQuyenConLai();
+                }
+            }
+            else if (codong.Rows.Count == 0)
+            {
+                MessageBox.Show("Không tìm thấy cổ đông với số đăng ký sở hữu: " + holderCode + "!");
+                MaskedTextBox1.Text = "";
+                MaskedTextBox6.Text = "";
+                MaskedTextBox7.Text = "";
+                //MaskedTextBox8.Text = "";
+                StockTextBox1.Text = "";
+                StockTextBox2.Text = "";
+                StockTextBox3.Text = "";
+                ErrorProvider1.SetError(StockTextBox2, "");
+                StockTextBox2.BackColor = System.Drawing.SystemColors.Window;
+                MaskedTextBox8.Focus();
+                MaskedTextBox8.SelectAll();
             }
 
         }
@@ -210,14 +372,23 @@ namespace pmDHCD
             KiemTraVaCapNhatSoQuyenConLai();
         }
 
-        private void MaskedTextBox3_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                TimDaiBieu();
-            }
+        //private void MaskedTextBox3_KeyDown(object sender, KeyEventArgs e)
+        //{
+        //    if (e.KeyCode == Keys.Enter)
+        //    {
+        //        TimDaiBieu();
+        //    }
 
-        }
+        //}
+
+        //private void MaskedTextBox2_KeyDown(object sender, KeyEventArgs e)
+        //{
+        //    if (e.KeyCode == Keys.Enter)
+        //    {
+        //        TimDaiBieuByCode();
+        //    }
+
+        //}
 
         private void MaskedTextBox7_Leave(object sender, EventArgs e)
         {
@@ -225,6 +396,18 @@ namespace pmDHCD
             {
                 ThucHienUyQuyen();
             }
+        }
+
+        private void MaskedTextBox8_Leave(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(MaskedTextBox8.Text) && !string.IsNullOrWhiteSpace(MaskedTextBox8.Text))
+            {
+                ThucHienUyQuyenByCode();
+            }
+            else
+            {
+                StockTextBox2.Focus();
+            }   
         }
 
         private void TinhSoQuyenConLai()

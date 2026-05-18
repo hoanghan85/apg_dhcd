@@ -45,6 +45,7 @@ namespace pmDHCD
             MaskedTextBox4 = new MaskedTextBox();
             MaskedTextBox3 = new MaskedTextBox();
             MaskedTextBox3.KeyDown += new KeyEventHandler(MaskedTextBox3_KeyDown);
+            //MaskedTextBox3.Leave += new EventHandler(MaskedTextBox3_Leave);
             MaskedTextBox2 = new MaskedTextBox();
             MaskedTextBox1 = new MaskedTextBox();
             Label6 = new Label();
@@ -232,7 +233,7 @@ namespace pmDHCD
             Label7.Name = "Label7";
             Label7.Size = new Size(88, 20);
             Label7.TabIndex = 29;
-            Label7.Text = "CCCD/HC";
+            Label7.Text = "CCCD/HC/Mã CĐ";
             // 
             // Label2
             // 
