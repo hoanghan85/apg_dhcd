@@ -62,6 +62,7 @@ namespace pmDHCD
             this.ToolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.ToolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.ToolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.ToolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
             this.MenuStrip1.SuspendLayout();
             this.MainStatusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -78,7 +79,7 @@ namespace pmDHCD
             this.HiểnThịToolStripMenuItem});
             this.MenuStrip1.Location = new System.Drawing.Point(0, 0);
             this.MenuStrip1.Name = "MenuStrip1";
-            this.MenuStrip1.Size = new System.Drawing.Size(1164, 28);
+            this.MenuStrip1.Size = new System.Drawing.Size(1456, 28);
             this.MenuStrip1.TabIndex = 0;
             this.MenuStrip1.Text = "MenuStrip1";
             // 
@@ -242,7 +243,8 @@ namespace pmDHCD
             this.MainStatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ToolStripStatusLabel1,
             this.ToolStripStatusLabel2,
-            this.ToolStripStatusLabel3});
+            this.ToolStripStatusLabel3,
+            this.ToolStripStatusLabel4});
             this.MainStatusStrip.Location = new System.Drawing.Point(0, 826);
             this.MainStatusStrip.Name = "MainStatusStrip";
             this.MainStatusStrip.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
@@ -264,8 +266,7 @@ namespace pmDHCD
             // ToolStripStatusLabel3
             // 
             this.ToolStripStatusLabel3.Name = "ToolStripStatusLabel3";
-            this.ToolStripStatusLabel3.Size = new System.Drawing.Size(153, 20);
-            this.ToolStripStatusLabel3.Text = "ToolStripStatusLabel3";
+            this.ToolStripStatusLabel3.Size = new System.Drawing.Size(0, 20);
             // 
             // ToolStrip1
             // 
@@ -275,6 +276,11 @@ namespace pmDHCD
             this.ToolStrip1.Size = new System.Drawing.Size(1456, 25);
             this.ToolStrip1.TabIndex = 2;
             this.ToolStrip1.Text = "ToolStrip1";
+            // 
+            // ToolStripStatusLabel4
+            // 
+            this.ToolStripStatusLabel4.Name = "ToolStripStatusLabel4";
+            this.ToolStripStatusLabel4.Size = new System.Drawing.Size(0, 20);
             // 
             // Mainform
             // 
@@ -330,6 +336,6 @@ namespace pmDHCD
         internal ToolStripMenuItem ThôngTinCuộcHọpToolStripMenuItem;
         internal ToolStripMenuItem DanhSáchPhiếuBầuKhôngHợpLệToolStripMenuItem;
         public ToolStripStatusLabel ToolStripStatusLabel3;
-
+        private ToolStripStatusLabel ToolStripStatusLabel4;
     }
 }

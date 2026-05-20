@@ -42,7 +42,13 @@ namespace pmDHCD
             MaskedTextBox9.Text = My.MyProject.Forms.Mainform.addthousandseperator(info.sumofholderAndAuthorizatedUser.ToString());
             MaskedTextBox10.Text = My.MyProject.Forms.Mainform.addthousandseperator(info.sumofparticipedVoterights.ToString());
 
-            string attendanceRate = Math.Round(info.sumofparticipedVoterights / info.sumofvoterights * 100m, 2).ToString() + " %";
+            string attendanceRate = "0 %";
+
+            if (info.sumofvoterights != 0)
+            {
+                attendanceRate = Math.Round(info.sumofparticipedVoterights / info.sumofvoterights * 100m, 2).ToString() + " %";
+            }
+
             MaskedTextBox11.Text = attendanceRate;
         }
 

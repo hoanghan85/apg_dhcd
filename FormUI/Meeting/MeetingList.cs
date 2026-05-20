@@ -89,7 +89,7 @@ namespace pmDHCD
         {
             My.MyProject.Forms.Mainform.workingmeeting = Conversions.ToString(DataGridView1.CurrentRow.Cells["Meetingcode"].Value);
             My.MyProject.Forms.Mainform.dateMeeting = DateTime.Parse(Conversions.ToString(DataGridView1.CurrentRow.Cells["MeetingTime"].Value));
-            My.MyProject.Forms.Mainform.ToolStripStatusLabel2.Text = Conversions.ToString(DataGridView1.CurrentRow.Cells["Meetingcode"].Value);
+            My.MyProject.Forms.Mainform.ToolStripStatusLabel2.Text = Conversions.ToString(DataGridView1.CurrentRow.Cells["Meetingcode"].Value) + "  -";
             My.MyProject.Forms.Mainform.ToolStripStatusLabel3.Text = Conversions.ToString(DataGridView1.CurrentRow.Cells["MeetingTime"].Value);
             My.MyProject.Forms.Mainform.period = Conversions.ToString(DataGridView1.CurrentRow.Cells["Period"].Value);
             My.MyProject.Forms.Mainform.companyName = Conversions.ToString(DataGridView1.CurrentRow.Cells["CompanyName"].Value);
@@ -141,7 +141,6 @@ namespace pmDHCD
                 My.MyProject.Forms.Mainform.workingmeeting = Conversions.ToString(DataGridView1.CurrentRow.Cells["Meetingcode"].Value);
                 My.MyProject.Forms.Mainform.ToolStripStatusLabel2.Text = Conversions.ToString(DataGridView1.CurrentRow.Cells["Meetingcode"].Value);
                 My.MyProject.Forms.Mainform.dateMeeting = DateTime.Parse(Conversions.ToString(DataGridView1.CurrentRow.Cells["MeetingTime"].Value));
-                My.MyProject.Forms.Mainform.ToolStripStatusLabel2.Text = Conversions.ToString(DataGridView1.CurrentRow.Cells["Meetingcode"].Value);
                 My.MyProject.Forms.Mainform.ToolStripStatusLabel3.Text = Conversions.ToString(DataGridView1.CurrentRow.Cells["MeetingTime"].Value);
                 My.MyProject.Forms.Mainform.period = Conversions.ToString(DataGridView1.CurrentRow.Cells["Period"].Value);
                 My.MyProject.Forms.Mainform.mettingType = Conversions.ToString(DataGridView1.CurrentRow.Cells["MettingType"].Value);

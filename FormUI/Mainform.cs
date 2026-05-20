@@ -117,7 +117,11 @@ namespace pmDHCD
                 if (info.sumofvoterights > 0)
                 {
                     string attendanceRate = Math.Round(info.sumofparticipedVoterights / info.sumofvoterights * 100m, 2).ToString() + " %";
-                    ToolStripStatusLabel3.Text = "Tỷ lệ tham dự: " + attendanceRate;
+                    ToolStripStatusLabel4.Text = "| Tỷ lệ tham dự: " + attendanceRate;
+                }
+                else
+                {
+                    ToolStripStatusLabel4.Text = "| Tỷ lệ tham dự: 0";
                 }
             }
             catch (Exception ex)

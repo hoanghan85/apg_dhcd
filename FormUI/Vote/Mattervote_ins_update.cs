@@ -261,9 +261,9 @@ namespace pmDHCD
         //    }
         //}
 
-        private void HolderIdentifyMaskedTextBox2_Leave(object sender, EventArgs e)
+        private void delegateIdentityTextBox_Leave(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(HolderIdentifyMaskedTextBox2.Text) && !string.IsNullOrWhiteSpace(HolderIdentifyMaskedTextBox2.Text))
+            if (!string.IsNullOrEmpty(delegateIdentityTextBox.Text) && !string.IsNullOrWhiteSpace(delegateIdentityTextBox.Text))
             {
                 TimDaiBieu();
             }
@@ -276,7 +276,7 @@ namespace pmDHCD
             {
                 // daibieu = Mainform.BenlyDal.Delegate_getlist(Mainform.workingmeeting, 0, MaskedTextBox3.Text)
                 // daibieu = Mainform.BenlyDal.Delegate_getlist(Mainform.workingmeeting, 0, MaskedTextBox2.Text)
-                daibieu = My.MyProject.Forms.Mainform.BenlyDal.Delegate_getlist(My.MyProject.Forms.Mainform.workingmeeting, 0m, HolderIdentifyMaskedTextBox2.Text);
+                daibieu = My.MyProject.Forms.Mainform.BenlyDal.Delegate_getlist(My.MyProject.Forms.Mainform.workingmeeting, 0m, delegateIdentityTextBox.Text);
             }
             catch (Exception ex)
             {
@@ -287,10 +287,10 @@ namespace pmDHCD
             {
                 //HolderCodeMaskedTextBox.Text = Conversions.ToString(daibieu.Rows[0]["HolderCode"]);
                 delegateCodeMaskedTextBox.Text = Conversions.ToString(daibieu.Rows[0]["DelegateCode"]);
-                HolderIdentifyMaskedTextBox2.Text = Conversions.ToString(daibieu.Rows[0]["IdentityCard"]);
+                HolderIdentifyMaskedTextBox2.Text = "";
                 MaskedTextBox4.Text = Conversions.ToString(daibieu.Rows[0]["DelegateName"]);
                 StockTextBox1.Text = Conversions.ToString(daibieu.Rows[0]["voterights"]);
-                //delegateIdentityTextBox.Text = ""; // daibieu.Rows(0).Item("IdentityCard")
+                delegateIdentityTextBox.Text = Conversions.ToString(daibieu.Rows[0]["IdentityCard"]);
                 delegateNameTextbox.Text = Conversions.ToString(daibieu.Rows[0]["DelegateName"]);
                 Button1.Focus();
             }
@@ -298,15 +298,15 @@ namespace pmDHCD
             else if (daibieu.Rows.Count > 1)
             {
                 var objListForSelect = new DelegateListForSelect();
-                objListForSelect.IdentifyCard = HolderIdentifyMaskedTextBox2.Text;
+                objListForSelect.IdentifyCard = delegateIdentityTextBox.Text;
                 objListForSelect.ShowDialog();
                 if (objListForSelect.DataGridView1.CurrentRow != null)
                 {
                     delegateCodeMaskedTextBox.Text = objListForSelect.DataGridView1.CurrentRow.Cells["DelegateCode"].Value.ToString();
-                    HolderIdentifyMaskedTextBox2.Text = objListForSelect.DataGridView1.CurrentRow.Cells["IdentityCard"].Value.ToString();
+                    //HolderIdentifyMaskedTextBox2.Text = objListForSelect.DataGridView1.CurrentRow.Cells["IdentityCard"].Value.ToString();
                     MaskedTextBox4.Text = objListForSelect.DataGridView1.CurrentRow.Cells["DelegateName"].Value.ToString();
                     StockTextBox1.Text = objListForSelect.DataGridView1.CurrentRow.Cells["voterights"].Value.ToString();
-                    //delegateIdentityTextBox.Text = ""; // daibieu.Rows(0).Item("IdentityCard")
+                    delegateIdentityTextBox.Text = objListForSelect.DataGridView1.CurrentRow.Cells["IdentityCard"].Value.ToString();
                     delegateNameTextbox.Text = objListForSelect.DataGridView1.CurrentRow.Cells["DelegateName"].Value.ToString();
                     Button1.Focus();
                 }
@@ -315,12 +315,13 @@ namespace pmDHCD
             {
                 MessageBox.Show("Không tìm thấy đại biểu!");
                 //HolderCodeMaskedTextBox.Text = "";
-                //HolderIdentifyMaskedTextBox2.Text = "";
+                HolderIdentifyMaskedTextBox2.Text = "";
                 delegateCodeMaskedTextBox.Text = "";
+                //delegateIdentityTextBox.Text = "";
                 MaskedTextBox4.Text = "";
                 StockTextBox1.Text = "";
-                HolderIdentifyMaskedTextBox2.Focus();
-                HolderIdentifyMaskedTextBox2.SelectAll();
+                delegateIdentityTextBox.Focus();
+                delegateIdentityTextBox.SelectAll();
             }
         }
 
@@ -350,10 +351,10 @@ namespace pmDHCD
             {
                 //HolderCodeMaskedTextBox.Text = Conversions.ToString(daibieu.Rows[0]["HolderCode"]);
                 delegateCodeMaskedTextBox.Text = Conversions.ToString(daibieu.Rows[0]["DelegateCode"]);
-                HolderIdentifyMaskedTextBox2.Text = Conversions.ToString(daibieu.Rows[0]["IdentityCard"]);
+                //HolderIdentifyMaskedTextBox2.Text = Conversions.ToString(daibieu.Rows[0]["IdentityCard"]);
                 MaskedTextBox4.Text = Conversions.ToString(daibieu.Rows[0]["DelegateName"]);
                 StockTextBox1.Text = Conversions.ToString(daibieu.Rows[0]["voterights"]);
-                //delegateIdentityTextBox.Text = ""; // daibieu.Rows(0).Item("IdentityCard")
+                delegateIdentityTextBox.Text = Conversions.ToString(daibieu.Rows[0]["IdentityCard"]);
                 delegateNameTextbox.Text = Conversions.ToString(daibieu.Rows[0]["DelegateName"]);
                 Button1.Focus();
             }
@@ -364,7 +365,8 @@ namespace pmDHCD
                 MessageBox.Show("Có nhiều hơn 1 mã đại biểu. Vui lòng tìm kiếm lại");
                 HolderCodeMaskedTextBox.Text = "";
                 HolderIdentifyMaskedTextBox2.Text = "";
-                //delegateCodeMaskedTextBox.Text = "";
+                delegateCodeMaskedTextBox.Text = "";
+                delegateIdentityTextBox.Text = "";
                 MaskedTextBox4.Text = "";
                 StockTextBox1.Text = "";
                 delegateCodeMaskedTextBox.Focus();
@@ -384,6 +386,7 @@ namespace pmDHCD
                 HolderCodeMaskedTextBox.Text = "";
                 HolderIdentifyMaskedTextBox2.Text = "";
                 //delegateCodeMaskedTextBox.Text = "";
+                delegateIdentityTextBox.Text = "";
                 MaskedTextBox4.Text = "";
                 StockTextBox1.Text = "";
                 delegateCodeMaskedTextBox.Focus();

@@ -217,14 +217,13 @@ namespace pmDHCD
             // HolderIdentifyMaskedTextBox2
             // 
             this.HolderIdentifyMaskedTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HolderIdentifyMaskedTextBox2.Location = new System.Drawing.Point(237, 301);
+            this.HolderIdentifyMaskedTextBox2.Location = new System.Drawing.Point(605, 302);
             this.HolderIdentifyMaskedTextBox2.Margin = new System.Windows.Forms.Padding(4);
             this.HolderIdentifyMaskedTextBox2.Name = "HolderIdentifyMaskedTextBox2";
             this.HolderIdentifyMaskedTextBox2.Size = new System.Drawing.Size(265, 26);
             this.HolderIdentifyMaskedTextBox2.TabIndex = 1;
-            //this.HolderIdentifyMaskedTextBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MaskedTextBox2_KeyDown);
-            //this.HolderIdentifyMaskedTextBox2.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.HolderIdentifyMaskedTextBox2_PreviewKeyDown);
-            this.HolderIdentifyMaskedTextBox2.Leave += new System.EventHandler(this.HolderIdentifyMaskedTextBox2_Leave);
+            this.HolderIdentifyMaskedTextBox2.Visible = false;
+            //this.HolderIdentifyMaskedTextBox2.Leave += new System.EventHandler(this.HolderIdentifyMaskedTextBox2_Leave);
             // 
             // HolderCodeMaskedTextBox
             // 
@@ -237,10 +236,10 @@ namespace pmDHCD
             this.HolderCodeMaskedTextBox.Size = new System.Drawing.Size(265, 26);
             this.HolderCodeMaskedTextBox.TabIndex = 0;
             this.HolderCodeMaskedTextBox.TabStop = false;
+            this.HolderCodeMaskedTextBox.Visible = false;
             this.HolderCodeMaskedTextBox.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.MaskedTextBox5_MaskInputRejected);
             this.HolderCodeMaskedTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MaskedTextBox5_KeyDown);
             this.HolderCodeMaskedTextBox.Leave += new System.EventHandler(this.MaskedTextBox5_Leave);
-            this.HolderCodeMaskedTextBox.Visible = false;
             // 
             // Label6
             // 
@@ -278,7 +277,6 @@ namespace pmDHCD
             // Label5
             // 
             this.Label5.AutoSize = true;
-            this.Label5.Enabled = true;
             this.Label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label5.Location = new System.Drawing.Point(35, 228);
             this.Label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -413,16 +411,16 @@ namespace pmDHCD
             // 
             // delegateIdentityTextBox
             // 
-            this.delegateIdentityTextBox.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.delegateIdentityTextBox.Enabled = false;
+            this.delegateIdentityTextBox.BackColor = System.Drawing.SystemColors.Window;
             this.delegateIdentityTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.delegateIdentityTextBox.Location = new System.Drawing.Point(733, 421);
+            this.delegateIdentityTextBox.Location = new System.Drawing.Point(237, 302);
             this.delegateIdentityTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.delegateIdentityTextBox.Name = "delegateIdentityTextBox";
-            this.delegateIdentityTextBox.Size = new System.Drawing.Size(139, 26);
+            this.delegateIdentityTextBox.Size = new System.Drawing.Size(265, 26);
             this.delegateIdentityTextBox.TabIndex = 60;
             this.delegateIdentityTextBox.TabStop = false;
-            this.delegateIdentityTextBox.Visible = false;
+            this.delegateIdentityTextBox.Visible = true;
+            this.delegateIdentityTextBox.Leave += new System.EventHandler(this.delegateIdentityTextBox_Leave);
             // 
             // delegateCodeMaskedTextBox
             // 
@@ -472,7 +470,6 @@ namespace pmDHCD
             this.Controls.Add(this.Label4);
             this.Controls.Add(this.GroupBox1);
             this.Controls.Add(this.Label5);
-            this.Enabled = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4);
