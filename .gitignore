@@ -362,3 +362,5 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 /FormUI/Report/HoldersList.rdlc
+/C#.md
+/HE_THONG_DHCD.md

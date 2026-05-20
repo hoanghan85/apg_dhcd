@@ -78,7 +78,7 @@ namespace pmDHCD
             this.HiểnThịToolStripMenuItem});
             this.MenuStrip1.Location = new System.Drawing.Point(0, 0);
             this.MenuStrip1.Name = "MenuStrip1";
-            this.MenuStrip1.Size = new System.Drawing.Size(1456, 28);
+            this.MenuStrip1.Size = new System.Drawing.Size(1164, 28);
             this.MenuStrip1.TabIndex = 0;
             this.MenuStrip1.Text = "MenuStrip1";
             // 
