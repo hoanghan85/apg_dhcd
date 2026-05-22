@@ -1,7 +1,8 @@
-﻿using System;
-using System.Data;
-using Microsoft.VisualBasic;
+﻿using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
+using System;
+using System.Data;
+using System.Windows.Forms;
 
 namespace pmDHCD
 {
@@ -75,6 +76,15 @@ namespace pmDHCD
         private void Button3_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+
+        private void ElectionUpsert_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                Close();
+            }
         }
 
         private void NumericUpDown1_ValueChanged(object sender, EventArgs e)

@@ -1,7 +1,8 @@
-﻿using System;
-using System.Data;
-using Microsoft.VisualBasic;
+﻿using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
+using System;
+using System.Data;
+using System.Windows.Forms;
 
 namespace pmDHCD
 {
@@ -28,7 +29,7 @@ namespace pmDHCD
             }
             catch (Exception ex)
             {
-                Interaction.MsgBox("Lỗi : " + ex.Message);
+                Interaction.MsgBox("Lỗi: " + ex.Message);
                 return;
             }
             MaskedTextBox2.Text = Conversions.ToString(daibieu.Rows[0]["Delegatecode"]);
@@ -51,13 +52,21 @@ namespace pmDHCD
             }
             catch (Exception ex)
             {
-                Interaction.MsgBox("Lỗi" + ex.Message);
+                Interaction.MsgBox("Lỗi: " + ex.Message);
             }
         }
 
         private void Button2_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void AuthorizationsUpdate_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                Close();
+            }
         }
     }
 }

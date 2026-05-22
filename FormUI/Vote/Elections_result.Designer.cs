@@ -35,347 +35,386 @@ namespace pmDHCD
         [DebuggerStepThrough()]
         private void InitializeComponent()
         {
-            var DataGridViewCellStyle1 = new DataGridViewCellStyle();
-            var DataGridViewCellStyle2 = new DataGridViewCellStyle();
-            var DataGridViewCellStyle3 = new DataGridViewCellStyle();
-            var DataGridViewCellStyle4 = new DataGridViewCellStyle();
-            var DataGridViewCellStyle5 = new DataGridViewCellStyle();
-            var resources = new System.ComponentModel.ComponentResourceManager(typeof(Elections_result));
-            GroupBox1 = new GroupBox();
-            NumericUpDown1 = new NumericUpDown();
-            NumericUpDown1.ValueChanged += new EventHandler(NumericUpDown1_ValueChanged);
-            MaskedTextBox6 = new MaskedTextBox();
-            MaskedTextBox3 = new MaskedTextBox();
-            Label8 = new Label();
-            Label7 = new Label();
-            Label2 = new Label();
-            GroupBox2 = new GroupBox();
-            DataGridView1 = new DataGridView();
-            Candidatecode = new DataGridViewTextBoxColumn();
-            CandidateName = new DataGridViewTextBoxColumn();
-            Votes = new DataGridViewTextBoxColumn();
-            percentvote = new DataGridViewTextBoxColumn();
-            StatusStrip1 = new StatusStrip();
-            ToolStripStatusLabel1 = new ToolStripStatusLabel();
-            ToolStripStatusLabel2 = new ToolStripStatusLabel();
-            ToolStripSplitButton1 = new ToolStripSplitButton();
-            ToolStripStatusLabel5 = new ToolStripStatusLabel();
-            ToolStripStatusLabel6 = new ToolStripStatusLabel();
-            ToolStripSplitButton2 = new ToolStripSplitButton();
-            ToolStripStatusLabel3 = new ToolStripStatusLabel();
-            ToolStripStatusLabel4 = new ToolStripStatusLabel();
-            StatusStrip2 = new StatusStrip();
-            ToolStripStatusLabel7 = new ToolStripStatusLabel();
-            ToolStripStatusLabel8 = new ToolStripStatusLabel();
-            ToolStripStatusLabel9 = new ToolStripStatusLabel();
-            ToolStripSplitButton3 = new ToolStripSplitButton();
-            ToolStripStatusLabel10 = new ToolStripStatusLabel();
-            ToolStripStatusLabel11 = new ToolStripStatusLabel();
-            ToolStripStatusLabel12 = new ToolStripStatusLabel();
-            GroupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)NumericUpDown1).BeginInit();
-            GroupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)DataGridView1).BeginInit();
-            StatusStrip1.SuspendLayout();
-            StatusStrip2.SuspendLayout();
-            SuspendLayout();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Elections_result));
+            this.GroupBox1 = new System.Windows.Forms.GroupBox();
+            this.NumericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.MaskedTextBox6 = new System.Windows.Forms.MaskedTextBox();
+            this.MaskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
+            this.Label8 = new System.Windows.Forms.Label();
+            this.Label7 = new System.Windows.Forms.Label();
+            this.Label2 = new System.Windows.Forms.Label();
+            this.GroupBox2 = new System.Windows.Forms.GroupBox();
+            this.DataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Candidatecode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CandidateName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Votes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.percentvote = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StatusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.ToolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.ToolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.ToolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
+            this.ToolStripStatusLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.ToolStripStatusLabel6 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.ToolStripSplitButton2 = new System.Windows.Forms.ToolStripSplitButton();
+            this.ToolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.ToolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.StatusStrip2 = new System.Windows.Forms.StatusStrip();
+            this.ToolStripStatusLabel7 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.ToolStripStatusLabel8 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.ToolStripStatusLabel9 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.ToolStripSplitButton3 = new System.Windows.Forms.ToolStripSplitButton();
+            this.ToolStripStatusLabel10 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.ToolStripStatusLabel11 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.ToolStripStatusLabel12 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.GroupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NumericUpDown1)).BeginInit();
+            this.GroupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridView1)).BeginInit();
+            this.StatusStrip1.SuspendLayout();
+            this.StatusStrip2.SuspendLayout();
+            this.SuspendLayout();
             // 
             // GroupBox1
             // 
-            GroupBox1.Controls.Add(NumericUpDown1);
-            GroupBox1.Controls.Add(MaskedTextBox6);
-            GroupBox1.Controls.Add(MaskedTextBox3);
-            GroupBox1.Controls.Add(Label8);
-            GroupBox1.Controls.Add(Label7);
-            GroupBox1.Controls.Add(Label2);
-            GroupBox1.Location = new Point(1, 2);
-            GroupBox1.Margin = new Padding(4, 4, 4, 4);
-            GroupBox1.Name = "GroupBox1";
-            GroupBox1.Padding = new Padding(4, 4, 4, 4);
-            GroupBox1.Size = new Size(1039, 165);
-            GroupBox1.TabIndex = 57;
-            GroupBox1.TabStop = false;
-            GroupBox1.Text = "Vấn đề bầu cử";
+            this.GroupBox1.Controls.Add(this.NumericUpDown1);
+            this.GroupBox1.Controls.Add(this.MaskedTextBox6);
+            this.GroupBox1.Controls.Add(this.MaskedTextBox3);
+            this.GroupBox1.Controls.Add(this.Label8);
+            this.GroupBox1.Controls.Add(this.Label7);
+            this.GroupBox1.Controls.Add(this.Label2);
+            this.GroupBox1.Location = new System.Drawing.Point(1, 2);
+            this.GroupBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.GroupBox1.Name = "GroupBox1";
+            this.GroupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.GroupBox1.Size = new System.Drawing.Size(1039, 165);
+            this.GroupBox1.TabIndex = 57;
+            this.GroupBox1.TabStop = false;
+            this.GroupBox1.Text = "Vấn đề bầu cử";
             // 
             // NumericUpDown1
             // 
-            NumericUpDown1.Font = new Font("Microsoft Sans Serif", 11.25f, FontStyle.Regular, GraphicsUnit.Point, 0);
-            NumericUpDown1.Location = new Point(217, 16);
-            NumericUpDown1.Margin = new Padding(4, 4, 4, 4);
-            NumericUpDown1.Maximum = new decimal(new int[] { 50, 0, 0, 0 });
-            NumericUpDown1.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-            NumericUpDown1.Name = "NumericUpDown1";
-            NumericUpDown1.Size = new Size(81, 29);
-            NumericUpDown1.TabIndex = 0;
-            NumericUpDown1.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            this.NumericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NumericUpDown1.Location = new System.Drawing.Point(217, 16);
+            this.NumericUpDown1.Margin = new System.Windows.Forms.Padding(4);
+            this.NumericUpDown1.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            this.NumericUpDown1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.NumericUpDown1.Name = "NumericUpDown1";
+            this.NumericUpDown1.Size = new System.Drawing.Size(81, 29);
+            this.NumericUpDown1.TabIndex = 0;
+            this.NumericUpDown1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.NumericUpDown1.ValueChanged += new System.EventHandler(this.NumericUpDown1_ValueChanged);
             // 
             // MaskedTextBox6
             // 
-            MaskedTextBox6.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Regular, GraphicsUnit.Point, 0);
-            MaskedTextBox6.Location = new Point(217, 108);
-            MaskedTextBox6.Margin = new Padding(4, 4, 4, 4);
-            MaskedTextBox6.Name = "MaskedTextBox6";
-            MaskedTextBox6.ReadOnly = true;
-            MaskedTextBox6.Size = new Size(265, 26);
-            MaskedTextBox6.TabIndex = 23;
+            this.MaskedTextBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaskedTextBox6.Location = new System.Drawing.Point(217, 108);
+            this.MaskedTextBox6.Margin = new System.Windows.Forms.Padding(4);
+            this.MaskedTextBox6.Name = "MaskedTextBox6";
+            this.MaskedTextBox6.ReadOnly = true;
+            this.MaskedTextBox6.Size = new System.Drawing.Size(265, 26);
+            this.MaskedTextBox6.TabIndex = 23;
             // 
             // MaskedTextBox3
             // 
-            MaskedTextBox3.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Regular, GraphicsUnit.Point, 0);
-            MaskedTextBox3.Location = new Point(217, 64);
-            MaskedTextBox3.Margin = new Padding(4, 4, 4, 4);
-            MaskedTextBox3.Name = "MaskedTextBox3";
-            MaskedTextBox3.ReadOnly = true;
-            MaskedTextBox3.Size = new Size(635, 26);
-            MaskedTextBox3.TabIndex = 23;
+            this.MaskedTextBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaskedTextBox3.Location = new System.Drawing.Point(217, 64);
+            this.MaskedTextBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.MaskedTextBox3.Name = "MaskedTextBox3";
+            this.MaskedTextBox3.ReadOnly = true;
+            this.MaskedTextBox3.Size = new System.Drawing.Size(635, 26);
+            this.MaskedTextBox3.TabIndex = 23;
             // 
             // Label8
             // 
-            Label8.AutoSize = true;
-            Label8.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Label8.Location = new Point(13, 116);
-            Label8.Margin = new Padding(4, 0, 4, 0);
-            Label8.Name = "Label8";
-            Label8.Size = new Size(169, 20);
-            Label8.TabIndex = 27;
-            Label8.Text = "Số ứng viên được bầu";
+            this.Label8.AutoSize = true;
+            this.Label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label8.Location = new System.Drawing.Point(13, 116);
+            this.Label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label8.Name = "Label8";
+            this.Label8.Size = new System.Drawing.Size(169, 20);
+            this.Label8.TabIndex = 27;
+            this.Label8.Text = "Số ứng viên được bầu";
             // 
             // Label7
             // 
-            Label7.AutoSize = true;
-            Label7.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Label7.Location = new Point(15, 64);
-            Label7.Margin = new Padding(4, 0, 4, 0);
-            Label7.Name = "Label7";
-            Label7.Size = new Size(92, 20);
-            Label7.TabIndex = 27;
-            Label7.Text = "Tên bầu cử";
+            this.Label7.AutoSize = true;
+            this.Label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label7.Location = new System.Drawing.Point(15, 64);
+            this.Label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label7.Name = "Label7";
+            this.Label7.Size = new System.Drawing.Size(92, 20);
+            this.Label7.TabIndex = 27;
+            this.Label7.Text = "Tên bầu cử";
             // 
             // Label2
             // 
-            Label2.AutoSize = true;
-            Label2.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Label2.Location = new Point(15, 22);
-            Label2.Margin = new Padding(4, 0, 4, 0);
-            Label2.Name = "Label2";
-            Label2.Size = new Size(87, 20);
-            Label2.TabIndex = 26;
-            Label2.Text = "Mã bầu cử";
+            this.Label2.AutoSize = true;
+            this.Label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label2.Location = new System.Drawing.Point(15, 22);
+            this.Label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label2.Name = "Label2";
+            this.Label2.Size = new System.Drawing.Size(87, 20);
+            this.Label2.TabIndex = 26;
+            this.Label2.Text = "Mã bầu cử";
             // 
             // GroupBox2
             // 
-            GroupBox2.Controls.Add(DataGridView1);
-            GroupBox2.Location = new Point(1, 176);
-            GroupBox2.Margin = new Padding(4, 4, 4, 4);
-            GroupBox2.Name = "GroupBox2";
-            GroupBox2.Padding = new Padding(4, 4, 4, 4);
-            GroupBox2.Size = new Size(1039, 460);
-            GroupBox2.TabIndex = 58;
-            GroupBox2.TabStop = false;
-            GroupBox2.Text = "Kết quả";
+            this.GroupBox2.Controls.Add(this.DataGridView1);
+            this.GroupBox2.Location = new System.Drawing.Point(1, 176);
+            this.GroupBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.GroupBox2.Name = "GroupBox2";
+            this.GroupBox2.Padding = new System.Windows.Forms.Padding(4);
+            this.GroupBox2.Size = new System.Drawing.Size(1039, 460);
+            this.GroupBox2.TabIndex = 58;
+            this.GroupBox2.TabStop = false;
+            this.GroupBox2.Text = "Kết quả";
             // 
             // DataGridView1
             // 
-            DataGridView1.AllowUserToAddRows = false;
-            DataGridViewCellStyle1.BackColor = Color.FromArgb(192, 255, 192);
-            DataGridView1.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1;
-            DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DataGridView1.Columns.AddRange(new DataGridViewColumn[] { Candidatecode, CandidateName, Votes, percentvote });
-            DataGridView1.Dock = DockStyle.Fill;
-            DataGridView1.Location = new Point(4, 19);
-            DataGridView1.Margin = new Padding(4, 4, 4, 4);
-            DataGridView1.Name = "DataGridView1";
-            DataGridView1.ReadOnly = true;
-            DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            DataGridView1.Size = new Size(1031, 437);
-            DataGridView1.TabIndex = 14;
+            this.DataGridView1.AllowUserToAddRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Candidatecode,
+            this.CandidateName,
+            this.Votes,
+            this.percentvote});
+            this.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DataGridView1.Location = new System.Drawing.Point(4, 19);
+            this.DataGridView1.Margin = new System.Windows.Forms.Padding(4);
+            this.DataGridView1.Name = "DataGridView1";
+            this.DataGridView1.ReadOnly = true;
+            this.DataGridView1.RowHeadersWidth = 51;
+            this.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DataGridView1.Size = new System.Drawing.Size(1031, 437);
+            this.DataGridView1.TabIndex = 14;
             // 
             // Candidatecode
             // 
-            Candidatecode.DataPropertyName = "Candidatecode";
-            DataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Candidatecode.DefaultCellStyle = DataGridViewCellStyle2;
-            Candidatecode.FillWeight = 59.08628f;
-            Candidatecode.HeaderText = "Mã ứng viên";
-            Candidatecode.Name = "Candidatecode";
-            Candidatecode.ReadOnly = true;
+            this.Candidatecode.DataPropertyName = "Candidatecode";
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Candidatecode.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Candidatecode.FillWeight = 59.08628F;
+            this.Candidatecode.HeaderText = "Mã ứng viên";
+            this.Candidatecode.MinimumWidth = 6;
+            this.Candidatecode.Name = "Candidatecode";
+            this.Candidatecode.ReadOnly = true;
             // 
             // CandidateName
             // 
-            CandidateName.DataPropertyName = "CandidateName";
-            DataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Regular, GraphicsUnit.Point, 0);
-            CandidateName.DefaultCellStyle = DataGridViewCellStyle3;
-            CandidateName.FillWeight = 59.08628f;
-            CandidateName.HeaderText = "Tên ứng viên";
-            CandidateName.Name = "CandidateName";
-            CandidateName.ReadOnly = true;
+            this.CandidateName.DataPropertyName = "CandidateName";
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CandidateName.DefaultCellStyle = dataGridViewCellStyle3;
+            this.CandidateName.FillWeight = 59.08628F;
+            this.CandidateName.HeaderText = "Tên ứng viên";
+            this.CandidateName.MinimumWidth = 6;
+            this.CandidateName.Name = "CandidateName";
+            this.CandidateName.ReadOnly = true;
             // 
             // Votes
             // 
-            Votes.DataPropertyName = "sumVotes";
-            DataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Regular, GraphicsUnit.Point, 0);
-            DataGridViewCellStyle4.Format = "N0";
-            Votes.DefaultCellStyle = DataGridViewCellStyle4;
-            Votes.HeaderText = "Số phiếu bầu";
-            Votes.Name = "Votes";
-            Votes.ReadOnly = true;
+            this.Votes.DataPropertyName = "sumVotes";
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.Format = "N0";
+            this.Votes.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Votes.HeaderText = "Số phiếu bầu";
+            this.Votes.MinimumWidth = 6;
+            this.Votes.Name = "Votes";
+            this.Votes.ReadOnly = true;
             // 
             // percentvote
             // 
-            percentvote.DataPropertyName = "percentvote";
-            DataGridViewCellStyle5.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Regular, GraphicsUnit.Point, 0);
-            DataGridViewCellStyle5.Format = "n2";
-            percentvote.DefaultCellStyle = DataGridViewCellStyle5;
-            percentvote.HeaderText = "Tỷ lệ (%)";
-            percentvote.Name = "percentvote";
-            percentvote.ReadOnly = true;
+            this.percentvote.DataPropertyName = "percentvote";
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.Format = "n2";
+            this.percentvote.DefaultCellStyle = dataGridViewCellStyle5;
+            this.percentvote.HeaderText = "Tỷ lệ (%)";
+            this.percentvote.MinimumWidth = 6;
+            this.percentvote.Name = "percentvote";
+            this.percentvote.ReadOnly = true;
             // 
             // StatusStrip1
             // 
-            StatusStrip1.ImageScalingSize = new Size(20, 20);
-            StatusStrip1.Items.AddRange(new ToolStripItem[] { ToolStripStatusLabel1, ToolStripStatusLabel2, ToolStripSplitButton1, ToolStripStatusLabel5, ToolStripStatusLabel6, ToolStripSplitButton2, ToolStripStatusLabel3, ToolStripStatusLabel4 });
-            StatusStrip1.Location = new Point(0, 670);
-            StatusStrip1.Name = "StatusStrip1";
-            StatusStrip1.Padding = new Padding(1, 0, 19, 0);
-            StatusStrip1.Size = new Size(1056, 25);
-            StatusStrip1.TabIndex = 59;
-            StatusStrip1.Text = "StatusStrip1";
+            this.StatusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.StatusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStripStatusLabel1,
+            this.ToolStripStatusLabel2,
+            this.ToolStripSplitButton1,
+            this.ToolStripStatusLabel5,
+            this.ToolStripStatusLabel6,
+            this.ToolStripSplitButton2,
+            this.ToolStripStatusLabel3,
+            this.ToolStripStatusLabel4});
+            this.StatusStrip1.Location = new System.Drawing.Point(0, 669);
+            this.StatusStrip1.Name = "StatusStrip1";
+            this.StatusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
+            this.StatusStrip1.Size = new System.Drawing.Size(1056, 26);
+            this.StatusStrip1.TabIndex = 59;
+            this.StatusStrip1.Text = "StatusStrip1";
             // 
             // ToolStripStatusLabel1
             // 
-            ToolStripStatusLabel1.Font = new Font("Tahoma", 9.0f, FontStyle.Regular, GraphicsUnit.Point, 0);
-            ToolStripStatusLabel1.Name = "ToolStripStatusLabel1";
-            ToolStripStatusLabel1.Size = new Size(131, 20);
-            ToolStripStatusLabel1.Text = "Số lượng bản ghi : ";
+            this.ToolStripStatusLabel1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1";
+            this.ToolStripStatusLabel1.Size = new System.Drawing.Size(131, 20);
+            this.ToolStripStatusLabel1.Text = "Số lượng bản ghi : ";
             // 
             // ToolStripStatusLabel2
             // 
-            ToolStripStatusLabel2.Font = new Font("Tahoma", 9.0f, FontStyle.Regular, GraphicsUnit.Point, 0);
-            ToolStripStatusLabel2.Name = "ToolStripStatusLabel2";
-            ToolStripStatusLabel2.Size = new Size(0, 20);
+            this.ToolStripStatusLabel2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ToolStripStatusLabel2.Name = "ToolStripStatusLabel2";
+            this.ToolStripStatusLabel2.Size = new System.Drawing.Size(0, 20);
             // 
             // ToolStripSplitButton1
             // 
-            ToolStripSplitButton1.DisplayStyle = ToolStripItemDisplayStyle.None;
-            ToolStripSplitButton1.Name = "ToolStripSplitButton1";
-            ToolStripSplitButton1.Size = new Size(19, 23);
-            ToolStripSplitButton1.Text = "ToolStripSplitButton1";
+            this.ToolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.None;
+            this.ToolStripSplitButton1.Name = "ToolStripSplitButton1";
+            this.ToolStripSplitButton1.Size = new System.Drawing.Size(19, 24);
+            this.ToolStripSplitButton1.Text = "ToolStripSplitButton1";
             // 
             // ToolStripStatusLabel5
             // 
-            ToolStripStatusLabel5.Name = "ToolStripStatusLabel5";
-            ToolStripStatusLabel5.Size = new Size(124, 20);
-            ToolStripStatusLabel5.Text = "Số phiếu hợp lệ : ";
+            this.ToolStripStatusLabel5.Name = "ToolStripStatusLabel5";
+            this.ToolStripStatusLabel5.Size = new System.Drawing.Size(124, 20);
+            this.ToolStripStatusLabel5.Text = "Số phiếu hợp lệ : ";
             // 
             // ToolStripStatusLabel6
             // 
-            ToolStripStatusLabel6.Name = "ToolStripStatusLabel6";
-            ToolStripStatusLabel6.Size = new Size(153, 20);
-            ToolStripStatusLabel6.Text = "ToolStripStatusLabel6";
+            this.ToolStripStatusLabel6.Name = "ToolStripStatusLabel6";
+            this.ToolStripStatusLabel6.Size = new System.Drawing.Size(153, 20);
+            this.ToolStripStatusLabel6.Text = "ToolStripStatusLabel6";
             // 
             // ToolStripSplitButton2
             // 
-            ToolStripSplitButton2.DisplayStyle = ToolStripItemDisplayStyle.None;
-            ToolStripSplitButton2.Name = "ToolStripSplitButton2";
-            ToolStripSplitButton2.Size = new Size(19, 23);
-            ToolStripSplitButton2.Text = "ToolStripSplitButton2";
+            this.ToolStripSplitButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.None;
+            this.ToolStripSplitButton2.Name = "ToolStripSplitButton2";
+            this.ToolStripSplitButton2.Size = new System.Drawing.Size(19, 24);
+            this.ToolStripSplitButton2.Text = "ToolStripSplitButton2";
             // 
             // ToolStripStatusLabel3
             // 
-            ToolStripStatusLabel3.Font = new Font("Tahoma", 9.0f, FontStyle.Regular, GraphicsUnit.Point, 0);
-            ToolStripStatusLabel3.Name = "ToolStripStatusLabel3";
-            ToolStripStatusLabel3.Size = new Size(145, 20);
-            ToolStripStatusLabel3.Text = "Tổng số phiếu bầu : ";
+            this.ToolStripStatusLabel3.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ToolStripStatusLabel3.Name = "ToolStripStatusLabel3";
+            this.ToolStripStatusLabel3.Size = new System.Drawing.Size(145, 20);
+            this.ToolStripStatusLabel3.Text = "Tổng số phiếu bầu : ";
             // 
             // ToolStripStatusLabel4
             // 
-            ToolStripStatusLabel4.Font = new Font("Tahoma", 9.0f, FontStyle.Regular, GraphicsUnit.Point, 0);
-            ToolStripStatusLabel4.Name = "ToolStripStatusLabel4";
-            ToolStripStatusLabel4.Size = new Size(146, 20);
-            ToolStripStatusLabel4.Text = "ToolStripStatusLabel4";
+            this.ToolStripStatusLabel4.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ToolStripStatusLabel4.Name = "ToolStripStatusLabel4";
+            this.ToolStripStatusLabel4.Size = new System.Drawing.Size(146, 20);
+            this.ToolStripStatusLabel4.Text = "ToolStripStatusLabel4";
             // 
             // StatusStrip2
             // 
-            StatusStrip2.ImageScalingSize = new Size(20, 20);
-            StatusStrip2.Items.AddRange(new ToolStripItem[] { ToolStripStatusLabel7, ToolStripStatusLabel8, ToolStripStatusLabel9, ToolStripSplitButton3, ToolStripStatusLabel10, ToolStripStatusLabel11, ToolStripStatusLabel12 });
-            StatusStrip2.Location = new Point(0, 645);
-            StatusStrip2.Name = "StatusStrip2";
-            StatusStrip2.Padding = new Padding(1, 0, 19, 0);
-            StatusStrip2.Size = new Size(1056, 25);
-            StatusStrip2.TabIndex = 60;
-            StatusStrip2.Text = "StatusStrip2";
+            this.StatusStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.StatusStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStripStatusLabel7,
+            this.ToolStripStatusLabel8,
+            this.ToolStripStatusLabel9,
+            this.ToolStripSplitButton3,
+            this.ToolStripStatusLabel10,
+            this.ToolStripStatusLabel11,
+            this.ToolStripStatusLabel12});
+            this.StatusStrip2.Location = new System.Drawing.Point(0, 643);
+            this.StatusStrip2.Name = "StatusStrip2";
+            this.StatusStrip2.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
+            this.StatusStrip2.Size = new System.Drawing.Size(1056, 26);
+            this.StatusStrip2.TabIndex = 60;
+            this.StatusStrip2.Text = "StatusStrip2";
             // 
             // ToolStripStatusLabel7
             // 
-            ToolStripStatusLabel7.Name = "ToolStripStatusLabel7";
-            ToolStripStatusLabel7.Size = new Size(124, 20);
-            ToolStripStatusLabel7.Text = "Số phiếu hợp lệ : ";
+            this.ToolStripStatusLabel7.Name = "ToolStripStatusLabel7";
+            this.ToolStripStatusLabel7.Size = new System.Drawing.Size(124, 20);
+            this.ToolStripStatusLabel7.Text = "Số phiếu hợp lệ : ";
             // 
             // ToolStripStatusLabel8
             // 
-            ToolStripStatusLabel8.Name = "ToolStripStatusLabel8";
-            ToolStripStatusLabel8.Size = new Size(153, 20);
-            ToolStripStatusLabel8.Text = "ToolStripStatusLabel8";
+            this.ToolStripStatusLabel8.Name = "ToolStripStatusLabel8";
+            this.ToolStripStatusLabel8.Size = new System.Drawing.Size(153, 20);
+            this.ToolStripStatusLabel8.Text = "ToolStripStatusLabel8";
             // 
             // ToolStripStatusLabel9
             // 
-            ToolStripStatusLabel9.Name = "ToolStripStatusLabel9";
-            ToolStripStatusLabel9.Size = new Size(153, 20);
-            ToolStripStatusLabel9.Text = "ToolStripStatusLabel9";
+            this.ToolStripStatusLabel9.Name = "ToolStripStatusLabel9";
+            this.ToolStripStatusLabel9.Size = new System.Drawing.Size(153, 20);
+            this.ToolStripStatusLabel9.Text = "ToolStripStatusLabel9";
             // 
             // ToolStripSplitButton3
             // 
-            ToolStripSplitButton3.DisplayStyle = ToolStripItemDisplayStyle.None;
-            ToolStripSplitButton3.Image = (Image)resources.GetObject("ToolStripSplitButton3.Image");
-            ToolStripSplitButton3.ImageTransparentColor = Color.Magenta;
-            ToolStripSplitButton3.Name = "ToolStripSplitButton3";
-            ToolStripSplitButton3.Size = new Size(19, 23);
-            ToolStripSplitButton3.Text = "ToolStripSplitButton3";
+            this.ToolStripSplitButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.None;
+            this.ToolStripSplitButton3.Image = ((System.Drawing.Image)(resources.GetObject("ToolStripSplitButton3.Image")));
+            this.ToolStripSplitButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolStripSplitButton3.Name = "ToolStripSplitButton3";
+            this.ToolStripSplitButton3.Size = new System.Drawing.Size(19, 24);
+            this.ToolStripSplitButton3.Text = "ToolStripSplitButton3";
             // 
             // ToolStripStatusLabel10
             // 
-            ToolStripStatusLabel10.Name = "ToolStripStatusLabel10";
-            ToolStripStatusLabel10.Size = new Size(169, 20);
-            ToolStripStatusLabel10.Text = "Số phiếu không hợp lệ : ";
+            this.ToolStripStatusLabel10.Name = "ToolStripStatusLabel10";
+            this.ToolStripStatusLabel10.Size = new System.Drawing.Size(169, 20);
+            this.ToolStripStatusLabel10.Text = "Số phiếu không hợp lệ : ";
             // 
             // ToolStripStatusLabel11
             // 
-            ToolStripStatusLabel11.Name = "ToolStripStatusLabel11";
-            ToolStripStatusLabel11.Size = new Size(161, 20);
-            ToolStripStatusLabel11.Text = "ToolStripStatusLabel11";
+            this.ToolStripStatusLabel11.Name = "ToolStripStatusLabel11";
+            this.ToolStripStatusLabel11.Size = new System.Drawing.Size(161, 20);
+            this.ToolStripStatusLabel11.Text = "ToolStripStatusLabel11";
             // 
             // ToolStripStatusLabel12
             // 
-            ToolStripStatusLabel12.Name = "ToolStripStatusLabel12";
-            ToolStripStatusLabel12.Size = new Size(161, 20);
-            ToolStripStatusLabel12.Text = "ToolStripStatusLabel12";
+            this.ToolStripStatusLabel12.Name = "ToolStripStatusLabel12";
+            this.ToolStripStatusLabel12.Size = new System.Drawing.Size(161, 20);
+            this.ToolStripStatusLabel12.Text = "ToolStripStatusLabel12";
             // 
             // Elections_result
             // 
-            AutoScaleDimensions = new SizeF(8.0f, 16.0f);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1056, 695);
-            Controls.Add(StatusStrip2);
-            Controls.Add(StatusStrip1);
-            Controls.Add(GroupBox2);
-            Controls.Add(GroupBox1);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
-            Margin = new Padding(4, 4, 4, 4);
-            Name = "Elections_result";
-            Text = "Kết quả bầu cử";
-            GroupBox1.ResumeLayout(false);
-            GroupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)NumericUpDown1).EndInit();
-            GroupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)DataGridView1).EndInit();
-            StatusStrip1.ResumeLayout(false);
-            StatusStrip1.PerformLayout();
-            StatusStrip2.ResumeLayout(false);
-            StatusStrip2.PerformLayout();
-            Load += new EventHandler(Elections_result_Load);
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1056, 695);
+            this.Controls.Add(this.StatusStrip2);
+            this.Controls.Add(this.StatusStrip1);
+            this.Controls.Add(this.GroupBox2);
+            this.Controls.Add(this.GroupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.KeyPreview = true;
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "Elections_result";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Kết quả bầu cử";
+            this.Load += new System.EventHandler(this.Elections_result_Load);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ElectionResult_KeyUp);
+            this.GroupBox1.ResumeLayout(false);
+            this.GroupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NumericUpDown1)).EndInit();
+            this.GroupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridView1)).EndInit();
+            this.StatusStrip1.ResumeLayout(false);
+            this.StatusStrip1.PerformLayout();
+            this.StatusStrip2.ResumeLayout(false);
+            this.StatusStrip2.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
         internal GroupBox GroupBox1;

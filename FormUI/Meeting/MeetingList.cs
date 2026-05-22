@@ -131,6 +131,14 @@ namespace pmDHCD
                         }
                 }
             }
+        }
+
+        private void ToolStripTextBox1_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                filldgv();
+            }
 
         }
 

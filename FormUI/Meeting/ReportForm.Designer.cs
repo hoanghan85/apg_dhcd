@@ -39,10 +39,10 @@ namespace pmDHCD
             this.Button4 = new System.Windows.Forms.Button();
             this.Label4 = new System.Windows.Forms.Label();
             this.GroupBox2 = new System.Windows.Forms.GroupBox();
-            this.Button5 = new System.Windows.Forms.Button();
-            this.Label5 = new System.Windows.Forms.Label();
             this.Button7 = new System.Windows.Forms.Button();
             this.Label7 = new System.Windows.Forms.Label();
+            this.Button5 = new System.Windows.Forms.Button();
+            this.Label5 = new System.Windows.Forms.Label();
             this.Button6 = new System.Windows.Forms.Button();
             this.Label6 = new System.Windows.Forms.Label();
             this.GroupBox3 = new System.Windows.Forms.GroupBox();
@@ -167,6 +167,26 @@ namespace pmDHCD
             this.GroupBox2.TabStop = false;
             this.GroupBox2.Text = "Thông tin biểu quyết/bầu cử";
             // 
+            // Button7
+            // 
+            this.Button7.Location = new System.Drawing.Point(580, 65);
+            this.Button7.Name = "Button7";
+            this.Button7.Size = new System.Drawing.Size(100, 30);
+            this.Button7.TabIndex = 3;
+            this.Button7.Text = "Export";
+            this.Button7.UseVisualStyleBackColor = true;
+            this.Button7.Click += new System.EventHandler(this.Button7_Click);
+            // 
+            // Label7
+            // 
+            this.Label7.AutoSize = true;
+            this.Label7.Font = new System.Drawing.Font("Arial", 9F);
+            this.Label7.Location = new System.Drawing.Point(20, 70);
+            this.Label7.Name = "Label7";
+            this.Label7.Size = new System.Drawing.Size(196, 17);
+            this.Label7.TabIndex = 2;
+            this.Label7.Text = "Xuất thống kê bầu cử (Excel)";
+            // 
             // Button5
             // 
             this.Button5.Location = new System.Drawing.Point(580, 25);
@@ -187,32 +207,12 @@ namespace pmDHCD
             this.Label5.TabIndex = 0;
             this.Label5.Text = "Xuất thống kê biểu quyết (Excel)";
             // 
-            // Button7
-            // 
-            this.Button7.Location = new System.Drawing.Point(580, 65);
-            this.Button7.Name = "Button7";
-            this.Button7.Size = new System.Drawing.Size(100, 30);
-            this.Button7.TabIndex = 1;
-            this.Button7.Text = "Export";
-            this.Button7.UseVisualStyleBackColor = true;
-            this.Button7.Click += new System.EventHandler(this.Button7_Click);
-            // 
-            // Label7
-            // 
-            this.Label7.AutoSize = true;
-            this.Label7.Font = new System.Drawing.Font("Arial", 9F);
-            this.Label7.Location = new System.Drawing.Point(20, 70);
-            this.Label7.Name = "Label7";
-            this.Label7.Size = new System.Drawing.Size(196, 17);
-            this.Label7.TabIndex = 0;
-            this.Label7.Text = "Xuất thống kê bầu cử (Excel)";
-            // 
             // Button6
             // 
             this.Button6.Location = new System.Drawing.Point(580, 104);
             this.Button6.Name = "Button6";
             this.Button6.Size = new System.Drawing.Size(100, 30);
-            this.Button6.TabIndex = 3;
+            this.Button6.TabIndex = 5;
             this.Button6.Text = "Print";
             this.Button6.UseVisualStyleBackColor = true;
             this.Button6.Click += new System.EventHandler(this.Button6_Click);
@@ -224,7 +224,7 @@ namespace pmDHCD
             this.Label6.Location = new System.Drawing.Point(20, 109);
             this.Label6.Name = "Label6";
             this.Label6.Size = new System.Drawing.Size(198, 17);
-            this.Label6.TabIndex = 2;
+            this.Label6.TabIndex = 4;
             this.Label6.Text = "In biên bản biểu quyết/bầu cử";
             // 
             // GroupBox3
@@ -244,7 +244,7 @@ namespace pmDHCD
             this.Button8.Location = new System.Drawing.Point(580, 29);
             this.Button8.Name = "Button8";
             this.Button8.Size = new System.Drawing.Size(100, 30);
-            this.Button8.TabIndex = 3;
+            this.Button8.TabIndex = 1;
             this.Button8.Text = "Print";
             this.Button8.UseVisualStyleBackColor = true;
             this.Button8.Click += new System.EventHandler(this.Button8_Click);
@@ -255,8 +255,8 @@ namespace pmDHCD
             this.Label8.Font = new System.Drawing.Font("Arial", 9F);
             this.Label8.Location = new System.Drawing.Point(20, 34);
             this.Label8.Name = "Label8";
-            this.Label8.Size = new System.Drawing.Size(196, 17);
-            this.Label8.TabIndex = 2;
+            this.Label8.Size = new System.Drawing.Size(106, 17);
+            this.Label8.TabIndex = 0;
             this.Label8.Text = "In biên bản họp";
             // 
             // ReportForm
@@ -267,11 +267,13 @@ namespace pmDHCD
             this.Controls.Add(this.GroupBox1);
             this.Controls.Add(this.GroupBox2);
             this.Controls.Add(this.GroupBox3);
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ReportForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Báo cáo";
             this.Load += new System.EventHandler(this.ReportForm_Load);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ReportForm_KeyUp);
             this.GroupBox1.ResumeLayout(false);
             this.GroupBox1.PerformLayout();
             this.GroupBox2.ResumeLayout(false);

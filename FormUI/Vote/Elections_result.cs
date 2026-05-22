@@ -1,7 +1,8 @@
-﻿using System;
-using System.Data;
-using Microsoft.VisualBasic;
+﻿using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
+using System;
+using System.Data;
+using System.Windows.Forms;
 
 namespace pmDHCD
 {
@@ -83,6 +84,13 @@ namespace pmDHCD
             filldgv();
 
 
+        }
+        private void ElectionResult_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                Close();
+            }
         }
     }
 }

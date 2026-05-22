@@ -21,6 +21,7 @@ namespace pmDHCD
             nud1.Minimum = 1m;
             nud1.Maximum = 10m;
             nud1.Increment = 1m;
+            nud1.KeyPress += Nud1_KeyPress;  // Thêm dòng này
             ToolStrip1.Items.Insert(6, new ToolStripControlHost(nud1));
         }
         private void filldgv()
@@ -86,6 +87,40 @@ namespace pmDHCD
         private void NumericUpDown1_ValueChanged(object sender, EventArgs e)
         {
             filldgv();
+        }
+        private void CandidateList_KeyUp(object sender, KeyEventArgs e)
+        {
+                switch (e.KeyCode)
+                {
+                    case Keys.A:
+                        {
+                            ToolStripButton1_Click(sender, e);
+                            break;
+                        }
+                    case Keys.E:
+                        {
+                            ToolStripButton2_Click(sender, e);
+                            break;
+                        }
+                    case Keys.D:
+                        {
+                            ToolStripButton3_Click(sender, e);
+                            break;
+                        }
+                    case Keys.Escape:
+                        {
+                            Close();
+                            break;
+                        }
+                }
+        }
+        private void Nud1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Return)  // Khi nhấn Enter
+            {
+                filldgv();
+                e.Handled = true;  // Ngăn chặn âm thanh beep
+            }
         }
     }
 }

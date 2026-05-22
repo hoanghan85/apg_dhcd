@@ -1,7 +1,8 @@
-﻿using System;
-using System.Data;
-using Microsoft.VisualBasic;
+﻿using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
+using System;
+using System.Data;
+using System.Windows.Forms;
 
 namespace pmDHCD
 {
@@ -99,6 +100,13 @@ namespace pmDHCD
                 MaskedTextBox8.Text = "";
                 MaskedTextBox9.Text = "";
                 MaskedTextBox10.Text = "";
+            }
+        }
+        private void MatterVoteResult_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                Close();
             }
         }
     }

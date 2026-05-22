@@ -307,6 +307,7 @@ namespace pmDHCD
             Controls.Add(Label8);
             Controls.Add(Label6);
             Controls.Add(Label1);
+            KeyPreview = true;
             Margin = new Padding(4, 4, 4, 4);
             Name = "MatterVoteResult";
             StartPosition = FormStartPosition.CenterScreen;
@@ -315,6 +316,7 @@ namespace pmDHCD
             GroupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)NumericUpDown1).EndInit();
             Load += new EventHandler(MatterVoteResult_Load);
+            KeyUp += new KeyEventHandler(MatterVoteResult_KeyUp);
             ResumeLayout(false);
             PerformLayout();
 

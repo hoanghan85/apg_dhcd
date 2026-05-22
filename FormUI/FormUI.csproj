@@ -669,6 +669,9 @@
       <DependentUpon>MatterVotes_ins_remain.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vote\MatterVotes_ins_remain_batch.resx">
+      <DependentUpon>MatterVotes_ins_remain_batch.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vote\Mattervote_ins_update.resx">
       <DependentUpon>Mattervote_ins_update.cs</DependentUpon>
       <SubType>Designer</SubType>

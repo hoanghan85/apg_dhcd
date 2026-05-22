@@ -1,7 +1,8 @@
-﻿using System;
-using System.Data;
-using Microsoft.VisualBasic;
+﻿using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
+using System;
+using System.Data;
+using System.Windows.Forms;
 
 namespace pmDHCD
 {
@@ -84,6 +85,41 @@ namespace pmDHCD
 
             }
             filldgv();
+        }
+
+        private void IllegalElectionList_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (!(ToolStripTextBox1.Focused | ToolStripTextBox2.Focused))
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.D:
+                        {
+                            ToolStripButton3_Click(sender, e);
+                            break;
+                        }
+                    case Keys.Escape:
+                        {
+                            Close();
+                            break;
+                        }
+                }
+            }
+        }
+        private void ToolStripTextBox1_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                filldgv();
+            }
+        }
+
+        private void ToolStripTextBox2_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                filldgv();
+            }
         }
     }
 }

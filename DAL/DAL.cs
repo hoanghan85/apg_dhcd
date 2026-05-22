@@ -845,7 +845,7 @@ namespace BenlyDAL.BenlyDAL
                 result.AgreedDelegates = Conversions.ToDecimal(reader3["AgreedDelegates"]);
                 result.DisAgreedDelegates = Conversions.ToDecimal(reader3["DisAgreedDelegates"]);
                 result.Noideaddelegates = Conversions.ToDecimal(reader3["Noideaddelegates"]);
-                result.mattername = Conversions.ToString(reader3["mattername"]);
+                result.mattername = reader3["mattername"] != DBNull.Value ? Conversions.ToString(reader3["mattername"]) : "";
             }
             reader3.Close();
             return result;
@@ -884,7 +884,7 @@ namespace BenlyDAL.BenlyDAL
         }
         public void ElectionVotes_insert(string meetingcode, decimal electioncode, decimal DelegateCode, decimal CandidateCode, decimal Votes)
         {
-            string strQuery = "Electionvotes_insert";
+            string strQuery = "Electionvotes_Insert";
             using var cmd = new SqlCommand(strQuery, conn);
             cmd.Parameters.Add("meetingcode", SqlDbType.VarChar).Value = meetingcode;
             cmd.Parameters.Add("electioncode", SqlDbType.Int).Value = electioncode;

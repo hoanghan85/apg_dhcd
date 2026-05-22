@@ -115,10 +115,15 @@ namespace pmDHCD
                 Text = "Cập nhật phiếu bầu cử";
                 Button2.Enabled = false;
             }
-
+            else
+            {
+                // ✅ Add mode - Load dữ liệu ngay lập tức
+                LoadElectionData();
+            }
         }
 
-        private void NumericUpDown1_ValueChanged(object sender, EventArgs e)
+        // ✅ Thêm method này
+        private void LoadElectionData()
         {
             var dt = new DataTable();
             try
@@ -127,9 +132,10 @@ namespace pmDHCD
             }
             catch (Exception ex)
             {
-                Interaction.MsgBox("Lỗi :" + ex.Message);
+                Interaction.MsgBox("Lỗi: " + ex.Message);
                 return;
             }
+
             if (dt.Rows.Count == 1)
             {
                 MaskedTextBox3.Text = Conversions.ToString(dt.Rows[0]["Electionname"]);
@@ -142,7 +148,7 @@ namespace pmDHCD
                 }
                 catch (Exception ex)
                 {
-                    Interaction.MsgBox("Lỗi :" + ex.Message);
+                    Interaction.MsgBox("Lỗi: " + ex.Message);
                     return;
                 }
                 dt2.Columns.Remove("electioncode");
@@ -152,10 +158,19 @@ namespace pmDHCD
             }
             else
             {
+                // ✅ Không có dữ liệu bầu cử
+                Interaction.MsgBox("Không có dữ liệu Bầu cử", MsgBoxStyle.Exclamation);
                 MaskedTextBox3.Text = "";
                 MaskedTextBox6.Text = "";
                 DataGridView1.DataSource = Constants.vbNull;
+                Close();
             }
+        }
+
+        // Sửa NumericUpDown1_ValueChanged để gọi method chung
+        private void NumericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            LoadElectionData();
         }
 
         private void MaskedTextBox5_Leave(object sender, EventArgs e)
@@ -176,8 +191,10 @@ namespace pmDHCD
                 Interaction.MsgBox("Lỗi :" + ex.Message);
                 return;
             }
+
             if (dt.Rows.Count == 1)
             {
+
                 MaskedTextBox5.Text = Conversions.ToString(dt.Rows[0]["Delegatecode"]);
                 MaskedTextBox2.Text = Conversions.ToString(dt.Rows[0]["IdentityCard"]);
                 //MaskedTextBox2.Enabled = false;
@@ -309,6 +326,14 @@ namespace pmDHCD
         {
             Close();
         }
+        private void ElectionVoteUpsert_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                Close();
+            }
+        }
+
 
         private void Button2_Click(object sender, EventArgs e)
         {
@@ -350,9 +375,6 @@ namespace pmDHCD
 
             if (RadioButton1.Checked == true)
             {
-
-
-
                 int totalvoteingrid = 0;
                 int totalCandidateingrid = 0;
 
@@ -384,6 +406,11 @@ namespace pmDHCD
                 }
                 if (Conversions.ToBoolean(Operators.ConditionalCompareObjectEqual(controlcode, "Add", false)))
                 {
+                    if (DataGridView1.CurrentRow == null)
+                    {
+                        Interaction.MsgBox("Thiếu thông tin Bầu cử hoặc Ứng viên, vui lòng kiểm tra lại");
+                        return;
+                    }
                     foreach (DataGridViewRow dgvr in DataGridView1.Rows)
                     {
 
@@ -405,6 +432,7 @@ namespace pmDHCD
 
                             try
                             {
+                                MessageBox.Show("Hellowword3");
 
                                 // Mainform.BenlyDal.ElectionVotes_insert(Mainform.workingmeeting, NumericUpDown1.Value, MaskedTextBox5.Text, dgvr.Cells("Candidatecode").Value, dgvr.Cells("Votes").Value)
                                 My.MyProject.Forms.Mainform.BenlyDal.ElectionVotes_insert(My.MyProject.Forms.Mainform.workingmeeting, NumericUpDown1.Value, Conversions.ToDecimal(MaskedTextBox5.Text), Conversions.ToDecimal(dgvr.Cells["Candidatecode"].Value), Convert.ToInt32(ValueFetchOut));

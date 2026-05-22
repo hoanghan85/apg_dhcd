@@ -35,116 +35,124 @@ namespace pmDHCD
         [DebuggerStepThrough()]
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            TableLayoutPanel1 = new TableLayoutPanel();
-            OK_Button = new Button();
-            OK_Button.Click += new EventHandler(OK_Button_Click);
-            Cancel_Button = new Button();
-            Cancel_Button.Click += new EventHandler(Cancel_Button_Click);
-            txtFromHolder = new TextBox();
-            txtToHolder = new TextBox();
-            Label1 = new Label();
-            Label2 = new Label();
-            ErrorProvider1 = new ErrorProvider(components);
-            TableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)ErrorProvider1).BeginInit();
-            SuspendLayout();
+            this.components = new System.ComponentModel.Container();
+            this.TableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.OK_Button = new System.Windows.Forms.Button();
+            this.Cancel_Button = new System.Windows.Forms.Button();
+            this.txtFromHolder = new System.Windows.Forms.TextBox();
+            this.txtToHolder = new System.Windows.Forms.TextBox();
+            this.Label1 = new System.Windows.Forms.Label();
+            this.Label2 = new System.Windows.Forms.Label();
+            this.ErrorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.TableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider1)).BeginInit();
+            this.SuspendLayout();
             // 
             // TableLayoutPanel1
             // 
-            TableLayoutPanel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            TableLayoutPanel1.ColumnCount = 2;
-            TableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50.0f));
-            TableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50.0f));
-            TableLayoutPanel1.Controls.Add(OK_Button, 0, 0);
-            TableLayoutPanel1.Controls.Add(Cancel_Button, 1, 0);
-            TableLayoutPanel1.Location = new Point(173, 90);
-            TableLayoutPanel1.Name = "TableLayoutPanel1";
-            TableLayoutPanel1.RowCount = 1;
-            TableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50.0f));
-            TableLayoutPanel1.Size = new Size(146, 29);
-            TableLayoutPanel1.TabIndex = 0;
+            this.TableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.TableLayoutPanel1.ColumnCount = 2;
+            this.TableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.TableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.TableLayoutPanel1.Controls.Add(this.OK_Button, 0, 0);
+            this.TableLayoutPanel1.Controls.Add(this.Cancel_Button, 1, 0);
+            this.TableLayoutPanel1.Location = new System.Drawing.Point(231, 111);
+            this.TableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TableLayoutPanel1.Name = "TableLayoutPanel1";
+            this.TableLayoutPanel1.RowCount = 1;
+            this.TableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.TableLayoutPanel1.Size = new System.Drawing.Size(195, 36);
+            this.TableLayoutPanel1.TabIndex = 0;
             // 
             // OK_Button
             // 
-            OK_Button.Anchor = AnchorStyles.None;
-            OK_Button.Location = new Point(3, 3);
-            OK_Button.Name = "OK_Button";
-            OK_Button.Size = new Size(67, 23);
-            OK_Button.TabIndex = 0;
-            OK_Button.Text = "OK";
+            this.OK_Button.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.OK_Button.Location = new System.Drawing.Point(4, 4);
+            this.OK_Button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.OK_Button.Name = "OK_Button";
+            this.OK_Button.Size = new System.Drawing.Size(89, 28);
+            this.OK_Button.TabIndex = 0;
+            this.OK_Button.Text = "OK";
+            this.OK_Button.Click += new System.EventHandler(this.OK_Button_Click);
             // 
             // Cancel_Button
             // 
-            Cancel_Button.Anchor = AnchorStyles.None;
-            Cancel_Button.DialogResult = DialogResult.Cancel;
-            Cancel_Button.Location = new Point(76, 3);
-            Cancel_Button.Name = "Cancel_Button";
-            Cancel_Button.Size = new Size(67, 23);
-            Cancel_Button.TabIndex = 1;
-            Cancel_Button.Text = "Cancel";
+            this.Cancel_Button.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Cancel_Button.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.Cancel_Button.Location = new System.Drawing.Point(101, 4);
+            this.Cancel_Button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Cancel_Button.Name = "Cancel_Button";
+            this.Cancel_Button.Size = new System.Drawing.Size(89, 28);
+            this.Cancel_Button.TabIndex = 1;
+            this.Cancel_Button.Text = "Cancel";
+            this.Cancel_Button.Click += new System.EventHandler(this.Cancel_Button_Click);
             // 
             // txtFromHolder
             // 
-            txtFromHolder.Location = new Point(41, 34);
-            txtFromHolder.Name = "txtFromHolder";
-            txtFromHolder.Size = new Size(100, 20);
-            txtFromHolder.TabIndex = 1;
-            txtFromHolder.Text = "0";
+            this.txtFromHolder.Location = new System.Drawing.Point(55, 42);
+            this.txtFromHolder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtFromHolder.Name = "txtFromHolder";
+            this.txtFromHolder.Size = new System.Drawing.Size(132, 22);
+            this.txtFromHolder.TabIndex = 1;
+            this.txtFromHolder.Text = "0";
             // 
             // txtToHolder
             // 
-            txtToHolder.Location = new Point(196, 34);
-            txtToHolder.Name = "txtToHolder";
-            txtToHolder.Size = new Size(100, 20);
-            txtToHolder.TabIndex = 2;
-            txtToHolder.Text = "1";
+            this.txtToHolder.Location = new System.Drawing.Point(261, 42);
+            this.txtToHolder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtToHolder.Name = "txtToHolder";
+            this.txtToHolder.Size = new System.Drawing.Size(132, 22);
+            this.txtToHolder.TabIndex = 2;
+            this.txtToHolder.Text = "1";
             // 
             // Label1
             // 
-            Label1.AutoSize = true;
-            Label1.Location = new Point(38, 18);
-            Label1.Name = "Label1";
-            Label1.Size = new Size(80, 13);
-            Label1.TabIndex = 3;
-            Label1.Text = "Từ mã cổ đông";
+            this.Label1.AutoSize = true;
+            this.Label1.Location = new System.Drawing.Point(51, 22);
+            this.Label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label1.Name = "Label1";
+            this.Label1.Size = new System.Drawing.Size(97, 16);
+            this.Label1.TabIndex = 3;
+            this.Label1.Text = "Từ mã cổ đông";
             // 
             // Label2
             // 
-            Label2.AutoSize = true;
-            Label2.Location = new Point(189, 18);
-            Label2.Name = "Label2";
-            Label2.Size = new Size(82, 13);
-            Label2.TabIndex = 4;
-            Label2.Text = "Tới mã cổ đông";
+            this.Label2.AutoSize = true;
+            this.Label2.Location = new System.Drawing.Point(252, 22);
+            this.Label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label2.Name = "Label2";
+            this.Label2.Size = new System.Drawing.Size(101, 16);
+            this.Label2.TabIndex = 4;
+            this.Label2.Text = "Tới mã cổ đông";
             // 
             // ErrorProvider1
             // 
-            ErrorProvider1.ContainerControl = this;
+            this.ErrorProvider1.ContainerControl = this;
             // 
             // PrintHolders
             // 
-            AcceptButton = OK_Button;
-            AutoScaleDimensions = new SizeF(6.0f, 13.0f);
-            AutoScaleMode = AutoScaleMode.Font;
-            CancelButton = Cancel_Button;
-            ClientSize = new Size(331, 131);
-            Controls.Add(Label2);
-            Controls.Add(Label1);
-            Controls.Add(txtToHolder);
-            Controls.Add(txtFromHolder);
-            Controls.Add(TableLayoutPanel1);
-            FormBorderStyle = FormBorderStyle.FixedDialog;
-            MaximizeBox = false;
-            MinimizeBox = false;
-            Name = "PrintHolders";
-            ShowInTaskbar = false;
-            StartPosition = FormStartPosition.CenterParent;
-            Text = "In thẻ biểu quyết";
-            TableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)ErrorProvider1).EndInit();
-            ResumeLayout(false);
-            PerformLayout();
+            this.AcceptButton = this.OK_Button;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.Cancel_Button;
+            this.ClientSize = new System.Drawing.Size(441, 161);
+            this.Controls.Add(this.Label2);
+            this.Controls.Add(this.Label1);
+            this.Controls.Add(this.txtToHolder);
+            this.Controls.Add(this.txtFromHolder);
+            this.Controls.Add(this.TableLayoutPanel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "PrintHolders";
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "In thẻ biểu quyết";
+            this.TableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider1)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
         internal TableLayoutPanel TableLayoutPanel1;

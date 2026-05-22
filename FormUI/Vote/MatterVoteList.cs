@@ -136,8 +136,16 @@ namespace pmDHCD
 
         private void ToolStripButton2_Click(object sender, EventArgs e)
         {
-            var f = new Mattervote_ins_update("Update", Conversions.ToInteger(DataGridView1.CurrentRow.Cells["Mattercode"].Value), Conversions.ToInteger(DataGridView1.CurrentRow.Cells["delegatecode"].Value));
-            f.ShowDialog();
+            if (DataGridView1.SelectedRows.Count == 0)
+            {
+                Interaction.MsgBox("Bạn phải chọn ít nhất một bản ghi");
+                return;
+            }
+            else
+            {
+                var f = new Mattervote_ins_update("Update", Conversions.ToInteger(DataGridView1.CurrentRow.Cells["Mattercode"].Value), Conversions.ToInteger(DataGridView1.CurrentRow.Cells["delegatecode"].Value));
+                f.ShowDialog();
+            }
             filldgv();
         }
 
@@ -183,6 +191,11 @@ namespace pmDHCD
                             ToolStripButton3_Click(sender, e);
                             break;
                         }
+                    case Keys.Z:
+                        {
+                            ToolStripButton5_Click(sender, e);
+                            break;
+                        }
                     case Keys.Escape:
                         {
                             Close();
@@ -191,6 +204,22 @@ namespace pmDHCD
                 }
             }
 
+        }
+
+        private void ToolStripTextBox1_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                filldgv();
+            }
+        }
+
+        private void ToolStripTextBox2_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                filldgv();
+            }
         }
 
         private void DataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -272,14 +301,46 @@ namespace pmDHCD
                         {
                             // Lấy tất cả vấn đề hiện tại
                             var allMatters = My.MyProject.Forms.Mainform.BenlyDal.Matter_getlist(My.MyProject.Forms.Mainform.workingmeeting, 0m);
+
+                            // ✅ Kiểm tra nếu không có data hoặc data rỗng
+                            if (allMatters == null || allMatters.Rows.Count == 0)
+                            {
+                                Interaction.MsgBox("Không có dữ liệu vấn đề để xử lý!", MsgBoxStyle.Exclamation);
+                                filldgv();
+                                return;
+                            }
+
                             foreach (DataRow dr in allMatters.Rows)
                             {
+                                // ✅ Kiểm tra Mattercode không rỗng/null
+                                if (dr["Mattercode"] == null || dr["Mattercode"] == DBNull.Value)
+                                {
+                                    Interaction.MsgBox("Dữ liệu Mattercode bị rỗng, không thể xử lý!", MsgBoxStyle.Exclamation);
+                                    filldgv();
+                                    return;
+                                }
                                 int currentMatterCode = Conversions.ToInteger(dr["Mattercode"]);
                                 My.MyProject.Forms.Mainform.BenlyDal.MatterVotes_insert_remain(My.MyProject.Forms.Mainform.workingmeeting, currentMatterCode, 0m, f.AgreeValue, f.DisagreeValue, f.NoideaValue);
                             }
                         }
                         else
                         {
+                            // ✅ Kiểm tra Mattercode có hợp lệ không
+                            var allMatters2 = My.MyProject.Forms.Mainform.BenlyDal.Matter_getlist(My.MyProject.Forms.Mainform.workingmeeting, 0m);
+
+                            // ✅ Kiểm tra nếu không có data hoặc data rỗng
+                            if (allMatters2 == null || allMatters2.Rows.Count == 0)
+                            {
+                                Interaction.MsgBox("Không có dữ liệu vấn đề để xử lý!", MsgBoxStyle.Exclamation);
+                                filldgv();
+                                return;
+                            }
+                            if (f.SelectedMatterCode <= 0)
+                            {
+                                Interaction.MsgBox("Mã vấn đề không hợp lệ!", MsgBoxStyle.Exclamation);
+                                filldgv();
+                                return;
+                            }
                             // Nhập cho vấn đề cụ thể
                             My.MyProject.Forms.Mainform.BenlyDal.MatterVotes_insert_remain(My.MyProject.Forms.Mainform.workingmeeting, f.SelectedMatterCode, 0m, f.AgreeValue, f.DisagreeValue, f.NoideaValue);
                         }

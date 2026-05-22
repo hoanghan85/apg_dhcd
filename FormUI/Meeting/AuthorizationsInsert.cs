@@ -74,7 +74,7 @@ namespace pmDHCD
             }
             catch (Exception ex)
             {
-                Interaction.MsgBox("Lỗi" + ex.Message);
+                Interaction.MsgBox("Lỗi: " + ex.Message);
                 return;
             }
         }
@@ -103,7 +103,7 @@ namespace pmDHCD
             }
             catch (Exception ex)
             {
-                Interaction.MsgBox("Lỗi" + ex.Message);
+                Interaction.MsgBox("Lỗi: " + ex.Message);
                 return;
             }
             if (daibieu.Rows.Count == 1)
@@ -147,6 +147,7 @@ namespace pmDHCD
         {
             try
             {
+                KiemTraVaCapNhatSoQuyenConLai();
                 // Kiểm tra validation trước khi thêm
                 if (!string.IsNullOrEmpty(ErrorProvider1.GetError(StockTextBox2)))
                 {

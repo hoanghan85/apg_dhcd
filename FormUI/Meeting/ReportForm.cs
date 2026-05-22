@@ -1067,5 +1067,13 @@ namespace pmDHCD
         //        MessageBox.Show("Lỗi khi tạo biên bản họp: " + ex.Message + "\n\n" + ex.StackTrace, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
         //    }
         //}
+
+        private void ReportForm_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                Close();
+            }
+        }
     }
 }

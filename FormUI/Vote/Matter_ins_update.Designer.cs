@@ -35,176 +35,191 @@ namespace pmDHCD
         [DebuggerStepThrough()]
         private void InitializeComponent()
         {
-            MaskedTextBox3 = new MaskedTextBox();
-            MaskedTextBox1 = new MaskedTextBox();
-            Label3 = new Label();
-            Label7 = new Label();
-            Label2 = new Label();
-            Label1 = new Label();
-            Label4 = new Label();
-            MaskedTextBox2 = new MaskedTextBox();
-            NumericUpDown1 = new NumericUpDown();
-            TextBox1 = new TextBox();
-            Button3 = new Button();
-            Button3.Click += new EventHandler(Button3_Click);
-            Button1 = new Button();
-            Button1.Click += new EventHandler(Button1_Click);
-            ((System.ComponentModel.ISupportInitialize)NumericUpDown1).BeginInit();
-            SuspendLayout();
+            this.MaskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
+            this.MaskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.Label3 = new System.Windows.Forms.Label();
+            this.Label7 = new System.Windows.Forms.Label();
+            this.Label2 = new System.Windows.Forms.Label();
+            this.Label1 = new System.Windows.Forms.Label();
+            this.Label4 = new System.Windows.Forms.Label();
+            this.MaskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
+            this.NumericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.TextBox1 = new System.Windows.Forms.TextBox();
+            this.Button3 = new System.Windows.Forms.Button();
+            this.Button1 = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.NumericUpDown1)).BeginInit();
+            this.SuspendLayout();
             // 
             // MaskedTextBox3
             // 
-            MaskedTextBox3.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Regular, GraphicsUnit.Point, 0);
-            MaskedTextBox3.Location = new Point(219, 118);
-            MaskedTextBox3.Margin = new Padding(4, 4, 4, 4);
-            MaskedTextBox3.Name = "MaskedTextBox3";
-            MaskedTextBox3.Size = new Size(635, 26);
-            MaskedTextBox3.TabIndex = 1;
+            this.MaskedTextBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaskedTextBox3.Location = new System.Drawing.Point(219, 118);
+            this.MaskedTextBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.MaskedTextBox3.Name = "MaskedTextBox3";
+            this.MaskedTextBox3.Size = new System.Drawing.Size(635, 26);
+            this.MaskedTextBox3.TabIndex = 1;
             // 
             // MaskedTextBox1
             // 
-            MaskedTextBox1.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Regular, GraphicsUnit.Point, 0);
-            MaskedTextBox1.Location = new Point(219, 22);
-            MaskedTextBox1.Margin = new Padding(4, 4, 4, 4);
-            MaskedTextBox1.Name = "MaskedTextBox1";
-            MaskedTextBox1.ReadOnly = true;
-            MaskedTextBox1.Size = new Size(265, 26);
-            MaskedTextBox1.TabIndex = 18;
+            this.MaskedTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaskedTextBox1.Location = new System.Drawing.Point(219, 22);
+            this.MaskedTextBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.MaskedTextBox1.Name = "MaskedTextBox1";
+            this.MaskedTextBox1.ReadOnly = true;
+            this.MaskedTextBox1.Size = new System.Drawing.Size(265, 26);
+            this.MaskedTextBox1.TabIndex = 18;
             // 
             // Label3
             // 
-            Label3.AutoSize = true;
-            Label3.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Label3.Location = new Point(15, 169);
-            Label3.Margin = new Padding(4, 0, 4, 0);
-            Label3.Name = "Label3";
-            Label3.Size = new Size(75, 20);
-            Label3.TabIndex = 22;
-            Label3.Text = "Diễn giải";
+            this.Label3.AutoSize = true;
+            this.Label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label3.Location = new System.Drawing.Point(15, 169);
+            this.Label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label3.Name = "Label3";
+            this.Label3.Size = new System.Drawing.Size(75, 20);
+            this.Label3.TabIndex = 22;
+            this.Label3.Text = "Diễn giải";
             // 
             // Label7
             // 
-            Label7.AutoSize = true;
-            Label7.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Label7.Location = new Point(16, 118);
-            Label7.Margin = new Padding(4, 0, 4, 0);
-            Label7.Name = "Label7";
-            Label7.Size = new Size(91, 20);
-            Label7.TabIndex = 21;
-            Label7.Text = "Tên vấn đề";
+            this.Label7.AutoSize = true;
+            this.Label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label7.Location = new System.Drawing.Point(16, 118);
+            this.Label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label7.Name = "Label7";
+            this.Label7.Size = new System.Drawing.Size(91, 20);
+            this.Label7.TabIndex = 21;
+            this.Label7.Text = "Tên vấn đề";
             // 
             // Label2
             // 
-            Label2.AutoSize = true;
-            Label2.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Label2.Location = new Point(16, 73);
-            Label2.Margin = new Padding(4, 0, 4, 0);
-            Label2.Name = "Label2";
-            Label2.Size = new Size(86, 20);
-            Label2.TabIndex = 20;
-            Label2.Text = "Mã vấn đề";
-            // 
-            // Label4
-            // 
-            Label4.AutoSize = true;
-            Label4.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Label4.Location = new Point(540, 73);
-            Label4.Margin = new Padding(4, 0, 4, 0);
-            Label4.Name = "Label4";
-            Label4.Size = new Size(49, 20);
-            Label4.TabIndex = 23;
-            Label4.Text = "Tỷ lệ";
+            this.Label2.AutoSize = true;
+            this.Label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label2.Location = new System.Drawing.Point(16, 73);
+            this.Label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label2.Name = "Label2";
+            this.Label2.Size = new System.Drawing.Size(86, 20);
+            this.Label2.TabIndex = 20;
+            this.Label2.Text = "Mã vấn đề";
             // 
             // Label1
             // 
-            Label1.AutoSize = true;
-            Label1.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Label1.Location = new Point(16, 22);
-            Label1.Margin = new Padding(4, 0, 4, 0);
-            Label1.Name = "Label1";
-            Label1.Size = new Size(105, 20);
-            Label1.TabIndex = 19;
-            Label1.Text = "Mã cuộc họp";
+            this.Label1.AutoSize = true;
+            this.Label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label1.Location = new System.Drawing.Point(16, 22);
+            this.Label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label1.Name = "Label1";
+            this.Label1.Size = new System.Drawing.Size(105, 20);
+            this.Label1.TabIndex = 19;
+            this.Label1.Text = "Mã cuộc họp";
             // 
-            // NumericUpDown1
+            // Label4
             // 
-            NumericUpDown1.Font = new Font("Microsoft Sans Serif", 11.25f, FontStyle.Regular, GraphicsUnit.Point, 0);
-            NumericUpDown1.Location = new Point(219, 63);
-            NumericUpDown1.Margin = new Padding(4, 4, 4, 4);
-            NumericUpDown1.Maximum = new decimal(new int[] { 50, 0, 0, 0 });
-            NumericUpDown1.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-            NumericUpDown1.Name = "NumericUpDown1";
-            NumericUpDown1.Size = new Size(81, 29);
-            NumericUpDown1.TabIndex = 0;
-            NumericUpDown1.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            this.Label4.AutoSize = true;
+            this.Label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label4.Location = new System.Drawing.Point(540, 73);
+            this.Label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label4.Name = "Label4";
+            this.Label4.Size = new System.Drawing.Size(45, 20);
+            this.Label4.TabIndex = 23;
+            this.Label4.Text = "Tỷ lệ";
             // 
             // MaskedTextBox2
             // 
-            MaskedTextBox2.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Regular, GraphicsUnit.Point, 0);
-            MaskedTextBox2.Location = new Point(640, 63);
-            MaskedTextBox2.Margin = new Padding(4, 4, 4, 4);
-            MaskedTextBox2.Mask = "000";
-            MaskedTextBox2.Name = "MaskedTextBox2";
-            MaskedTextBox2.Size = new Size(61, 26);
-            MaskedTextBox2.TabIndex = 1;
-            MaskedTextBox2.Text = "65";
-            MaskedTextBox2.TextAlign = HorizontalAlignment.Right;
+            this.MaskedTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaskedTextBox2.Location = new System.Drawing.Point(640, 63);
+            this.MaskedTextBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.MaskedTextBox2.Mask = "000";
+            this.MaskedTextBox2.Name = "MaskedTextBox2";
+            this.MaskedTextBox2.Size = new System.Drawing.Size(61, 26);
+            this.MaskedTextBox2.TabIndex = 1;
+            this.MaskedTextBox2.Text = "65";
+            this.MaskedTextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // NumericUpDown1
+            // 
+            this.NumericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NumericUpDown1.Location = new System.Drawing.Point(219, 63);
+            this.NumericUpDown1.Margin = new System.Windows.Forms.Padding(4);
+            this.NumericUpDown1.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            this.NumericUpDown1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.NumericUpDown1.Name = "NumericUpDown1";
+            this.NumericUpDown1.Size = new System.Drawing.Size(81, 29);
+            this.NumericUpDown1.TabIndex = 0;
+            this.NumericUpDown1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // TextBox1
             // 
-            TextBox1.Location = new Point(219, 162);
-            TextBox1.Margin = new Padding(4, 4, 4, 4);
-            TextBox1.Multiline = true;
-            TextBox1.Name = "TextBox1";
-            TextBox1.Size = new Size(635, 170);
-            TextBox1.TabIndex = 2;
+            this.TextBox1.Location = new System.Drawing.Point(219, 162);
+            this.TextBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.TextBox1.Multiline = true;
+            this.TextBox1.Name = "TextBox1";
+            this.TextBox1.Size = new System.Drawing.Size(635, 170);
+            this.TextBox1.TabIndex = 2;
             // 
             // Button3
             // 
-            Button3.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Button3.Location = new Point(484, 368);
-            Button3.Margin = new Padding(4, 4, 4, 4);
-            Button3.Name = "Button3";
-            Button3.Size = new Size(180, 43);
-            Button3.TabIndex = 4;
-            Button3.Text = "Đóng";
-            Button3.UseVisualStyleBackColor = true;
+            this.Button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Button3.Location = new System.Drawing.Point(484, 368);
+            this.Button3.Margin = new System.Windows.Forms.Padding(4);
+            this.Button3.Name = "Button3";
+            this.Button3.Size = new System.Drawing.Size(180, 43);
+            this.Button3.TabIndex = 4;
+            this.Button3.Text = "Đóng";
+            this.Button3.UseVisualStyleBackColor = true;
+            this.Button3.Click += new System.EventHandler(this.Button3_Click);
             // 
             // Button1
             // 
-            Button1.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Button1.Location = new Point(109, 368);
-            Button1.Margin = new Padding(4, 4, 4, 4);
-            Button1.Name = "Button1";
-            Button1.Size = new Size(161, 43);
-            Button1.TabIndex = 3;
-            Button1.Text = "Thêm";
-            Button1.UseVisualStyleBackColor = true;
+            this.Button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Button1.Location = new System.Drawing.Point(109, 368);
+            this.Button1.Margin = new System.Windows.Forms.Padding(4);
+            this.Button1.Name = "Button1";
+            this.Button1.Size = new System.Drawing.Size(161, 43);
+            this.Button1.TabIndex = 3;
+            this.Button1.Text = "Thêm";
+            this.Button1.UseVisualStyleBackColor = true;
+            this.Button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // Matter_ins_update
             // 
-            AutoScaleDimensions = new SizeF(8.0f, 16.0f);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(928, 442);
-            Controls.Add(Button3);
-            Controls.Add(Button1);
-            Controls.Add(TextBox1);
-            Controls.Add(MaskedTextBox2);
-            Controls.Add(Label4);
-            Controls.Add(NumericUpDown1);
-            Controls.Add(MaskedTextBox3);
-            Controls.Add(MaskedTextBox1);
-            Controls.Add(Label3);
-            Controls.Add(Label7);
-            Controls.Add(Label2);
-            Controls.Add(Label1);
-            Margin = new Padding(4, 4, 4, 4);
-            Name = "Matter_ins_update";
-            Text = "Thêm vấn đề biểu quyết";
-            ((System.ComponentModel.ISupportInitialize)NumericUpDown1).EndInit();
-            Load += new EventHandler(Matter_ins_update_Load);
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(928, 442);
+            this.Controls.Add(this.Button3);
+            this.Controls.Add(this.Button1);
+            this.Controls.Add(this.TextBox1);
+            this.Controls.Add(this.MaskedTextBox2);
+            this.Controls.Add(this.Label4);
+            this.Controls.Add(this.NumericUpDown1);
+            this.Controls.Add(this.MaskedTextBox3);
+            this.Controls.Add(this.MaskedTextBox1);
+            this.Controls.Add(this.Label3);
+            this.Controls.Add(this.Label7);
+            this.Controls.Add(this.Label2);
+            this.Controls.Add(this.Label1);
+            this.KeyPreview = true;
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "Matter_ins_update";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Thêm vấn đề biểu quyết";
+            this.Load += new System.EventHandler(this.Matter_ins_update_Load);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Matterupsert_KeyUp);
+            ((System.ComponentModel.ISupportInitialize)(this.NumericUpDown1)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
         internal MaskedTextBox MaskedTextBox3;

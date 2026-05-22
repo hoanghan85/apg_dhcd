@@ -35,204 +35,231 @@ namespace pmDHCD
         [DebuggerStepThrough()]
         private void InitializeComponent()
         {
-            NumericUpDown1 = new NumericUpDown();
-            NumericUpDown1.ValueChanged += new EventHandler(NumericUpDown1_ValueChanged);
-            MaskedTextBox3 = new MaskedTextBox();
-            MaskedTextBox1 = new MaskedTextBox();
-            Label7 = new Label();
-            Label2 = new Label();
-            Label1 = new Label();
-            Button3 = new Button();
-            Button3.Click += new EventHandler(Button3_Click);
-            Button1 = new Button();
-            Button1.Click += new EventHandler(Button1_Click);
-            Label3 = new Label();
-            NumericUpDown2 = new NumericUpDown();
-            MaskedTextBox2 = new MaskedTextBox();
-            Label4 = new Label();
-            Label5 = new Label();
-            MaskedTextBox4 = new MaskedTextBox();
-            ((System.ComponentModel.ISupportInitialize)NumericUpDown1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)NumericUpDown2).BeginInit();
-            SuspendLayout();
+            this.NumericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.MaskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
+            this.MaskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.Label7 = new System.Windows.Forms.Label();
+            this.Label2 = new System.Windows.Forms.Label();
+            this.Label1 = new System.Windows.Forms.Label();
+            this.Button3 = new System.Windows.Forms.Button();
+            this.Button1 = new System.Windows.Forms.Button();
+            this.Label3 = new System.Windows.Forms.Label();
+            this.NumericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.MaskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
+            this.Label4 = new System.Windows.Forms.Label();
+            this.Label5 = new System.Windows.Forms.Label();
+            this.MaskedTextBox4 = new System.Windows.Forms.MaskedTextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.NumericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumericUpDown2)).BeginInit();
+            this.SuspendLayout();
             // 
             // NumericUpDown1
             // 
-            NumericUpDown1.Font = new Font("Microsoft Sans Serif", 11.25f, FontStyle.Regular, GraphicsUnit.Point, 0);
-            NumericUpDown1.Location = new Point(219, 52);
-            NumericUpDown1.Margin = new Padding(4, 4, 4, 4);
-            NumericUpDown1.Maximum = new decimal(new int[] { 50, 0, 0, 0 });
-            NumericUpDown1.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-            NumericUpDown1.Name = "NumericUpDown1";
-            NumericUpDown1.Size = new Size(81, 29);
-            NumericUpDown1.TabIndex = 32;
-            NumericUpDown1.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            this.NumericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NumericUpDown1.Location = new System.Drawing.Point(219, 52);
+            this.NumericUpDown1.Margin = new System.Windows.Forms.Padding(4);
+            this.NumericUpDown1.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            this.NumericUpDown1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.NumericUpDown1.Name = "NumericUpDown1";
+            this.NumericUpDown1.Size = new System.Drawing.Size(81, 29);
+            this.NumericUpDown1.TabIndex = 32;
+            this.NumericUpDown1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.NumericUpDown1.ValueChanged += new System.EventHandler(this.NumericUpDown1_ValueChanged);
             // 
             // MaskedTextBox3
             // 
-            MaskedTextBox3.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Regular, GraphicsUnit.Point, 0);
-            MaskedTextBox3.Location = new Point(219, 107);
-            MaskedTextBox3.Margin = new Padding(4, 4, 4, 4);
-            MaskedTextBox3.Name = "MaskedTextBox3";
-            MaskedTextBox3.ReadOnly = true;
-            MaskedTextBox3.Size = new Size(613, 26);
-            MaskedTextBox3.TabIndex = 33;
+            this.MaskedTextBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaskedTextBox3.Location = new System.Drawing.Point(219, 107);
+            this.MaskedTextBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.MaskedTextBox3.Name = "MaskedTextBox3";
+            this.MaskedTextBox3.ReadOnly = true;
+            this.MaskedTextBox3.Size = new System.Drawing.Size(613, 26);
+            this.MaskedTextBox3.TabIndex = 33;
             // 
             // MaskedTextBox1
             // 
-            MaskedTextBox1.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Regular, GraphicsUnit.Point, 0);
-            MaskedTextBox1.Location = new Point(219, 11);
-            MaskedTextBox1.Margin = new Padding(4, 4, 4, 4);
-            MaskedTextBox1.Name = "MaskedTextBox1";
-            MaskedTextBox1.ReadOnly = true;
-            MaskedTextBox1.Size = new Size(265, 26);
-            MaskedTextBox1.TabIndex = 34;
+            this.MaskedTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaskedTextBox1.Location = new System.Drawing.Point(219, 11);
+            this.MaskedTextBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.MaskedTextBox1.Name = "MaskedTextBox1";
+            this.MaskedTextBox1.ReadOnly = true;
+            this.MaskedTextBox1.Size = new System.Drawing.Size(265, 26);
+            this.MaskedTextBox1.TabIndex = 34;
             // 
             // Label7
             // 
-            Label7.AutoSize = true;
-            Label7.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Label7.Location = new Point(16, 107);
-            Label7.Margin = new Padding(4, 0, 4, 0);
-            Label7.Name = "Label7";
-            Label7.Size = new Size(92, 20);
-            Label7.TabIndex = 37;
-            Label7.Text = "Tên bầu cử";
+            this.Label7.AutoSize = true;
+            this.Label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label7.Location = new System.Drawing.Point(16, 107);
+            this.Label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label7.Name = "Label7";
+            this.Label7.Size = new System.Drawing.Size(92, 20);
+            this.Label7.TabIndex = 37;
+            this.Label7.Text = "Tên bầu cử";
             // 
             // Label2
             // 
-            Label2.AutoSize = true;
-            Label2.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Label2.Location = new Point(16, 62);
-            Label2.Margin = new Padding(4, 0, 4, 0);
-            Label2.Name = "Label2";
-            Label2.Size = new Size(87, 20);
-            Label2.TabIndex = 36;
-            Label2.Text = "Mã bầu cử";
+            this.Label2.AutoSize = true;
+            this.Label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label2.Location = new System.Drawing.Point(16, 62);
+            this.Label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label2.Name = "Label2";
+            this.Label2.Size = new System.Drawing.Size(87, 20);
+            this.Label2.TabIndex = 36;
+            this.Label2.Text = "Mã bầu cử";
             // 
             // Label1
             // 
-            Label1.AutoSize = true;
-            Label1.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Label1.Location = new Point(16, 11);
-            Label1.Margin = new Padding(4, 0, 4, 0);
-            Label1.Name = "Label1";
-            Label1.Size = new Size(105, 20);
-            Label1.TabIndex = 35;
-            Label1.Text = "Mã cuộc họp";
+            this.Label1.AutoSize = true;
+            this.Label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label1.Location = new System.Drawing.Point(16, 11);
+            this.Label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label1.Name = "Label1";
+            this.Label1.Size = new System.Drawing.Size(105, 20);
+            this.Label1.TabIndex = 35;
+            this.Label1.Text = "Mã cuộc họp";
             // 
             // Button3
             // 
-            Button3.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Button3.Location = new Point(501, 390);
-            Button3.Margin = new Padding(4, 4, 4, 4);
-            Button3.Name = "Button3";
-            Button3.Size = new Size(180, 43);
-            Button3.TabIndex = 39;
-            Button3.Text = "Đóng";
-            Button3.UseVisualStyleBackColor = true;
+            this.Button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Button3.Location = new System.Drawing.Point(501, 390);
+            this.Button3.Margin = new System.Windows.Forms.Padding(4);
+            this.Button3.Name = "Button3";
+            this.Button3.Size = new System.Drawing.Size(180, 43);
+            this.Button3.TabIndex = 39;
+            this.Button3.Text = "Đóng";
+            this.Button3.UseVisualStyleBackColor = true;
+            this.Button3.Click += new System.EventHandler(this.Button3_Click);
             // 
             // Button1
             // 
-            Button1.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Button1.Location = new Point(127, 390);
-            Button1.Margin = new Padding(4, 4, 4, 4);
-            Button1.Name = "Button1";
-            Button1.Size = new Size(161, 43);
-            Button1.TabIndex = 38;
-            Button1.Text = "Thêm";
-            Button1.UseVisualStyleBackColor = true;
+            this.Button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Button1.Location = new System.Drawing.Point(127, 390);
+            this.Button1.Margin = new System.Windows.Forms.Padding(4);
+            this.Button1.Name = "Button1";
+            this.Button1.Size = new System.Drawing.Size(161, 43);
+            this.Button1.TabIndex = 38;
+            this.Button1.Text = "Thêm";
+            this.Button1.UseVisualStyleBackColor = true;
+            this.Button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // Label3
             // 
-            Label3.AutoSize = true;
-            Label3.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Label3.Location = new Point(16, 177);
-            Label3.Margin = new Padding(4, 0, 4, 0);
-            Label3.Name = "Label3";
-            Label3.Size = new Size(99, 20);
-            Label3.TabIndex = 36;
-            Label3.Text = "Mã ứng viên";
+            this.Label3.AutoSize = true;
+            this.Label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label3.Location = new System.Drawing.Point(16, 177);
+            this.Label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label3.Name = "Label3";
+            this.Label3.Size = new System.Drawing.Size(99, 20);
+            this.Label3.TabIndex = 36;
+            this.Label3.Text = "Mã ứng viên";
             // 
             // NumericUpDown2
             // 
-            NumericUpDown2.Font = new Font("Microsoft Sans Serif", 11.25f, FontStyle.Regular, GraphicsUnit.Point, 0);
-            NumericUpDown2.Location = new Point(219, 167);
-            NumericUpDown2.Margin = new Padding(4, 4, 4, 4);
-            NumericUpDown2.Maximum = new decimal(new int[] { 50, 0, 0, 0 });
-            NumericUpDown2.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-            NumericUpDown2.Name = "NumericUpDown2";
-            NumericUpDown2.Size = new Size(81, 29);
-            NumericUpDown2.TabIndex = 32;
-            NumericUpDown2.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            this.NumericUpDown2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NumericUpDown2.Location = new System.Drawing.Point(219, 167);
+            this.NumericUpDown2.Margin = new System.Windows.Forms.Padding(4);
+            this.NumericUpDown2.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            this.NumericUpDown2.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.NumericUpDown2.Name = "NumericUpDown2";
+            this.NumericUpDown2.Size = new System.Drawing.Size(81, 29);
+            this.NumericUpDown2.TabIndex = 32;
+            this.NumericUpDown2.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // MaskedTextBox2
             // 
-            MaskedTextBox2.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Regular, GraphicsUnit.Point, 0);
-            MaskedTextBox2.Location = new Point(219, 233);
-            MaskedTextBox2.Margin = new Padding(4, 4, 4, 4);
-            MaskedTextBox2.Name = "MaskedTextBox2";
-            MaskedTextBox2.Size = new Size(613, 26);
-            MaskedTextBox2.TabIndex = 34;
+            this.MaskedTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaskedTextBox2.Location = new System.Drawing.Point(219, 233);
+            this.MaskedTextBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.MaskedTextBox2.Name = "MaskedTextBox2";
+            this.MaskedTextBox2.Size = new System.Drawing.Size(613, 26);
+            this.MaskedTextBox2.TabIndex = 34;
             // 
             // Label4
             // 
-            Label4.AutoSize = true;
-            Label4.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Label4.Location = new Point(16, 240);
-            Label4.Margin = new Padding(4, 0, 4, 0);
-            Label4.Name = "Label4";
-            Label4.Size = new Size(104, 20);
-            Label4.TabIndex = 37;
-            Label4.Text = "Tên ứng viên";
+            this.Label4.AutoSize = true;
+            this.Label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label4.Location = new System.Drawing.Point(16, 240);
+            this.Label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label4.Name = "Label4";
+            this.Label4.Size = new System.Drawing.Size(104, 20);
+            this.Label4.TabIndex = 37;
+            this.Label4.Text = "Tên ứng viên";
             // 
             // Label5
             // 
-            Label5.AutoSize = true;
-            Label5.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Label5.Location = new Point(16, 293);
-            Label5.Margin = new Padding(4, 0, 4, 0);
-            Label5.Name = "Label5";
-            Label5.Size = new Size(128, 20);
-            Label5.TabIndex = 37;
-            Label5.Text = "Địa chỉ, chức vụ";
+            this.Label5.AutoSize = true;
+            this.Label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label5.Location = new System.Drawing.Point(16, 293);
+            this.Label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label5.Name = "Label5";
+            this.Label5.Size = new System.Drawing.Size(128, 20);
+            this.Label5.TabIndex = 37;
+            this.Label5.Text = "Địa chỉ, chức vụ";
             // 
             // MaskedTextBox4
             // 
-            MaskedTextBox4.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Regular, GraphicsUnit.Point, 0);
-            MaskedTextBox4.Location = new Point(219, 286);
-            MaskedTextBox4.Margin = new Padding(4, 4, 4, 4);
-            MaskedTextBox4.Name = "MaskedTextBox4";
-            MaskedTextBox4.Size = new Size(613, 26);
-            MaskedTextBox4.TabIndex = 34;
+            this.MaskedTextBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaskedTextBox4.Location = new System.Drawing.Point(219, 286);
+            this.MaskedTextBox4.Margin = new System.Windows.Forms.Padding(4);
+            this.MaskedTextBox4.Name = "MaskedTextBox4";
+            this.MaskedTextBox4.Size = new System.Drawing.Size(613, 26);
+            this.MaskedTextBox4.TabIndex = 34;
             // 
             // Candidates_ins_update
             // 
-            AutoScaleDimensions = new SizeF(8.0f, 16.0f);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(875, 507);
-            Controls.Add(Button3);
-            Controls.Add(Button1);
-            Controls.Add(NumericUpDown2);
-            Controls.Add(NumericUpDown1);
-            Controls.Add(MaskedTextBox3);
-            Controls.Add(MaskedTextBox4);
-            Controls.Add(MaskedTextBox2);
-            Controls.Add(MaskedTextBox1);
-            Controls.Add(Label5);
-            Controls.Add(Label3);
-            Controls.Add(Label4);
-            Controls.Add(Label7);
-            Controls.Add(Label2);
-            Controls.Add(Label1);
-            Margin = new Padding(4, 4, 4, 4);
-            Name = "Candidates_ins_update";
-            Text = "Thêm thông tin ứng viên";
-            ((System.ComponentModel.ISupportInitialize)NumericUpDown1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)NumericUpDown2).EndInit();
-            Load += new EventHandler(Candidates_ins_update_Load);
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(875, 507);
+            this.Controls.Add(this.Button3);
+            this.Controls.Add(this.Button1);
+            this.Controls.Add(this.NumericUpDown2);
+            this.Controls.Add(this.NumericUpDown1);
+            this.Controls.Add(this.MaskedTextBox3);
+            this.Controls.Add(this.MaskedTextBox4);
+            this.Controls.Add(this.MaskedTextBox2);
+            this.Controls.Add(this.MaskedTextBox1);
+            this.Controls.Add(this.Label5);
+            this.Controls.Add(this.Label3);
+            this.Controls.Add(this.Label4);
+            this.Controls.Add(this.Label7);
+            this.Controls.Add(this.Label2);
+            this.Controls.Add(this.Label1);
+            this.KeyPreview = true;
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "Candidates_ins_update";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Thêm thông tin ứng viên";
+            this.Load += new System.EventHandler(this.Candidates_ins_update_Load);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CandidateUpsert_KeyUp);
+            ((System.ComponentModel.ISupportInitialize)(this.NumericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumericUpDown2)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
         internal NumericUpDown NumericUpDown1;

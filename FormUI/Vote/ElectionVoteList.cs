@@ -1,7 +1,8 @@
-﻿using System;
-using System.Data;
-using Microsoft.VisualBasic;
+﻿using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
+using System;
+using System.Data;
+using System.Windows.Forms;
 
 namespace pmDHCD
 {
@@ -114,6 +115,58 @@ namespace pmDHCD
             var f = new Electionvote_ins_update("Update", Conversions.ToInteger(DataGridView1.CurrentRow.Cells["Electioncode"].Value), Conversions.ToInteger(DataGridView1.CurrentRow.Cells["delegatecode"].Value));
             f.ShowDialog();
             filldgv();
+        }
+
+        private void ElectionVoteList_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (!(ToolStripTextBox1.Focused | ToolStripTextBox2.Focused))
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.A:
+                        {
+                            ToolStripButton1_Click(sender, e);
+                            break;
+                        }
+                    case Keys.E:
+                        {
+                            ToolStripButton2_Click(sender, e);
+                            break;
+                        }
+                    case Keys.D:
+                        {
+                            ToolStripButton3_Click(sender, e);
+                            break;
+                        }
+                    case Keys.Escape:
+                        {
+                            Close();
+                            break;
+                        }
+                }
+            }
+        }
+        private void ToolStripTextBox1_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                filldgv();
+            }
+        }
+
+        private void ToolStripTextBox2_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                filldgv();
+            }
+        }
+        private void ToolStripTextBox3_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                filldgv();
+            }
         }
     }
 }

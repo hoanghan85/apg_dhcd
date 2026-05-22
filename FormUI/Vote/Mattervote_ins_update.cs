@@ -195,7 +195,7 @@ namespace pmDHCD
             }
             catch (Exception ex)
             {
-                Interaction.MsgBox("Lỗi z:" + ex.Message);
+                Interaction.MsgBox("Lỗi:" + ex.Message);
             }
         }
         private void Updatemattervote()
@@ -206,7 +206,7 @@ namespace pmDHCD
             }
             catch (Exception ex)
             {
-                Interaction.MsgBox("Lỗi :" + ex.Message);
+                Interaction.MsgBox("Lỗi:" + ex.Message);
             }
         }
         //private void MaskedTextBox2_KeyDown(object sender, KeyEventArgs e)
@@ -280,7 +280,7 @@ namespace pmDHCD
             }
             catch (Exception ex)
             {
-                Interaction.MsgBox("Lỗi" + ex.Message);
+                Interaction.MsgBox("Lỗi: " + ex.Message);
                 return;
             }
             if (daibieu.Rows.Count == 1)

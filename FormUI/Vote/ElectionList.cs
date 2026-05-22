@@ -1,6 +1,7 @@
-﻿using System;
-using Microsoft.VisualBasic;
+﻿using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
+using System;
+using System.Windows.Forms;
 
 namespace pmDHCD
 {
@@ -72,6 +73,32 @@ namespace pmDHCD
 
                 filldgv();
             }
+        }
+        private void ElectionList_KeyUp(object sender, KeyEventArgs e)
+        {
+                switch (e.KeyCode)
+                {
+                    case Keys.A:
+                        {
+                            ToolStripButton1_Click(sender, e);
+                            break;
+                        }
+                    case Keys.E:
+                        {
+                            ToolStripButton2_Click(sender, e);
+                            break;
+                        }
+                    case Keys.D:
+                        {
+                            ToolStripButton3_Click(sender, e);
+                            break;
+                        }
+                    case Keys.Escape:
+                        {
+                            Close();
+                            break;
+                        }
+                }
         }
     }
 }
