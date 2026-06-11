@@ -1,12 +1,13 @@
-﻿using System;
+﻿using BenlyDAL.BenlyDAL;
+using Microsoft.VisualBasic;
+using pmDHCD.Meeting;
+using System;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Globalization;
 using System.Threading;
 using System.Windows.Forms;
-using BenlyDAL.BenlyDAL;
-using Microsoft.VisualBasic;
 
 namespace pmDHCD
 {
@@ -208,6 +209,13 @@ namespace pmDHCD
         private void AbcToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("abc");
+        }
+
+        private void thẻBiểuQuyếtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var dlg = new DelegateCardList();
+            dlg.MdiParent = this;
+            dlg.Show();
         }
     }
 }

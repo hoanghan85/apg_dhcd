@@ -1326,5 +1326,69 @@ namespace BenlyDAL.BenlyDAL
             }
         }
 
+        public void VoteCards_Upsert(string meetingCode, int matterCode, string matterDescription, int agree, int disAgree, int noIdea)
+        {
+            string strQuery = "VoteCards_Upsert";
+            using var cmd = new System.Data.SqlClient.SqlCommand(strQuery, conn);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.Add("@MeetingCode", System.Data.SqlDbType.VarChar).Value = meetingCode;
+            cmd.Parameters.Add("@MatterCode", System.Data.SqlDbType.Int).Value = matterCode;
+            cmd.Parameters.Add("@MatterDescription", System.Data.SqlDbType.VarChar).Value = matterDescription;
+            cmd.Parameters.Add("@Agree", System.Data.SqlDbType.Int).Value = agree;
+            cmd.Parameters.Add("@DisAgree", System.Data.SqlDbType.Int).Value = disAgree;
+            cmd.Parameters.Add("@NoIdea", System.Data.SqlDbType.Int).Value = noIdea;
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        public DataTable VoteCards_getlist(string meetingcode, int? mattercode)
+        {
+            var result = new DataTable();
+            const string strQuery = "VoteCards_getlist";
+            using var cmd = new SqlCommand(strQuery, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@MeetingCode", SqlDbType.VarChar, 50).Value = meetingcode ?? "";
+            if (mattercode.HasValue)
+                cmd.Parameters.Add("@MatterCode", SqlDbType.Int).Value = mattercode.Value;
+            else
+                cmd.Parameters.Add("@MatterCode", SqlDbType.Int).Value = DBNull.Value;
+
+            using var da = new SqlDataAdapter(cmd);
+            try
+            {
+                da.Fill(result);
+            }
+            catch
+            {
+                throw;
+            }
+
+            return result;
+        }
+
+        public void VoteCards_delete(string meetingcode, int mattercode)
+        {
+            const string strQuery = "VoteCards_delete";
+            using var cmd = new System.Data.SqlClient.SqlCommand(strQuery, conn);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.Add("@MeetingCode", System.Data.SqlDbType.VarChar, 50).Value = meetingcode ?? "";
+            cmd.Parameters.Add("@MatterCode", System.Data.SqlDbType.Int).Value = mattercode;
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch
+            {
+                throw;
+            }
+        }
     }
 }
