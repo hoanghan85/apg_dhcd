@@ -84,21 +84,34 @@ namespace pmDHCD
             {
                 int outdele;
                 decimal remainvotes;
+
                 try
                 {
                     remainvotes = My.MyProject.Forms.Mainform.BenlyDal.Holder_GetRemainingVoterights(My.MyProject.Forms.Mainform.workingmeeting, MaskedTextBox6.Text);
+
                     if (remainvotes == 0)
                     {
                         MessageBox.Show("Đại biểu này đã ủy quyền hết số quyền, vui lòng kiểm tra lại");
                     }
                     else
                     {
-                    outdele = (int)Math.Round(My.MyProject.Forms.Mainform.BenlyDal.Delegate_insert(My.MyProject.Forms.Mainform.workingmeeting, MaskedTextBox4.Text, MaskedTextBox3.Text, MaskedTextBox5.Text));
-                    MaskedTextBox2.Text = outdele.ToString();
-                    Button1.Enabled = false;
-                    Button2.Enabled = false;
+                        string warningMessage;
+
+                        outdele = (int)Math.Round(My.MyProject.Forms.Mainform.BenlyDal.Delegate_insert(My.MyProject.Forms.Mainform.workingmeeting, MaskedTextBox4.Text, MaskedTextBox3.Text, MaskedTextBox5.Text, out warningMessage));
+
+                        if (!string.IsNullOrWhiteSpace(warningMessage))
+                        {
+                            MessageBox.Show(warningMessage);
+                        }
+
+                        MaskedTextBox2.Text = outdele.ToString();
+
+                        Button1.Enabled = false;
+                        Button2.Enabled = false;
+
                         My.MyProject.Forms.Mainform.BenlyDal.Authorizations_insert(My.MyProject.Forms.Mainform.workingmeeting, MaskedTextBox6.Text, outdele, Conversions.ToDecimal(remainvotes));
                         //My.MyProject.Forms.Mainform.BenlyDal.Authorizations_insert(My.MyProject.Forms.Mainform.workingmeeting, MaskedTextBox6.Text, outdele, Conversions.ToDecimal(StockTextBox2.Text));
+                        
                         Button3.Focus();
                     }
                 }
@@ -152,7 +165,11 @@ namespace pmDHCD
                 int outdele;
                 try
                 {
-                    outdele = (int)Math.Round(My.MyProject.Forms.Mainform.BenlyDal.Delegate_insert(My.MyProject.Forms.Mainform.workingmeeting, MaskedTextBox4.Text, MaskedTextBox3.Text, MaskedTextBox5.Text));
+
+                    string warningMessage;
+
+                    outdele = (int)Math.Round(My.MyProject.Forms.Mainform.BenlyDal.Delegate_insert(My.MyProject.Forms.Mainform.workingmeeting, MaskedTextBox4.Text, MaskedTextBox3.Text, MaskedTextBox5.Text, out warningMessage));
+
                     MaskedTextBox2.Text = outdele.ToString();
                     Button1.Enabled = false;
                     Button2.Enabled = false;

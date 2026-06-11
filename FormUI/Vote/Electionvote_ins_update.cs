@@ -432,7 +432,6 @@ namespace pmDHCD
 
                             try
                             {
-                                MessageBox.Show("Hellowword3");
 
                                 // Mainform.BenlyDal.ElectionVotes_insert(Mainform.workingmeeting, NumericUpDown1.Value, MaskedTextBox5.Text, dgvr.Cells("Candidatecode").Value, dgvr.Cells("Votes").Value)
                                 My.MyProject.Forms.Mainform.BenlyDal.ElectionVotes_insert(My.MyProject.Forms.Mainform.workingmeeting, NumericUpDown1.Value, Conversions.ToDecimal(MaskedTextBox5.Text), Conversions.ToDecimal(dgvr.Cells["Candidatecode"].Value), Convert.ToInt32(ValueFetchOut));

@@ -265,18 +265,24 @@ namespace BenlyDAL.BenlyDAL
                 throw;
             }
         }
-        public decimal Delegate_insert(string meetingcode, string Delegatename, string IdentityCard, string DelegateAddress)
+        public decimal Delegate_insert(string meetingcode, string Delegatename, string IdentityCard, string DelegateAddress, out string warningMessage)
         {
             string strQuery = "Delegates_insert";
             using var cmd = new SqlCommand(strQuery, conn);
+
             cmd.Parameters.Add("meetingcode", SqlDbType.VarChar).Value = meetingcode;
             cmd.Parameters.Add("DelegateName", SqlDbType.NVarChar).Value = Delegatename;
             cmd.Parameters.Add("IdentityCard", SqlDbType.NVarChar).Value = IdentityCard;
             cmd.Parameters.Add("DelegateAddress", SqlDbType.NVarChar).Value = DelegateAddress;
+            
             var delegatecode = new SqlParameter();
             delegatecode = cmd.Parameters.Add("delegatecode", SqlDbType.Int);
             delegatecode.Direction = ParameterDirection.Output;
-            // cmd.Parameters.Add(delegatecode)
+
+            var warningParam = new SqlParameter();
+            warningParam = cmd.Parameters.Add("WarningMessage", SqlDbType.NVarChar, 500);
+            warningParam.Direction = ParameterDirection.Output;
+
             cmd.CommandType = CommandType.StoredProcedure;
 
             try
@@ -287,6 +293,11 @@ namespace BenlyDAL.BenlyDAL
             {
                 throw;
             }
+
+            warningMessage = warningParam.Value == DBNull.Value
+                ? ""
+                : warningParam.Value.ToString();
+
             return Conversions.ToDecimal(delegatecode.Value);
         }
         public void Delegate_update(string meetingcode, decimal delegatecode, string Delegatename, string IdentityCard, string DelegateAddress)

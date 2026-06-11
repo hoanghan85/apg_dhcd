@@ -84,9 +84,9 @@ namespace pmDHCD
             this.agree = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Disagree = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Noidea = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Illegal = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.DelegateCode1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HolderCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Illegal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ToolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView1)).BeginInit();
             this.StatusStrip1.SuspendLayout();
@@ -110,7 +110,7 @@ namespace pmDHCD
             this.ToolStripButton5});
             this.ToolStrip1.Location = new System.Drawing.Point(0, 0);
             this.ToolStrip1.Name = "ToolStrip1";
-            this.ToolStrip1.Size = new System.Drawing.Size(1220, 27);
+            this.ToolStrip1.Size = new System.Drawing.Size(1355, 27);
             this.ToolStrip1.TabIndex = 11;
             this.ToolStrip1.Text = "ToolStrip1";
             // 
@@ -157,7 +157,7 @@ namespace pmDHCD
             this.ToolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.ToolStripTextBox1.Name = "ToolStripTextBox1";
             this.ToolStripTextBox1.Size = new System.Drawing.Size(132, 27);
-            this.ToolStripTextBox1.KeyUp += new System.Windows.Forms.KeyEventHandler(ToolStripTextBox1_KeyUp);
+            this.ToolStripTextBox1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ToolStripTextBox1_KeyUp);
             // 
             // ToolStripSeparator1
             // 
@@ -175,7 +175,7 @@ namespace pmDHCD
             this.ToolStripTextBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.ToolStripTextBox2.Name = "ToolStripTextBox2";
             this.ToolStripTextBox2.Size = new System.Drawing.Size(132, 27);
-            this.ToolStripTextBox2.KeyUp += new System.Windows.Forms.KeyEventHandler(ToolStripTextBox2_KeyUp);
+            this.ToolStripTextBox2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ToolStripTextBox2_KeyUp);
             // 
             // ToolStripButton4
             // 
@@ -191,7 +191,7 @@ namespace pmDHCD
             this.ToolStripButton5.Image = global::pmDHCD.My.Resources.Resources.Add;
             this.ToolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ToolStripButton5.Name = "ToolStripButton5";
-            this.ToolStripButton5.Size = new System.Drawing.Size(110, 24);
+            this.ToolStripButton5.Size = new System.Drawing.Size(133, 24);
             this.ToolStripButton5.Text = "Nhập tất cả (Z)";
             this.ToolStripButton5.Click += new System.EventHandler(this.ToolStripButton5_Click);
             // 
@@ -220,9 +220,9 @@ namespace pmDHCD
             this.agree,
             this.Disagree,
             this.Noidea,
+            this.Illegal,
             this.DelegateCode1,
-            this.HolderCode,
-            this.Illegal});
+            this.HolderCode});
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -246,7 +246,7 @@ namespace pmDHCD
             this.DataGridView1.RowHeadersVisible = false;
             this.DataGridView1.RowHeadersWidth = 51;
             this.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DataGridView1.Size = new System.Drawing.Size(1220, 673);
+            this.DataGridView1.Size = new System.Drawing.Size(1355, 593);
             this.DataGridView1.TabIndex = 12;
             this.DataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellValueChanged);
             // 
@@ -259,10 +259,10 @@ namespace pmDHCD
             this.ToolStripSplitButton3,
             this.ToolStripStatusLabel15,
             this.ToolStripStatusLabel16});
-            this.StatusStrip1.Location = new System.Drawing.Point(0, 724);
+            this.StatusStrip1.Location = new System.Drawing.Point(0, 644);
             this.StatusStrip1.Name = "StatusStrip1";
             this.StatusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.StatusStrip1.Size = new System.Drawing.Size(1220, 26);
+            this.StatusStrip1.Size = new System.Drawing.Size(1355, 26);
             this.StatusStrip1.TabIndex = 13;
             this.StatusStrip1.Text = "StatusStrip1";
             // 
@@ -317,10 +317,10 @@ namespace pmDHCD
             this.ToolStripStatusLabel12,
             this.ToolStripStatusLabel13,
             this.ToolStripStatusLabel14});
-            this.StatusStrip2.Location = new System.Drawing.Point(0, 700);
+            this.StatusStrip2.Location = new System.Drawing.Point(0, 620);
             this.StatusStrip2.Name = "StatusStrip2";
             this.StatusStrip2.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.StatusStrip2.Size = new System.Drawing.Size(1220, 24);
+            this.StatusStrip2.Size = new System.Drawing.Size(1355, 24);
             this.StatusStrip2.TabIndex = 14;
             this.StatusStrip2.Text = "StatusStrip2";
             // 
@@ -524,6 +524,16 @@ namespace pmDHCD
             this.Noidea.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Noidea.Width = 70;
             // 
+            // Illegal
+            // 
+            this.Illegal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Illegal.DataPropertyName = "Illegal";
+            this.Illegal.HeaderText = "Không hợp lệ";
+            this.Illegal.MinimumWidth = 6;
+            this.Illegal.Name = "Illegal";
+            this.Illegal.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Illegal.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
             // DelegateCode1
             // 
             this.DelegateCode1.DataPropertyName = "DelegateCode1";
@@ -544,21 +554,11 @@ namespace pmDHCD
             this.HolderCode.Visible = false;
             this.HolderCode.Width = 125;
             // 
-            // Illegal
-            // 
-            this.Illegal.DataPropertyName = "Illegal";
-            this.Illegal.HeaderText = "Illegal";
-            this.Illegal.MinimumWidth = 6;
-            this.Illegal.Name = "Illegal";
-            this.Illegal.ReadOnly = true;
-            this.Illegal.Visible = false;
-            this.Illegal.Width = 125;
-            // 
             // MatterVoteList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1220, 750);
+            this.ClientSize = new System.Drawing.Size(1355, 670);
             this.Controls.Add(this.DataGridView1);
             this.Controls.Add(this.StatusStrip2);
             this.Controls.Add(this.StatusStrip1);
@@ -624,8 +624,8 @@ namespace pmDHCD
         private DataGridViewCheckBoxColumn agree;
         private DataGridViewCheckBoxColumn Disagree;
         private DataGridViewCheckBoxColumn Noidea;
+        private DataGridViewCheckBoxColumn Illegal;
         private DataGridViewTextBoxColumn DelegateCode1;
         private DataGridViewTextBoxColumn HolderCode;
-        private DataGridViewTextBoxColumn Illegal;
     }
 }
