@@ -227,7 +227,7 @@ namespace pmDHCD
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
                 string colName = DataGridView1.Columns[e.ColumnIndex].Name;
-                if (colName == "Agree" || colName == "Disagree" || colName == "Noidea")
+                if (colName == "Agree" || colName == "Disagree" || colName == "Noidea" || colName == "Illegal")
                 {
                     try
                     {
@@ -238,33 +238,51 @@ namespace pmDHCD
                         bool agree = false;
                         bool disagree = false;
                         bool noidea = false;
+                        bool illegal = false;
                         // Nếu chọn Agree
                         if (colName == "Agree" && Conversions.ToBoolean(row.Cells["Agree"].Value) == true)
                         {
                             row.Cells["Disagree"].Value = false;
                             row.Cells["Noidea"].Value = false;
+                            row.Cells["Illegal"].Value = false;
                             agree = true;
                             noidea = false;
                             disagree = false;
+                            illegal = false;
+
                         }
                         else if (colName == "Disagree" && Conversions.ToBoolean(row.Cells["Disagree"].Value) == true)
                         {
                             row.Cells["Agree"].Value = false;
                             row.Cells["Noidea"].Value = false;
+                            row.Cells["Illegal"].Value = false;
                             disagree = true;
                             noidea = false;
                             agree = false;
+                            illegal = false;
                         }
                         else if (colName == "Noidea" && Conversions.ToBoolean(row.Cells["Noidea"].Value) == true)
                         {
                             row.Cells["Agree"].Value = false;
                             row.Cells["Disagree"].Value = false;
+                            row.Cells["Illegal"].Value = false;
                             noidea = true;
+                            disagree = false;
+                            agree = false;
+                            illegal = false;
+                        }
+                        else if (colName == "Illegal" && Conversions.ToBoolean(row.Cells["Illegal"].Value) == true)
+                        {
+                            row.Cells["Agree"].Value = false;
+                            row.Cells["Disagree"].Value = false;
+                            row.Cells["Noidea"].Value = false;
+                            illegal = true;
+                            noidea = false;
                             disagree = false;
                             agree = false;
                         }
 
-                        My.MyProject.Forms.Mainform.BenlyDal.MatterVotes_update(My.MyProject.Forms.Mainform.workingmeeting, Conversions.ToDecimal(mattercode), Conversions.ToDecimal(delegatecode), agree, disagree, noidea);
+                        My.MyProject.Forms.Mainform.BenlyDal.MatterVotes_update(My.MyProject.Forms.Mainform.workingmeeting, Conversions.ToDecimal(mattercode), Conversions.ToDecimal(delegatecode), agree, disagree, noidea, illegal);
                         filldgv();
                     }
                     catch (Exception ex)
@@ -320,7 +338,7 @@ namespace pmDHCD
                                     return;
                                 }
                                 int currentMatterCode = Conversions.ToInteger(dr["Mattercode"]);
-                                My.MyProject.Forms.Mainform.BenlyDal.MatterVotes_insert_remain(My.MyProject.Forms.Mainform.workingmeeting, currentMatterCode, 0m, f.AgreeValue, f.DisagreeValue, f.NoideaValue);
+                                My.MyProject.Forms.Mainform.BenlyDal.MatterVotes_insert_remain(My.MyProject.Forms.Mainform.workingmeeting, currentMatterCode, 0m, f.AgreeValue, f.DisagreeValue, f.NoideaValue, f.IllegalValue);
                             }
                         }
                         else
@@ -342,7 +360,7 @@ namespace pmDHCD
                                 return;
                             }
                             // Nhập cho vấn đề cụ thể
-                            My.MyProject.Forms.Mainform.BenlyDal.MatterVotes_insert_remain(My.MyProject.Forms.Mainform.workingmeeting, f.SelectedMatterCode, 0m, f.AgreeValue, f.DisagreeValue, f.NoideaValue);
+                            My.MyProject.Forms.Mainform.BenlyDal.MatterVotes_insert_remain(My.MyProject.Forms.Mainform.workingmeeting, f.SelectedMatterCode, 0m, f.AgreeValue, f.DisagreeValue, f.NoideaValue, f.IllegalValue);
                         }
 
                         Interaction.MsgBox("Đã nhập xong");

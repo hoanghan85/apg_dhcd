@@ -155,5 +155,21 @@ namespace pmDHCD.Meeting
         {
             DeleteSelectedRow();
         }
+
+        private void DelegateCardList_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                Close();
+            }
+            else if (e.Control && e.KeyCode == Keys.S)
+            {
+                toolStripButton1.PerformClick();
+            }
+            else if (e.Control && e.KeyCode == Keys.D)
+            {
+                toolStripButton3.PerformClick();
+            }
+        }
     }
 }

@@ -32,9 +32,10 @@ namespace pmDHCD
                 MaskedTextBox3.Text = info.sumofdelegates.ToString();
                 MaskedTextBox4.Text = info.enteredvotes.ToString();
                 MaskedTextBox5.Text = info.remainvotes.ToString();
-                MaskedTextBox6.Text = info.AgreedDelegates.ToString();
-                MaskedTextBox7.Text = info.DisAgreedDelegates.ToString();
-                MaskedTextBox8.Text = info.Noideaddelegates.ToString();
+                MaskedTextBox6.Text = info.AgreeDelegates.ToString();
+                MaskedTextBox7.Text = info.DisAgreeDelegates.ToString();
+                MaskedTextBox8.Text = info.NoideaDelegates.ToString();
+                maskedTextBox9.Text = info.IllegalDelegates.ToString();
             }
             catch (Exception ex)
             {
@@ -54,7 +55,7 @@ namespace pmDHCD
             {
                 try
                 {
-                    My.MyProject.Forms.Mainform.BenlyDal.MatterVotes_insert_remain(My.MyProject.Forms.Mainform.workingmeeting, insertmattercode, 0m, RadioButton1.Checked, RadioButton2.Checked, RadioButton3.Checked);
+                    My.MyProject.Forms.Mainform.BenlyDal.MatterVotes_insert_remain(My.MyProject.Forms.Mainform.workingmeeting, insertmattercode, 0m, RadioButton1.Checked, RadioButton2.Checked, RadioButton3.Checked, radioButton4.Checked);
                     Interaction.MsgBox("Đã nhập xong");
                 }
                 catch (Exception ex)
@@ -71,6 +72,11 @@ namespace pmDHCD
             {
                 Close();
             }
+        }
+
+        private void MaskedTextBox8_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
         }
     }
 }

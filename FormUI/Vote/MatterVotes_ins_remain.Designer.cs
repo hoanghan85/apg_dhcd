@@ -59,6 +59,9 @@ namespace pmDHCD
             this.RadioButton1 = new System.Windows.Forms.RadioButton();
             this.Button3 = new System.Windows.Forms.Button();
             this.Button1 = new System.Windows.Forms.Button();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.label9 = new System.Windows.Forms.Label();
+            this.maskedTextBox9 = new System.Windows.Forms.MaskedTextBox();
             this.GroupBox1.SuspendLayout();
             this.GroupBox2.SuspendLayout();
             this.GroupBox3.SuspendLayout();
@@ -77,10 +80,10 @@ namespace pmDHCD
             this.GroupBox1.Controls.Add(this.Label2);
             this.GroupBox1.Controls.Add(this.Label1);
             this.GroupBox1.Location = new System.Drawing.Point(1, 0);
-            this.GroupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.GroupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.GroupBox1.Name = "GroupBox1";
-            this.GroupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.GroupBox1.Size = new System.Drawing.Size(721, 254);
+            this.GroupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.GroupBox1.Size = new System.Drawing.Size(721, 231);
             this.GroupBox1.TabIndex = 0;
             this.GroupBox1.TabStop = false;
             this.GroupBox1.Text = "Thông tin vấn đề";
@@ -88,8 +91,8 @@ namespace pmDHCD
             // MaskedTextBox5
             // 
             this.MaskedTextBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MaskedTextBox5.Location = new System.Drawing.Point(277, 213);
-            this.MaskedTextBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MaskedTextBox5.Location = new System.Drawing.Point(277, 190);
+            this.MaskedTextBox5.Margin = new System.Windows.Forms.Padding(4);
             this.MaskedTextBox5.Name = "MaskedTextBox5";
             this.MaskedTextBox5.ReadOnly = true;
             this.MaskedTextBox5.Size = new System.Drawing.Size(265, 26);
@@ -98,8 +101,8 @@ namespace pmDHCD
             // MaskedTextBox4
             // 
             this.MaskedTextBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MaskedTextBox4.Location = new System.Drawing.Point(277, 165);
-            this.MaskedTextBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MaskedTextBox4.Location = new System.Drawing.Point(277, 146);
+            this.MaskedTextBox4.Margin = new System.Windows.Forms.Padding(4);
             this.MaskedTextBox4.Name = "MaskedTextBox4";
             this.MaskedTextBox4.ReadOnly = true;
             this.MaskedTextBox4.Size = new System.Drawing.Size(265, 26);
@@ -109,7 +112,7 @@ namespace pmDHCD
             // 
             this.Label5.AutoSize = true;
             this.Label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label5.Location = new System.Drawing.Point(15, 213);
+            this.Label5.Location = new System.Drawing.Point(15, 193);
             this.Label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label5.Name = "Label5";
             this.Label5.Size = new System.Drawing.Size(128, 20);
@@ -119,8 +122,8 @@ namespace pmDHCD
             // MaskedTextBox3
             // 
             this.MaskedTextBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MaskedTextBox3.Location = new System.Drawing.Point(277, 117);
-            this.MaskedTextBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MaskedTextBox3.Location = new System.Drawing.Point(277, 103);
+            this.MaskedTextBox3.Margin = new System.Windows.Forms.Padding(4);
             this.MaskedTextBox3.Name = "MaskedTextBox3";
             this.MaskedTextBox3.ReadOnly = true;
             this.MaskedTextBox3.Size = new System.Drawing.Size(265, 26);
@@ -130,7 +133,7 @@ namespace pmDHCD
             // 
             this.Label4.AutoSize = true;
             this.Label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label4.Location = new System.Drawing.Point(15, 165);
+            this.Label4.Location = new System.Drawing.Point(15, 149);
             this.Label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label4.Name = "Label4";
             this.Label4.Size = new System.Drawing.Size(138, 20);
@@ -140,8 +143,8 @@ namespace pmDHCD
             // MaskedTextBox2
             // 
             this.MaskedTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MaskedTextBox2.Location = new System.Drawing.Point(277, 65);
-            this.MaskedTextBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MaskedTextBox2.Location = new System.Drawing.Point(277, 61);
+            this.MaskedTextBox2.Margin = new System.Windows.Forms.Padding(4);
             this.MaskedTextBox2.Name = "MaskedTextBox2";
             this.MaskedTextBox2.ReadOnly = true;
             this.MaskedTextBox2.Size = new System.Drawing.Size(265, 26);
@@ -151,7 +154,7 @@ namespace pmDHCD
             // 
             this.Label3.AutoSize = true;
             this.Label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label3.Location = new System.Drawing.Point(15, 117);
+            this.Label3.Location = new System.Drawing.Point(15, 106);
             this.Label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label3.Name = "Label3";
             this.Label3.Size = new System.Drawing.Size(132, 20);
@@ -162,7 +165,7 @@ namespace pmDHCD
             // 
             this.MaskedTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MaskedTextBox1.Location = new System.Drawing.Point(277, 20);
-            this.MaskedTextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MaskedTextBox1.Margin = new System.Windows.Forms.Padding(4);
             this.MaskedTextBox1.Name = "MaskedTextBox1";
             this.MaskedTextBox1.ReadOnly = true;
             this.MaskedTextBox1.Size = new System.Drawing.Size(265, 26);
@@ -172,7 +175,7 @@ namespace pmDHCD
             // 
             this.Label2.AutoSize = true;
             this.Label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label2.Location = new System.Drawing.Point(15, 65);
+            this.Label2.Location = new System.Drawing.Point(15, 64);
             this.Label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label2.Name = "Label2";
             this.Label2.Size = new System.Drawing.Size(91, 20);
@@ -183,7 +186,7 @@ namespace pmDHCD
             // 
             this.Label1.AutoSize = true;
             this.Label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label1.Location = new System.Drawing.Point(15, 20);
+            this.Label1.Location = new System.Drawing.Point(15, 23);
             this.Label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label1.Name = "Label1";
             this.Label1.Size = new System.Drawing.Size(86, 20);
@@ -192,16 +195,19 @@ namespace pmDHCD
             // 
             // GroupBox2
             // 
+            this.GroupBox2.Controls.Add(this.maskedTextBox9);
+            this.GroupBox2.Controls.Add(this.label9);
             this.GroupBox2.Controls.Add(this.MaskedTextBox8);
             this.GroupBox2.Controls.Add(this.Label8);
             this.GroupBox2.Controls.Add(this.MaskedTextBox7);
             this.GroupBox2.Controls.Add(this.Label7);
             this.GroupBox2.Controls.Add(this.MaskedTextBox6);
             this.GroupBox2.Controls.Add(this.Label6);
-            this.GroupBox2.Location = new System.Drawing.Point(1, 257);
-            this.GroupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.GroupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.GroupBox2.Location = new System.Drawing.Point(1, 235);
+            this.GroupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.GroupBox2.Name = "GroupBox2";
-            this.GroupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.GroupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.GroupBox2.Size = new System.Drawing.Size(721, 201);
             this.GroupBox2.TabIndex = 1;
             this.GroupBox2.TabStop = false;
@@ -210,18 +216,19 @@ namespace pmDHCD
             // MaskedTextBox8
             // 
             this.MaskedTextBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MaskedTextBox8.Location = new System.Drawing.Point(277, 139);
-            this.MaskedTextBox8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MaskedTextBox8.Location = new System.Drawing.Point(277, 109);
+            this.MaskedTextBox8.Margin = new System.Windows.Forms.Padding(4);
             this.MaskedTextBox8.Name = "MaskedTextBox8";
             this.MaskedTextBox8.ReadOnly = true;
             this.MaskedTextBox8.Size = new System.Drawing.Size(265, 26);
             this.MaskedTextBox8.TabIndex = 26;
+            this.MaskedTextBox8.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.MaskedTextBox8_MaskInputRejected);
             // 
             // Label8
             // 
             this.Label8.AutoSize = true;
             this.Label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label8.Location = new System.Drawing.Point(15, 139);
+            this.Label8.Location = new System.Drawing.Point(15, 112);
             this.Label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label8.Name = "Label8";
             this.Label8.Size = new System.Drawing.Size(171, 20);
@@ -231,8 +238,8 @@ namespace pmDHCD
             // MaskedTextBox7
             // 
             this.MaskedTextBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MaskedTextBox7.Location = new System.Drawing.Point(277, 90);
-            this.MaskedTextBox7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MaskedTextBox7.Location = new System.Drawing.Point(277, 64);
+            this.MaskedTextBox7.Margin = new System.Windows.Forms.Padding(4);
             this.MaskedTextBox7.Name = "MaskedTextBox7";
             this.MaskedTextBox7.ReadOnly = true;
             this.MaskedTextBox7.Size = new System.Drawing.Size(265, 26);
@@ -242,7 +249,7 @@ namespace pmDHCD
             // 
             this.Label7.AutoSize = true;
             this.Label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label7.Location = new System.Drawing.Point(15, 90);
+            this.Label7.Location = new System.Drawing.Point(15, 67);
             this.Label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label7.Name = "Label7";
             this.Label7.Size = new System.Drawing.Size(177, 20);
@@ -252,8 +259,8 @@ namespace pmDHCD
             // MaskedTextBox6
             // 
             this.MaskedTextBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MaskedTextBox6.Location = new System.Drawing.Point(277, 42);
-            this.MaskedTextBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MaskedTextBox6.Location = new System.Drawing.Point(277, 22);
+            this.MaskedTextBox6.Margin = new System.Windows.Forms.Padding(4);
             this.MaskedTextBox6.Name = "MaskedTextBox6";
             this.MaskedTextBox6.ReadOnly = true;
             this.MaskedTextBox6.Size = new System.Drawing.Size(265, 26);
@@ -263,7 +270,7 @@ namespace pmDHCD
             // 
             this.Label6.AutoSize = true;
             this.Label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label6.Location = new System.Drawing.Point(15, 42);
+            this.Label6.Location = new System.Drawing.Point(15, 25);
             this.Label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label6.Name = "Label6";
             this.Label6.Size = new System.Drawing.Size(128, 20);
@@ -272,13 +279,14 @@ namespace pmDHCD
             // 
             // GroupBox3
             // 
+            this.GroupBox3.Controls.Add(this.radioButton4);
             this.GroupBox3.Controls.Add(this.RadioButton3);
             this.GroupBox3.Controls.Add(this.RadioButton2);
             this.GroupBox3.Controls.Add(this.RadioButton1);
             this.GroupBox3.Location = new System.Drawing.Point(1, 459);
-            this.GroupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.GroupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.GroupBox3.Name = "GroupBox3";
-            this.GroupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.GroupBox3.Padding = new System.Windows.Forms.Padding(4);
             this.GroupBox3.Size = new System.Drawing.Size(721, 69);
             this.GroupBox3.TabIndex = 2;
             this.GroupBox3.TabStop = false;
@@ -286,8 +294,8 @@ namespace pmDHCD
             // RadioButton3
             // 
             this.RadioButton3.AutoSize = true;
-            this.RadioButton3.Location = new System.Drawing.Point(543, 25);
-            this.RadioButton3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.RadioButton3.Location = new System.Drawing.Point(401, 25);
+            this.RadioButton3.Margin = new System.Windows.Forms.Padding(4);
             this.RadioButton3.Name = "RadioButton3";
             this.RadioButton3.Size = new System.Drawing.Size(104, 20);
             this.RadioButton3.TabIndex = 7;
@@ -297,8 +305,8 @@ namespace pmDHCD
             // RadioButton2
             // 
             this.RadioButton2.AutoSize = true;
-            this.RadioButton2.Location = new System.Drawing.Point(277, 25);
-            this.RadioButton2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.RadioButton2.Location = new System.Drawing.Point(202, 25);
+            this.RadioButton2.Margin = new System.Windows.Forms.Padding(4);
             this.RadioButton2.Name = "RadioButton2";
             this.RadioButton2.Size = new System.Drawing.Size(110, 20);
             this.RadioButton2.TabIndex = 6;
@@ -310,7 +318,7 @@ namespace pmDHCD
             this.RadioButton1.AutoSize = true;
             this.RadioButton1.Checked = true;
             this.RadioButton1.Location = new System.Drawing.Point(49, 25);
-            this.RadioButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.RadioButton1.Margin = new System.Windows.Forms.Padding(4);
             this.RadioButton1.Name = "RadioButton1";
             this.RadioButton1.Size = new System.Drawing.Size(70, 20);
             this.RadioButton1.TabIndex = 5;
@@ -322,7 +330,7 @@ namespace pmDHCD
             // 
             this.Button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Button3.Location = new System.Drawing.Point(411, 562);
-            this.Button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Button3.Margin = new System.Windows.Forms.Padding(4);
             this.Button3.Name = "Button3";
             this.Button3.Size = new System.Drawing.Size(213, 53);
             this.Button3.TabIndex = 8;
@@ -335,13 +343,45 @@ namespace pmDHCD
             this.Button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Button1.ForeColor = System.Drawing.Color.Red;
             this.Button1.Location = new System.Drawing.Point(51, 562);
-            this.Button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Button1.Margin = new System.Windows.Forms.Padding(4);
             this.Button1.Name = "Button1";
             this.Button1.Size = new System.Drawing.Size(189, 53);
             this.Button1.TabIndex = 7;
             this.Button1.Text = "Nhập phần còn lại";
             this.Button1.UseVisualStyleBackColor = true;
             this.Button1.Click += new System.EventHandler(this.Button1_Click);
+            // 
+            // radioButton4
+            // 
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.Location = new System.Drawing.Point(576, 25);
+            this.radioButton4.Margin = new System.Windows.Forms.Padding(4);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(106, 20);
+            this.radioButton4.TabIndex = 8;
+            this.radioButton4.TabStop = true;
+            this.radioButton4.Text = "Không hợp lệ";
+            this.radioButton4.UseVisualStyleBackColor = true;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(15, 157);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(173, 20);
+            this.label9.TabIndex = 28;
+            this.label9.Text = "Số lượng không hợp lệ";
+            // 
+            // maskedTextBox9
+            // 
+            this.maskedTextBox9.BackColor = System.Drawing.SystemColors.Control;
+            this.maskedTextBox9.Location = new System.Drawing.Point(277, 154);
+            this.maskedTextBox9.Margin = new System.Windows.Forms.Padding(4);
+            this.maskedTextBox9.Name = "maskedTextBox9";
+            this.maskedTextBox9.ReadOnly = true;
+            this.maskedTextBox9.Size = new System.Drawing.Size(265, 26);
+            this.maskedTextBox9.TabIndex = 29;
             // 
             // MatterVotes_ins_remain
             // 
@@ -355,7 +395,7 @@ namespace pmDHCD
             this.Controls.Add(this.GroupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MatterVotes_ins_remain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nhập TẤT CẢ phiếu biểu quyết CÒN LẠI";
@@ -394,5 +434,8 @@ namespace pmDHCD
         internal RadioButton RadioButton3;
         internal RadioButton RadioButton2;
         internal RadioButton RadioButton1;
+        internal RadioButton radioButton4;
+        internal Label label9;
+        internal MaskedTextBox maskedTextBox9;
     }
 }

@@ -64,6 +64,7 @@ namespace pmDHCD
             this.delegateIdentityTextBox = new System.Windows.Forms.MaskedTextBox();
             this.delegateCodeMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.GroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NumericUpDown1)).BeginInit();
             this.GroupBox3.SuspendLayout();
@@ -223,7 +224,6 @@ namespace pmDHCD
             this.HolderIdentifyMaskedTextBox2.Size = new System.Drawing.Size(265, 26);
             this.HolderIdentifyMaskedTextBox2.TabIndex = 1;
             this.HolderIdentifyMaskedTextBox2.Visible = false;
-            //this.HolderIdentifyMaskedTextBox2.Leave += new System.EventHandler(this.HolderIdentifyMaskedTextBox2_Leave);
             // 
             // HolderCodeMaskedTextBox
             // 
@@ -288,6 +288,7 @@ namespace pmDHCD
             // 
             // GroupBox3
             // 
+            this.GroupBox3.Controls.Add(this.radioButton4);
             this.GroupBox3.Controls.Add(this.RadioButton3);
             this.GroupBox3.Controls.Add(this.RadioButton2);
             this.GroupBox3.Controls.Add(this.RadioButton1);
@@ -303,7 +304,7 @@ namespace pmDHCD
             // RadioButton3
             // 
             this.RadioButton3.AutoSize = true;
-            this.RadioButton3.Location = new System.Drawing.Point(663, 41);
+            this.RadioButton3.Location = new System.Drawing.Point(504, 41);
             this.RadioButton3.Margin = new System.Windows.Forms.Padding(4);
             this.RadioButton3.Name = "RadioButton3";
             this.RadioButton3.Size = new System.Drawing.Size(104, 20);
@@ -314,7 +315,7 @@ namespace pmDHCD
             // RadioButton2
             // 
             this.RadioButton2.AutoSize = true;
-            this.RadioButton2.Location = new System.Drawing.Point(348, 41);
+            this.RadioButton2.Location = new System.Drawing.Point(256, 41);
             this.RadioButton2.Margin = new System.Windows.Forms.Padding(4);
             this.RadioButton2.Name = "RadioButton2";
             this.RadioButton2.Size = new System.Drawing.Size(110, 20);
@@ -326,7 +327,7 @@ namespace pmDHCD
             // 
             this.RadioButton1.AutoSize = true;
             this.RadioButton1.Checked = true;
-            this.RadioButton1.Location = new System.Drawing.Point(39, 41);
+            this.RadioButton1.Location = new System.Drawing.Point(61, 41);
             this.RadioButton1.Margin = new System.Windows.Forms.Padding(4);
             this.RadioButton1.Name = "RadioButton1";
             this.RadioButton1.Size = new System.Drawing.Size(70, 20);
@@ -419,7 +420,6 @@ namespace pmDHCD
             this.delegateIdentityTextBox.Size = new System.Drawing.Size(265, 26);
             this.delegateIdentityTextBox.TabIndex = 60;
             this.delegateIdentityTextBox.TabStop = false;
-            this.delegateIdentityTextBox.Visible = true;
             this.delegateIdentityTextBox.Leave += new System.EventHandler(this.delegateIdentityTextBox_Leave);
             // 
             // delegateCodeMaskedTextBox
@@ -444,6 +444,17 @@ namespace pmDHCD
             this.label9.Size = new System.Drawing.Size(95, 20);
             this.label9.TabIndex = 63;
             this.label9.Text = "Mã đại biểu";
+            // 
+            // radioButton4
+            // 
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.Location = new System.Drawing.Point(730, 41);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(106, 20);
+            this.radioButton4.TabIndex = 3;
+            this.radioButton4.TabStop = true;
+            this.radioButton4.Text = "Không hợp lệ";
+            this.radioButton4.UseVisualStyleBackColor = true;
             // 
             // Mattervote_ins_update
             // 
@@ -516,5 +527,6 @@ namespace pmDHCD
         internal MaskedTextBox delegateIdentityTextBox;
         internal MaskedTextBox delegateCodeMaskedTextBox;
         internal Label label9;
+        internal RadioButton radioButton4;
     }
 }

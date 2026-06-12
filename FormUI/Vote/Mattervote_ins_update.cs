@@ -77,6 +77,7 @@ namespace pmDHCD
                     RadioButton1.Checked = Conversions.ToBoolean(dt3.Rows[0]["Agree"]);
                     RadioButton2.Checked = Conversions.ToBoolean(dt3.Rows[0]["DisAgree"]);
                     RadioButton3.Checked = Conversions.ToBoolean(dt3.Rows[0]["Noidea"]);
+                    radioButton4.Checked = Conversions.ToBoolean(dt3.Rows[0]["Illegal"]);
                 }
                 else
                 {
@@ -191,7 +192,7 @@ namespace pmDHCD
             try
             {
                 My.MyProject.Forms.Mainform.BenlyDal.MatterVotes_insert(My.MyProject.Forms.Mainform.workingmeeting, NumericUpDown1.Value, //Conversions.ToDecimal(HolderCodeMaskedTextBox.Text), 
-                    Conversions.ToDecimal(delegateCodeMaskedTextBox.Text), RadioButton1.Checked, RadioButton2.Checked, RadioButton3.Checked);
+                    Conversions.ToDecimal(delegateCodeMaskedTextBox.Text), RadioButton1.Checked, RadioButton2.Checked, RadioButton3.Checked, radioButton4.Checked);
             }
             catch (Exception ex)
             {
@@ -202,7 +203,7 @@ namespace pmDHCD
         {
             try
             {
-                My.MyProject.Forms.Mainform.BenlyDal.MatterVotes_update(My.MyProject.Forms.Mainform.workingmeeting, NumericUpDown1.Value, Conversions.ToDecimal(HolderCodeMaskedTextBox.Text), RadioButton1.Checked, RadioButton2.Checked, RadioButton3.Checked);
+                My.MyProject.Forms.Mainform.BenlyDal.MatterVotes_update(My.MyProject.Forms.Mainform.workingmeeting, NumericUpDown1.Value, Conversions.ToDecimal(HolderCodeMaskedTextBox.Text), RadioButton1.Checked, RadioButton2.Checked, RadioButton3.Checked, radioButton4.Checked);
             }
             catch (Exception ex)
             {
@@ -399,6 +400,7 @@ namespace pmDHCD
             if (controlcode == "Add")
             {
                 insert();
+                Button1.Enabled = false;
                 Button2.Focus();
             }
             else if (controlcode == "Update")
@@ -417,6 +419,7 @@ namespace pmDHCD
             StockTextBox1.Text = "";
             delegateNameTextbox.Text = "";
             HolderIdentifyMaskedTextBox2.Focus();
+            Button1.Enabled = true;
         }
 
         private void Button3_Click(object sender, EventArgs e)

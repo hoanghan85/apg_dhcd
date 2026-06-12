@@ -83,8 +83,8 @@
               <xs:element name="VoteShares" msprop:Generator_ColumnPropNameInTable="VoteSharesColumn" msprop:Generator_ColumnPropNameInRow="VoteShares" msprop:Generator_UserColumnName="VoteShares" msprop:Generator_ColumnVarNameInTable="columnVoteShares" type="xs:int" minOccurs="0" />
               <xs:element name="VotePercent" msprop:Generator_ColumnPropNameInTable="VotePercentColumn" msprop:Generator_ColumnPropNameInRow="VotePercent" msprop:Generator_UserColumnName="VotePercent" msprop:Generator_ColumnVarNameInTable="columnVotePercent" type="xs:decimal" minOccurs="0" />
               <xs:element name="SortOrder" msprop:Generator_ColumnPropNameInTable="SortOrderColumn" msprop:Generator_ColumnPropNameInRow="SortOrder" msprop:Generator_UserColumnName="SortOrder" msprop:Generator_ColumnVarNameInTable="columnSortOrder" type="xs:int" minOccurs="0" />
-              <xs:element name="MatterApprovedPercent" msprop:Generator_ColumnPropNameInRow="MatterApprovedPercent" msprop:Generator_ColumnPropNameInTable="MatterApprovedPercentColumn" msprop:Generator_ColumnVarNameInTable="columnMatterApprovedPercent" msprop:Generator_UserColumnName="MatterApprovedPercent" type="xs:int" minOccurs="0" />
-              <xs:element name="MatterResult" msprop:Generator_ColumnPropNameInRow="MatterResult" msprop:Generator_ColumnPropNameInTable="MatterResultColumn" msprop:Generator_ColumnVarNameInTable="columnMatterResult" msprop:Generator_UserColumnName="MatterResult" type="xs:string" minOccurs="0" />
+              <xs:element name="MatterApprovedPercent" msprop:Generator_UserColumnName="MatterApprovedPercent" msprop:Generator_ColumnPropNameInTable="MatterApprovedPercentColumn" msprop:Generator_ColumnPropNameInRow="MatterApprovedPercent" msprop:Generator_ColumnVarNameInTable="columnMatterApprovedPercent" type="xs:int" minOccurs="0" />
+              <xs:element name="MatterResult" msprop:Generator_UserColumnName="MatterResult" msprop:Generator_ColumnPropNameInTable="MatterResultColumn" msprop:Generator_ColumnPropNameInRow="MatterResult" msprop:Generator_ColumnVarNameInTable="columnMatterResult" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -103,6 +103,18 @@
               <xs:element name="MatterCode" msprop:Generator_ColumnPropNameInTable="MatterCodeColumn" msprop:Generator_ColumnPropNameInRow="MatterCode" msprop:Generator_UserColumnName="MatterCode" msprop:Generator_ColumnVarNameInTable="columnMatterCode" type="xs:string" minOccurs="0" />
               <xs:element name="MatterName" msprop:Generator_ColumnPropNameInTable="MatterNameColumn" msprop:Generator_ColumnPropNameInRow="MatterName" msprop:Generator_UserColumnName="MatterName" msprop:Generator_ColumnVarNameInTable="columnMatterName" type="xs:string" minOccurs="0" />
               <xs:element name="MatterDescription" msprop:Generator_ColumnPropNameInTable="MatterDescriptionColumn" msprop:Generator_ColumnPropNameInRow="MatterDescription" msprop:Generator_UserColumnName="MatterDescription" msprop:Generator_ColumnVarNameInTable="columnMatterDescription" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="VoteCards_getlist" msprop:Generator_RowEvHandlerName="VoteCards_getlistRowChangeEventHandler" msprop:Generator_RowDeletedName="VoteCards_getlistRowDeleted" msprop:Generator_RowDeletingName="VoteCards_getlistRowDeleting" msprop:Generator_RowEvArgName="VoteCards_getlistRowChangeEvent" msprop:Generator_TablePropName="VoteCards_getlist" msprop:Generator_RowChangedName="VoteCards_getlistRowChanged" msprop:Generator_RowChangingName="VoteCards_getlistRowChanging" msprop:Generator_TableClassName="VoteCards_getlistDataTable" msprop:Generator_RowClassName="VoteCards_getlistRow" msprop:Generator_TableVarName="tableVoteCards_getlist" msprop:Generator_UserTableName="VoteCards_getlist">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MeetingCode" msprop:Generator_ColumnPropNameInRow="MeetingCode" msprop:Generator_ColumnPropNameInTable="MeetingCodeColumn" msprop:Generator_ColumnVarNameInTable="columnMeetingCode" msprop:Generator_UserColumnName="MeetingCode" type="xs:string" minOccurs="0" />
+              <xs:element name="MatterCode" msprop:Generator_ColumnPropNameInRow="MatterCode" msprop:Generator_ColumnPropNameInTable="MatterCodeColumn" msprop:Generator_ColumnVarNameInTable="columnMatterCode" msprop:Generator_UserColumnName="MatterCode" type="xs:int" minOccurs="0" />
+              <xs:element name="MatterDescription" msprop:Generator_ColumnPropNameInRow="MatterDescription" msprop:Generator_ColumnPropNameInTable="MatterDescriptionColumn" msprop:Generator_ColumnVarNameInTable="columnMatterDescription" msprop:Generator_UserColumnName="MatterDescription" type="xs:string" minOccurs="0" />
+              <xs:element name="Agree" msprop:Generator_ColumnPropNameInRow="Agree" msprop:Generator_ColumnPropNameInTable="AgreeColumn" msprop:Generator_ColumnVarNameInTable="columnAgree" msprop:Generator_UserColumnName="Agree" type="xs:int" minOccurs="0" />
+              <xs:element name="DisAgree" msprop:Generator_ColumnPropNameInRow="DisAgree" msprop:Generator_ColumnPropNameInTable="DisAgreeColumn" msprop:Generator_ColumnVarNameInTable="columnDisAgree" msprop:Generator_UserColumnName="DisAgree" type="xs:int" minOccurs="0" />
+              <xs:element name="NoIdea" msprop:Generator_ColumnPropNameInRow="NoIdea" msprop:Generator_ColumnPropNameInTable="NoIdeaColumn" msprop:Generator_ColumnVarNameInTable="columnNoIdea" msprop:Generator_UserColumnName="NoIdea" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

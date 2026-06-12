@@ -14,6 +14,8 @@ namespace pmDHCD
         public bool DisagreeValue { get; set; }
         public bool NoideaValue { get; set; }
 
+        public bool IllegalValue { get; set; }
+
         public MatterVotes_ins_remain_batch()
         {
             InitializeComponent();
@@ -22,6 +24,7 @@ namespace pmDHCD
             AgreeValue = true;
             DisagreeValue = false;
             NoideaValue = false;
+            IllegalValue = false;
         }
 
         private void MatterVotes_ins_remain_batch_Load(object sender, EventArgs e)
@@ -30,6 +33,7 @@ namespace pmDHCD
             RadioButton1.Checked = true;
             RadioButton2.Checked = false;
             RadioButton3.Checked = false;
+            radioButton4.Checked = false;
         }
 
         private void Button1_Click(object sender, EventArgs e)
@@ -47,7 +51,7 @@ namespace pmDHCD
             AgreeValue = RadioButton1.Checked;
             DisagreeValue = RadioButton2.Checked;
             NoideaValue = RadioButton3.Checked;
-
+            IllegalValue = radioButton4.Checked;
             IsConfirmed = true;
             Close();
         }
@@ -65,6 +69,11 @@ namespace pmDHCD
             {
                 Close();
             }
+        }
+
+        private void radioButton4_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -38,6 +38,7 @@ namespace pmDHCD
             this.TextBox1 = new System.Windows.Forms.TextBox();
             this.Label1 = new System.Windows.Forms.Label();
             this.GroupBox2 = new System.Windows.Forms.GroupBox();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.RadioButton3 = new System.Windows.Forms.RadioButton();
             this.RadioButton2 = new System.Windows.Forms.RadioButton();
             this.RadioButton1 = new System.Windows.Forms.RadioButton();
@@ -52,9 +53,9 @@ namespace pmDHCD
             this.GroupBox1.Controls.Add(this.TextBox1);
             this.GroupBox1.Controls.Add(this.Label1);
             this.GroupBox1.Location = new System.Drawing.Point(16, 15);
-            this.GroupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.GroupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.GroupBox1.Name = "GroupBox1";
-            this.GroupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.GroupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.GroupBox1.Size = new System.Drawing.Size(480, 74);
             this.GroupBox1.TabIndex = 0;
             this.GroupBox1.TabStop = false;
@@ -64,7 +65,7 @@ namespace pmDHCD
             // 
             this.TextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.TextBox1.Location = new System.Drawing.Point(347, 31);
-            this.TextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TextBox1.Margin = new System.Windows.Forms.Padding(4);
             this.TextBox1.Name = "TextBox1";
             this.TextBox1.Size = new System.Drawing.Size(105, 26);
             this.TextBox1.TabIndex = 1;
@@ -82,24 +83,38 @@ namespace pmDHCD
             // 
             // GroupBox2
             // 
+            this.GroupBox2.Controls.Add(this.radioButton4);
             this.GroupBox2.Controls.Add(this.RadioButton3);
             this.GroupBox2.Controls.Add(this.RadioButton2);
             this.GroupBox2.Controls.Add(this.RadioButton1);
             this.GroupBox2.Location = new System.Drawing.Point(16, 96);
-            this.GroupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.GroupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.GroupBox2.Name = "GroupBox2";
-            this.GroupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.GroupBox2.Size = new System.Drawing.Size(480, 123);
+            this.GroupBox2.Padding = new System.Windows.Forms.Padding(4);
+            this.GroupBox2.Size = new System.Drawing.Size(480, 161);
             this.GroupBox2.TabIndex = 1;
             this.GroupBox2.TabStop = false;
             this.GroupBox2.Text = "Chọn loại biểu quyết";
+            // 
+            // radioButton4
+            // 
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.radioButton4.Location = new System.Drawing.Point(27, 125);
+            this.radioButton4.Margin = new System.Windows.Forms.Padding(4);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(159, 30);
+            this.radioButton4.TabIndex = 3;
+            this.radioButton4.Text = "Không hợp lệ";
+            this.radioButton4.UseVisualStyleBackColor = true;
+            this.radioButton4.CheckedChanged += new System.EventHandler(this.radioButton4_CheckedChanged);
             // 
             // RadioButton3
             // 
             this.RadioButton3.AutoSize = true;
             this.RadioButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.RadioButton3.Location = new System.Drawing.Point(27, 92);
-            this.RadioButton3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.RadioButton3.Location = new System.Drawing.Point(27, 94);
+            this.RadioButton3.Margin = new System.Windows.Forms.Padding(4);
             this.RadioButton3.Name = "RadioButton3";
             this.RadioButton3.Size = new System.Drawing.Size(125, 24);
             this.RadioButton3.TabIndex = 2;
@@ -111,7 +126,7 @@ namespace pmDHCD
             this.RadioButton2.AutoSize = true;
             this.RadioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.RadioButton2.Location = new System.Drawing.Point(27, 62);
-            this.RadioButton2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.RadioButton2.Margin = new System.Windows.Forms.Padding(4);
             this.RadioButton2.Name = "RadioButton2";
             this.RadioButton2.Size = new System.Drawing.Size(131, 24);
             this.RadioButton2.TabIndex = 1;
@@ -123,7 +138,7 @@ namespace pmDHCD
             this.RadioButton1.AutoSize = true;
             this.RadioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.RadioButton1.Location = new System.Drawing.Point(27, 31);
-            this.RadioButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.RadioButton1.Margin = new System.Windows.Forms.Padding(4);
             this.RadioButton1.Name = "RadioButton1";
             this.RadioButton1.Size = new System.Drawing.Size(82, 24);
             this.RadioButton1.TabIndex = 0;
@@ -133,8 +148,8 @@ namespace pmDHCD
             // Button1
             // 
             this.Button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.Button1.Location = new System.Drawing.Point(149, 234);
-            this.Button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Button1.Location = new System.Drawing.Point(149, 265);
+            this.Button1.Margin = new System.Windows.Forms.Padding(4);
             this.Button1.Name = "Button1";
             this.Button1.Size = new System.Drawing.Size(107, 37);
             this.Button1.TabIndex = 2;
@@ -145,8 +160,8 @@ namespace pmDHCD
             // Button2
             // 
             this.Button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.Button2.Location = new System.Drawing.Point(267, 234);
-            this.Button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Button2.Location = new System.Drawing.Point(267, 265);
+            this.Button2.Margin = new System.Windows.Forms.Padding(4);
             this.Button2.Name = "Button2";
             this.Button2.Size = new System.Drawing.Size(107, 37);
             this.Button2.TabIndex = 3;
@@ -158,21 +173,21 @@ namespace pmDHCD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(512, 283);
+            this.ClientSize = new System.Drawing.Size(512, 315);
             this.Controls.Add(this.Button2);
             this.Controls.Add(this.Button1);
             this.Controls.Add(this.GroupBox2);
             this.Controls.Add(this.GroupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MatterVotes_ins_remain_batch";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nhập phần còn lại - Hàng loạt";
             this.Load += new System.EventHandler(this.MatterVotes_ins_remain_batch_Load);
-            this.KeyUp += new System.Windows.Forms.KeyEventHandler(MattervoteInsBatch_KeyUp);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.MattervoteInsBatch_KeyUp);
             this.GroupBox1.ResumeLayout(false);
             this.GroupBox1.PerformLayout();
             this.GroupBox2.ResumeLayout(false);
@@ -190,5 +205,6 @@ namespace pmDHCD
         internal System.Windows.Forms.RadioButton RadioButton1;
         internal System.Windows.Forms.Button Button1;
         internal System.Windows.Forms.Button Button2;
+        internal RadioButton radioButton4;
     }
 }
