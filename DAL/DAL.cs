@@ -1324,7 +1324,7 @@ namespace BenlyDAL.BenlyDAL
                 daMatters.Fill(dsReport, "Matters_List");
 
                 // 6. Lấy Matter Vote Cards
-                string qryVoteCards = "VoteCards_getlist";
+                string qryVoteCards = "PRP_VoteCards_Summary";
                 using var cmdVoteCards = new SqlCommand(qryVoteCards, conn);
                 cmdVoteCards.CommandType = CommandType.StoredProcedure;
                 cmdVoteCards.Parameters.Add("@MeetingCode", SqlDbType.VarChar).Value = workingmeeting;

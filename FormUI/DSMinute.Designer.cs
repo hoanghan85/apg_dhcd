@@ -36,7 +36,7 @@ namespace pmDHCD {
         
         private Matters_ListDataTable tableMatters_List;
         
-        private VoteCards_getlistDataTable tableVoteCards_getlist;
+        private Matter_Vote_CardsDataTable tableMatter_Vote_Cards;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -84,8 +84,8 @@ namespace pmDHCD {
                 if ((ds.Tables["Matters_List"] != null)) {
                     base.Tables.Add(new Matters_ListDataTable(ds.Tables["Matters_List"]));
                 }
-                if ((ds.Tables["VoteCards_getlist"] != null)) {
-                    base.Tables.Add(new VoteCards_getlistDataTable(ds.Tables["VoteCards_getlist"]));
+                if ((ds.Tables["Matter_Vote_Cards"] != null)) {
+                    base.Tables.Add(new Matter_Vote_CardsDataTable(ds.Tables["Matter_Vote_Cards"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -169,9 +169,9 @@ namespace pmDHCD {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public VoteCards_getlistDataTable VoteCards_getlist {
+        public Matter_Vote_CardsDataTable Matter_Vote_Cards {
             get {
-                return this.tableVoteCards_getlist;
+                return this.tableMatter_Vote_Cards;
             }
         }
         
@@ -260,8 +260,8 @@ namespace pmDHCD {
                 if ((ds.Tables["Matters_List"] != null)) {
                     base.Tables.Add(new Matters_ListDataTable(ds.Tables["Matters_List"]));
                 }
-                if ((ds.Tables["VoteCards_getlist"] != null)) {
-                    base.Tables.Add(new VoteCards_getlistDataTable(ds.Tables["VoteCards_getlist"]));
+                if ((ds.Tables["Matter_Vote_Cards"] != null)) {
+                    base.Tables.Add(new Matter_Vote_CardsDataTable(ds.Tables["Matter_Vote_Cards"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -332,10 +332,10 @@ namespace pmDHCD {
                     this.tableMatters_List.InitVars();
                 }
             }
-            this.tableVoteCards_getlist = ((VoteCards_getlistDataTable)(base.Tables["VoteCards_getlist"]));
+            this.tableMatter_Vote_Cards = ((Matter_Vote_CardsDataTable)(base.Tables["Matter_Vote_Cards"]));
             if ((initTable == true)) {
-                if ((this.tableVoteCards_getlist != null)) {
-                    this.tableVoteCards_getlist.InitVars();
+                if ((this.tableMatter_Vote_Cards != null)) {
+                    this.tableMatter_Vote_Cards.InitVars();
                 }
             }
         }
@@ -360,8 +360,8 @@ namespace pmDHCD {
             base.Tables.Add(this.tableMatter_Result_Summary);
             this.tableMatters_List = new Matters_ListDataTable();
             base.Tables.Add(this.tableMatters_List);
-            this.tableVoteCards_getlist = new VoteCards_getlistDataTable();
-            base.Tables.Add(this.tableVoteCards_getlist);
+            this.tableMatter_Vote_Cards = new Matter_Vote_CardsDataTable();
+            base.Tables.Add(this.tableMatter_Vote_Cards);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -402,7 +402,7 @@ namespace pmDHCD {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-        private bool ShouldSerializeVoteCards_getlist() {
+        private bool ShouldSerializeMatter_Vote_Cards() {
             return false;
         }
         
@@ -480,7 +480,7 @@ namespace pmDHCD {
         public delegate void Matters_ListRowChangeEventHandler(object sender, Matters_ListRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-        public delegate void VoteCards_getlistRowChangeEventHandler(object sender, VoteCards_getlistRowChangeEvent e);
+        public delegate void Matter_Vote_CardsRowChangeEventHandler(object sender, Matter_Vote_CardsRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -2730,7 +2730,7 @@ namespace pmDHCD {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class VoteCards_getlistDataTable : global::System.Data.TypedTableBase<VoteCards_getlistRow> {
+        public partial class Matter_Vote_CardsDataTable : global::System.Data.TypedTableBase<Matter_Vote_CardsRow> {
             
             private global::System.Data.DataColumn columnMeetingCode;
             
@@ -2738,16 +2738,18 @@ namespace pmDHCD {
             
             private global::System.Data.DataColumn columnMatterDescription;
             
-            private global::System.Data.DataColumn columnAgree;
+            private global::System.Data.DataColumn columnVoteType;
             
-            private global::System.Data.DataColumn columnDisAgree;
+            private global::System.Data.DataColumn columnVoteValue;
             
-            private global::System.Data.DataColumn columnNoIdea;
+            private global::System.Data.DataColumn columnTotalVotes;
+            
+            private global::System.Data.DataColumn columnVotePercent;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public VoteCards_getlistDataTable() {
-                this.TableName = "VoteCards_getlist";
+            public Matter_Vote_CardsDataTable() {
+                this.TableName = "Matter_Vote_Cards";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -2755,7 +2757,7 @@ namespace pmDHCD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            internal VoteCards_getlistDataTable(global::System.Data.DataTable table) {
+            internal Matter_Vote_CardsDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -2772,7 +2774,7 @@ namespace pmDHCD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            protected VoteCards_getlistDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected Matter_Vote_CardsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -2803,25 +2805,33 @@ namespace pmDHCD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public global::System.Data.DataColumn AgreeColumn {
+            public global::System.Data.DataColumn VoteTypeColumn {
                 get {
-                    return this.columnAgree;
+                    return this.columnVoteType;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public global::System.Data.DataColumn DisAgreeColumn {
+            public global::System.Data.DataColumn VoteValueColumn {
                 get {
-                    return this.columnDisAgree;
+                    return this.columnVoteValue;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public global::System.Data.DataColumn NoIdeaColumn {
+            public global::System.Data.DataColumn TotalVotesColumn {
                 get {
-                    return this.columnNoIdea;
+                    return this.columnTotalVotes;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public global::System.Data.DataColumn VotePercentColumn {
+                get {
+                    return this.columnVotePercent;
                 }
             }
             
@@ -2836,50 +2846,51 @@ namespace pmDHCD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public VoteCards_getlistRow this[int index] {
+            public Matter_Vote_CardsRow this[int index] {
                 get {
-                    return ((VoteCards_getlistRow)(this.Rows[index]));
+                    return ((Matter_Vote_CardsRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public event VoteCards_getlistRowChangeEventHandler VoteCards_getlistRowChanging;
+            public event Matter_Vote_CardsRowChangeEventHandler Matter_Vote_CardsRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public event VoteCards_getlistRowChangeEventHandler VoteCards_getlistRowChanged;
+            public event Matter_Vote_CardsRowChangeEventHandler Matter_Vote_CardsRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public event VoteCards_getlistRowChangeEventHandler VoteCards_getlistRowDeleting;
+            public event Matter_Vote_CardsRowChangeEventHandler Matter_Vote_CardsRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public event VoteCards_getlistRowChangeEventHandler VoteCards_getlistRowDeleted;
+            public event Matter_Vote_CardsRowChangeEventHandler Matter_Vote_CardsRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public void AddVoteCards_getlistRow(VoteCards_getlistRow row) {
+            public void AddMatter_Vote_CardsRow(Matter_Vote_CardsRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public VoteCards_getlistRow AddVoteCards_getlistRow(string MeetingCode, int MatterCode, string MatterDescription, int Agree, int DisAgree, int NoIdea) {
-                VoteCards_getlistRow rowVoteCards_getlistRow = ((VoteCards_getlistRow)(this.NewRow()));
+            public Matter_Vote_CardsRow AddMatter_Vote_CardsRow(string MeetingCode, int MatterCode, string MatterDescription, string VoteType, int VoteValue, int TotalVotes, decimal VotePercent) {
+                Matter_Vote_CardsRow rowMatter_Vote_CardsRow = ((Matter_Vote_CardsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         MeetingCode,
                         MatterCode,
                         MatterDescription,
-                        Agree,
-                        DisAgree,
-                        NoIdea};
-                rowVoteCards_getlistRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowVoteCards_getlistRow);
-                return rowVoteCards_getlistRow;
+                        VoteType,
+                        VoteValue,
+                        TotalVotes,
+                        VotePercent};
+                rowMatter_Vote_CardsRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowMatter_Vote_CardsRow);
+                return rowMatter_Vote_CardsRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                VoteCards_getlistDataTable cln = ((VoteCards_getlistDataTable)(base.Clone()));
+                Matter_Vote_CardsDataTable cln = ((Matter_Vote_CardsDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -2887,7 +2898,7 @@ namespace pmDHCD {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new VoteCards_getlistDataTable();
+                return new Matter_Vote_CardsDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2896,9 +2907,10 @@ namespace pmDHCD {
                 this.columnMeetingCode = base.Columns["MeetingCode"];
                 this.columnMatterCode = base.Columns["MatterCode"];
                 this.columnMatterDescription = base.Columns["MatterDescription"];
-                this.columnAgree = base.Columns["Agree"];
-                this.columnDisAgree = base.Columns["DisAgree"];
-                this.columnNoIdea = base.Columns["NoIdea"];
+                this.columnVoteType = base.Columns["VoteType"];
+                this.columnVoteValue = base.Columns["VoteValue"];
+                this.columnTotalVotes = base.Columns["TotalVotes"];
+                this.columnVotePercent = base.Columns["VotePercent"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2910,38 +2922,40 @@ namespace pmDHCD {
                 base.Columns.Add(this.columnMatterCode);
                 this.columnMatterDescription = new global::System.Data.DataColumn("MatterDescription", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMatterDescription);
-                this.columnAgree = new global::System.Data.DataColumn("Agree", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAgree);
-                this.columnDisAgree = new global::System.Data.DataColumn("DisAgree", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDisAgree);
-                this.columnNoIdea = new global::System.Data.DataColumn("NoIdea", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNoIdea);
+                this.columnVoteType = new global::System.Data.DataColumn("VoteType", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnVoteType);
+                this.columnVoteValue = new global::System.Data.DataColumn("VoteValue", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnVoteValue);
+                this.columnTotalVotes = new global::System.Data.DataColumn("TotalVotes", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTotalVotes);
+                this.columnVotePercent = new global::System.Data.DataColumn("VotePercent", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnVotePercent);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public VoteCards_getlistRow NewVoteCards_getlistRow() {
-                return ((VoteCards_getlistRow)(this.NewRow()));
+            public Matter_Vote_CardsRow NewMatter_Vote_CardsRow() {
+                return ((Matter_Vote_CardsRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new VoteCards_getlistRow(builder);
+                return new Matter_Vote_CardsRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(VoteCards_getlistRow);
+                return typeof(Matter_Vote_CardsRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.VoteCards_getlistRowChanged != null)) {
-                    this.VoteCards_getlistRowChanged(this, new VoteCards_getlistRowChangeEvent(((VoteCards_getlistRow)(e.Row)), e.Action));
+                if ((this.Matter_Vote_CardsRowChanged != null)) {
+                    this.Matter_Vote_CardsRowChanged(this, new Matter_Vote_CardsRowChangeEvent(((Matter_Vote_CardsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -2949,8 +2963,8 @@ namespace pmDHCD {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.VoteCards_getlistRowChanging != null)) {
-                    this.VoteCards_getlistRowChanging(this, new VoteCards_getlistRowChangeEvent(((VoteCards_getlistRow)(e.Row)), e.Action));
+                if ((this.Matter_Vote_CardsRowChanging != null)) {
+                    this.Matter_Vote_CardsRowChanging(this, new Matter_Vote_CardsRowChangeEvent(((Matter_Vote_CardsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -2958,8 +2972,8 @@ namespace pmDHCD {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.VoteCards_getlistRowDeleted != null)) {
-                    this.VoteCards_getlistRowDeleted(this, new VoteCards_getlistRowChangeEvent(((VoteCards_getlistRow)(e.Row)), e.Action));
+                if ((this.Matter_Vote_CardsRowDeleted != null)) {
+                    this.Matter_Vote_CardsRowDeleted(this, new Matter_Vote_CardsRowChangeEvent(((Matter_Vote_CardsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -2967,14 +2981,14 @@ namespace pmDHCD {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.VoteCards_getlistRowDeleting != null)) {
-                    this.VoteCards_getlistRowDeleting(this, new VoteCards_getlistRowChangeEvent(((VoteCards_getlistRow)(e.Row)), e.Action));
+                if ((this.Matter_Vote_CardsRowDeleting != null)) {
+                    this.Matter_Vote_CardsRowDeleting(this, new Matter_Vote_CardsRowChangeEvent(((Matter_Vote_CardsRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public void RemoveVoteCards_getlistRow(VoteCards_getlistRow row) {
+            public void RemoveMatter_Vote_CardsRow(Matter_Vote_CardsRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -3001,7 +3015,7 @@ namespace pmDHCD {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "VoteCards_getlistDataTable";
+                attribute2.FixedValue = "Matter_Vote_CardsDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -4786,15 +4800,15 @@ namespace pmDHCD {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class VoteCards_getlistRow : global::System.Data.DataRow {
+        public partial class Matter_Vote_CardsRow : global::System.Data.DataRow {
             
-            private VoteCards_getlistDataTable tableVoteCards_getlist;
+            private Matter_Vote_CardsDataTable tableMatter_Vote_Cards;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            internal VoteCards_getlistRow(global::System.Data.DataRowBuilder rb) : 
+            internal Matter_Vote_CardsRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableVoteCards_getlist = ((VoteCards_getlistDataTable)(this.Table));
+                this.tableMatter_Vote_Cards = ((Matter_Vote_CardsDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4802,14 +4816,14 @@ namespace pmDHCD {
             public string MeetingCode {
                 get {
                     try {
-                        return ((string)(this[this.tableVoteCards_getlist.MeetingCodeColumn]));
+                        return ((string)(this[this.tableMatter_Vote_Cards.MeetingCodeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'MeetingCode\' in table \'VoteCards_getlist\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'MeetingCode\' in table \'Matter_Vote_Cards\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableVoteCards_getlist.MeetingCodeColumn] = value;
+                    this[this.tableMatter_Vote_Cards.MeetingCodeColumn] = value;
                 }
             }
             
@@ -4818,14 +4832,14 @@ namespace pmDHCD {
             public int MatterCode {
                 get {
                     try {
-                        return ((int)(this[this.tableVoteCards_getlist.MatterCodeColumn]));
+                        return ((int)(this[this.tableMatter_Vote_Cards.MatterCodeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'MatterCode\' in table \'VoteCards_getlist\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'MatterCode\' in table \'Matter_Vote_Cards\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableVoteCards_getlist.MatterCodeColumn] = value;
+                    this[this.tableMatter_Vote_Cards.MatterCodeColumn] = value;
                 }
             }
             
@@ -4834,135 +4848,163 @@ namespace pmDHCD {
             public string MatterDescription {
                 get {
                     try {
-                        return ((string)(this[this.tableVoteCards_getlist.MatterDescriptionColumn]));
+                        return ((string)(this[this.tableMatter_Vote_Cards.MatterDescriptionColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'MatterDescription\' in table \'VoteCards_getlist\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'MatterDescription\' in table \'Matter_Vote_Cards\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableVoteCards_getlist.MatterDescriptionColumn] = value;
+                    this[this.tableMatter_Vote_Cards.MatterDescriptionColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public int Agree {
+            public string VoteType {
                 get {
                     try {
-                        return ((int)(this[this.tableVoteCards_getlist.AgreeColumn]));
+                        return ((string)(this[this.tableMatter_Vote_Cards.VoteTypeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Agree\' in table \'VoteCards_getlist\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'VoteType\' in table \'Matter_Vote_Cards\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableVoteCards_getlist.AgreeColumn] = value;
+                    this[this.tableMatter_Vote_Cards.VoteTypeColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public int DisAgree {
+            public int VoteValue {
                 get {
                     try {
-                        return ((int)(this[this.tableVoteCards_getlist.DisAgreeColumn]));
+                        return ((int)(this[this.tableMatter_Vote_Cards.VoteValueColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DisAgree\' in table \'VoteCards_getlist\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'VoteValue\' in table \'Matter_Vote_Cards\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableVoteCards_getlist.DisAgreeColumn] = value;
+                    this[this.tableMatter_Vote_Cards.VoteValueColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public int NoIdea {
+            public int TotalVotes {
                 get {
                     try {
-                        return ((int)(this[this.tableVoteCards_getlist.NoIdeaColumn]));
+                        return ((int)(this[this.tableMatter_Vote_Cards.TotalVotesColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'NoIdea\' in table \'VoteCards_getlist\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'TotalVotes\' in table \'Matter_Vote_Cards\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableVoteCards_getlist.NoIdeaColumn] = value;
+                    this[this.tableMatter_Vote_Cards.TotalVotesColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public decimal VotePercent {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableMatter_Vote_Cards.VotePercentColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'VotePercent\' in table \'Matter_Vote_Cards\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableMatter_Vote_Cards.VotePercentColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
             public bool IsMeetingCodeNull() {
-                return this.IsNull(this.tableVoteCards_getlist.MeetingCodeColumn);
+                return this.IsNull(this.tableMatter_Vote_Cards.MeetingCodeColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
             public void SetMeetingCodeNull() {
-                this[this.tableVoteCards_getlist.MeetingCodeColumn] = global::System.Convert.DBNull;
+                this[this.tableMatter_Vote_Cards.MeetingCodeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
             public bool IsMatterCodeNull() {
-                return this.IsNull(this.tableVoteCards_getlist.MatterCodeColumn);
+                return this.IsNull(this.tableMatter_Vote_Cards.MatterCodeColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
             public void SetMatterCodeNull() {
-                this[this.tableVoteCards_getlist.MatterCodeColumn] = global::System.Convert.DBNull;
+                this[this.tableMatter_Vote_Cards.MatterCodeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
             public bool IsMatterDescriptionNull() {
-                return this.IsNull(this.tableVoteCards_getlist.MatterDescriptionColumn);
+                return this.IsNull(this.tableMatter_Vote_Cards.MatterDescriptionColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
             public void SetMatterDescriptionNull() {
-                this[this.tableVoteCards_getlist.MatterDescriptionColumn] = global::System.Convert.DBNull;
+                this[this.tableMatter_Vote_Cards.MatterDescriptionColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public bool IsAgreeNull() {
-                return this.IsNull(this.tableVoteCards_getlist.AgreeColumn);
+            public bool IsVoteTypeNull() {
+                return this.IsNull(this.tableMatter_Vote_Cards.VoteTypeColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public void SetAgreeNull() {
-                this[this.tableVoteCards_getlist.AgreeColumn] = global::System.Convert.DBNull;
+            public void SetVoteTypeNull() {
+                this[this.tableMatter_Vote_Cards.VoteTypeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public bool IsDisAgreeNull() {
-                return this.IsNull(this.tableVoteCards_getlist.DisAgreeColumn);
+            public bool IsVoteValueNull() {
+                return this.IsNull(this.tableMatter_Vote_Cards.VoteValueColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public void SetDisAgreeNull() {
-                this[this.tableVoteCards_getlist.DisAgreeColumn] = global::System.Convert.DBNull;
+            public void SetVoteValueNull() {
+                this[this.tableMatter_Vote_Cards.VoteValueColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public bool IsNoIdeaNull() {
-                return this.IsNull(this.tableVoteCards_getlist.NoIdeaColumn);
+            public bool IsTotalVotesNull() {
+                return this.IsNull(this.tableMatter_Vote_Cards.TotalVotesColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public void SetNoIdeaNull() {
-                this[this.tableVoteCards_getlist.NoIdeaColumn] = global::System.Convert.DBNull;
+            public void SetTotalVotesNull() {
+                this[this.tableMatter_Vote_Cards.TotalVotesColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public bool IsVotePercentNull() {
+                return this.IsNull(this.tableMatter_Vote_Cards.VotePercentColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public void SetVotePercentNull() {
+                this[this.tableMatter_Vote_Cards.VotePercentColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -5174,22 +5216,22 @@ namespace pmDHCD {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-        public class VoteCards_getlistRowChangeEvent : global::System.EventArgs {
+        public class Matter_Vote_CardsRowChangeEvent : global::System.EventArgs {
             
-            private VoteCards_getlistRow eventRow;
+            private Matter_Vote_CardsRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public VoteCards_getlistRowChangeEvent(VoteCards_getlistRow row, global::System.Data.DataRowAction action) {
+            public Matter_Vote_CardsRowChangeEvent(Matter_Vote_CardsRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public VoteCards_getlistRow Row {
+            public Matter_Vote_CardsRow Row {
                 get {
                     return this.eventRow;
                 }
