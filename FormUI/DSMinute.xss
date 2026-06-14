@@ -12,7 +12,7 @@
     <Shape ID="DesignTable:Vote_Summary" ZOrder="3" X="863" Y="289" Height="263" Width="209" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="259" />
     <Shape ID="DesignTable:Matter_Result_Summary" ZOrder="1" X="0" Y="0" Height="80" Width="255" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="76" />
     <Shape ID="DesignTable:Matters_List" ZOrder="6" X="543" Y="110" Height="102" Width="154" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="98" />
-    <Shape ID="DesignTable:Matter_Vote_Cards" ZOrder="2" X="269" Y="405" Height="194" Width="204" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="190" />
+    <Shape ID="DesignTable:Matter_Vote_Cards" ZOrder="2" X="281" Y="13" Height="194" Width="175" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="24" SplitterPosition="190" />
   </Shapes>
   <Connectors />
 </DiagramLayout>

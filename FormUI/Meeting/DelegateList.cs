@@ -615,6 +615,40 @@ namespace pmDHCD
 
                 cr.SetParameterValue("Holdercode", str);
                 cr.SetParameterValue("voterights", My.MyProject.Forms.Mainform.addthousandseperator(Conversions.ToString(DataGridView1.CurrentRow.Cells["Voterights"].Value)));
+                // Insert this where you prepare the report (after you have 'cr' and before showing the viewer)
+                decimal delegateCode = 0;
+                try
+                {
+                    delegateCode = Convert.ToDecimal(DataGridView1.CurrentRow.Cells["Delegatecode"].Value);
+                }
+                catch
+                {
+                    delegateCode = 0; // fallback
+                }
+
+                // get delegate row (expects the SP to return OwnVoteRights and AuthorizedVoteRights)
+                var dtDelegate = My.MyProject.Forms.Mainform.BenlyDal.Delegate_getlist(
+                    My.MyProject.Forms.Mainform.workingmeeting,
+                    delegateCode,
+                    "");
+
+                // defaults
+                int ownVoteRights = 0;
+                int authorizedVoteRights = 0;
+
+                if (dtDelegate != null && dtDelegate.Rows.Count > 0)
+                {
+                    var row = dtDelegate.Rows[0];
+                    if (row.Table.Columns.Contains("OwnVoteRights") && row["OwnVoteRights"] != DBNull.Value)
+                        int.TryParse(row["OwnVoteRights"].ToString(), out ownVoteRights);
+
+                    if (row.Table.Columns.Contains("AuthorizedVoteRights") && row["AuthorizedVoteRights"] != DBNull.Value)
+                        int.TryParse(row["AuthorizedVoteRights"].ToString(), out authorizedVoteRights);
+                }
+
+                // set parameters (add the two new ones)
+                cr.SetParameterValue("OwnVoteRights", ownVoteRights.ToString("N0", System.Globalization.CultureInfo.CurrentCulture));
+                cr.SetParameterValue("AuthorizedVoteRights", authorizedVoteRights.ToString("N0", System.Globalization.CultureInfo.CurrentCulture));
                 ReportViewer.LoadReport(cr, this);
             }
             catch (Exception ex)

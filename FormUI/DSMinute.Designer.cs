@@ -2740,9 +2740,11 @@ namespace pmDHCD {
             
             private global::System.Data.DataColumn columnVoteType;
             
+            private global::System.Data.DataColumn columnVoteLabel;
+            
             private global::System.Data.DataColumn columnVoteValue;
             
-            private global::System.Data.DataColumn columnTotalVotes;
+            private global::System.Data.DataColumn columnTotalVote;
             
             private global::System.Data.DataColumn columnVotePercent;
             
@@ -2813,6 +2815,14 @@ namespace pmDHCD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public global::System.Data.DataColumn VoteLabelColumn {
+                get {
+                    return this.columnVoteLabel;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
             public global::System.Data.DataColumn VoteValueColumn {
                 get {
                     return this.columnVoteValue;
@@ -2821,9 +2831,9 @@ namespace pmDHCD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public global::System.Data.DataColumn TotalVotesColumn {
+            public global::System.Data.DataColumn TotalVoteColumn {
                 get {
-                    return this.columnTotalVotes;
+                    return this.columnTotalVote;
                 }
             }
             
@@ -2872,15 +2882,16 @@ namespace pmDHCD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public Matter_Vote_CardsRow AddMatter_Vote_CardsRow(string MeetingCode, int MatterCode, string MatterDescription, string VoteType, int VoteValue, int TotalVotes, decimal VotePercent) {
+            public Matter_Vote_CardsRow AddMatter_Vote_CardsRow(string MeetingCode, int MatterCode, string MatterDescription, string VoteType, string VoteLabel, int VoteValue, int TotalVote, decimal VotePercent) {
                 Matter_Vote_CardsRow rowMatter_Vote_CardsRow = ((Matter_Vote_CardsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         MeetingCode,
                         MatterCode,
                         MatterDescription,
                         VoteType,
+                        VoteLabel,
                         VoteValue,
-                        TotalVotes,
+                        TotalVote,
                         VotePercent};
                 rowMatter_Vote_CardsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowMatter_Vote_CardsRow);
@@ -2908,8 +2919,9 @@ namespace pmDHCD {
                 this.columnMatterCode = base.Columns["MatterCode"];
                 this.columnMatterDescription = base.Columns["MatterDescription"];
                 this.columnVoteType = base.Columns["VoteType"];
+                this.columnVoteLabel = base.Columns["VoteLabel"];
                 this.columnVoteValue = base.Columns["VoteValue"];
-                this.columnTotalVotes = base.Columns["TotalVotes"];
+                this.columnTotalVote = base.Columns["TotalVote"];
                 this.columnVotePercent = base.Columns["VotePercent"];
             }
             
@@ -2924,10 +2936,12 @@ namespace pmDHCD {
                 base.Columns.Add(this.columnMatterDescription);
                 this.columnVoteType = new global::System.Data.DataColumn("VoteType", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnVoteType);
+                this.columnVoteLabel = new global::System.Data.DataColumn("VoteLabel", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnVoteLabel);
                 this.columnVoteValue = new global::System.Data.DataColumn("VoteValue", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnVoteValue);
-                this.columnTotalVotes = new global::System.Data.DataColumn("TotalVotes", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTotalVotes);
+                this.columnTotalVote = new global::System.Data.DataColumn("TotalVote", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTotalVote);
                 this.columnVotePercent = new global::System.Data.DataColumn("VotePercent", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnVotePercent);
             }
@@ -4877,6 +4891,22 @@ namespace pmDHCD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public string VoteLabel {
+                get {
+                    try {
+                        return ((string)(this[this.tableMatter_Vote_Cards.VoteLabelColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'VoteLabel\' in table \'Matter_Vote_Cards\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableMatter_Vote_Cards.VoteLabelColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
             public int VoteValue {
                 get {
                     try {
@@ -4893,17 +4923,17 @@ namespace pmDHCD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public int TotalVotes {
+            public int TotalVote {
                 get {
                     try {
-                        return ((int)(this[this.tableMatter_Vote_Cards.TotalVotesColumn]));
+                        return ((int)(this[this.tableMatter_Vote_Cards.TotalVoteColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TotalVotes\' in table \'Matter_Vote_Cards\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'TotalVote\' in table \'Matter_Vote_Cards\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableMatter_Vote_Cards.TotalVotesColumn] = value;
+                    this[this.tableMatter_Vote_Cards.TotalVoteColumn] = value;
                 }
             }
             
@@ -4973,6 +5003,18 @@ namespace pmDHCD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public bool IsVoteLabelNull() {
+                return this.IsNull(this.tableMatter_Vote_Cards.VoteLabelColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public void SetVoteLabelNull() {
+                this[this.tableMatter_Vote_Cards.VoteLabelColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
             public bool IsVoteValueNull() {
                 return this.IsNull(this.tableMatter_Vote_Cards.VoteValueColumn);
             }
@@ -4985,14 +5027,14 @@ namespace pmDHCD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public bool IsTotalVotesNull() {
-                return this.IsNull(this.tableMatter_Vote_Cards.TotalVotesColumn);
+            public bool IsTotalVoteNull() {
+                return this.IsNull(this.tableMatter_Vote_Cards.TotalVoteColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public void SetTotalVotesNull() {
-                this[this.tableMatter_Vote_Cards.TotalVotesColumn] = global::System.Convert.DBNull;
+            public void SetTotalVoteNull() {
+                this[this.tableMatter_Vote_Cards.TotalVoteColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
