@@ -75,6 +75,10 @@ namespace pmDHCD
             this.ToolStripStatusLabel12 = new System.Windows.Forms.ToolStripStatusLabel();
             this.ToolStripStatusLabel13 = new System.Windows.Forms.ToolStripStatusLabel();
             this.ToolStripStatusLabel14 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel17 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel18 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel19 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel20 = new System.Windows.Forms.ToolStripStatusLabel();
             this.Mattercode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MatterName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DelegateCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -110,7 +114,7 @@ namespace pmDHCD
             this.ToolStripButton5});
             this.ToolStrip1.Location = new System.Drawing.Point(0, 0);
             this.ToolStrip1.Name = "ToolStrip1";
-            this.ToolStrip1.Size = new System.Drawing.Size(1355, 27);
+            this.ToolStrip1.Size = new System.Drawing.Size(1305, 27);
             this.ToolStrip1.TabIndex = 11;
             this.ToolStrip1.Text = "ToolStrip1";
             // 
@@ -246,7 +250,7 @@ namespace pmDHCD
             this.DataGridView1.RowHeadersVisible = false;
             this.DataGridView1.RowHeadersWidth = 51;
             this.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DataGridView1.Size = new System.Drawing.Size(1355, 593);
+            this.DataGridView1.Size = new System.Drawing.Size(1305, 593);
             this.DataGridView1.TabIndex = 12;
             this.DataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellValueChanged);
             // 
@@ -262,7 +266,7 @@ namespace pmDHCD
             this.StatusStrip1.Location = new System.Drawing.Point(0, 644);
             this.StatusStrip1.Name = "StatusStrip1";
             this.StatusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.StatusStrip1.Size = new System.Drawing.Size(1355, 26);
+            this.StatusStrip1.Size = new System.Drawing.Size(1305, 26);
             this.StatusStrip1.TabIndex = 13;
             this.StatusStrip1.Text = "StatusStrip1";
             // 
@@ -316,11 +320,15 @@ namespace pmDHCD
             this.ToolStripStatusLabel11,
             this.ToolStripStatusLabel12,
             this.ToolStripStatusLabel13,
-            this.ToolStripStatusLabel14});
+            this.ToolStripStatusLabel14,
+            this.toolStripStatusLabel17,
+            this.toolStripStatusLabel18,
+            this.toolStripStatusLabel19,
+            this.toolStripStatusLabel20});
             this.StatusStrip2.Location = new System.Drawing.Point(0, 620);
             this.StatusStrip2.Name = "StatusStrip2";
             this.StatusStrip2.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.StatusStrip2.Size = new System.Drawing.Size(1355, 24);
+            this.StatusStrip2.Size = new System.Drawing.Size(1305, 24);
             this.StatusStrip2.TabIndex = 14;
             this.StatusStrip2.Text = "StatusStrip2";
             // 
@@ -423,6 +431,34 @@ namespace pmDHCD
             this.ToolStripStatusLabel14.Name = "ToolStripStatusLabel14";
             this.ToolStripStatusLabel14.Size = new System.Drawing.Size(154, 18);
             this.ToolStripStatusLabel14.Text = "ToolStripStatusLabel14";
+            // 
+            // toolStripStatusLabel17
+            // 
+            this.toolStripStatusLabel17.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.toolStripStatusLabel17.Name = "toolStripStatusLabel17";
+            this.toolStripStatusLabel17.Size = new System.Drawing.Size(108, 18);
+            this.toolStripStatusLabel17.Text = "Không hợp lệ : ";
+            // 
+            // toolStripStatusLabel18
+            // 
+            this.toolStripStatusLabel18.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.toolStripStatusLabel18.Name = "toolStripStatusLabel18";
+            this.toolStripStatusLabel18.Size = new System.Drawing.Size(149, 18);
+            this.toolStripStatusLabel18.Text = "toolStripStatusLabel18";
+            // 
+            // toolStripStatusLabel19
+            // 
+            this.toolStripStatusLabel19.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.toolStripStatusLabel19.Name = "toolStripStatusLabel19";
+            this.toolStripStatusLabel19.Size = new System.Drawing.Size(149, 18);
+            this.toolStripStatusLabel19.Text = "toolStripStatusLabel19";
+            // 
+            // toolStripStatusLabel20
+            // 
+            this.toolStripStatusLabel20.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.toolStripStatusLabel20.Name = "toolStripStatusLabel20";
+            this.toolStripStatusLabel20.Size = new System.Drawing.Size(149, 18);
+            this.toolStripStatusLabel20.Text = "toolStripStatusLabel20";
             // 
             // Mattercode
             // 
@@ -533,6 +569,7 @@ namespace pmDHCD
             this.Illegal.Name = "Illegal";
             this.Illegal.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Illegal.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Illegal.Width = 70;
             // 
             // DelegateCode1
             // 
@@ -558,7 +595,7 @@ namespace pmDHCD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1355, 670);
+            this.ClientSize = new System.Drawing.Size(1305, 670);
             this.Controls.Add(this.DataGridView1);
             this.Controls.Add(this.StatusStrip2);
             this.Controls.Add(this.StatusStrip1);
@@ -615,6 +652,10 @@ namespace pmDHCD
         internal ToolStripStatusLabel ToolStripStatusLabel12;
         internal ToolStripStatusLabel ToolStripStatusLabel13;
         internal ToolStripStatusLabel ToolStripStatusLabel14;
+        internal ToolStripStatusLabel toolStripStatusLabel17;
+        internal ToolStripStatusLabel toolStripStatusLabel18;
+        internal ToolStripStatusLabel toolStripStatusLabel19;
+        internal ToolStripStatusLabel toolStripStatusLabel20;
         private DataGridViewTextBoxColumn Mattercode;
         private DataGridViewTextBoxColumn MatterName;
         private DataGridViewTextBoxColumn DelegateCode;

@@ -59,6 +59,9 @@ namespace pmDHCD
             int disagreeright = 0;
             int noideacount = 0;
             int noidearight = 0;
+            int illegalcount = 0;
+            int illegalright = 0;
+
 
             foreach (DataRow dr in t.Rows)
             {
@@ -73,10 +76,15 @@ namespace pmDHCD
                     disagreecount = disagreecount + 1;
                     disagreeright = Conversions.ToInteger(Operators.AddObject(disagreeright, dr["Voterights"]));
                 }
-                else
+                else if (Conversions.ToBoolean(Operators.ConditionalCompareObjectEqual(dr["Noidea"], true, false)))
                 {
                     noideacount = noideacount + 1;
                     noidearight = Conversions.ToInteger(Operators.AddObject(noidearight, dr["Voterights"]));
+                }
+                else
+                {
+                    illegalcount = illegalcount + 1;
+                    illegalright = Conversions.ToInteger(Operators.AddObject(illegalright, dr["Voterights"]));
                 }
             }
 
@@ -84,22 +92,26 @@ namespace pmDHCD
             MaskedTextBox1.Text = My.MyProject.Forms.Mainform.addthousandseperator(agreecount.ToString());
             MaskedTextBox2.Text = My.MyProject.Forms.Mainform.addthousandseperator(disagreecount.ToString());
             MaskedTextBox4.Text = My.MyProject.Forms.Mainform.addthousandseperator(noideacount.ToString());
+            maskedTextBox11.Text = My.MyProject.Forms.Mainform.addthousandseperator(illegalcount.ToString());
 
             MaskedTextBox5.Text = My.MyProject.Forms.Mainform.addthousandseperator(agreeright.ToString());
             MaskedTextBox6.Text = My.MyProject.Forms.Mainform.addthousandseperator(disagreeright.ToString());
             MaskedTextBox7.Text = My.MyProject.Forms.Mainform.addthousandseperator(noidearight.ToString());
+            maskedTextBox13.Text = My.MyProject.Forms.Mainform.addthousandseperator(illegalright.ToString());
 
             if (totalright > 0)
             {
                 MaskedTextBox8.Text = Math.Round(agreeright / (double)totalright * 100d, 2).ToString() + "% ";
                 MaskedTextBox9.Text = Math.Round(disagreeright / (double)totalright * 100d, 2).ToString() + "% ";
                 MaskedTextBox10.Text = Math.Round(noidearight / (double)totalright * 100d, 2).ToString() + "% ";
+                maskedTextBox14.Text = Math.Round(illegalright / (double)totalright * 100d, 2).ToString() + "% ";
             }
             else
             {
                 MaskedTextBox8.Text = "";
                 MaskedTextBox9.Text = "";
                 MaskedTextBox10.Text = "";
+                maskedTextBox14.Text = "";
             }
         }
         private void MatterVoteResult_KeyUp(object sender, KeyEventArgs e)
