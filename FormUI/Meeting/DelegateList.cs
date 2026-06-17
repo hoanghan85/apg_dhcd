@@ -204,30 +204,108 @@ namespace pmDHCD
         // In phieu bieu quyet
         private void ToolStripButton7_Click(object sender, EventArgs e)
         {
-            var cr = new phieubieuquyet1();
+            string step = "";
+
             try
             {
-                string logoPath = System.IO.Path.Combine(Application.StartupPath, @"Resources\Logo.jpg");
+                step = "1. Create report";
+                var cr = new phieubieuquyet1();
+
+                step = "2. Check CurrentRow";
+                if (DataGridView1.CurrentRow == null)
+                {
+                    Interaction.MsgBox("CurrentRow đang null");
+                    return;
+                }
+
+                step = "3. LogoPath";
+                string logoPath = System.IO.Path.Combine(
+                    Application.StartupPath,
+                    @"Resources\Logo.jpg"
+                );
+
+                step = "4. Set LogoPath";
                 cr.SetParameterValue("LogoPath", logoPath);
-                cr.SetDataSource(My.MyProject.Forms.Mainform.BenlyDal.Matter_getlist(My.MyProject.Forms.Mainform.workingmeeting, 0m));
-                cr.SetParameterValue("Delegatecode", My.MyProject.Forms.Mainform.stockCode + DataGridView1.CurrentRow.Cells["Delegatecode"].Value.ToString().PadLeft(4, '0'));
-                cr.SetParameterValue("Delegatename", DataGridView1.CurrentRow.Cells["Delegatename"].Value.ToString().ToUpper());
-                cr.SetParameterValue("IdentityCard", DataGridView1.CurrentRow.Cells["IdentityCard"].Value);
-                cr.SetParameterValue("DelegateAddress", DataGridView1.CurrentRow.Cells["DelegateAddress"].Value);
+
+                step = "5. Matter_getlist";
+                DataTable matterDt = My.MyProject.Forms.Mainform.BenlyDal.Matter_getlist(
+                    My.MyProject.Forms.Mainform.workingmeeting,
+                    0m
+                );
+
+                step = "6. Check matterDt";
+                if (matterDt == null)
+                {
+                    Interaction.MsgBox("matterDt đang null");
+                    return;
+                }
+
+                Interaction.MsgBox("matterDt rows = " + matterDt.Rows.Count.ToString()
+                    + "\nTableName = " + matterDt.TableName);
+
+                step = "7. Set TableName";
+                matterDt.TableName = "Matter_getlist";
+
+                step = "8. SetDataSource";
+                cr.SetDataSource(matterDt);
+
+                step = "9. Read Delegatecode cell";
+                var delegateCodeValue = DataGridView1.CurrentRow.Cells["Delegatecode"].Value;
+                if (delegateCodeValue == null || delegateCodeValue == DBNull.Value)
+                {
+                    Interaction.MsgBox("Delegatecode đang null");
+                    return;
+                }
+
+                step = "10. Set Delegatecode parameter";
+                cr.SetParameterValue(
+                    "Delegatecode",
+                    My.MyProject.Forms.Mainform.stockCode
+                    + delegateCodeValue.ToString().PadLeft(4, '0')
+                );
+
+                step = "11. Set Delegatename";
+                cr.SetParameterValue(
+                    "Delegatename",
+                    DataGridView1.CurrentRow.Cells["Delegatename"].Value.ToString().ToUpper()
+                );
+
+                step = "12. Set IdentityCard";
+                cr.SetParameterValue(
+                    "IdentityCard",
+                    DataGridView1.CurrentRow.Cells["IdentityCard"].Value
+                );
+
+                step = "13. Set DelegateAddress";
+                cr.SetParameterValue(
+                    "DelegateAddress",
+                    DataGridView1.CurrentRow.Cells["DelegateAddress"].Value
+                );
+
+                step = "14. Set other parameters";
                 cr.SetParameterValue("DateMeeting", dateMeeting);
                 cr.SetParameterValue("Period", My.MyProject.Forms.Mainform.period);
                 cr.SetParameterValue("MettingType", My.MyProject.Forms.Mainform.mettingType);
-                var dt = new DataTable();
-                try
+
+                step = "15. Authorizations_getlist";
+                var dt = My.MyProject.Forms.Mainform.BenlyDal.Authorizations_getlist(
+                    My.MyProject.Forms.Mainform.workingmeeting,
+                    Conversions.ToDecimal(delegateCodeValue),
+                    "",
+                    "",
+                    ""
+                );
+
+                step = "16. Check authorization dt";
+                if (dt == null)
                 {
-                    dt = My.MyProject.Forms.Mainform.BenlyDal.Authorizations_getlist(My.MyProject.Forms.Mainform.workingmeeting, Conversions.ToDecimal(DataGridView1.CurrentRow.Cells["Delegatecode"].Value), "", "", "");
-                }
-                catch (Exception ex)
-                {
-                    Interaction.MsgBox("Lỗi :" + ex.Message);
+                    Interaction.MsgBox("Authorizations_getlist trả về null");
                     return;
                 }
+
                 string str = "";
+
+                step = "17. Build Holdercode string";
                 if (dt.Rows.Count == 1)
                 {
                     str = Conversions.ToString(dt.Rows[0]["Holdercode"]);
@@ -235,21 +313,33 @@ namespace pmDHCD
                 else
                 {
                     foreach (DataRow dr in dt.Rows)
-                        str = str + dr["Holdercode"].ToString() + " (" + My.MyProject.Forms.Mainform.addthousandseperator(dr["DelegateRight"].ToString()) + " CP); ";
+                    {
+                        str = str
+                            + dr["Holdercode"].ToString()
+                            + " ("
+                            + My.MyProject.Forms.Mainform.addthousandseperator(dr["DelegateRight"].ToString())
+                            + " CP); ";
+                    }
                 }
 
+                step = "18. Set Holdercode";
                 cr.SetParameterValue("Holdercode", str);
-                cr.SetParameterValue("voterights", My.MyProject.Forms.Mainform.addthousandseperator(Conversions.ToString(DataGridView1.CurrentRow.Cells["voterights"].Value)));
-                // cr.PrintToPrinter(1, True, 1, 10)
+
+                step = "19. Set voterights";
+                cr.SetParameterValue(
+                    "voterights",
+                    My.MyProject.Forms.Mainform.addthousandseperator(
+                        Conversions.ToString(DataGridView1.CurrentRow.Cells["voterights"].Value)
+                    )
+                );
+
+                step = "20. LoadReport";
                 ReportViewer.LoadReport(cr, this);
             }
             catch (Exception ex)
             {
-                Interaction.MsgBox("Lỗi :" + ex.Message);
+                Interaction.MsgBox("Lỗi tại bước: " + step + "\n" + ex.Message);
             }
-
-
-
         }
 
         private void ToolStripButton8_Click(object sender, EventArgs e)
@@ -583,7 +673,9 @@ namespace pmDHCD
                 cr.Load(reportPath);
                 string logoPath = System.IO.Path.Combine(Application.StartupPath, @"Resources\Logo.jpg");
 
-                cr.SetDataSource(My.MyProject.Forms.Mainform.BenlyDal.Matter_getlist(My.MyProject.Forms.Mainform.workingmeeting, 0m));
+                var dsReport = My.MyProject.Forms.Mainform.BenlyDal.GetVoteCountingMinuteData(My.MyProject.Forms.Mainform.workingmeeting);
+
+                cr.SetDataSource(dsReport);
                 cr.SetParameterValue("Delegatecode", "DB" + My.MyProject.Forms.Mainform.stockCode + DataGridView1.CurrentRow.Cells["Delegatecode"].Value.ToString().PadLeft(4, '0'));
                 cr.SetParameterValue("Delegatename", DataGridView1.CurrentRow.Cells["Delegatename"].Value.ToString().ToUpper());
                 cr.SetParameterValue("IdentityCard", DataGridView1.CurrentRow.Cells["IdentityCard"].Value);
