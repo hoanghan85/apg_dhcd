@@ -36,7 +36,46 @@ namespace pmDHCD.Meeting
                 return;
             }
 
+            if (!dt.Columns.Contains("AgreePercent"))
+                dt.Columns.Add("AgreePercent", typeof(decimal));
+
+            if (!dt.Columns.Contains("DisAgreePercent"))
+                dt.Columns.Add("DisAgreePercent", typeof(decimal));
+
+            if (!dt.Columns.Contains("NoIdeaPercent"))
+                dt.Columns.Add("NoIdeaPercent", typeof(decimal));
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                decimal total = ToDecimal(dr["TotalVoteRights"]);
+                decimal agree = ToDecimal(dr["Agree"]);
+                decimal disAgree = ToDecimal(dr["DisAgree"]);
+                decimal noIdea = ToDecimal(dr["NoIdea"]);
+
+                dr["AgreePercent"] = total == 0 ? 0 : Math.Round(agree / total * 100, 2);
+                dr["DisAgreePercent"] = total == 0 ? 0 : Math.Round(disAgree / total * 100, 2);
+                dr["NoIdeaPercent"] = total == 0 ? 0 : Math.Round(noIdea / total * 100, 2);
+            }
+
             dataGridView1.DataSource = dt;
+
+
+            // Format số có phân cách hàng nghìn theo culture vi-VN: 1.234.567
+            dataGridView1.Columns["Agree"].DefaultCellStyle.Format = "N0";
+            dataGridView1.Columns["DisAgree"].DefaultCellStyle.Format = "N0";
+            dataGridView1.Columns["NoIdea"].DefaultCellStyle.Format = "N0";
+            dataGridView1.Columns["TotalVoteRights"].DefaultCellStyle.Format = "N0";
+
+            dataGridView1.Columns["AgreePercent"].DefaultCellStyle.Format = "N2";
+            dataGridView1.Columns["DisAgreePercent"].DefaultCellStyle.Format = "N2";
+            dataGridView1.Columns["NoIdeaPercent"].DefaultCellStyle.Format = "N2";
+            // Nên để Agree tự tính, không cho sửa tay
+            //dataGridView1.Columns["Agree"].ReadOnly = true;
+            dataGridView1.Columns["TotalVoteRights"].ReadOnly = true;
+            dataGridView1.Columns["AgreePercent"].ReadOnly = true;
+            dataGridView1.Columns["DisAgreePercent"].ReadOnly = true;
+            dataGridView1.Columns["NoIdeaPercent"].ReadOnly = true;
+
             // update status label if present in designer
             try
             {
@@ -50,47 +89,106 @@ namespace pmDHCD.Meeting
 
         private void DataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0 || e.ColumnIndex < 0) return;
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
+                return;
 
             var row = dataGridView1.Rows[e.RowIndex];
             var col = dataGridView1.Columns[e.ColumnIndex];
 
-            var meetingCode = row.Cells["MeetingCode"]?.Value?.ToString();
-            var matterCode = row.Cells["MatterCode"]?.Value?.ToString();
-            var matterDescription = row.Cells["MatterDescription"]?.Value?.ToString();
-            var columnName = col.Name;
-            var newValue = row.Cells[e.ColumnIndex]?.Value;
+            string meetingCode = row.Cells["MeetingCode"]?.Value?.ToString();
+            string matterCode = row.Cells["MatterCode"]?.Value?.ToString();
+            string matterDescription = row.Cells["MatterDescription"]?.Value?.ToString();
 
-            // simple validation for numeric vote columns
-            if (columnName == "Agree" || columnName == "DisAgree" || columnName == "NoIdea")
+            string columnName = col.Name;
+            object newValue = row.Cells[e.ColumnIndex]?.Value;
+
+            // Validate các cột nhập số
+            if (columnName == "Agree"
+                || columnName == "DisAgree"
+                || columnName == "NoIdea")
             {
                 if (newValue == null || !int.TryParse(newValue.ToString(), out _))
                 {
-                    MessageBox.Show("Vui lòng nhập số biểu quyết", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    // optionally revert cell value or focus cell
+                    MessageBox.Show(
+                        "Vui lòng nhập số biểu quyết",
+                        "Validation",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+
                     return;
                 }
             }
 
+            // Tự tính lại Agree khi sửa DisAgree hoặc NoIdea
+            if (columnName == "DisAgree" || columnName == "NoIdea")
+            {
+                int totalVoteRights = ParseInt(row, "TotalVoteRights");
+                int disAgree = ParseInt(row, "DisAgree");
+                int noIdea = ParseInt(row, "NoIdea");
+
+                int agree = totalVoteRights - disAgree - noIdea;
+
+                if (agree < 0)
+                {
+                    MessageBox.Show(
+                        "Tổng số phiếu Không tán thành và Không có ý kiến vượt quá số quyền biểu quyết.",
+                        "Validation",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+
+                    agree = 0;
+                }
+
+                row.Cells["Agree"].Value = agree;
+
+                row.Cells["AgreePercent"].Value = totalVoteRights == 0 ? 0 : Math.Round(agree * 100m / totalVoteRights, 2);
+                row.Cells["DisAgreePercent"].Value = totalVoteRights == 0 ? 0 : Math.Round(disAgree * 100m / totalVoteRights, 2);
+                row.Cells["NoIdeaPercent"].Value = totalVoteRights == 0 ? 0 : Math.Round(noIdea * 100m / totalVoteRights, 2);
+
+            }
+
             try
             {
-                // TODO: Persist change via your DAL. Example (replace with real method):
-                // My.MyProject.Forms.Mainform.BenlyDal.UpdateVoteCard(
-                //     My.MyProject.Forms.Mainform.workingmeeting,
-                //     meetingCode, matterCode, columnName, newValue);
-
-                // Optionally refresh dependent UI:
-                // My.MyProject.Forms.Mainform.UpdateAttendanceRate();
+                // TODO: Save DB
+                /*
+                My.MyProject.Forms.Mainform.BenlyDal.VoteCards_Upsert(
+                    meetingCode,
+                    Convert.ToInt32(matterCode),
+                    matterDescription,
+                    ParseInt(row, "Agree"),
+                    ParseInt(row, "DisAgree"),
+                    ParseInt(row, "NoIdea"));
+                */
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Save failed: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(
+                    "Save failed: " + ex.Message,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
         }
+
         private static int ParseInt(DataGridViewRow r, string col)
         {
             var v = r.Cells[col]?.Value;
-            return v != null && int.TryParse(v.ToString(), out var n) ? n : 0;
+
+            if (v == null || v == DBNull.Value)
+                return 0;
+
+            string text = v.ToString().Replace(".", "").Replace(",", "");
+
+            return int.TryParse(text, out var n) ? n : 0;
+        }
+
+        private static decimal ToDecimal(object value)
+        {
+            if (value == null || value == DBNull.Value)
+                return 0;
+
+            decimal.TryParse(value.ToString(), out decimal result);
+            return result;
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)

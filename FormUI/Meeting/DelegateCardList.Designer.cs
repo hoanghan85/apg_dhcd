@@ -38,14 +38,18 @@
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.MeetingCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MatterCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MatterDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalVoteRights = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Agree = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DisAgree = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NoIdea = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.AgreePercent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DisAgreePercent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NoIdeaPercent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -60,7 +64,7 @@
             this.toolStripSeparator1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1077, 31);
+            this.toolStrip1.Size = new System.Drawing.Size(1077, 27);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -69,7 +73,7 @@
             this.toolStripButton1.Image = global::pmDHCD.My.Resources.Resources.Add;
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(120, 28);
+            this.toolStripButton1.Size = new System.Drawing.Size(120, 24);
             this.toolStripButton1.Text = "Lưu (Ctrl + S)";
             this.toolStripButton1.ToolTipText = "Lưu (Ctrl + S)";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
@@ -79,7 +83,7 @@
             this.toolStripButton3.Image = global::pmDHCD.My.Resources.Resources.Delete;
             this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(125, 28);
+            this.toolStripButton3.Size = new System.Drawing.Size(125, 24);
             this.toolStripButton3.Text = "Xóa (Ctrl + D)";
             this.toolStripButton3.ToolTipText = "Xóa (Ctrl + D)";
             this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
@@ -87,7 +91,7 @@
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 31);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 27);
             // 
             // dataGridView1
             // 
@@ -107,9 +111,13 @@
             this.MeetingCode,
             this.MatterCode,
             this.MatterDescription,
+            this.TotalVoteRights,
             this.Agree,
             this.DisAgree,
-            this.NoIdea});
+            this.NoIdea,
+            this.AgreePercent,
+            this.DisAgreePercent,
+            this.NoIdeaPercent});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
@@ -119,7 +127,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 31);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 27);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -132,8 +140,26 @@
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1077, 469);
+            this.dataGridView1.Size = new System.Drawing.Size(1077, 473);
             this.dataGridView1.TabIndex = 1;
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 474);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(1077, 26);
+            this.statusStrip1.TabIndex = 2;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(134, 20);
+            this.toolStripStatusLabel1.Text = "Số lượng bản ghi : ";
             // 
             // MeetingCode
             // 
@@ -157,6 +183,13 @@
             this.MatterDescription.MinimumWidth = 6;
             this.MatterDescription.Name = "MatterDescription";
             // 
+            // TotalVoteRights
+            // 
+            this.TotalVoteRights.DataPropertyName = "TotalVoteRights";
+            this.TotalVoteRights.HeaderText = "Số quyền biểu quyết";
+            this.TotalVoteRights.MinimumWidth = 6;
+            this.TotalVoteRights.Name = "TotalVoteRights";
+            // 
             // Agree
             // 
             this.Agree.DataPropertyName = "Agree";
@@ -178,23 +211,29 @@
             this.NoIdea.MinimumWidth = 6;
             this.NoIdea.Name = "NoIdea";
             // 
-            // statusStrip1
+            // AgreePercent
             // 
-            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 474);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(1077, 26);
-            this.statusStrip1.TabIndex = 2;
-            this.statusStrip1.Text = "statusStrip1";
+            this.AgreePercent.DataPropertyName = "AgreePercent";
+            this.AgreePercent.HeaderText = "Tỷ lệ tán thành (%)";
+            this.AgreePercent.MinimumWidth = 6;
+            this.AgreePercent.Name = "AgreePercent";
+            this.AgreePercent.ReadOnly = true;
             // 
-            // toolStripStatusLabel1
+            // DisAgreePercent
             // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(134, 20);
-            this.toolStripStatusLabel1.Text = "Số lượng bản ghi : ";
+            this.DisAgreePercent.DataPropertyName = "DisAgreePercent";
+            this.DisAgreePercent.HeaderText = "Tỷ lệ không tán thành (%)";
+            this.DisAgreePercent.MinimumWidth = 6;
+            this.DisAgreePercent.Name = "DisAgreePercent";
+            this.DisAgreePercent.ReadOnly = true;
+            // 
+            // NoIdeaPercent
+            // 
+            this.NoIdeaPercent.DataPropertyName = "NoIdeaPercent";
+            this.NoIdeaPercent.HeaderText = "Tỷ lệ không ý kiến (%)";
+            this.NoIdeaPercent.MinimumWidth = 6;
+            this.NoIdeaPercent.Name = "NoIdeaPercent";
+            this.NoIdeaPercent.ReadOnly = true;
             // 
             // DelegateCardList
             // 
@@ -233,8 +272,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn MeetingCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn MatterCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn MatterDescription;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalVoteRights;
         private System.Windows.Forms.DataGridViewTextBoxColumn Agree;
         private System.Windows.Forms.DataGridViewTextBoxColumn DisAgree;
         private System.Windows.Forms.DataGridViewTextBoxColumn NoIdea;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AgreePercent;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DisAgreePercent;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NoIdeaPercent;
     }
 }
