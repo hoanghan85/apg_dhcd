@@ -638,7 +638,7 @@ namespace pmDHCD
                 cr.SetParameterValue("DelegateAddress", DataGridView1.CurrentRow.Cells["DelegateAddress"].Value);
                 cr.SetParameterValue("dateMeeting", dateMeeting);
                 cr.SetParameterValue("Voterights", My.MyProject.Forms.Mainform.addthousandseperator(Conversions.ToString(DataGridView1.CurrentRow.Cells["Voterights"].Value)));
-                cr.SetParameterValue("sumvoterights", My.MyProject.Forms.Mainform.addthousandseperator(Conversions.ToString(Operators.MultiplyObject(DataGridView1.CurrentRow.Cells["voterights"].Value, dt.Rows.Count))));
+                cr.SetParameterValue("sumvoterights", My.MyProject.Forms.Mainform.addthousandseperator(Conversions.ToString(Operators.MultiplyObject(DataGridView1.CurrentRow.Cells["voterights"].Value, dt.Rows.Count-1))));
                 cr.SetParameterValue("Period", My.MyProject.Forms.Mainform.period);
                 cr.SetParameterValue("MettingType", My.MyProject.Forms.Mainform.mettingType);
                 ReportViewer.LoadReport(cr, this);

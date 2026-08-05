@@ -56,38 +56,38 @@ namespace pmDHCD
                 Interaction.MsgBox("Lỗi :" + ex.Message);
             }
 
-            int totalright = 0;
+            long totalright = 0;
             int agreecount = 0;
-            int agreeright = 0;
+            long agreeright = 0;
             int disagreecount = 0;
-            int disagreeright = 0;
+            long disagreeright = 0;
             int noideacount = 0;
-            int noidearight = 0;
+            long noidearight = 0;
             int illegalcount = 0;
-            int illegalright = 0;
+            long illegalright = 0;
 
             foreach (DataRow dr in t.Rows)
             {
-                totalright = Conversions.ToInteger(Operators.AddObject(totalright, dr["Voterights"]));
+                totalright = Conversions.ToLong(Operators.AddObject(totalright, dr["Voterights"]));
                 if (Conversions.ToBoolean(Operators.ConditionalCompareObjectEqual(dr["Agree"], true, false)))
                 {
                     agreecount = agreecount + 1;
-                    agreeright = Conversions.ToInteger(Operators.AddObject(agreeright, dr["Voterights"]));
+                    agreeright = Conversions.ToLong(Operators.AddObject(agreeright, dr["Voterights"]));
                 }
                 else if (Conversions.ToBoolean(Operators.ConditionalCompareObjectEqual(dr["DisAgree"], true, false)))
                 {
                     disagreecount = disagreecount + 1;
-                    disagreeright = Conversions.ToInteger(Operators.AddObject(disagreeright, dr["Voterights"]));
+                    disagreeright = Conversions.ToLong(Operators.AddObject(disagreeright, dr["Voterights"]));
                 }
                 else if (Conversions.ToBoolean(Operators.ConditionalCompareObjectEqual(dr["NoIdea"], true, false)))
                 {
                     noideacount = noideacount + 1;
-                    noidearight = Conversions.ToInteger(Operators.AddObject(noidearight, dr["Voterights"]));
+                    noidearight = Conversions.ToLong(Operators.AddObject(noidearight, dr["Voterights"]));
                 }
                 else
                 {
                     illegalcount = illegalcount + 1;
-                    illegalright = Conversions.ToInteger(Operators.AddObject(illegalright, dr["Voterights"]));
+                    illegalright = Conversions.ToLong(Operators.AddObject(illegalright, dr["Voterights"]));
                 }
             }
             DataGridView1.DataSource = t;
